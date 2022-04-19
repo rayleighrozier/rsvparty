@@ -1,4 +1,5 @@
 import React from "react";
+import SignInNav from "./SignInNav";
 
 export default function SignUp() {
   return (
@@ -17,6 +18,7 @@ export default function SignUp() {
       <label htmlFor="password">Password</label>
       <input name="password" type="password" placeholder="Password" />
       <button>Sign Up</button>
+      <SignInNav />
     </div>
   );
 }
