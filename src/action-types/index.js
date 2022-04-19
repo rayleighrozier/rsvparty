@@ -1,3 +1,3 @@
-//define action types here
+const TEST_GUEST = "TEST_GUEST";
 
-export {};
+export { TEST_GUEST };

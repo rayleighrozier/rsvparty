@@ -1,10 +1,6 @@
-const initialState = {};
+import { combineReducers } from "redux";
+import guest from "./guestReducer";
 
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
-
-export default rootReducer;
+export default combineReducers({
+  guest,
+});
