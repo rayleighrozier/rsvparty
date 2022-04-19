@@ -2,20 +2,10 @@ import React from "react";
 import { guestSignUp } from "../../actions/supabase";
 import { SET_PAGE } from "../../action-types";
 import { useDispatch } from "react-redux";
+import { captureSignUp } from "../../actions/input";
 
 export default function SignUp() {
   const dispatch = useDispatch();
-  const captureSignUp = (e) => {
-    e.preventDefault();
-    let input = {
-      firstName: e.target.form[0].value,
-      lastName: e.target.form[1].value,
-      phone: e.target.form[2].value,
-      email: e.target.form[3].value,
-      password: e.target.form[4].value,
-    };
-    return input;
-  };
   const sendSignUp = async (e) => {
     const input = captureSignUp(e);
     let userEntry = await guestSignUp(
@@ -31,7 +21,6 @@ export default function SignUp() {
       dispatch({ type: SET_PAGE, payload: "signIn" });
     }
   };
-
   return (
     <div>
       <h1>Sign Up Page</h1>
