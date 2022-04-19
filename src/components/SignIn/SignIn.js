@@ -11,7 +11,6 @@ export default function SignIn() {
         <label htmlFor="password">Password</label>
         <input name="password" type="password" placeholder="Password" />
         <button>Sign In</button>
-        <SignInNav />
       </div>
     </div>
   );
