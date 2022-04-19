@@ -1,16 +1,35 @@
 import React from "react";
+import SignInNav from "./SignInNav";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { captureSignIn } from "../../actions/input";
+import { guestSignIn } from "../../actions/supabase";
+import { SET_PAGE } from "../../action-types/index";
 
 export default function SignIn() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const sendSignIn = async (e) => {
+    let input = captureSignIn(e);
+    let currentGuest = await guestSignIn(input.email, input.password);
+    if (currentGuest.message !== "Invalid login credentials") {
+      dispatch({ type: SET_PAGE, payload: "dashboard" });
+      navigate(`/dashboard/${currentGuest.id}`);
+    } else {
+      window.alert("Invalid sign in. Try again!");
+    }
+  };
+
   return (
     <div>
       <h1>Sign In Page</h1>
-      <div>
+      <form>
         <label htmlFor="email">Email</label>
         <input name="email" type="email" placeholder="Email" />
         <label htmlFor="password">Password</label>
         <input name="password" type="password" placeholder="Password" />
-        <button>Sign In</button>
-      </div>
+        <button onClick={(e) => sendSignIn(e)}>Sign In</button>
+      </form>
     </div>
   );
 }
