@@ -1,9 +1,9 @@
 import "./App.css";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 function App() {
   return (
     <div className="App">
