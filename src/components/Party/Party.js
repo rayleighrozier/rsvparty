@@ -2,10 +2,10 @@ import React from "react";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
-export default function PartyPage() {
+export default function Party() {
   return (
     <div>
-      <h1>Party Page</h1>
+      <h1>Party</h1>
     </div>
   );
 }
