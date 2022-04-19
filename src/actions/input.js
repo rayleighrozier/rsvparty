@@ -9,5 +9,12 @@ const captureSignUp = (e) => {
   };
   return input;
 };
-
-export { captureSignUp };
+const captureSignIn = (e) => {
+  e.preventDefault();
+  let input = {
+    email: e.target.form[0].value,
+    password: e.target.form[1].value,
+  };
+  return input;
+};
+export { captureSignUp, captureSignIn };

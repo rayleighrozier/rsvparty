@@ -26,14 +26,14 @@ const guestAddRow = async (firstName, lastName, guestId) => {
 };
 
 const guestSignIn = async (email, password) => {
-  const { guest, session, error } = await supabase.auth.signIn({
+  const { user, session, error } = await supabase.auth.signIn({
     email: email,
     password: password,
   });
   if (error) {
     return error;
   }
-  return guest;
+  return user;
 };
 
 const guestSignOut = async () => {
