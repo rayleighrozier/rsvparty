@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { SET_SIGNEDIN, SET_PAGE, RESET_GUEST } from "../../action-types/index";
+import { SET_PAGE, RESET_GUEST } from "../../action-types/index";
 import { userSignOut } from "../../actions/supabase";
 
 export default function SignOutButton() {
@@ -9,7 +9,6 @@ export default function SignOutButton() {
   const navigate = useNavigate();
   const sendSignOut = async () => {
     await userSignOut();
-    dispatch({ type: SET_SIGNEDIN, payload: false });
     dispatch({ type: SET_PAGE, payload: "signIn" });
     dispatch({ type: RESET_GUEST });
     navigate("/");
