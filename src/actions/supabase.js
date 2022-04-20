@@ -48,7 +48,20 @@ const userSignOut = async () => {
 };
 
 //send a new party to the database
+const partyAddRow = async (hostId, name, date, time, details, location) => {
+  const { data, error } = await supabase.from("Parties").insert([
+    {
+      hostId: hostId,
+      name: name,
+      date: date,
+      time: time,
+      details: details,
+      location: location,
+    },
+  ]);
+  return data;
+};
 
 //add a party id to a guest
 
-export { userSignUp, userSignIn, userSignOut, guestAddRow };
+export { userSignUp, userSignIn, userSignOut, guestAddRow, partyAddRow };
