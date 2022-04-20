@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { captureSignIn } from "../../actions/input";
 import { userSignIn } from "../../actions/supabase";
-import { SET_GUESTID, SET_PAGE, SET_SIGNEDIN } from "../../action-types/index";
+import { SET_GUESTID, SET_PAGE } from "../../action-types/index";
+import { checkToken } from "../../actions/token";
 
 export default function SignIn() {
   const dispatch = useDispatch();
@@ -11,11 +12,11 @@ export default function SignIn() {
   const sendSignIn = async (e) => {
     let input = captureSignIn(e);
     let currentGuest = await userSignIn(input.email, input.password);
-    if (currentGuest.message !== "Invalid login credentials") {
+    let token = checkToken();
+    if (token) {
       dispatch({ type: SET_GUESTID, payload: currentGuest.id });
-      dispatch({ type: SET_SIGNEDIN, payload: true });
       dispatch({ type: SET_PAGE, payload: "dashboard" });
-      navigate(`/dashboard/${currentGuest.id}`);
+      navigate("/dashboard");
     } else {
       window.alert("Invalid sign in. Try again!");
     }

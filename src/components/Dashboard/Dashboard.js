@@ -1,15 +1,24 @@
 import React from "react";
 import SignOutButton from "../SignIn/SignOutButton";
 import AddPartyButton from "./AddPartyButton";
+import Error from "../Error/Error";
+import { checkToken } from "../../actions/token";
 
 // Add Party, Search Exisiting Party, Look at Existing Parties
 
 export default function Dashboard() {
+  const token = checkToken();
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <AddPartyButton />
-      <SignOutButton />
-    </div>
+    <>
+      {token ? (
+        <div>
+          <h1>Dashboard</h1>
+          <AddPartyButton />
+          <SignOutButton />
+        </div>
+      ) : (
+        <Error />
+      )}
+    </>
   );
 }
