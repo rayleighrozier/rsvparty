@@ -9,7 +9,6 @@ export default function SearchParty() {
   const getSearchResults = async (e) => {
     let input = captureSearchParty(e);
     let party = await partyFindById(input);
-    console.log("this is what party is", party);
     if (party) {
       dispatch({ type: SET_SEARCHRESULTS, payload: party });
       e.target.form[0].value = "";
@@ -21,7 +20,7 @@ export default function SearchParty() {
   return (
     <div>
       <form>
-        <input type="text" />{" "}
+        <input type="text" />
         <button onClick={(e) => getSearchResults(e)}>Find Party By ID</button>
       </form>
     </div>

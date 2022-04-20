@@ -10,8 +10,6 @@ import DashboardTop from "./DashboardTop";
 import PartyList from "./PartyList";
 import NoParties from "./NoParties";
 
-// Add Party, Search Exisiting Party, Look at Existing Parties
-
 export default function Dashboard() {
   const token = checkToken();
   const searchResults = useSelector((state) => state.searchResults);
