@@ -14,17 +14,22 @@ export default function SearchResults() {
   };
   const addParty = async () => {
     let newPartyId = searchResults.partyId;
-    let filtered = guest.parties.filter((id) => id === newPartyId);
-    if (filtered.length > 0) {
-      window.alert("You have already added this party");
+    let updatedParties = [];
+    if (guest.parties !== null) {
+      let filtered = guest.parties.filter((id) => id === newPartyId);
+      if (filtered.length > 0) {
+        window.alert("You have already added this party");
+      } else {
+        updatedParties = [...guest.parties, newPartyId];
+        // need to add condition here to check guestlist
+      }
     } else {
-      let updatedParties = [...guest.parties, newPartyId];
-      // need to add condition here to check guestlist
-      dispatch({ type: SET_GUEST_PARTIES, payload: updatedParties });
-      guestUpdateParties(guest.guestId, guest.parties);
-      clearSearchResults();
-      navigate(`/party/${newPartyId}`);
+      updatedParties = [newPartyId];
     }
+    dispatch({ type: SET_GUEST_PARTIES, payload: updatedParties });
+    clearSearchResults();
+    guestUpdateParties(guest.guestId, updatedParties);
+    navigate(`/party/${newPartyId}`);
   };
 
   return (
