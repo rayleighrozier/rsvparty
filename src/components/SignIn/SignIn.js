@@ -1,18 +1,19 @@
 import React from "react";
-import SignInNav from "./SignInNav";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { captureSignIn } from "../../actions/input";
-import { guestSignIn } from "../../actions/supabase";
-import { SET_PAGE } from "../../action-types/index";
+import { userSignIn } from "../../actions/supabase";
+import { SET_GUESTID, SET_PAGE, SET_SIGNEDIN } from "../../action-types/index";
 
 export default function SignIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const sendSignIn = async (e) => {
     let input = captureSignIn(e);
-    let currentGuest = await guestSignIn(input.email, input.password);
+    let currentGuest = await userSignIn(input.email, input.password);
     if (currentGuest.message !== "Invalid login credentials") {
+      dispatch({ type: SET_GUESTID, payload: currentGuest.id });
+      dispatch({ type: SET_SIGNEDIN, payload: true });
       dispatch({ type: SET_PAGE, payload: "dashboard" });
       navigate(`/dashboard/${currentGuest.id}`);
     } else {
