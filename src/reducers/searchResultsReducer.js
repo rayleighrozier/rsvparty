@@ -1,5 +1,5 @@
 import { SET_SEARCHRESULTS } from "../action-types/index";
-const initialState = {};
+const initialState = null;
 
 function searchResults(state = initialState, action) {
   switch (action.type) {

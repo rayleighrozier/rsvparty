@@ -69,7 +69,7 @@ const partyFindById = async (input) => {
     .select("*")
     .match({ partyId: input });
   let party = parties[0];
-  console.log(party);
+  return party;
 };
 
 //add existing party to user
