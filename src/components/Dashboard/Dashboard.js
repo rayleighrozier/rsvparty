@@ -9,10 +9,8 @@ import SearchResults from "./SearchResults";
 import DashboardTop from "./DashboardTop";
 import PartyList from "./PartyList";
 import NoParties from "./NoParties";
-import { formatDate, formatDate2 } from "../../actions/format";
 
 export default function Dashboard() {
-  console.log("daaate", formatDate2("2022-09-30"));
   const token = checkToken();
   const searchResults = useSelector((state) => state.searchResults);
   const parties = useSelector((state) => state.guest.parties);

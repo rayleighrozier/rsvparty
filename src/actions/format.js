@@ -18,7 +18,7 @@ const formatDate1 = (data) => {
   return [month, day, year].join("/");
 };
 
-//change MM to actual month name
+//change MM to actual month name (used in formateDate2)
 const getMonthName = (data) => {
   let date = new Date(data);
   return monthNames[date.getMonth()];
