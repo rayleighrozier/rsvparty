@@ -1,5 +1,5 @@
 import React from "react";
-import { guestSignUp } from "../../actions/supabase";
+import { userSignUp } from "../../actions/supabase";
 import { SET_PAGE } from "../../action-types";
 import { useDispatch } from "react-redux";
 import { captureSignUp } from "../../actions/input";
@@ -8,7 +8,7 @@ export default function SignUp() {
   const dispatch = useDispatch();
   const sendSignUp = async (e) => {
     const input = captureSignUp(e);
-    let userEntry = await guestSignUp(
+    let userEntry = await userSignUp(
       input.firstName,
       input.lastName,
       input.email,

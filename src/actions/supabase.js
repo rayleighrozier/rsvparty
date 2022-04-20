@@ -3,7 +3,11 @@ const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const guestSignUp = async (firstName, lastName, email, password) => {
+//The beginning of the function names signify
+//which table they are related to (ex. user, guest, party)
+
+//sign up
+const userSignUp = async (firstName, lastName, email, password) => {
   const { user, session, error } = await supabase.auth.signUp({
     email: email,
     password: password,
@@ -14,7 +18,6 @@ const guestSignUp = async (firstName, lastName, email, password) => {
   }
   let guestId = user.id;
   guestAddRow(firstName, lastName, guestId);
-  console.log(user.id);
   return user;
 };
 
@@ -25,7 +28,8 @@ const guestAddRow = async (firstName, lastName, guestId) => {
   return data;
 };
 
-const guestSignIn = async (email, password) => {
+//sign in and out
+const userSignIn = async (email, password) => {
   const { user, session, error } = await supabase.auth.signIn({
     email: email,
     password: password,
@@ -36,11 +40,15 @@ const guestSignIn = async (email, password) => {
   return user;
 };
 
-const guestSignOut = async () => {
+const userSignOut = async () => {
   const { error } = await supabase.auth.signOut();
   if (error) {
     return error;
   }
 };
 
-export { guestSignUp, guestSignIn, guestAddRow };
+//send a new party to the database
+
+//add a party id to a guest
+
+export { userSignUp, userSignIn, userSignOut, guestAddRow };
