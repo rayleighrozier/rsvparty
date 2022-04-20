@@ -1,4 +1,8 @@
-import { SET_GUEST, RESET_GUEST } from "../action-types/index";
+import {
+  SET_GUEST,
+  RESET_GUEST,
+  SET_GUEST_PARTIES,
+} from "../action-types/index";
 const initialState = {
   guestId: "",
   firstName: "",
@@ -17,6 +21,11 @@ function guest(state = initialState, action) {
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         parties: action.payload.parties,
+      };
+    case SET_GUEST_PARTIES:
+      return {
+        ...state,
+        parties: action.payload,
       };
     default:
       return state;
