@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/addparty" element={<AddParty />} />
-          <Route path="/party" element={<Party />} />
+          <Route path="/party/:partyId" element={<Party />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
