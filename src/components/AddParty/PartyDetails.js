@@ -7,7 +7,7 @@ export default function PartyDetails() {
   const dispatch = useDispatch();
   const guestId = useSelector((state) => state.guest.guestId);
 
-  //these are fake variables we will replace with inputs from form)
+  //these are fake variables we will replace with inputs from the form)
   let name = "Test Party3";
   let date = new Date();
   let time = "6:00 PM";
