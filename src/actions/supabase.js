@@ -62,6 +62,54 @@ const partyAddRow = async (hostId, name, date, time, details, location) => {
   return data;
 };
 
-//add a party id to a guest
+//find party by id
+const partyFindById = async (input) => {
+  let party = null;
+  let { data: parties, error } = await supabase
+    .from("Parties")
+    .select("*")
+    .match({ partyId: input });
+  if (parties) {
+    let party = parties[0];
+    return party;
+  }
+  return party;
+};
 
-export { userSignUp, userSignIn, userSignOut, guestAddRow, partyAddRow };
+//add parties or update the party list of a guest
+const guestUpdateParties = async (guestId, updatedParties) => {
+  let { data: guest, error } = await supabase
+    .from("Guests")
+    .update({ parties: updatedParties })
+    .match({ guestId: guestId });
+};
+
+//grab all info from guest table (name, parties, etc)
+const guestGetInfo = async (guestId) => {
+  let { data: guest, error } = await supabase
+    .from("Guests")
+    .select("*")
+    .match({ guestId: guestId });
+  guest = guest[0];
+  return guest;
+};
+
+// const guestGetCurrentParties = async (guestId) => {
+//   let { data: guest, error } = await supabase
+//     .from("Guests")
+//     .select("*")
+//     .match({ guestId: guestId });
+//   let parties = guest[0].parties;
+//   return parties;
+// };
+
+export {
+  userSignUp,
+  userSignIn,
+  userSignOut,
+  guestAddRow,
+  partyAddRow,
+  partyFindById,
+  guestUpdateParties,
+  guestGetInfo,
+};

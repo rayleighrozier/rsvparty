@@ -17,6 +17,11 @@ const captureSignIn = (e) => {
   };
   return input;
 };
+const captureSearchParty = (e) => {
+  e.preventDefault();
+  let input = e.target.form[0].value;
+  return input;
+};
 const captureAddParty = (e) => {
   e.preventDefault();
   let input = {
@@ -31,4 +36,4 @@ const captureAddParty = (e) => {
   };
   return input;
 };
-export { captureSignUp, captureSignIn, captureAddParty };
+export { captureSignUp, captureSignIn, captureAddParty, captureSearchParty };
