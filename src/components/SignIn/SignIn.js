@@ -12,9 +12,11 @@ export default function SignIn() {
   const sendSignIn = async (e) => {
     let input = captureSignIn(e);
     let currentGuest = await guestSignIn(input.email, input.password);
-    if (currentGuest.message !== "Invalid login credentials") {
+    let token = localStorage.getItem("supabase.auth.token");
+    console.log("token", token);
+    if (token !== undefined) {
       dispatch({ type: SET_PAGE, payload: "dashboard" });
-      navigate(`/dashboard/${currentGuest.id}`);
+      navigate("/dashboard");
     } else {
       window.alert("Invalid sign in. Try again!");
     }
