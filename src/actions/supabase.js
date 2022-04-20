@@ -62,6 +62,23 @@ const partyAddRow = async (hostId, name, date, time, details, location) => {
   return data;
 };
 
-//add a party id to a guest
+//find party by id
+const partyFindById = async (input) => {
+  let { data: parties, error } = await supabase
+    .from("Parties")
+    .select("*")
+    .match({ partyId: input });
+  let party = parties[0];
+  console.log(party);
+};
 
-export { userSignUp, userSignIn, userSignOut, guestAddRow, partyAddRow };
+//add existing party to user
+
+export {
+  userSignUp,
+  userSignIn,
+  userSignOut,
+  guestAddRow,
+  partyAddRow,
+  partyFindById,
+};
