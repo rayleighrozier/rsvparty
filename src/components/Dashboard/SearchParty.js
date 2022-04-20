@@ -6,11 +6,16 @@ import { SET_SEARCHRESULTS } from "../../action-types";
 
 export default function SearchParty() {
   const dispatch = useDispatch();
-  const searchResults = useSelector((state) => state.searchResults);
   const getSearchResults = async (e) => {
     let input = captureSearchParty(e);
     let party = await partyFindById(input);
-    dispatch({ type: SET_SEARCHRESULTS, payload: party });
+    console.log("this is what party is", party);
+    if (party) {
+      dispatch({ type: SET_SEARCHRESULTS, payload: party });
+      e.target.form[0].value = "";
+    } else {
+      dispatch({ type: SET_SEARCHRESULTS, payload: "notFound" });
+    }
   };
 
   return (

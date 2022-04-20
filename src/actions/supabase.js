@@ -64,11 +64,15 @@ const partyAddRow = async (hostId, name, date, time, details, location) => {
 
 //find party by id
 const partyFindById = async (input) => {
+  let party = null;
   let { data: parties, error } = await supabase
     .from("Parties")
     .select("*")
     .match({ partyId: input });
-  let party = parties[0];
+  if (parties) {
+    let party = parties[0];
+    return party;
+  }
   return party;
 };
 
