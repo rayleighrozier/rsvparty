@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { partyFindById } from "../../actions/supabase";
 import { useEffect } from "react";
 import { SET_PARTYDETAILS } from "../../action-types";
@@ -7,6 +8,7 @@ import { useDispatch } from "react-redux";
 
 export default function PartyList() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const parties = useSelector((state) => state.guest.parties);
   const partyDetails = useSelector((state) => state.partyDetails);
   const updatedDetails = [];
@@ -20,6 +22,9 @@ export default function PartyList() {
     }
     console.log("updatedDetails", updatedDetails);
   };
+  const goToParty = (partyId) => {
+    navigate(`/party/${partyId}`);
+  };
   useEffect(() => {
     getPartyInfo();
   }, [parties]);
@@ -32,7 +37,7 @@ export default function PartyList() {
             <p>{party.name}</p>
             <p>{party.date}</p>
             <p>{party.time}</p>
-            <button> -> </button>
+            <button onClick={() => goToParty(party.partyId)}>{`->`}</button>
           </div>
         );
       })}
