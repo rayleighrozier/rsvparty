@@ -21,7 +21,11 @@ export default function Dashboard() {
       {token ? (
         <div>
           <DashboardTop />
-          {parties.length > 0 ? <PartyList /> : <NoParties />}
+          {parties != null && parties.length > 0 ? (
+            <PartyList />
+          ) : (
+            <NoParties />
+          )}
           <AddPartyButton />
           <SearchParty />
           {searchResults ? <SearchResults /> : null}
