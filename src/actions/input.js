@@ -20,7 +20,20 @@ const captureSignIn = (e) => {
 const captureSearchParty = (e) => {
   e.preventDefault();
   let input = e.target.form[0].value;
-  console.log(input);
   return input;
 };
-export { captureSignUp, captureSignIn, captureSearchParty };
+const captureAddParty = (e) => {
+  e.preventDefault();
+  let input = {
+    name: e.target.form[0].value,
+    date: e.target.form[1].value,
+    time: e.target.form[2].value,
+    address: e.target.form[3].value,
+    city: e.target.form[4].value,
+    state: e.target.form[5].value,
+    zip: e.target.form[6].value,
+    details: e.target.form[7].value,
+  };
+  return input;
+};
+export { captureSignUp, captureSignIn, captureAddParty, captureSearchParty };
