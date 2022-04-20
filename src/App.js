@@ -6,16 +6,19 @@ import Home from "./components/Home/Home";
 import AddParty from "./components/AddParty/AddParty";
 import Party from "./components/Party/Party";
 import Error from "./components/Error/Error";
+import WithNav from "./components/Navbar/WithNav";
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/addparty" element={<AddParty />} />
-          <Route path="/party/:partyId" element={<Party />} />
-          <Route path="*" element={<Error />} />
+          <Route element={<WithNav />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/addparty" element={<AddParty />} />
+            <Route path="/party/:partyId" element={<Party />} />
+            <Route path="*" element={<Error />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
