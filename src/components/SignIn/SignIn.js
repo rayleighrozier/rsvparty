@@ -2,8 +2,12 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { captureSignIn } from "../../actions/input";
-import { userSignIn } from "../../actions/supabase";
-import { SET_GUESTID, SET_PAGE } from "../../action-types/index";
+import {
+  guestGetCurrentParties,
+  guestGetInfo,
+  userSignIn,
+} from "../../actions/supabase";
+import { SET_GUEST, SET_PAGE } from "../../action-types/index";
 import { checkToken } from "../../actions/token";
 
 export default function SignIn() {
@@ -14,7 +18,16 @@ export default function SignIn() {
     let currentGuest = await userSignIn(input.email, input.password);
     let token = checkToken();
     if (token) {
-      dispatch({ type: SET_GUESTID, payload: currentGuest.id });
+      let guestInfo = await guestGetInfo(currentGuest.id);
+      dispatch({
+        type: SET_GUEST,
+        payload: {
+          guestId: guestInfo.guestId,
+          firstName: guestInfo.firstName,
+          lastName: guestInfo.lastName,
+          parties: guestInfo.parties,
+        },
+      });
       dispatch({ type: SET_PAGE, payload: "dashboard" });
       navigate("/dashboard");
     } else {

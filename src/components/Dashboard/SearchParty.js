@@ -1,7 +1,7 @@
 import React from "react";
 import { captureSearchParty } from "../../actions/input";
 import { partyFindById } from "../../actions/supabase";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SET_SEARCHRESULTS } from "../../action-types";
 
 export default function SearchParty() {

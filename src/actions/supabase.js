@@ -76,7 +76,32 @@ const partyFindById = async (input) => {
   return party;
 };
 
-//add existing party to user
+//add parties or update the party list of a guest
+const guestUpdateParties = async (guestId, updatedParties) => {
+  let { data: guest, error } = await supabase
+    .from("Guests")
+    .update({ parties: updatedParties })
+    .match({ guestId: guestId });
+};
+
+//grab all info from guest table (name, parties, etc)
+const guestGetInfo = async (guestId) => {
+  let { data: guest, error } = await supabase
+    .from("Guests")
+    .select("*")
+    .match({ guestId: guestId });
+  guest = guest[0];
+  return guest;
+};
+
+// const guestGetCurrentParties = async (guestId) => {
+//   let { data: guest, error } = await supabase
+//     .from("Guests")
+//     .select("*")
+//     .match({ guestId: guestId });
+//   let parties = guest[0].parties;
+//   return parties;
+// };
 
 export {
   userSignUp,
@@ -85,4 +110,6 @@ export {
   guestAddRow,
   partyAddRow,
   partyFindById,
+  guestUpdateParties,
+  guestGetInfo,
 };

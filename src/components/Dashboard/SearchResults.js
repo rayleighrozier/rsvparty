@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_SEARCHRESULTS } from "../../action-types";
+import { guestUpdateParties } from "../../actions/supabase";
 
 export default function SearchResults() {
   const dispatch = useDispatch();
@@ -8,6 +9,10 @@ export default function SearchResults() {
   const clearSearchResults = () => {
     dispatch({ type: SET_SEARCHRESULTS, payload: null });
   };
+  const addParty = async () => {
+    let newPartyId = searchResults.partyId;
+  };
+  guestUpdateParties("75e383a8-1500-4843-897d-cb91c2e80fed", ["testttttt"]);
   return (
     <div>
       {searchResults === "notFound" ? (
