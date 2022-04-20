@@ -6,17 +6,22 @@ import SearchParty from "./SearchParty";
 import { checkToken } from "../../actions/token";
 import { useSelector } from "react-redux";
 import SearchResults from "./SearchResults";
+import DashboardTop from "./DashboardTop";
+import PartyList from "./PartyList";
+import NoParties from "./NoParties";
 
 // Add Party, Search Exisiting Party, Look at Existing Parties
 
 export default function Dashboard() {
   const token = checkToken();
   const searchResults = useSelector((state) => state.searchResults);
+  const parties = useSelector((state) => state.guest.parties);
   return (
     <>
       {token ? (
         <div>
-          <h1>Dashboard</h1>
+          <DashboardTop />
+          {parties.length > 0 ? <PartyList /> : <NoParties />}
           <AddPartyButton />
           <SearchParty />
           {searchResults ? <SearchResults /> : null}
