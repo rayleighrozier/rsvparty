@@ -5,6 +5,7 @@ import { partyFindById } from "../../actions/supabase";
 import { useEffect } from "react";
 import { SET_PARTYDETAILS } from "../../action-types";
 import { useDispatch } from "react-redux";
+import { formatDate, formatTime } from "../../actions/format";
 
 export default function PartyList() {
   const dispatch = useDispatch();
@@ -34,8 +35,8 @@ export default function PartyList() {
         return (
           <div>
             <p>{party.name}</p>
-            <p>{party.date}</p>
-            <p>{party.time}</p>
+            <p>{formatDate(party.date)}</p>
+            <p>{formatTime(party.time)}</p>
             <button onClick={() => goToParty(party.partyId)}>{`->`}</button>
           </div>
         );
