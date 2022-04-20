@@ -16,7 +16,12 @@ export default function PartyList() {
   const updatePartyDetails = async () => {
     for (const party of parties) {
       let details = await partyFindById(party);
-      updatedDetails.push(details);
+      let filtered = partyDetails?.filter((party) => (party.id = details.id));
+      if (filtered !== undefined && filtered.length == 0) {
+        updatedDetails.push(details);
+      } else if (partyDetails === null) {
+        updatedDetails.push(details);
+      }
     }
     if (updatedDetails.length > 0) {
       dispatch({ type: SET_PARTYDETAILS, payload: updatedDetails });
@@ -33,7 +38,7 @@ export default function PartyList() {
     <div>
       {partyDetails?.map((party) => {
         return (
-          <div>
+          <div key={party.partyId}>
             <p>{party.name}</p>
             <p>{formatDate(party.date)}</p>
             <p>{formatTime(party.time)}</p>
