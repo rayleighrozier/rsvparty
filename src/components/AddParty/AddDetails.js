@@ -28,15 +28,16 @@ export default function AddDetails() {
     if (userEntry.message) {
       window.alert(`${userEntry.message}`);
     } else {
-      window.alert("Party created!");
+      console.log("USER ENTRY", userEntry);
       dispatch({
         type: SET_NEWPARTY_DETAILS,
         payload: {
-          name: input.name,
-          date: input.date,
-          time: input.time,
-          details: input.details,
-          location: location,
+          partyId: userEntry[0].partyId,
+          name: userEntry[0].name,
+          date: userEntry[0].date,
+          time: userEntry[0].time,
+          details: userEntry[0].details,
+          location: userEntry[0].location,
         },
       });
       dispatch({ type: SET_PAGE, payload: "inviteGuests" });

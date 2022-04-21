@@ -1,11 +1,11 @@
 import {
   SET_NEWPARTY_DETAILS,
-  SET_NEWPARTY_GUESTLIST,
+  UPDATE_NEWPARTY_GUESTLIST,
   RESET_NEWPARTY,
 } from "../action-types/index";
 const initialState = {
   details: null,
-  guestList: null,
+  guestList: [],
 };
 
 function newParty(state = initialState, action) {
@@ -16,6 +16,7 @@ function newParty(state = initialState, action) {
       return {
         ...state,
         details: {
+          partyId: action.payload.partyId,
           name: action.payload.name,
           date: action.payload.date,
           time: action.payload.time,
@@ -23,10 +24,10 @@ function newParty(state = initialState, action) {
           location: action.payload.location,
         },
       };
-    case SET_NEWPARTY_GUESTLIST:
+    case UPDATE_NEWPARTY_GUESTLIST:
       return {
         ...state,
-        guestList: action.payload.guestList,
+        guestList: [...state.guestList, action.payload],
       };
     default:
       return state;
