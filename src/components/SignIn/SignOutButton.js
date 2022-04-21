@@ -5,6 +5,7 @@ import {
   SET_PAGE,
   RESET_GUEST,
   SET_PARTYDETAILS,
+  RESET_NEWPARTY,
 } from "../../action-types/index";
 import { userSignOut } from "../../actions/supabase";
 
@@ -16,6 +17,7 @@ export default function SignOutButton() {
     dispatch({ type: SET_PAGE, payload: "signIn" });
     dispatch({ type: RESET_GUEST });
     dispatch({ type: SET_PARTYDETAILS, payload: null });
+    dispatch({ type: RESET_NEWPARTY });
     navigate("/");
   };
   return <button onClick={sendSignOut}>Sign Out</button>;

@@ -7,7 +7,7 @@ export default function AddPartyButton() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const launchAddPartyForm = () => {
-    dispatch({ type: SET_PAGE, payload: "partyDetails" });
+    dispatch({ type: SET_PAGE, payload: "addDetails" });
     navigate("/addparty");
   };
   return <button onClick={launchAddPartyForm}>New Party</button>;

@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { partyAddRow } from "../../actions/supabase";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_PAGE } from "../../action-types";
+import {
+  SET_PAGE,
+  SET_NEWPARTY_DETAILS,
+  SET_GUEST_PARTIES,
+} from "../../action-types";
 import { captureAddParty } from "../../actions/input";
+import { guestUpdateParties } from "../../actions/supabase";
 
-export default function PartyDetails() {
+export default function AddDetails() {
   const dispatch = useDispatch();
-  const guestId = useSelector((state) => state.guest.guestId);
-
+  const guest = useSelector((state) => state.guest);
+  const newParty = useSelector((state) => state.newParty);
   const createParty = async (e) => {
     const input = captureAddParty(e);
     let location = {
@@ -18,7 +23,7 @@ export default function PartyDetails() {
     };
 
     let userEntry = await partyAddRow(
-      guestId,
+      guest.guestId,
       input.name,
       input.date,
       input.time,
@@ -28,14 +33,33 @@ export default function PartyDetails() {
     if (userEntry.message) {
       window.alert(`${userEntry.message}`);
     } else {
-      window.alert("Party created!");
+      dispatch({
+        type: SET_NEWPARTY_DETAILS,
+        payload: {
+          partyId: userEntry[0].partyId,
+          name: userEntry[0].name,
+          date: userEntry[0].date,
+          time: userEntry[0].time,
+          details: userEntry[0].details,
+          location: userEntry[0].location,
+        },
+      });
       dispatch({ type: SET_PAGE, payload: "inviteGuests" });
+      dispatch({
+        type: SET_GUEST_PARTIES,
+        payload: [...guest.parties, userEntry[0].partyId],
+      });
     }
   };
 
+  useEffect(() => {
+    console.log("use effect firing");
+    guestUpdateParties(guest.guestId, guest.parties);
+  }, [guest.parties]);
+
   return (
     <div>
-      <h1>Input Details</h1>
+      <h1>Details</h1>
       <form>
         <label htmlFor="name">Event Name</label>
         <input name="name" type="text"></input>

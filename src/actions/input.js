@@ -36,4 +36,5 @@ const captureAddParty = (e) => {
   };
   return input;
 };
+
 export { captureSignUp, captureSignIn, captureAddParty, captureSearchParty };
