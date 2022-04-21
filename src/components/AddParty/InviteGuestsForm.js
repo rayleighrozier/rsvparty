@@ -13,6 +13,9 @@ function InviteGuestsForm() {
         email: e.target.form[2].value,
       },
     });
+    e.target.form[0].value = "";
+    e.target.form[1].value = "";
+    e.target.form[2].value = "";
   };
 
   return (
