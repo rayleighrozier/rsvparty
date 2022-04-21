@@ -95,15 +95,6 @@ const guestGetInfo = async (guestId) => {
   return guest;
 };
 
-// const guestGetCurrentParties = async (guestId) => {
-//   let { data: guest, error } = await supabase
-//     .from("Guests")
-//     .select("*")
-//     .match({ guestId: guestId });
-//   let parties = guest[0].parties;
-//   return parties;
-// };
-
 export {
   userSignUp,
   userSignIn,

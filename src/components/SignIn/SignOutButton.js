@@ -1,7 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { SET_PAGE, RESET_GUEST } from "../../action-types/index";
+import {
+  SET_PAGE,
+  RESET_GUEST,
+  SET_PARTYDETAILS,
+} from "../../action-types/index";
 import { userSignOut } from "../../actions/supabase";
 
 export default function SignOutButton() {
@@ -11,6 +15,7 @@ export default function SignOutButton() {
     await userSignOut();
     dispatch({ type: SET_PAGE, payload: "signIn" });
     dispatch({ type: RESET_GUEST });
+    dispatch({ type: SET_PARTYDETAILS, payload: null });
     navigate("/");
   };
   return <button onClick={sendSignOut}>Sign Out</button>;

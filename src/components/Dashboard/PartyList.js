@@ -12,22 +12,28 @@ export default function PartyList() {
   const navigate = useNavigate();
   const parties = useSelector((state) => state.guest.parties);
   const partyDetails = useSelector((state) => state.partyDetails);
-  const updatedDetails = [];
-  const updatePartyDetails = async () => {
+
+  const getPartyDetailsData = async () => {
+    const data = [];
     for (const party of parties) {
+      console.log("loop is running for", party);
       let details = await partyFindById(party);
-      updatedDetails.push(details);
+      console.log("details for", party, details);
+      data.push(details);
     }
-    if (updatedDetails.length > 0) {
-      dispatch({ type: SET_PARTYDETAILS, payload: updatedDetails });
-    }
+    return data;
+  };
+  const setPartyDetails = async () => {
+    let data = await getPartyDetailsData();
+    dispatch({ type: SET_PARTYDETAILS, payload: data });
   };
   const goToParty = (partyId) => {
     navigate(`/party/${partyId}`);
   };
+
   useEffect(() => {
-    updatePartyDetails();
-  }, [parties]);
+    setPartyDetails();
+  }, []);
 
   return (
     <div>

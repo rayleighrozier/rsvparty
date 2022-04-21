@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { SET_SEARCHRESULTS, SET_GUEST_PARTIES } from "../../action-types";
 import { guestUpdateParties } from "../../actions/supabase";
+import { formatDate, formatTime } from "../../actions/format";
 
 export default function SearchResults() {
   const dispatch = useDispatch();
@@ -42,8 +43,8 @@ export default function SearchResults() {
       ) : (
         <div>
           <p>{searchResults?.name}</p>
-          <p>{searchResults?.date}</p>
-          <p>{searchResults?.time}</p>
+          <p>{formatDate(searchResults?.date)}</p>
+          <p>{formatTime(searchResults?.time)}</p>
           <p>{searchResults?.details}</p>
           <button onClick={addParty}>Add To My Parties</button>
           <button onClick={clearSearchResults}>X</button>
