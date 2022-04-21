@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import InviteGuestsForm from "./InviteGuestsForm";
 import GuestList from "./GuestList";
 import { useSelector, useDispatch } from "react-redux";
-import { partyUpdateGuests } from "../../actions/supabase";
+import { partyUpdateGuests, guestUpdateParties } from "../../actions/supabase";
 import { RESET_NEWPARTY, SET_PAGE } from "../../action-types";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
@@ -11,6 +11,7 @@ export default function InviteGuests() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const newParty = useSelector((state) => state.newParty);
+  const guest = useSelector((state) => state.guest);
 
   const saveParty = async () => {
     await partyUpdateGuests(newParty.details.partyId, newParty.guestList);
@@ -37,6 +38,11 @@ export default function InviteGuests() {
     sendEmails();
     saveParty();
   };
+  useEffect(() => {
+    console.log("use effect firing");
+    guestUpdateParties(guest.guestId, guest.parties);
+  }, []);
+
   return (
     <div>
       <p>Party Created!</p>
