@@ -1,9 +1,31 @@
 import React from "react";
 import Countdown from "react-countdown";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { SET_PARTY } from "../../action-types";
+import { partyFindById } from "../../actions/supabase";
+import { formatDate2, formatTime } from "../../actions/format";
+
 // Countdown, Details, Playlist, Supplies, Comments
 
 export default function Party() {
+  const dispatch = useDispatch();
+  const { partyId } = useParams();
+  const party = useSelector((state) => state.party);
   const Completionist = () => <span>You are good to go!</span>;
+  console.log("details", party);
+  console.log("AAAA", partyId);
+  const setParty = async () => {
+    let data = await partyFindById(partyId);
+    dispatch({ type: SET_PARTY, payload: data });
+    console.log(data);
+  };
+  useEffect(() => {
+    setParty();
+  }, []);
+
   const endDate = `May 3, 2022`;
   let timeLeft = Date.now() - Date.parse(endDate);
   return (
@@ -12,6 +34,16 @@ export default function Party() {
       <Countdown date={Date.now() + Math.abs(timeLeft)}>
         <Completionist />
       </Countdown>
+      <div>
+        {party.name}
+        {formatDate2(party.date)}
+        {formatTime(party.time)}
+        {party.details}
+        {party.location.address}
+        {party.location.city}
+        {party.location.state}
+        {party.location.zip}
+      </div>
     </div>
   );
 }
