@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { partyAddRow } from "../../actions/supabase";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -7,12 +7,10 @@ import {
   SET_GUEST_PARTIES,
 } from "../../action-types";
 import { captureAddParty } from "../../actions/input";
-import { guestUpdateParties } from "../../actions/supabase";
 
 export default function AddDetails() {
   const dispatch = useDispatch();
   const guest = useSelector((state) => state.guest);
-  const newParty = useSelector((state) => state.newParty);
   const createParty = async (e) => {
     const input = captureAddParty(e);
     let location = {
@@ -51,11 +49,6 @@ export default function AddDetails() {
       });
     }
   };
-
-  useEffect(() => {
-    console.log("use effect firing");
-    guestUpdateParties(guest.guestId, guest.parties);
-  }, [guest.parties]);
 
   return (
     <div>
