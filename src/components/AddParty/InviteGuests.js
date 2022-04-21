@@ -20,9 +20,7 @@ export default function InviteGuests() {
   };
   const sendEmails = () => {
     let forms = document.querySelectorAll(".guestForm");
-    console.log("forms", forms);
     for (const form of forms) {
-      console.log("form", form);
       emailjs
         .sendForm("service_sjoq1rm", "contact_form", form, "LczdQHE4kPRZ06EjQ")
         .then(
@@ -34,6 +32,10 @@ export default function InviteGuests() {
           }
         );
     }
+  };
+  const saveAndSend = () => {
+    sendEmails();
+    saveParty();
   };
   return (
     <div>
@@ -54,8 +56,8 @@ export default function InviteGuests() {
       <h1>Invite Guests</h1>
       <InviteGuestsForm />
       <GuestList />
-      <button onClick={sendEmails}>Send Invites</button>
-      <button onClick={saveParty}>Looks Good!</button>
+      <button onClick={saveAndSend}>Send Invites</button>
+      <button onClick={saveParty}>Invite Guests Later</button>
     </div>
   );
 }

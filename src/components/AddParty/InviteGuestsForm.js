@@ -1,13 +1,8 @@
-import React, { useRef } from "react";
-import emailjs from "emailjs-com";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { UPDATE_NEWPARTY_GUESTLIST } from "../../action-types/index";
 
 function InviteGuestsForm() {
   const dispatch = useDispatch();
-  // const form = useRef();
-  const guestList = useSelector((state) => state.newParty.guestList);
-
   const captureGuest = (e) => {
     e.preventDefault();
     dispatch({
@@ -25,17 +20,11 @@ function InviteGuestsForm() {
       <div className="mainContainer">
         <form>
           <label>First name</label>
-          <input type="text" name="user_name" />
-
+          <input type="text" />
           <label>Last name</label>
-          <input type="text" name="user_lastName" />
-
+          <input type="text" />
           <label>Email</label>
-          <input type="email" name="user_email" />
-          <label>Message</label>
-
-          <textarea name="message" />
-
+          <input type="email" />
           <button onClick={(e) => captureGuest(e)}>Submit</button>
         </form>
       </div>

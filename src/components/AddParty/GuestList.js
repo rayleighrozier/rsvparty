@@ -11,17 +11,27 @@ export default function GuestList() {
         ? newParty.guestList.map((guest, index) => {
             return (
               <form className="guestForm">
-                <input name="name" value={guest.firstName} readonly />
-                <input name="email" value={guest.email} readonly />
-                <p className="hide" name="partyId">
-                  {newParty.details.partyId}
-                </p>
-                <p className="hide" name="partyName">
-                  {newParty.details.name}
-                </p>
-                <p className="hide" name="hostName">
-                  {host.firstName} {host.lastName}
-                </p>
+                <input name="name" value={guest.firstName} readOnly />
+                <input name="lastName" value={guest.lastName} readOnly />
+                <input name="email" value={guest.email} readOnly />
+                <input
+                  className="hide"
+                  name="partyId"
+                  value={newParty.details.partyId}
+                  readOnly
+                />
+                <input
+                  className="hide"
+                  name="partyName"
+                  value={newParty.details.name}
+                  readOnly
+                />
+                <input
+                  className="hide"
+                  name="hostName"
+                  value={host.firstName + " " + host.lastName}
+                  readOnly
+                />
               </form>
             );
           })

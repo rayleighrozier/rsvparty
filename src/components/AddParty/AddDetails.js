@@ -46,7 +46,7 @@ export default function AddDetails() {
 
   return (
     <div>
-      <h1>Input Details</h1>
+      <h1>Details</h1>
       <form>
         <label htmlFor="name">Event Name</label>
         <input name="name" type="text"></input>
