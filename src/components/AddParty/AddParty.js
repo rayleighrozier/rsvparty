@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import PartyDetails from "./PartyDetails";
 import InviteGuests from "./InviteGuests";
 import Error from "../Error/Error";
