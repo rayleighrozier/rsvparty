@@ -16,9 +16,7 @@ export default function PartyList() {
   const getPartyDetailsData = async () => {
     const data = [];
     for (const party of parties) {
-      console.log("loop is running for", party);
       let details = await partyFindById(party);
-      console.log("details for", party, details);
       data.push(details);
     }
     return data;
@@ -41,8 +39,8 @@ export default function PartyList() {
         return (
           <div>
             <p>{party?.name}</p>
-            <p>{formatDate(party?.date)}</p>
-            <p>{formatTime(party?.time)}</p>
+            <p>{party?.date}</p>
+            <p>{party?.time}</p>
             <button onClick={() => goToParty(party?.partyId)}>{`->`}</button>
           </div>
         );

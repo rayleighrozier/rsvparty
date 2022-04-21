@@ -39,7 +39,6 @@ export default function InviteGuests() {
     saveParty();
   };
   useEffect(() => {
-    console.log("use effect firing");
     guestUpdateParties(guest.guestId, guest.parties);
   }, []);
 
