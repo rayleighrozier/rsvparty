@@ -5,10 +5,10 @@ import { UPDATE_NEWPARTY_GUESTLIST } from "../../action-types/index";
 
 function InviteGuestsForm() {
   const dispatch = useDispatch();
-  const form = useRef();
+  // const form = useRef();
   const guestList = useSelector((state) => state.newParty.guestList);
 
-  const sendEmail = (e) => {
+  const captureGuest = (e) => {
     e.preventDefault();
     dispatch({
       type: UPDATE_NEWPARTY_GUESTLIST,
@@ -18,31 +18,12 @@ function InviteGuestsForm() {
         email: e.target.form[2].value,
       },
     });
-    emailjs
-      .sendForm(
-        "service_sjoq1rm",
-        "contact_form",
-        form.current,
-        "LczdQHE4kPRZ06EjQ"
-      )
-      .then((e.target.form[0].value = ""))
-      .then((e.target.form[1].value = ""))
-      .then((e.target.form[2].value = ""))
-      .then((e.target.form[3].value = ""))
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
   };
 
   return (
     <>
       <div className="mainContainer">
-        <form ref={form}>
+        <form>
           <label>First name</label>
           <input type="text" name="user_name" />
 
@@ -55,7 +36,7 @@ function InviteGuestsForm() {
 
           <textarea name="message" />
 
-          <button onClick={sendEmail}>Submit</button>
+          <button onClick={(e) => captureGuest(e)}>Submit</button>
         </form>
       </div>
     </>

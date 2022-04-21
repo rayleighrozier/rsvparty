@@ -5,20 +5,35 @@ import { useSelector, useDispatch } from "react-redux";
 import { partyUpdateGuests } from "../../actions/supabase";
 import { RESET_NEWPARTY, SET_PAGE } from "../../action-types";
 import { useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com";
 
 export default function InviteGuests() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const newParty = useSelector((state) => state.newParty);
+
   const saveParty = async () => {
-    console.log("partyid", newParty.details.partyId);
-    //send data to supabase
     await partyUpdateGuests(newParty.details.partyId, newParty.guestList);
-    //navigate to party page
     dispatch({ type: SET_PAGE, payload: "party" });
     navigate(`/party/${newParty.details.partyId}`);
-    // clear newParty variable
     dispatch({ type: RESET_NEWPARTY });
+  };
+  const sendEmails = () => {
+    let forms = document.querySelectorAll(".guestForm");
+    console.log("forms", forms);
+    for (const form of forms) {
+      console.log("form", form);
+      emailjs
+        .sendForm("service_sjoq1rm", "contact_form", form, "LczdQHE4kPRZ06EjQ")
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    }
   };
   return (
     <div>
@@ -39,7 +54,7 @@ export default function InviteGuests() {
       <h1>Invite Guests</h1>
       <InviteGuestsForm />
       <GuestList />
-      {/* button will send to database, clear new party and redirect to party page */}
+      <button onClick={sendEmails}>Send Invites</button>
       <button onClick={saveParty}>Looks Good!</button>
     </div>
   );
