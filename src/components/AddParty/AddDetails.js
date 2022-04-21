@@ -1,10 +1,10 @@
 import React from "react";
 import { partyAddRow } from "../../actions/supabase";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_PAGE } from "../../action-types";
+import { SET_PAGE, SET_NEWPARTY_DETAILS } from "../../action-types";
 import { captureAddParty } from "../../actions/input";
 
-export default function PartyDetails() {
+export default function AddDetails() {
   const dispatch = useDispatch();
   const guestId = useSelector((state) => state.guest.guestId);
 
@@ -29,6 +29,16 @@ export default function PartyDetails() {
       window.alert(`${userEntry.message}`);
     } else {
       window.alert("Party created!");
+      dispatch({
+        type: SET_NEWPARTY_DETAILS,
+        payload: {
+          name: input.name,
+          date: input.date,
+          time: input.time,
+          details: input.details,
+          location: location,
+        },
+      });
       dispatch({ type: SET_PAGE, payload: "inviteGuests" });
     }
   };

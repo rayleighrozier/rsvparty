@@ -28,7 +28,6 @@ export default function SignIn() {
           parties: guestInfo.parties,
         },
       });
-      dispatch({ type: SET_PAGE, payload: "dashboard" });
       navigate("/dashboard");
     } else {
       window.alert("Invalid sign in. Try again!");

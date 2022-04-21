@@ -1,12 +1,11 @@
 import React, { useRef } from "react";
 import emailjs from "emailjs-com";
 
-function ContactForm() {
+function InviteGuestsForm() {
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         "service_sjoq1rm",
@@ -51,4 +50,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default InviteGuestsForm;
