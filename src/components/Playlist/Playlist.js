@@ -1,9 +1,11 @@
-import React from "react";
-
-// This component is when you click on
-// playlist in the party page and it goes fullscreen
+import React, { useEffect } from "react";
+import { getPlaylistById } from "../../actions/spotify";
 
 export default function Playlist() {
+  useEffect(() => {
+    getPlaylistById("7cKcRrr6foPbrPHxu2YLq3");
+  }, []);
+
   return (
     <div>
       <h1>Playlist</h1>
