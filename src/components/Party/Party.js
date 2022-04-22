@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { SET_PARTY } from "../../action-types";
 import { partyFindById } from "../../actions/supabase";
-import { formatDate2, formatTime } from "../../actions/format";
+import { formatDate, formatTime } from "../../actions/format";
 import Supplies from "../Supplies/Supplies";
 
 // Countdown, Details, Playlist, Supplies, Comments
@@ -18,6 +18,8 @@ export default function Party() {
   const Completionist = () => <span>You are good to go!</span>;
   const setParty = async () => {
     let data = await partyFindById(partyId);
+    data.date = formatDate(data.date);
+    data.time = formatTime(data.time);
     dispatch({ type: SET_PARTY, payload: data });
     console.log(data);
   };
@@ -33,16 +35,18 @@ export default function Party() {
       <Countdown date={Date.now() + Math.abs(timeLeft)}>
         <Completionist />
       </Countdown>
-      <div>
-        {party?.name}
-        {party?.date}
-        {party?.time}
-        {party?.details}
-        {party?.location.address}
-        {party?.location.city}
-        {party?.location.state}
-        {party?.location.zip}
-      </div>
+      {party ? (
+        <div>
+          <p>{party.name}</p>
+          <p>{party.date}</p>
+          <p>{party.time}</p>
+          <p>{party.details}</p>
+          <p>{party.location.address}</p>
+          <p>{party.location.city}</p>
+          <p>{party.location.state}</p>
+          <p>{party.location.zip}</p>
+        </div>
+      ) : null}
       <Supplies />
     </div>
   );
