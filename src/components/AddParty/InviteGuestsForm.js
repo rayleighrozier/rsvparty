@@ -11,6 +11,7 @@ function InviteGuestsForm() {
         firstName: e.target.form[0].value,
         lastName: e.target.form[1].value,
         email: e.target.form[2].value,
+        attending: "undecided",
       },
     });
     e.target.form[0].value = "";
