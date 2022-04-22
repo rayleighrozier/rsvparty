@@ -19,9 +19,15 @@ export default function SearchParty() {
 
   return (
     <div>
-      <form>
-        <input type="text" />
-        <button onClick={(e) => getSearchResults(e)}>Find Party By ID</button>
+      <form className="searchPartyContainer">
+        <p className="searchPartyTitle">FIND PARTY BY ID</p>
+        <input className="searchPartyInput" type="text" />
+        <button
+          className="searchPartyButton"
+          onClick={(e) => getSearchResults(e)}
+        >
+          Search
+        </button>
       </form>
     </div>
   );

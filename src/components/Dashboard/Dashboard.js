@@ -11,6 +11,7 @@ import DashboardTop from "./DashboardTop";
 import PartyList from "./PartyList";
 import NoParties from "./NoParties";
 import { SET_PAGE } from "../../action-types";
+import "./Dashboard.css";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -25,17 +26,20 @@ export default function Dashboard() {
   return (
     <>
       {token ? (
-        <div>
-          <DashboardTop />
-          {parties != null && parties.length > 0 ? (
-            <PartyList />
-          ) : (
-            <NoParties />
-          )}
-          <AddPartyButton />
-          <SearchParty />
-          {searchResults ? <SearchResults /> : null}
-          <SignOutButton />
+        <div className="dashboardContainer">
+          <div className="userContainer">
+            <DashboardTop />
+            <SearchParty />
+            {searchResults ? <SearchResults /> : null}
+          </div>
+          <div className="partiesContainer">
+            <AddPartyButton />
+            {parties != null && parties.length > 0 ? (
+              <PartyList />
+            ) : (
+              <NoParties />
+            )}
+          </div>
         </div>
       ) : (
         <Error />

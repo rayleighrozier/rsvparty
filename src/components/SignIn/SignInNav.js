@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_PAGE } from "../../action-types/index";
+import "./SignIn.css";
 
 export default function SignInNav() {
   const dispatch = useDispatch();
@@ -11,14 +12,24 @@ export default function SignInNav() {
   return (
     <div>
       {page === "signIn" ? (
-        <div>
-          <p>New to RSVParty?</p>
-          <button onClick={() => ChangePage("signUp")}>Sign up here</button>
+        <div className="questionContainer">
+          <p className="homePageQuestion">New to RSVParty?</p>
+          <button
+            className="homePageButton"
+            onClick={() => ChangePage("signUp")}
+          >
+            Sign up here
+          </button>
         </div>
       ) : (
-        <div>
-          <p>Already have an RSVParty account?</p>
-          <button onClick={() => ChangePage("signIn")}>Sign in here</button>
+        <div className="questionContainer">
+          <p className="homePageQuestion">Already have an RSVParty account?</p>
+          <button
+            className="homePageButton"
+            onClick={() => ChangePage("signIn")}
+          >
+            Sign in here
+          </button>
         </div>
       )}
     </div>
