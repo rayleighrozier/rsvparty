@@ -16,14 +16,11 @@ export default function Party() {
   const { partyId } = useParams();
   const party = useSelector((state) => state.party);
   const Completionist = () => <span>You are good to go!</span>;
-  console.log("details", party);
-  console.log("AAAA", partyId);
   const setParty = async () => {
     let data = await partyFindById(partyId);
     data.date = formatDate(data.date);
     data.time = formatTime(data.time);
     dispatch({ type: SET_PARTY, payload: data });
-    console.log(data);
   };
   useEffect(() => {
     setParty();

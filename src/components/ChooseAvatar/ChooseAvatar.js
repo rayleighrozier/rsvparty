@@ -18,6 +18,7 @@ export default function ChooseAvatar() {
     if (newAvatar) {
       await guestUpdateAvatar(guest.guestId, newAvatar);
       dispatch({ type: SET_PAGE, payload: "dashboard" });
+
       dispatch({ type: SET_GUEST_AVATAR, payload: newAvatar });
     } else {
       window.alert("Please choose a party animal.");
