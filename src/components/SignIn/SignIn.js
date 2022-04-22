@@ -37,37 +37,39 @@ export default function SignIn() {
   };
 
   return (
-    <div className="homeInputsContainer">
+    <>
       <img className="homePageLogo" src={logo} />
-      <h1 className="homeHeader">Sign in</h1>
-      <p className="homePhrase">Welcome back, party animal!</p>
-      <form>
-        <div className="inputContainer">
-          <label htmlFor="email" className="inputLabel">
-            Email
-          </label>
-          <input
-            className="inputField"
-            name="email"
-            type="email"
-            placeholder="Email"
-          />
-        </div>
-        <div className="inputContainer">
-          <label htmlFor="password" className="inputLabel">
-            Password
-          </label>
-          <input
-            className="inputField"
-            name="password"
-            type="password"
-            placeholder="Password"
-          />
-        </div>
-        <button className="loginButton" onClick={(e) => sendSignIn(e)}>
-          Log in
-        </button>
-      </form>
-    </div>
+      <div className="homeInputsContainer">
+        <h1 className="homeHeader">Sign in</h1>
+        <p className="homePhrase">Welcome back, party animal!</p>
+        <form>
+          <div className="inputContainer">
+            <label htmlFor="email" className="inputLabel">
+              Email
+            </label>
+            <input
+              className="inputField"
+              name="email"
+              type="email"
+              placeholder="Email"
+            />
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="password" className="inputLabel">
+              Password
+            </label>
+            <input
+              className="inputField"
+              name="password"
+              type="password"
+              placeholder="Password"
+            />
+          </div>
+          <button className="loginButton" onClick={(e) => sendSignIn(e)}>
+            Log in
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
