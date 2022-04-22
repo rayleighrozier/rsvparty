@@ -1,7 +1,8 @@
 .dashboardContainer {
   display: flex;
   gap: 1rem;
-  justify-content: space-around;
+  margin-left: 4rem;
+  flex-wrap: wrap;
 }
 
 .userContainer {
@@ -9,16 +10,29 @@
   text-align: center;
   font-size: 50px;
   border-radius: 10px;
+  height: 100%;
+  width: 27rem;
+}
+
+.partiesHeader {
+  margin: 0px;
+  font-size: 50px;
+}
+
+.partyContainer {
+  margin: 0px;
+  margin-left: 2rem;
 }
 
 .partiesContainer {
   background-color: #e7faff;
-  width: 60%;
+  width: 45rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 2rem;
   border-radius: 20px;
+  margin: 0px;
 }
 
 .searchPartyContainer {
@@ -56,7 +70,7 @@
 .individualParty {
   background-color: var(--blue);
   color: white;
-  width: 47%;
+  width: 20rem;
   text-align: center;
   margin: 0px;
   margin-bottom: 1rem;
@@ -69,26 +83,39 @@
   border-radius: 20px;
 }
 
+.partyTitle,
+.partyDate,
+.partyTime {
+  margin: 0px;
+}
+
+.partyTitle {
+  font-size: 45px;
+  padding-top: 0.5rem;
+}
+
 .visitPartyButton {
   background-color: var(--pink);
   color: white;
   font-family: "Dongle", sans-serif;
   border: none;
-  font-size: 30px;
+  font-size: 27px;
   border-radius: 10px;
   padding-top: 0.3rem;
   cursor: pointer;
   margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .addPartyButton {
-  width: 47%;
+  width: 20rem;
   background-color: var(--blue);
   color: white;
   border: none;
   border-radius: 20px;
   margin-bottom: 1rem;
   cursor: pointer;
-  font-size: 220px;
+  font-size: 150px;
   font-family: "Dongle", sans-serif;
 }
