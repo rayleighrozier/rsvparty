@@ -2,12 +2,16 @@ import {
   SET_GUEST,
   RESET_GUEST,
   SET_GUEST_PARTIES,
+  SET_GUEST_AVATAR,
+  SET_GUEST_AVATARDATA,
 } from "../action-types/index";
 const initialState = {
   guestId: "",
   firstName: "",
   lastName: "",
   parties: null,
+  avatar: null,
+  avatarData: null,
 };
 
 function guest(state = initialState, action) {
@@ -21,11 +25,22 @@ function guest(state = initialState, action) {
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         parties: action.payload.parties,
+        avatar: action.payload.avatar,
       };
     case SET_GUEST_PARTIES:
       return {
         ...state,
         parties: action.payload,
+      };
+    case SET_GUEST_AVATAR:
+      return {
+        ...state,
+        avatar: action.payload,
+      };
+    case SET_GUEST_AVATARDATA:
+      return {
+        ...state,
+        avatarData: action.payload,
       };
     default:
       return state;

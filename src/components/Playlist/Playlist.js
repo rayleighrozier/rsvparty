@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-// This component is when you click on
-// playlist in the party page and it goes fullscreen
+import { useSelector } from "react-redux";
+import AddPlaylistForm from "./AddPlaylistForm";
+import CurrentPlaylist from "./CurrentPlaylist";
 
 export default function Playlist() {
+  const party = useSelector((state) => state.party);
+
   return (
-    <div>
-      <h1>Playlist</h1>
-    </div>
+    <div>{party.playlist ? <CurrentPlaylist /> : <AddPlaylistForm />}</div>
   );
 }
