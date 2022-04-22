@@ -19,7 +19,7 @@ export default function AddParty() {
     <>
       {token ? (
         <div>
-          <h1>Add A New Party</h1>
+          <p>Create a party!</p>
           {page === "addDetails" ? <AddDetails /> : <InviteGuests />}
         </div>
       ) : (

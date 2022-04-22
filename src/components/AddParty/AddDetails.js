@@ -52,32 +52,40 @@ export default function AddDetails() {
 
   return (
     <div>
-      <h1>Details</h1>
+      <p>Please enter the details for your party below</p>
       <form>
-        <label htmlFor="name">Event Name</label>
-        <input name="name" type="text"></input>
-
-        <label htmlFor="date">Date</label>
-        <input name="date" type="date"></input>
-
-        <label htmlFor="time">Start Time</label>
-        <input time="time" type="time"></input>
-
-        <label htmlFor="address">Address</label>
-        <input name="address" type="text"></input>
-
-        <label htmlFor="city">City</label>
-        <input name="city" type="text"></input>
-
-        <label htmlFor="state">State</label>
-        <input name="state" type="text"></input>
-
-        <label htmlFor="zip">Zip Code</label>
-        <input name="zip" type="text"></input>
-
-        <label htmlFor="details">Event Details</label>
-        <input name="details" type="text"></input>
-
+        <div>
+          <label htmlFor="name">Event name</label>
+          <input name="name" type="text"></input>
+        </div>
+        <div>
+          <label htmlFor="date">Date</label>
+          <input name="date" type="date"></input>
+        </div>
+        <div>
+          <label htmlFor="time">Start Time</label>
+          <input time="time" type="time"></input>
+        </div>
+        <div>
+          <label htmlFor="address">Address</label>
+          <input name="address" type="text"></input>
+        </div>
+        <div>
+          <label htmlFor="city">City</label>
+          <input name="city" type="text"></input>
+        </div>
+        <div>
+          <label htmlFor="state">State</label>
+          <input name="state" type="text"></input>
+        </div>
+        <div>
+          <label htmlFor="zip">Zip Code</label>
+          <input name="zip" type="text"></input>
+        </div>
+        <div>
+          <label htmlFor="details">Event Details</label>
+          <textarea name="details" type="text"></textarea>
+        </div>
         <button onClick={(e) => createParty(e)}>Submit</button>
       </form>
     </div>
