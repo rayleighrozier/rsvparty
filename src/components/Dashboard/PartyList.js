@@ -17,12 +17,15 @@ export default function PartyList() {
     const data = [];
     for (const party of parties) {
       let details = await partyFindById(party);
+      details.date = formatDate(details.date);
+      details.time = formatTime(details.time);
       data.push(details);
     }
     return data;
   };
   const setPartyDetails = async () => {
     let data = await getPartyDetailsData();
+
     dispatch({ type: SET_PARTYDETAILS, payload: data });
   };
   const goToParty = (partyId) => {

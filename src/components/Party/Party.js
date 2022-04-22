@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { SET_PARTY } from "../../action-types";
 import { partyFindById } from "../../actions/supabase";
-import { formatDate2, formatTime } from "../../actions/format";
+import { formatDate, formatTime } from "../../actions/format";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
@@ -19,6 +19,8 @@ export default function Party() {
   console.log("AAAA", partyId);
   const setParty = async () => {
     let data = await partyFindById(partyId);
+    data.date = formatDate(data.date);
+    data.time = formatTime(data.time);
     dispatch({ type: SET_PARTY, payload: data });
     console.log(data);
   };
