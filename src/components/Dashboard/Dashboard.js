@@ -32,13 +32,16 @@ export default function Dashboard() {
             <SearchParty />
             {searchResults ? <SearchResults /> : null}
           </div>
-          <div className="partiesContainer">
-            <AddPartyButton />
-            {parties != null && parties.length > 0 ? (
-              <PartyList />
-            ) : (
-              <NoParties />
-            )}
+          <div className="partyContainer">
+            <p className="partiesHeader">Parties</p>
+            <div className="partiesContainer">
+              <AddPartyButton />
+              {parties != null && parties.length > 0 ? (
+                <PartyList />
+              ) : (
+                <NoParties />
+              )}
+            </div>
           </div>
         </div>
       ) : (
