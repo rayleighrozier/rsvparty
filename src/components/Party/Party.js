@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Countdown from "react-countdown";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
 import { SET_PARTY } from "../../action-types";
-import { partyFindById } from "../../actions/supabase";
+import { guestGetInfo, partyFindById } from "../../actions/supabase";
 import { formatDate, formatTime } from "../../actions/format";
 import PlaylistButton from "./PlaylistButton";
+import EditDetailsButton from "./EditDetailsButton";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
@@ -15,6 +15,8 @@ export default function Party() {
   const dispatch = useDispatch();
   const { partyId } = useParams();
   const party = useSelector((state) => state.party);
+  const guest = useSelector((state) => state.guest);
+  const [host, setHost] = useState(false);
   const Completionist = () => <span>You are good to go!</span>;
   const setParty = async () => {
     let data = await partyFindById(partyId);
@@ -22,8 +24,16 @@ export default function Party() {
     data.time = formatTime(data.time);
     dispatch({ type: SET_PARTY, payload: data });
   };
+
+  const checkHost = () => {
+    if (guest.guestId === party.hostId) {
+      setHost(true);
+    }
+  };
+
   useEffect(() => {
     setParty();
+    checkHost();
   }, []);
 
   const endDate = `May 3, 2022`;
@@ -44,6 +54,7 @@ export default function Party() {
           <p>{party.location.city}</p>
           <p>{party.location.state}</p>
           <p>{party.location.zip}</p>
+          {host ? <EditDetailsButton /> : null}
           {/* <PlaylistButton /> */}
         </div>
       ) : null}
