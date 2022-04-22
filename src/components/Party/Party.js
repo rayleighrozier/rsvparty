@@ -34,16 +34,18 @@ export default function Party() {
       <Countdown date={Date.now() + Math.abs(timeLeft)}>
         <Completionist />
       </Countdown>
-      <div>
-        {party.name}
-        {formatDate2(party.date)}
-        {formatTime(party.time)}
-        {party.details}
-        {party.location.address}
-        {party.location.city}
-        {party.location.state}
-        {party.location.zip}
-      </div>
+      {party ? (
+        <div>
+          <p>{party.name}</p>
+          <p>{party.date}</p>
+          <p>{party.time}</p>
+          <p>{party.details}</p>
+          <p>{party.location.address}</p>
+          <p>{party.location.city}</p>
+          <p>{party.location.state}</p>
+          <p>{party.location.zip}</p>
+        </div>
+      ) : null}
     </div>
   );
 }
