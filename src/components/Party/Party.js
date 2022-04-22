@@ -47,7 +47,7 @@ export default function Party() {
           <p>{party.location.city}</p>
           <p>{party.location.state}</p>
           <p>{party.location.zip}</p>
-          <PlaylistButton />
+          {/* <PlaylistButton /> */}
         </div>
       ) : null}
     </div>

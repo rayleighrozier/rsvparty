@@ -1,17 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import {
-  getCurrentUser,
-  getPlaylistById,
-  getPlaylists,
-} from "../../actions/spotify";
 
 export default function AddPlaylistForm() {
   const party = useSelector((state) => state.party);
 
-  // useEffect(() => {
-  //   getCurrentUser();
-  // }, []);
   return (
     <div>
       <p>Create a Playlist</p>
