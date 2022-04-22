@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_AVATARS, SET_PAGE } from "../../action-types";
+import { SET_AVATARS, SET_PAGE, SET_GUEST_AVATAR } from "../../action-types";
 import { captureAvatar } from "../../actions/input";
 import { avatarsGetAll, guestUpdateAvatar } from "../../actions/supabase";
 import "./ChooseAvatar.css";
@@ -18,6 +18,7 @@ export default function ChooseAvatar() {
     if (newAvatar) {
       await guestUpdateAvatar(guest.guestId, newAvatar);
       dispatch({ type: SET_PAGE, payload: "dashboard" });
+      dispatch({ type: SET_GUEST_AVATAR, payload: newAvatar });
     } else {
       window.alert("Please choose a party animal.");
     }

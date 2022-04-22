@@ -114,6 +114,19 @@ const avatarsGetAll = async () => {
   return Avatars;
 };
 
+const avatarFindById = async (input) => {
+  let avatar = null;
+  let { data: avatars, error } = await supabase
+    .from("Avatars")
+    .select("*")
+    .match({ uuid: input });
+  if (avatars) {
+    avatar = avatars[0];
+    return avatar;
+  }
+  return avatar;
+};
+
 export {
   userSignUp,
   userSignIn,
@@ -126,4 +139,5 @@ export {
   partyUpdateGuests,
   avatarsGetAll,
   guestUpdateAvatar,
+  avatarFindById,
 };
