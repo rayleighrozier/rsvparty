@@ -8,6 +8,7 @@ import Party from "./components/Party/Party";
 import Error from "./components/Error/Error";
 import WithNav from "./components/Navbar/WithNav";
 import Playlist from "./components/Playlist/Playlist";
+
 function App() {
   return (
     <div className="App">
