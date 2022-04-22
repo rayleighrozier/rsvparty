@@ -92,6 +92,13 @@ const guestUpdateParties = async (guestId, updatedParties) => {
     .match({ guestId: guestId });
 };
 
+const guestUpdateAvatar = async (guestId, newAvatar) => {
+  let { data: guest, error } = await supabase
+    .from("Guests")
+    .update({ avatar: newAvatar })
+    .match({ guestId: guestId });
+};
+
 //grab all info from guest table (name, parties, etc)
 const guestGetInfo = async (guestId) => {
   let { data: guest, error } = await supabase
@@ -100,6 +107,11 @@ const guestGetInfo = async (guestId) => {
     .match({ guestId: guestId });
   guest = guest[0];
   return guest;
+};
+
+const avatarsGetAll = async () => {
+  let { data: Avatars, error } = await supabase.from("Avatars").select("*");
+  return Avatars;
 };
 
 export {
@@ -112,4 +124,6 @@ export {
   guestUpdateParties,
   guestGetInfo,
   partyUpdateGuests,
+  avatarsGetAll,
+  guestUpdateAvatar,
 };

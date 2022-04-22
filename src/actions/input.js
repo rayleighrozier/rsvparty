@@ -36,5 +36,22 @@ const captureAddParty = (e) => {
   };
   return input;
 };
+const captureAvatar = (e) => {
+  e.preventDefault();
+  let buttons = e.target.form;
+  for (let i = 0; i < buttons.length - 1; i++) {
+    if (buttons[i].checked) {
+      let avatar = buttons[i].value;
+      return avatar;
+    }
+  }
+  return null;
+};
 
-export { captureSignUp, captureSignIn, captureAddParty, captureSearchParty };
+export {
+  captureSignUp,
+  captureSignIn,
+  captureAddParty,
+  captureSearchParty,
+  captureAvatar,
+};
