@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { SET_PARTY } from "../../action-types";
 import { partyFindById } from "../../actions/supabase";
 import { formatDate2, formatTime } from "../../actions/format";
+import Supplies from "../Supplies/Supplies";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
@@ -15,8 +16,6 @@ export default function Party() {
   const { partyId } = useParams();
   const party = useSelector((state) => state.party);
   const Completionist = () => <span>You are good to go!</span>;
-  console.log("details", party);
-  console.log("AAAA", partyId);
   const setParty = async () => {
     let data = await partyFindById(partyId);
     dispatch({ type: SET_PARTY, payload: data });
@@ -35,15 +34,16 @@ export default function Party() {
         <Completionist />
       </Countdown>
       <div>
-        {party.name}
-        {formatDate2(party.date)}
-        {formatTime(party.time)}
-        {party.details}
-        {party.location.address}
-        {party.location.city}
-        {party.location.state}
-        {party.location.zip}
+        {party?.name}
+        {party?.date}
+        {party?.time}
+        {party?.details}
+        {party?.location.address}
+        {party?.location.city}
+        {party?.location.state}
+        {party?.location.zip}
       </div>
+      <Supplies />
     </div>
   );
 }

@@ -102,6 +102,13 @@ const guestGetInfo = async (guestId) => {
   return guest;
 };
 
+const partyUpdateSupplies = async (partyId, updatedSupplies) => {
+  let { data: party, error } = await supabase
+    .from("Parties")
+    .update({ supplies: updatedSupplies })
+    .match({ partyId: partyId });
+};
+
 export {
   userSignUp,
   userSignIn,
@@ -112,4 +119,5 @@ export {
   guestUpdateParties,
   guestGetInfo,
   partyUpdateGuests,
+  partyUpdateSupplies,
 };
