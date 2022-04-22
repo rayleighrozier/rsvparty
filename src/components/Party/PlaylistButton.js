@@ -5,7 +5,11 @@ export default function PlaylistButton() {
   const party = useSelector((state) => state.party);
   return (
     <div>
-      <button>Add To The {party.name} Playlist</button>
+      {party.playlist ? (
+        <button>Add to the Playlist</button>
+      ) : (
+        <button>Create a Playlist</button>
+      )}
     </div>
   );
 }

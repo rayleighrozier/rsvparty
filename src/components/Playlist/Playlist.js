@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
 import { getPlaylistById } from "../../actions/spotify";
+import { useSelector } from "react-redux";
+import AddPlaylistForm from "./AddPlaylistForm";
+import CurrentPlaylist from "./CurrentPlaylist";
 
 export default function Playlist() {
-  useEffect(() => {
-    getPlaylistById("7cKcRrr6foPbrPHxu2YLq3");
-  }, []);
+  const party = useSelector((state) => state.party);
+
+  //move to CurrentPlaylist
+  // useEffect(() => {
+  //   getPlaylistById("7cKcRrr6foPbrPHxu2YLq3");
+  // }, []);
 
   return (
-    <div>
-      <h1>Playlist</h1>
-    </div>
+    <div>{party.playlist ? <CurrentPlaylist /> : <AddPlaylistForm />}</div>
   );
 }
