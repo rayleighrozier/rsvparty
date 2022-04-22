@@ -36,8 +36,8 @@ export default function Party() {
       </Countdown>
       <div>
         {party.name}
-        {formatDate2(party.date)}
-        {formatTime(party.time)}
+        {party.date}
+        {party.time}
         {party.details}
         {party.location.address}
         {party.location.city}
