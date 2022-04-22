@@ -21,6 +21,7 @@ function guest(state = initialState, action) {
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         parties: action.payload.parties,
+        avatar: action.payload.avatar,
       };
     case SET_GUEST_PARTIES:
       return {
