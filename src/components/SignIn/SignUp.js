@@ -27,30 +27,30 @@ export default function SignUp() {
     <>
       <img className="homePageLogo" src={logo} />
       <div className="homeInputsContainer">
-        <h1 className="homeHeader">Sign up</h1>
+        <p className="homeHeader">Sign up</p>
         <p className="homePhrase">Become a party animal!</p>
         <form>
           <div className="namesContainer">
             <div className="inputContainer">
               <label htmlFor="firstName" className="inputLabel">
-                First Name
+                First name
               </label>
               <input
-                className="inputField"
+                className="inputField nameInput"
                 name="firstName"
                 type="text"
-                placeholder="First Name"
+                placeholder="Enter your first name"
               />
             </div>
             <div className="inputContainer">
               <label htmlFor="lastName" className="inputLabel">
-                Last Name
+                Last name
               </label>
               <input
-                className="inputField"
+                className="inputField nameInput"
                 name="lastName"
                 type="text"
-                placeholder="Last Name"
+                placeholder="Enter your last name"
               />
             </div>
           </div>
@@ -61,24 +61,24 @@ export default function SignUp() {
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               required
             >
-              Phone Number
+              Phone number
             </label>
             <input
               className="inputField"
               name="phone"
               type="tel"
-              placeholder="xxx-xxx-xxxx"
+              placeholder="e.g. 999-999-9999"
             />
           </div>
           <div className="inputContainer">
             <label className="inputLabel" htmlFor="email">
-              Email
+              Email address
             </label>
             <input
               className="inputField"
               name="email"
               type="email"
-              placeholder="Email"
+              placeholder="e.g. email@address.com"
             />
           </div>
           <div className="inputContainer">
@@ -89,12 +89,12 @@ export default function SignUp() {
               className="inputField"
               name="password"
               type="password"
-              placeholder="Password"
+              placeholder="Must contain 6+ characters"
             />
+            <button className="loginButton" onClick={(e) => sendSignUp(e)}>
+              Register
+            </button>
           </div>
-          <button className="loginButton" onClick={(e) => sendSignUp(e)}>
-            Register
-          </button>
         </form>
       </div>
     </>

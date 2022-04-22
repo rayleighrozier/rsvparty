@@ -40,18 +40,18 @@ export default function SignIn() {
     <>
       <img className="homePageLogo" src={logo} />
       <div className="homeInputsContainer">
-        <h1 className="homeHeader">Sign in</h1>
+        <p className="homeHeader">Sign in</p>
         <p className="homePhrase">Welcome back, party animal!</p>
         <form>
           <div className="inputContainer">
             <label htmlFor="email" className="inputLabel">
-              Email
+              Email address
             </label>
             <input
               className="inputField"
               name="email"
               type="email"
-              placeholder="Email"
+              placeholder="Enter your email address"
             />
           </div>
           <div className="inputContainer">
@@ -62,12 +62,12 @@ export default function SignIn() {
               className="inputField"
               name="password"
               type="password"
-              placeholder="Password"
+              placeholder="Enter your password"
             />
+            <button className="loginButton" onClick={(e) => sendSignIn(e)}>
+              Log in
+            </button>
           </div>
-          <button className="loginButton" onClick={(e) => sendSignIn(e)}>
-            Log in
-          </button>
         </form>
       </div>
     </>
