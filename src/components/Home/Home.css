@@ -1,0 +1,15 @@
+.RSVPimage {
+  width: 35rem;
+}
+
+.homePage {
+  display: flex;
+}
+
+.homeText {
+  text-align: center;
+}
+
+.homePageInputs {
+  margin-left: 3rem;
+}

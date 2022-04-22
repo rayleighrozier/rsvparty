@@ -9,6 +9,8 @@ import {
 } from "../../actions/supabase";
 import { SET_GUEST, SET_PAGE } from "../../action-types/index";
 import { checkToken } from "../../actions/token";
+import logo from "../../assets/logo.png";
+import "./SignIn.css";
 
 export default function SignIn() {
   const dispatch = useDispatch();
@@ -35,14 +37,36 @@ export default function SignIn() {
   };
 
   return (
-    <div>
-      <h1>Sign In Page</h1>
+    <div className="homeInputsContainer">
+      <img className="homePageLogo" src={logo} />
+      <h1 className="homeHeader">Sign in</h1>
+      <p className="homePhrase">Welcome back, party animal!</p>
       <form>
-        <label htmlFor="email">Email</label>
-        <input name="email" type="email" placeholder="Email" />
-        <label htmlFor="password">Password</label>
-        <input name="password" type="password" placeholder="Password" />
-        <button onClick={(e) => sendSignIn(e)}>Sign In</button>
+        <div className="inputContainer">
+          <label htmlFor="email" className="inputLabel">
+            Email
+          </label>
+          <input
+            className="inputField"
+            name="email"
+            type="email"
+            placeholder="Email"
+          />
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="password" className="inputLabel">
+            Password
+          </label>
+          <input
+            className="inputField"
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <button className="loginButton" onClick={(e) => sendSignIn(e)}>
+          Log in
+        </button>
       </form>
     </div>
   );

@@ -34,17 +34,24 @@ export default function PartyList() {
   }, []);
 
   return (
-    <div>
+    <>
       {partyDetails?.map((party) => {
         return (
-          <div>
-            <p>{party?.name}</p>
-            <p>{party?.date}</p>
-            <p>{party?.time}</p>
-            <button onClick={() => goToParty(party?.partyId)}>{`->`}</button>
+          <div className="individualParty">
+            <p className="partyTitle">{party?.name}</p>
+            <div className="partyDetails">
+              <p className="partyDate">{party?.date}</p>
+              <p className="partyTime">{party?.time}</p>
+              <button
+                className="visitPartyButton"
+                onClick={() => goToParty(party?.partyId)}
+              >
+                VISIT PARTY
+              </button>
+            </div>
           </div>
         );
       })}
-    </div>
+    </>
   );
 }

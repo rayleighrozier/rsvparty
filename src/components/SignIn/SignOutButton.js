@@ -20,5 +20,9 @@ export default function SignOutButton() {
     dispatch({ type: RESET_NEWPARTY });
     navigate("/");
   };
-  return <button onClick={sendSignOut}>Sign Out</button>;
+  return (
+    <button className="signOutButton" onClick={sendSignOut}>
+      Sign out
+    </button>
+  );
 }

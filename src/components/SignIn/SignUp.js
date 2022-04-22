@@ -3,6 +3,8 @@ import { userSignUp } from "../../actions/supabase";
 import { SET_PAGE } from "../../action-types";
 import { useDispatch } from "react-redux";
 import { captureSignUp } from "../../actions/input";
+import "./SignIn.css";
+import logo from "../../assets/logo.png";
 
 export default function SignUp() {
   const dispatch = useDispatch();
@@ -22,22 +24,76 @@ export default function SignUp() {
     }
   };
   return (
-    <div>
-      <h1>Sign Up Page</h1>
+    <div className="homeInputsContainer">
+      <img className="homePageLogo" src={logo} />
+      <h1 className="homeHeader">Sign up</h1>
+      <p className="homePhrase">Become a party animal!</p>
       <form>
-        <label htmlFor="firstName">First Name</label>
-        <input name="firstName" type="text" placeholder="First Name" />
-        <label htmlFor="lastName">Last Name</label>
-        <input name="lastName" type="text" placeholder="Last Name" />
-        <label htmlFor="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-          Phone Number
-        </label>
-        <input name="phone" type="tel" placeholder="xxx-xxx-xxxx" />
-        <label htmlFor="email">Email</label>
-        <input name="email" type="email" placeholder="Email" />
-        <label htmlFor="password">Password</label>
-        <input name="password" type="password" placeholder="Password" />
-        <button onClick={(e) => sendSignUp(e)}>Sign Up</button>
+        <div className="namesContainer">
+          <div className="inputContainer">
+            <label htmlFor="firstName" className="inputLabel">
+              First Name
+            </label>
+            <input
+              className="inputField"
+              name="firstName"
+              type="text"
+              placeholder="First Name"
+            />
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="lastName" className="inputLabel">
+              Last Name
+            </label>
+            <input
+              className="inputField"
+              name="lastName"
+              type="text"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
+        <div className="inputContainer">
+          <label
+            className="inputLabel"
+            htmlFor="phone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            required
+          >
+            Phone Number
+          </label>
+          <input
+            className="inputField"
+            name="phone"
+            type="tel"
+            placeholder="xxx-xxx-xxxx"
+          />
+        </div>
+        <div className="inputContainer">
+          <label className="inputLabel" htmlFor="email">
+            Email
+          </label>
+          <input
+            className="inputField"
+            name="email"
+            type="email"
+            placeholder="Email"
+          />
+        </div>
+        <div className="inputContainer">
+          <label className="inputLabel" htmlFor="password">
+            Password
+          </label>
+          <input
+            className="inputField"
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <button className="loginButton" onClick={(e) => sendSignUp(e)}>
+          Register
+        </button>
       </form>
     </div>
   );

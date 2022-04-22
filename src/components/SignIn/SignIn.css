@@ -1,0 +1,70 @@
+.homePageButton {
+  color: var(--pink);
+  background-color: white;
+  border: none;
+  font-family: "Dongle", sans-serif;
+  font-size: 35px;
+  cursor: pointer;
+  margin-left: 0.3rem;
+}
+
+.questionContainer {
+  display: flex;
+}
+
+.homeHeader {
+  margin: 0px;
+}
+
+.homePhrase {
+  margin: 0px;
+  color: #aaaaaa;
+  font-size: 30px;
+}
+
+.homeImgContainer {
+  color: white;
+  background-color: var(--yellow);
+}
+
+.homePageLogo {
+  width: 10rem;
+}
+
+.inputLabel {
+  margin: 0px;
+  padding: 0px;
+}
+
+.inputField {
+  background-color: var(--lightGrey);
+  border: none;
+  font-family: "Dongle", sans-serif;
+  padding: 0.3rem;
+  font-size: 20px;
+  border-radius: 10px;
+  padding-left: 0.3rem;
+}
+
+.inputContainer {
+  display: grid;
+}
+
+.namesContainer {
+  display: flex;
+}
+
+.loginButton {
+  background-color: var(--blue);
+  color: white;
+  font-family: "Dongle", sans-serif;
+  border: none;
+  border-radius: 10px;
+  font-size: 30px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.homeInputsContainer {
+  width: 15em;
+}

@@ -10,5 +10,9 @@ export default function AddPartyButton() {
     dispatch({ type: SET_PAGE, payload: "addDetails" });
     navigate("/addparty");
   };
-  return <button onClick={launchAddPartyForm}>New Party</button>;
+  return (
+    <button className="addPartyButton" onClick={launchAddPartyForm}>
+      +
+    </button>
+  );
 }
