@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { SET_PARTY } from "../../action-types";
 import { partyFindById } from "../../actions/supabase";
 import { formatDate, formatTime } from "../../actions/format";
+import PlaylistButton from "./PlaylistButton";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
@@ -46,6 +47,7 @@ export default function Party() {
           <p>{party.location.city}</p>
           <p>{party.location.state}</p>
           <p>{party.location.zip}</p>
+          <PlaylistButton />
         </div>
       ) : null}
     </div>
