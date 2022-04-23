@@ -7,6 +7,7 @@ import { SET_PARTY } from "../../action-types";
 import { guestGetInfo, partyFindById } from "../../actions/supabase";
 import { formatDate, formatTime } from "../../actions/format";
 import EditDetailsButton from "./EditDetailsButton";
+import RSVPButtons from "./RSVPButtons";
 import { checkToken } from "../../actions/token";
 import PartyDetails from "./PartyDetails";
 
@@ -52,6 +53,7 @@ export default function Party() {
           <Countdown date={Date.now() + Math.abs(timeLeft)}>
             <Completionist />
           </Countdown>
+          {host ? null : <RSVPButtons />}
         </>
       ) : null}
     </div>
