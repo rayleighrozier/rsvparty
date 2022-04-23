@@ -36,7 +36,7 @@ export default function ChooseAvatar() {
           ? avatars.map((avatar) => {
               return (
                 <div>
-                  <input type="radio" name="avatar" value={avatar.uuid} />
+                  <input type="radio" name="avatar" value={avatar.avatarId} />
                   <img className="temporaryClass" src={avatar.url} />
                   <p>{avatar.name}</p>
                 </div>
