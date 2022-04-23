@@ -1,4 +1,5 @@
 import { RESET_EDITDETAILS, SET_EDITDETAILS } from "../action-types/index";
+// maybe change this to array of objects?
 const initialState = {
   name: null,
   date: null,
