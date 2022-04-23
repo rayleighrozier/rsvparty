@@ -6,9 +6,9 @@ import { useParams } from "react-router-dom";
 import { SET_PARTY } from "../../action-types";
 import { guestGetInfo, partyFindById } from "../../actions/supabase";
 import { formatDate, formatTime } from "../../actions/format";
-import PlaylistButton from "./PlaylistButton";
 import EditDetailsButton from "./EditDetailsButton";
 import { checkToken } from "../../actions/token";
+import PartyDetails from "./PartyDetails";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
@@ -27,15 +27,22 @@ export default function Party() {
     dispatch({ type: SET_PARTY, payload: data });
   };
   const checkHost = () => {
+    console.log("RUNNING CHEK HOST");
     if (guest.guestId === party.hostId) {
       setHost(true);
+      return true;
+    } else {
+      setHost(false);
+      return false;
     }
   };
-
   useEffect(() => {
     setParty();
-    checkHost();
   }, []);
+
+  useEffect(() => {
+    checkHost();
+  }, [party]);
 
   const endDate = `May 3, 2022`;
   let timeLeft = Date.now() - Date.parse(endDate);
@@ -43,24 +50,10 @@ export default function Party() {
     <div>
       {token ? (
         <>
-          <h1>Party</h1>
+          {party ? <PartyDetails host={host} setHost={setHost} /> : null}
           <Countdown date={Date.now() + Math.abs(timeLeft)}>
             <Completionist />
           </Countdown>
-          {party ? (
-            <div>
-              <p>{party.name}</p>
-              <p>{party.date}</p>
-              <p>{party.time}</p>
-              <p>{party.details}</p>
-              <p>{party.location.address}</p>
-              <p>{party.location.city}</p>
-              <p>{party.location.state}</p>
-              <p>{party.location.zip}</p>
-              {host ? <EditDetailsButton /> : null}
-              {/* <PlaylistButton /> */}
-            </div>
-          ) : null}
         </>
       ) : null}
     </div>
