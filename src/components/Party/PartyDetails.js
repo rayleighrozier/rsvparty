@@ -4,20 +4,6 @@ import EditDetailsButton from "./EditDetailsButton";
 
 export default function PartyDetails(props) {
   const party = useSelector((state) => state.party);
-  const guest = useSelector((state) => state.guest);
-  //   const checkHost = () => {
-  //     console.log("CHECKING THE HOST");
-  //     if (guest.guestId === party.hostId) {
-  //       props.setHost(true);
-  //     } else {
-  //       props.setHost(false);
-  //     }
-  //     console.log("in details", props.host);
-  //   };
-
-  //   useEffect(() => {
-  //     checkHost();
-  //   }, []);
 
   return (
     <div>

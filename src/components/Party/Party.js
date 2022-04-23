@@ -19,7 +19,10 @@ export default function Party() {
   const party = useSelector((state) => state.party);
   const guest = useSelector((state) => state.guest);
   const [host, setHost] = useState(false);
+  const endDate = `May 3, 2022`;
+  let timeLeft = Date.now() - Date.parse(endDate);
   const Completionist = () => <span>You are good to go!</span>;
+
   const setParty = async () => {
     let data = await partyFindById(partyId);
     data.date = formatDate(data.date);
@@ -27,25 +30,20 @@ export default function Party() {
     dispatch({ type: SET_PARTY, payload: data });
   };
   const checkHost = () => {
-    console.log("RUNNING CHEK HOST");
     if (guest.guestId === party.hostId) {
       setHost(true);
-      return true;
     } else {
       setHost(false);
-      return false;
     }
   };
+
   useEffect(() => {
     setParty();
   }, []);
-
   useEffect(() => {
     checkHost();
   }, [party]);
 
-  const endDate = `May 3, 2022`;
-  let timeLeft = Date.now() - Date.parse(endDate);
   return (
     <div>
       {token ? (
