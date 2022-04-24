@@ -1,0 +1,21 @@
+* {
+  max-width: 500px;
+  margin: auto;
+  background-color: #ff94c3;
+  color: #f3f3f3;
+  font-family: "Dongle", sans-serif;
+  font-size: 35px;
+}
+.error {
+  display: grid;
+  min-height: 50vh;
+  place-items: center;
+}
+.message {
+  display: grid;
+  text-align: center;
+}
+.linkBackToParty {
+  display: grid;
+  text-align: center;
+}
