@@ -9,8 +9,9 @@ export default function SearchParty() {
   const getSearchResults = async (e) => {
     let input = captureSearchParty(e);
     let party = await partyFindById(input);
-    let host = await guestGetInfo(party.hostId);
-    if (party && host) {
+
+    if (party) {
+      let host = await guestGetInfo(party.hostId);
       party.host = host;
       dispatch({ type: SET_SEARCHRESULTS, payload: party });
       e.target.form[0].value = "";

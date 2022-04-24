@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { guestsToJSON } from "../../actions/guestList";
 
-export default function Guests() {
+export default function Guests(props) {
   const party = useSelector((state) => state.party);
   const [guestList, setGuestList] = useState(null);
 
   useEffect(() => {
     setGuestList(guestsToJSON(party.guests));
   }, [party]);
-
+  console.log("GUEST LIST", guestList);
   return (
     <>
       {guestList ? (
@@ -28,6 +28,7 @@ export default function Guests() {
               </div>
             );
           })}
+          {props.host ? <button>Invite Guests</button> : null}
         </div>
       ) : null}
     </>

@@ -57,20 +57,24 @@ export default function Party() {
     }
   };
   const checkAttending = () => {
-    if (host) {
-      setAttending("yes");
-    } else {
-      if (party) {
-        let guestsJSON = [];
-        if (party.guests) {
-          for (const person of party.guests) {
-            let guestdata = JSON.parse(person);
-            guestsJSON.push(guestdata);
+    if (party) {
+      if (host) {
+        setAttending("yes");
+      } else {
+        if (party) {
+          let guestsJSON = [];
+          if (party.guests) {
+            for (const person of party.guests) {
+              let guestdata = JSON.parse(person);
+              guestsJSON.push(guestdata);
+            }
+            let filtered = guestsJSON.filter(
+              (data) => data.email === guest.email
+            );
+            if (filtered.length > 0) {
+              setAttending(filtered[0].attending);
+            }
           }
-          let filtered = guestsJSON.filter(
-            (data) => data.email === guest.email
-          );
-          setAttending(filtered[0].attending);
         }
       }
     }
@@ -100,7 +104,7 @@ export default function Party() {
             {host ? null : (
               <RSVPButtons attending={attending} setAttending={setAttending} />
             )}
-            {party ? <Guests /> : null}
+            {party ? <Guests host={host} /> : null}
           </>
         ) : (
           <div>
