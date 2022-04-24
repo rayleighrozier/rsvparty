@@ -10,6 +10,7 @@ import EditDetailsButton from "./EditDetailsButton";
 import RSVPButtons from "./RSVPButtons";
 import { checkToken } from "../../actions/token";
 import PartyDetails from "./PartyDetails";
+import { checkIfInvited } from "../../actions/guestList";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
@@ -21,6 +22,7 @@ export default function Party() {
   const guest = useSelector((state) => state.guest);
   const [host, setHost] = useState(false);
   const [attending, setAttending] = useState(null);
+  const [invited, setInvited] = useState(false);
   const endDate = `May 3, 2022`;
   let timeLeft = Date.now() - Date.parse(endDate);
   const Completionist = () => <span>You are good to go!</span>;
@@ -37,6 +39,18 @@ export default function Party() {
         setHost(true);
       } else {
         setHost(false);
+      }
+    }
+  };
+  const checkInvited = () => {
+    if (party) {
+      if (!host) {
+        let status = checkIfInvited(guest, party.guests);
+        setInvited(status);
+        console.log("invited", invited);
+      } else {
+        setInvited(true);
+        console.log("host! ", invited);
       }
     }
   };
@@ -65,6 +79,7 @@ export default function Party() {
   }, []);
   useEffect(() => {
     checkHost();
+    checkInvited();
     checkAttending();
   }, [party]);
 
