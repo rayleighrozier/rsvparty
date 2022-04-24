@@ -18,6 +18,7 @@ export default function ChooseAvatar() {
     if (newAvatar) {
       await guestUpdateAvatar(guest.guestId, newAvatar);
       dispatch({ type: SET_PAGE, payload: "dashboard" });
+
       dispatch({ type: SET_GUEST_AVATAR, payload: newAvatar });
     } else {
       window.alert("Please choose a party animal.");
@@ -35,7 +36,7 @@ export default function ChooseAvatar() {
           ? avatars.map((avatar) => {
               return (
                 <div>
-                  <input type="radio" name="avatar" value={avatar.uuid} />
+                  <input type="radio" name="avatar" value={avatar.avatarId} />
                   <img className="temporaryClass" src={avatar.url} />
                   <p>{avatar.name}</p>
                 </div>
