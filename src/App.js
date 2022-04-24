@@ -9,6 +9,7 @@ import Error from "./components/Error/Error";
 import WithNav from "./components/Navbar/WithNav";
 import Playlist from "./components/Playlist/Playlist";
 import EditParty from "./components/EditParty/EditParty";
+import EditGuests from "./components/EditParty/EditGuests";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/addparty" element={<AddParty />} />
             <Route path="/editparty" element={<EditParty />} />
+            <Route path="/editguests" element={<EditGuests />} />
             <Route path="/party/:partyId" element={<Party />} />
             <Route path="*" element={<Error />} />
           </Route>
