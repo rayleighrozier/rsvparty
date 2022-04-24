@@ -20,6 +20,7 @@ export default function Party() {
   const party = useSelector((state) => state.party);
   const guest = useSelector((state) => state.guest);
   const [host, setHost] = useState(false);
+  const [attending, setAttending] = useState(null);
   const endDate = `May 3, 2022`;
   let timeLeft = Date.now() - Date.parse(endDate);
   const Completionist = () => <span>You are good to go!</span>;
@@ -31,10 +32,31 @@ export default function Party() {
     dispatch({ type: SET_PARTY, payload: data });
   };
   const checkHost = () => {
-    if (guest.guestId === party.hostId) {
-      setHost(true);
+    if (party) {
+      if (guest.guestId === party.hostId) {
+        setHost(true);
+      } else {
+        setHost(false);
+      }
+    }
+  };
+  const checkAttending = () => {
+    if (host) {
+      setAttending("yes");
     } else {
-      setHost(false);
+      if (party) {
+        let guestsJSON = [];
+        if (party.guests) {
+          for (const person of party.guests) {
+            let guestdata = JSON.parse(person);
+            guestsJSON.push(guestdata);
+          }
+          let filtered = guestsJSON.filter(
+            (data) => data.email === guest.email
+          );
+          setAttending(filtered[0].attending);
+        }
+      }
     }
   };
 
@@ -43,6 +65,7 @@ export default function Party() {
   }, []);
   useEffect(() => {
     checkHost();
+    checkAttending();
   }, [party]);
 
   return (
@@ -53,7 +76,9 @@ export default function Party() {
           <Countdown date={Date.now() + Math.abs(timeLeft)}>
             <Completionist />
           </Countdown>
-          {host ? null : <RSVPButtons />}
+          {host ? null : (
+            <RSVPButtons attending={attending} setAttending={setAttending} />
+          )}
         </>
       ) : null}
     </div>

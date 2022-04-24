@@ -7,7 +7,6 @@ import newParty from "./newPartyReducer";
 import party from "./partyReducer";
 import avatars from "./avatarsReducer";
 import editDetails from "./editDetailsReducer";
-import attending from "./attendingReducer";
 
 export default combineReducers({
   guest,
@@ -18,5 +17,4 @@ export default combineReducers({
   party,
   avatars,
   editDetails,
-  attending,
 });
