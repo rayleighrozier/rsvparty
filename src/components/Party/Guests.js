@@ -9,7 +9,6 @@ export default function Guests(props) {
   useEffect(() => {
     setGuestList(guestsToJSON(party.guests));
   }, [party]);
-  console.log("GUEST LIST", guestList);
   return (
     <>
       {guestList ? (
