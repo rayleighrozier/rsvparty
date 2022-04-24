@@ -23,8 +23,6 @@ export default function SearchResults() {
       let updatedParties = [];
       if (guest.parties !== null) {
         let filtered = guest.parties.filter((id) => id === newPartyId);
-        console.log("filtered", filtered);
-        console.log("filtered.length", filtered.length);
         if (filtered.length > 0) {
           setAlreadyAdded(true);
         } else {
@@ -56,7 +54,10 @@ export default function SearchResults() {
       ) : (
         <div>
           <p>{searchResults?.name}</p>
-          <p>{searchResults?.details}</p>
+          <p>
+            Hosted by {searchResults?.host?.firstName}{" "}
+            {searchResults?.host?.lastName}
+          </p>
           <button onClick={addParty}>Add To My Parties</button>
           <button onClick={clearSearchResults}>X</button>
           {invited ? null : (
