@@ -14,10 +14,12 @@ export default function Error() {
       <div className="message">
         <h2>Stop monkeying around and get back to the party!</h2>
       </div>
-      <br></br>
-      <a className="linkBackToParty" href="">
-        Back to the party!
-      </a>
+
+      <div className="linkBackToParty">
+        <a id="acutalLink" href="">
+          Back to the party!
+        </a>
+      </div>
     </>
   );
 }
