@@ -26,9 +26,13 @@ export default function RSVPButtons(props) {
       }
       let filtered = guestsJSON.filter((data) => data.email === guest.email);
       guestsJSON = guestsJSON.filter((data) => data.email !== guest.email);
-      filtered[0].attending = input;
-      guestsJSON.push(filtered[0]);
-      await partyUpdateGuests(party.partyId, guestsJSON);
+      if (filtered.length > 0) {
+        filtered[0].attending = input;
+        guestsJSON.push(filtered[0]);
+        await partyUpdateGuests(party.partyId, guestsJSON);
+      } else {
+        window.alert("Error! You're missing from the guest list.");
+      }
     }
   };
   useEffect(() => {
