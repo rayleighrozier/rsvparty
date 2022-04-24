@@ -1,3 +1,17 @@
+const guestsToJSON = (guestList) => {
+  let guestsJSON = [];
+  if (Array.isArray(guestList)) {
+    for (const person of guestList) {
+      let guestdata = JSON.parse(person);
+      guestsJSON.push(guestdata);
+    }
+    return guestsJSON;
+  } else {
+    guestsJSON = JSON.parse(guestList);
+    return guestsJSON;
+  }
+};
+
 const checkIfInvited = (guest, guestList) => {
   let guestsJSON = [];
   if (Array.isArray(guestList)) {
@@ -20,4 +34,4 @@ const checkIfInvited = (guest, guestList) => {
   }
 };
 
-export { checkIfInvited };
+export { checkIfInvited, guestsToJSON };
