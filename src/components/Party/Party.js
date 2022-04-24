@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Countdown from "react-countdown";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { SET_PARTY } from "../../action-types";
 import { guestGetInfo, partyFindById } from "../../actions/supabase";
 import { formatDate, formatTime } from "../../actions/format";
@@ -16,6 +16,7 @@ import { checkIfInvited } from "../../actions/guestList";
 
 export default function Party() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { partyId } = useParams();
   const token = checkToken();
   const party = useSelector((state) => state.party);
@@ -73,6 +74,9 @@ export default function Party() {
       }
     }
   };
+  const backtoDashboard = () => {
+    navigate("/dashboard");
+  };
 
   useEffect(() => {
     setParty();
@@ -86,15 +90,22 @@ export default function Party() {
   return (
     <div>
       {token ? (
-        <>
-          {party ? <PartyDetails host={host} setHost={setHost} /> : null}
-          <Countdown date={Date.now() + Math.abs(timeLeft)}>
-            <Completionist />
-          </Countdown>
-          {host ? null : (
-            <RSVPButtons attending={attending} setAttending={setAttending} />
-          )}
-        </>
+        invited ? (
+          <>
+            {party ? <PartyDetails host={host} setHost={setHost} /> : null}
+            <Countdown date={Date.now() + Math.abs(timeLeft)}>
+              <Completionist />
+            </Countdown>
+            {host ? null : (
+              <RSVPButtons attending={attending} setAttending={setAttending} />
+            )}
+          </>
+        ) : (
+          <div>
+            <p>Uh oh! Looks like you are not on the guest list.</p>
+            <button onClick={backtoDashboard}>Go Back</button>
+          </div>
+        )
       ) : null}
     </div>
   );
