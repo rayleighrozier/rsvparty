@@ -19,6 +19,12 @@ export default function Guests() {
               <div>
                 <p>{guest.firstName}</p>
                 <p>{guest.lastName}</p>
+                {guest.attending === "yes" ? <p>Attending</p> : null}
+                {guest.attending === "no" ? <p>Not Attending</p> : null}
+                {guest.attending === "maybe" ? <p>Maybe Attending</p> : null}
+                {guest.attending === "undecided" ? (
+                  <p>No Response Yet</p>
+                ) : null}
               </div>
             );
           })}
