@@ -6,6 +6,7 @@ import EditLocation from "./EditLocation";
 
 export default function EditParty() {
   const party = useSelector((state) => state.party);
+  const partyUnformatted = useSelector((state) => state.partyUnformatted);
   const editDetails = useSelector((state) => state.editDetails);
   const [newName, setNewName] = useState(false);
   const [newDate, setNewDate] = useState(false);
@@ -13,15 +14,15 @@ export default function EditParty() {
   const [newDetails, setNewDetails] = useState(false);
   const [newLocation, setNewLocation] = useState(false);
   const [newInputs, setNewInputs] = useState({
-    name: party.name,
-    date: party.date,
-    time: party.time,
-    details: party.details,
+    name: partyUnformatted.name,
+    date: partyUnformatted.date,
+    time: partyUnformatted.time,
+    details: partyUnformatted.details,
     location: {
-      address: party.location.address,
-      city: party.location.city,
-      state: party.location.state,
-      zip: party.location.zip,
+      address: partyUnformatted.location.address,
+      city: partyUnformatted.location.city,
+      state: partyUnformatted.location.state,
+      zip: partyUnformatted.location.zip,
     },
   });
 

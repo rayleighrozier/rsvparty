@@ -17,7 +17,7 @@ export default function EditInput(props) {
   };
 
   useEffect(() => {
-    // partyUpdateDetails(party.partyId, props.newInputs);
+    partyUpdateDetails(party.partyId, props.newInputs);
   }, [props.newInputs]);
 
   return (
