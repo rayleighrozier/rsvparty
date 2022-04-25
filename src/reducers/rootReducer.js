@@ -7,6 +7,7 @@ import newParty from "./newPartyReducer";
 import party from "./partyReducer";
 import avatars from "./avatarsReducer";
 import editDetails from "./editDetailsReducer";
+
 export default combineReducers({
   guest,
   page,

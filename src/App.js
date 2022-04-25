@@ -9,7 +9,8 @@ import Error from "./components/Error/Error";
 import WithNav from "./components/Navbar/WithNav";
 import Playlist from "./components/Playlist/Playlist";
 import EditParty from "./components/EditParty/EditParty";
-
+import EditGuests from "./components/EditParty/EditGuests";
+// import Comments from "./components/Comments/Comments";
 function App() {
   return (
     <div className="App">
@@ -20,7 +21,9 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/addparty" element={<AddParty />} />
             <Route path="/editparty" element={<EditParty />} />
+            <Route path="/editguests" element={<EditGuests />} />
             <Route path="/party/:partyId" element={<Party />} />
+            {/* <Route path="/comments" element={<Comments />} /> */}
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>

@@ -5,7 +5,6 @@ import EditInput from "./EditInput";
 import EditLocation from "./EditLocation";
 
 export default function EditParty() {
-  // add in stuff from add party
   const party = useSelector((state) => state.party);
   const editDetails = useSelector((state) => state.editDetails);
   const [newName, setNewName] = useState(false);
