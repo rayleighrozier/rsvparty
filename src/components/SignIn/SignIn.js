@@ -28,6 +28,8 @@ export default function SignIn() {
           firstName: guestInfo.firstName,
           lastName: guestInfo.lastName,
           parties: guestInfo.parties,
+          avatar: guestInfo.avatar,
+          email: input.email,
         },
       });
       navigate("/dashboard");

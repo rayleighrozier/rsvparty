@@ -92,6 +92,14 @@ const guestUpdateParties = async (guestId, updatedParties) => {
     .match({ guestId: guestId });
 };
 
+//change a guest's avatar
+const guestUpdateAvatar = async (guestId, newAvatar) => {
+  let { data: guest, error } = await supabase
+    .from("Guests")
+    .update({ avatar: newAvatar })
+    .match({ guestId: guestId });
+};
+
 //grab all info from guest table (name, parties, etc)
 const guestGetInfo = async (guestId) => {
   let { data: guest, error } = await supabase
@@ -100,6 +108,26 @@ const guestGetInfo = async (guestId) => {
     .match({ guestId: guestId });
   guest = guest[0];
   return guest;
+};
+
+//get all of the avatars
+const avatarsGetAll = async () => {
+  let { data: Avatars, error } = await supabase.from("Avatars").select("*");
+  return Avatars;
+};
+
+//get data for one avatar
+const avatarFindById = async (avatarId) => {
+  let avatar = null;
+  let { data: avatars, error } = await supabase
+    .from("Avatars")
+    .select("*")
+    .match({ avatarId: avatarId });
+  if (avatars) {
+    avatar = avatars[0];
+    return avatar;
+  }
+  return avatar;
 };
 
 export {
@@ -112,4 +140,7 @@ export {
   guestUpdateParties,
   guestGetInfo,
   partyUpdateGuests,
+  avatarsGetAll,
+  guestUpdateAvatar,
+  avatarFindById,
 };
