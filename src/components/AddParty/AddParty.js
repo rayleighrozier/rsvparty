@@ -18,8 +18,8 @@ export default function AddParty() {
   return (
     <>
       {token ? (
-        <div>
-          <p>Create a party!</p>
+        <div className="addPartyContent">
+          <p className="addPartyTitle">CREATE A PARTY</p>
           {page === "addDetails" ? <AddDetails /> : <InviteGuests />}
         </div>
       ) : (

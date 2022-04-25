@@ -1,3 +1,17 @@
+.addPartyTitle {
+  margin: 0px;
+  padding: 0px;
+  font-size: 60px;
+}
+
+.addPartyPhrase {
+  margin: 0px;
+  padding: 0px;
+  color: var(--textGrey);
+  margin-bottom: 2rem;
+  font-size: 30px;
+}
+
 .cityStateZip {
   display: flex;
   justify-content: space-between;
@@ -7,7 +21,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  background-color: aqua;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .firstRowInput {
@@ -18,7 +33,6 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  background-color: red;
   gap: 1.5rem;
 }
 
@@ -26,20 +40,51 @@
   display: grid;
 }
 
+.addPartyInput,
+.details {
+  background-color: var(--lightGrey);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+  font-family: "Dongle", sans-serif;
+  font-size: 25px;
+}
+
+.addPartySubmitButton {
+  font-family: "Dongle", sans-serif;
+  background-color: var(--blue);
+  border: none;
+  color: white;
+  font-size: 30px;
+  width: 24%;
+  margin-top: 1rem;
+  padding-top: 0.3rem;
+  border-radius: 0.8rem;
+  margin-top: 2.5rem;
+}
+
+.details {
+  height: 9rem;
+}
+
 .addPartyContent {
-  background-color: beige;
   display: grid;
   place-items: center;
 }
 
 .addressLine1 {
   width: 28rem;
+  margin-bottom: 0.7rem;
 }
 
 .cityInput,
 .stateInput,
 .zipInput {
   width: 8rem;
+}
+
+.addPartyAddress {
+  margin: 0px;
 }
 
 .addressLabel {

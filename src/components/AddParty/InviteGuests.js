@@ -43,8 +43,9 @@ export default function InviteGuests() {
   }, []);
 
   return (
-    <div>
-      <p>Party Created!</p>
+    <div className="addPartyContent">
+      <p className="addPartyTitle">PARTY CREATED</p>
+      <p className="addPartyPhrase">Invite your guests below!</p>
       {newParty.details ? (
         <div>
           <p>{newParty.details.name}</p>

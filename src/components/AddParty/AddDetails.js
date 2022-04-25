@@ -53,32 +53,46 @@ export default function AddDetails() {
 
   return (
     <>
-      <p>Please enter the details for your party below</p>
+      <p className="addPartyPhrase">
+        Please enter the details for your party below!
+      </p>
       <div className="addPartyContent">
         <form>
           <div className="formFirstRow">
             <div className="inputContent">
               <label htmlFor="name">Event name</label>
-              <input className="firstRowInput" name="name" type="text"></input>
+              <input
+                className="firstRowInput addPartyInput"
+                name="name"
+                type="text"
+              ></input>
             </div>
             <div className="inputContent">
               <label htmlFor="date">Date</label>
-              <input className="firstRowInput" name="date" type="date"></input>
+              <input
+                className="firstRowInput addPartyInput"
+                name="date"
+                type="date"
+              ></input>
             </div>
             <div className="inputContent">
               <label htmlFor="time">Start Time</label>
-              <input className="firstRowInput" time="time" type="time"></input>
+              <input
+                className="firstRowInput addPartyInput"
+                time="time"
+                type="time"
+              ></input>
             </div>
           </div>
           <div className="formSecondRow">
             <div>
-              <p>Address</p>
+              <p className="addPartyAddress">Address</p>
               <div className="inputContent">
                 <label className="addressLabel" htmlFor="address">
                   Address line 1
                 </label>
                 <input
-                  className="addressLabel addressLine1"
+                  className="addressLabel addressLine1 addPartyInput"
                   name="address"
                   type="text"
                 ></input>
@@ -88,14 +102,18 @@ export default function AddDetails() {
                   <label className="addressLabel" htmlFor="city">
                     City
                   </label>
-                  <input className="cityInput" name="city" type="text"></input>
+                  <input
+                    className="cityInput addPartyInput"
+                    name="city"
+                    type="text"
+                  ></input>
                 </div>
                 <div className="inputContent">
                   <label className="addressLabel" htmlFor="state">
                     State
                   </label>
                   <input
-                    className="stateInput"
+                    className="stateInput addPartyInput"
                     name="state"
                     type="text"
                   ></input>
@@ -104,7 +122,11 @@ export default function AddDetails() {
                   <label className="addressLabel" htmlFor="zip">
                     Zip Code
                   </label>
-                  <input className="zipInput" name="zip" type="text"></input>
+                  <input
+                    className="zipInput addPartyInput"
+                    name="zip"
+                    type="text"
+                  ></input>
                 </div>
               </div>
             </div>
@@ -117,7 +139,12 @@ export default function AddDetails() {
               ></textarea>
             </div>
           </div>
-          <button onClick={(e) => createParty(e)}>Submit</button>
+          <button
+            className="addPartySubmitButton"
+            onClick={(e) => createParty(e)}
+          >
+            Submit
+          </button>
         </form>
       </div>
     </>
