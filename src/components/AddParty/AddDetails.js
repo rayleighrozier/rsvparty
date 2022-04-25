@@ -7,6 +7,7 @@ import {
   SET_GUEST_PARTIES,
 } from "../../action-types";
 import { captureAddParty } from "../../actions/input";
+import "./AddParty.css";
 
 export default function AddDetails() {
   const dispatch = useDispatch();
@@ -51,35 +52,101 @@ export default function AddDetails() {
   };
 
   return (
-    <div>
-      <h1>Details</h1>
-      <form>
-        <label htmlFor="name">Event Name</label>
-        <input name="name" type="text"></input>
-
-        <label htmlFor="date">Date</label>
-        <input name="date" type="date"></input>
-
-        <label htmlFor="time">Start Time</label>
-        <input time="time" type="time"></input>
-
-        <label htmlFor="address">Address</label>
-        <input name="address" type="text"></input>
-
-        <label htmlFor="city">City</label>
-        <input name="city" type="text"></input>
-
-        <label htmlFor="state">State</label>
-        <input name="state" type="text"></input>
-
-        <label htmlFor="zip">Zip Code</label>
-        <input name="zip" type="text"></input>
-
-        <label htmlFor="details">Event Details</label>
-        <input name="details" type="text"></input>
-
-        <button onClick={(e) => createParty(e)}>Submit</button>
-      </form>
-    </div>
+    <>
+      <p className="addPartyPhrase">
+        Please enter the details for your party below!
+      </p>
+      <div className="addPartyContent">
+        <form>
+          <div className="formFirstRow">
+            <div className="inputContent">
+              <label htmlFor="name">Event name</label>
+              <input
+                className="firstRowInput addPartyInput"
+                name="name"
+                type="text"
+              ></input>
+            </div>
+            <div className="inputContent">
+              <label htmlFor="date">Date</label>
+              <input
+                className="firstRowInput addPartyInput"
+                name="date"
+                type="date"
+              ></input>
+            </div>
+            <div className="inputContent">
+              <label htmlFor="time">Start Time</label>
+              <input
+                className="firstRowInput addPartyInput"
+                time="time"
+                type="time"
+              ></input>
+            </div>
+          </div>
+          <div className="formSecondRow">
+            <div>
+              <p className="addPartyAddress">Address</p>
+              <div className="inputContent">
+                <label className="addressLabel" htmlFor="address">
+                  Address line 1
+                </label>
+                <input
+                  className="addressLabel addressLine1 addPartyInput"
+                  name="address"
+                  type="text"
+                ></input>
+              </div>
+              <div className="cityStateZip">
+                <div className="inputContent">
+                  <label className="addressLabel" htmlFor="city">
+                    City
+                  </label>
+                  <input
+                    className="cityInput addPartyInput"
+                    name="city"
+                    type="text"
+                  ></input>
+                </div>
+                <div className="inputContent">
+                  <label className="addressLabel" htmlFor="state">
+                    State
+                  </label>
+                  <input
+                    className="stateInput addPartyInput"
+                    name="state"
+                    type="text"
+                  ></input>
+                </div>
+                <div className="inputContent">
+                  <label className="addressLabel" htmlFor="zip">
+                    Zip Code
+                  </label>
+                  <input
+                    className="zipInput addPartyInput"
+                    name="zip"
+                    type="text"
+                  ></input>
+                </div>
+              </div>
+            </div>
+            <div className="inputContent">
+              <label htmlFor="details">Event Details</label>
+              <textarea
+                className="details"
+                name="details"
+                type="text"
+              ></textarea>
+            </div>
+          </div>
+          <button
+            className="addPartySubmitButton"
+            onClick={(e) => createParty(e)}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </>
   );
 }

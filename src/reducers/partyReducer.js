@@ -1,5 +1,10 @@
-import { SET_PARTY, ADD_SUPPLIES } from "../action-types/index";
-const initialState = { supplies: [] };
+import {
+  SET_PARTY,
+  SET_PARTY_COMMENTS,
+  ADD_SUPPLIES,
+} from "../action-types/index";
+const initialState = null;
+
 function party(state = initialState, action) {
   switch (action.type) {
     case SET_PARTY:
@@ -11,6 +16,8 @@ function party(state = initialState, action) {
         supplies: [...state.supplies, action.payload],
       };
 
+    case SET_PARTY_COMMENTS:
+      return { ...state, comments: action.payload };
     default:
       return state;
   }
