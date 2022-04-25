@@ -1,0 +1,51 @@
+.cityStateZip {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formFirstRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: aqua;
+}
+
+.firstRowInput {
+  width: 15rem;
+}
+
+.formSecondRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: red;
+  gap: 1.5rem;
+}
+
+.inputContent {
+  display: grid;
+}
+
+.addPartyContent {
+  background-color: beige;
+  display: grid;
+  place-items: center;
+}
+
+.addressLine1 {
+  width: 28rem;
+}
+
+.cityInput,
+.stateInput,
+.zipInput {
+  width: 8rem;
+}
+
+.addressLabel {
+  font-size: 20px;
+}
+
+.details {
+  width: 20rem;
+}

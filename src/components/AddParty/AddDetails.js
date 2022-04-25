@@ -7,6 +7,7 @@ import {
   SET_GUEST_PARTIES,
 } from "../../action-types";
 import { captureAddParty } from "../../actions/input";
+import "./AddParty.css";
 
 export default function AddDetails() {
   const dispatch = useDispatch();
@@ -51,43 +52,74 @@ export default function AddDetails() {
   };
 
   return (
-    <div>
+    <>
       <p>Please enter the details for your party below</p>
-      <form>
-        <div>
-          <label htmlFor="name">Event name</label>
-          <input name="name" type="text"></input>
-        </div>
-        <div>
-          <label htmlFor="date">Date</label>
-          <input name="date" type="date"></input>
-        </div>
-        <div>
-          <label htmlFor="time">Start Time</label>
-          <input time="time" type="time"></input>
-        </div>
-        <div>
-          <label htmlFor="address">Address</label>
-          <input name="address" type="text"></input>
-        </div>
-        <div>
-          <label htmlFor="city">City</label>
-          <input name="city" type="text"></input>
-        </div>
-        <div>
-          <label htmlFor="state">State</label>
-          <input name="state" type="text"></input>
-        </div>
-        <div>
-          <label htmlFor="zip">Zip Code</label>
-          <input name="zip" type="text"></input>
-        </div>
-        <div>
-          <label htmlFor="details">Event Details</label>
-          <textarea name="details" type="text"></textarea>
-        </div>
-        <button onClick={(e) => createParty(e)}>Submit</button>
-      </form>
-    </div>
+      <div className="addPartyContent">
+        <form>
+          <div className="formFirstRow">
+            <div className="inputContent">
+              <label htmlFor="name">Event name</label>
+              <input className="firstRowInput" name="name" type="text"></input>
+            </div>
+            <div className="inputContent">
+              <label htmlFor="date">Date</label>
+              <input className="firstRowInput" name="date" type="date"></input>
+            </div>
+            <div className="inputContent">
+              <label htmlFor="time">Start Time</label>
+              <input className="firstRowInput" time="time" type="time"></input>
+            </div>
+          </div>
+          <div className="formSecondRow">
+            <div>
+              <p>Address</p>
+              <div className="inputContent">
+                <label className="addressLabel" htmlFor="address">
+                  Address line 1
+                </label>
+                <input
+                  className="addressLabel addressLine1"
+                  name="address"
+                  type="text"
+                ></input>
+              </div>
+              <div className="cityStateZip">
+                <div className="inputContent">
+                  <label className="addressLabel" htmlFor="city">
+                    City
+                  </label>
+                  <input className="cityInput" name="city" type="text"></input>
+                </div>
+                <div className="inputContent">
+                  <label className="addressLabel" htmlFor="state">
+                    State
+                  </label>
+                  <input
+                    className="stateInput"
+                    name="state"
+                    type="text"
+                  ></input>
+                </div>
+                <div className="inputContent">
+                  <label className="addressLabel" htmlFor="zip">
+                    Zip Code
+                  </label>
+                  <input className="zipInput" name="zip" type="text"></input>
+                </div>
+              </div>
+            </div>
+            <div className="inputContent">
+              <label htmlFor="details">Event Details</label>
+              <textarea
+                className="details"
+                name="details"
+                type="text"
+              ></textarea>
+            </div>
+          </div>
+          <button onClick={(e) => createParty(e)}>Submit</button>
+        </form>
+      </div>
+    </>
   );
 }
