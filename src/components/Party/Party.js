@@ -12,6 +12,7 @@ import { checkToken } from "../../actions/token";
 import PartyDetails from "./PartyDetails";
 import { checkIfInvited } from "../../actions/guestList";
 import Guests from "./Guests";
+import Supplies from "../Supplies/Supplies";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
