@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { partyUpdateDetails } from "../../actions/supabase";
+import { partyUpdateDetails, partyFindById } from "../../actions/supabase";
 
 export default function EditInput(props) {
   const dispatch = useDispatch();
@@ -15,8 +15,9 @@ export default function EditInput(props) {
       [props.inputType]: input,
     });
   };
+
   useEffect(() => {
-    partyUpdateDetails(party.partyId, props.newInputs);
+    // partyUpdateDetails(party.partyId, props.newInputs);
   }, [props.newInputs]);
 
   return (
