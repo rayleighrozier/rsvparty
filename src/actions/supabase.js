@@ -84,6 +84,14 @@ const partyUpdateGuests = async (partyId, updatedGuests) => {
     .match({ partyId: partyId });
 };
 
+//update comments on a party
+const partyUpdateComments = async (partyId, updatedComments) => {
+  let { data: guest, error } = await supabase
+    .from("Parties")
+    .update({ comments: updatedComments })
+    .match({ partyId: partyId });
+};
+
 //add parties or update the party list of a guest
 const guestUpdateParties = async (guestId, updatedParties) => {
   let { data: guest, error } = await supabase
@@ -143,4 +151,5 @@ export {
   avatarsGetAll,
   guestUpdateAvatar,
   avatarFindById,
+  partyUpdateComments,
 };

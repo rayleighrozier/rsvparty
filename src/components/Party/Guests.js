@@ -15,6 +15,7 @@ export default function Guests(props) {
   }, [party]);
   return (
     <>
+      <p>Guest List</p>
       {guestList ? (
         <div>
           {guestList.map((guest) => {

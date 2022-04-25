@@ -1,34 +1,18 @@
-import React, { useState } from "react";
-import Picker from "emoji-picker-react";
-import "./Comments.css";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { partyAddRow } from "../../actions/supabase";
+import CommentsForm from "./CommentsForm";
+import CommentsList from "./CommentsList";
 
 export default function Comments() {
-  const [inputStr, setInputStr] = useState("");
-  const [showPicker, setShowPicker] = useState(false);
-
-  const onEmojiClick = (event, emojiObject) => {
-    setInputStr((prevInput) => prevInput + emojiObject.emoji);
-    setShowPicker(false);
-  };
+  const guest = useSelector((state) => state.guest);
+  const party = useSelector((state) => state.party);
+  const [newComment, setNewComment] = useState(null);
   return (
-    <div className="app">
-      <h3>Comments</h3>
-      <div className="pickerContainer">
-        <input
-          name="comments"
-          className="inputStyle"
-          value={inputStr}
-          onChange={(e) => setInputStr(e.target.value)}
-        />
-        <img
-          className="emojiIcon"
-          src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
-          onClick={() => setShowPicker((val) => !val)}
-        />
-        {showPicker && (
-          <Picker pickerStyle={{ width: "100%" }} onEmojiClick={onEmojiClick} />
-        )}
-      </div>
+    <div>
+      <p>Comments</p>
+      {party?.comments?.length > 0 ? <CommentsList /> : null}
+      <CommentsForm newComment={newComment} setNewComment={setNewComment} />
     </div>
   );
 }

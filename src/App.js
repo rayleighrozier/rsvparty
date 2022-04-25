@@ -12,7 +12,8 @@ import EditParty from "./components/EditParty/EditParty";
 import EditGuests from "./components/EditParty/EditGuests";
 import InviteGuests from "./components/AddParty/InviteGuests";
 import ChooseAvatar from "./components/ChooseAvatar/ChooseAvatar";
-// import Comments from "./components/Comments/Comments";
+
+
 function App() {
   return (
     <div className="App">
@@ -26,8 +27,7 @@ function App() {
             <Route path="/editguests" element={<EditGuests />} />
             <Route path="/party/:partyId" element={<Party />} />
             <Route path="/test" element={<InviteGuests />} />
-            {/* <Route path="/comments" element={<Comments />} /> */}
-            <Route path="/ChooseAvatar" element={<ChooseAvatar />} />
+            <Route path="/chooseAvatar" element={<ChooseAvatar />} />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
