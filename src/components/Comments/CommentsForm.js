@@ -34,16 +34,11 @@ export default function CommentForm(props) {
     setShowPicker(false);
   };
   useEffect(() => {
-    if (party.comments.length > 0) {
+    if (props.newComment !== null) {
       let updatedComments = [...party.comments, props.newComment];
       dispatch({
         type: SET_PARTY_COMMENTS,
         payload: updatedComments,
-      });
-    } else {
-      dispatch({
-        type: SET_PARTY_COMMENTS,
-        payload: [props.newComment],
       });
     }
   }, [props.newComment]);

@@ -7,7 +7,7 @@ import CommentsList from "./CommentsList";
 export default function Comments() {
   const guest = useSelector((state) => state.guest);
   const party = useSelector((state) => state.party);
-  const [newComment, setNewComment] = useState([]);
+  const [newComment, setNewComment] = useState(null);
   return (
     <div>
       <p>Comments</p>
