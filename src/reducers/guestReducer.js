@@ -12,6 +12,7 @@ const initialState = {
   parties: null,
   avatar: null,
   avatarData: null,
+  email: "",
 };
 
 function guest(state = initialState, action) {
@@ -26,6 +27,7 @@ function guest(state = initialState, action) {
         lastName: action.payload.lastName,
         parties: action.payload.parties,
         avatar: action.payload.avatar,
+        email: action.payload.email,
       };
     case SET_GUEST_PARTIES:
       return {
