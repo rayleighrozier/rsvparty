@@ -24,77 +24,79 @@ export default function SignUp() {
     }
   };
   return (
-    <div className="homeInputsContainer">
+    <>
       <img className="homePageLogo" src={logo} />
-      <h1 className="homeHeader">Sign up</h1>
-      <p className="homePhrase">Become a party animal!</p>
-      <form>
-        <div className="namesContainer">
+      <div className="homeInputsContainer">
+        <p className="homeHeader">Sign up</p>
+        <p className="homePhrase">Become a party animal!</p>
+        <form>
+          <div className="namesContainer">
+            <div className="inputContainer">
+              <label htmlFor="firstName" className="inputLabel">
+                First name
+              </label>
+              <input
+                className="inputField nameInput"
+                name="firstName"
+                type="text"
+                placeholder="Enter your first name"
+              />
+            </div>
+            <div className="inputContainer">
+              <label htmlFor="lastName" className="inputLabel">
+                Last name
+              </label>
+              <input
+                className="inputField nameInput"
+                name="lastName"
+                type="text"
+                placeholder="Enter your last name"
+              />
+            </div>
+          </div>
           <div className="inputContainer">
-            <label htmlFor="firstName" className="inputLabel">
-              First Name
+            <label
+              className="inputLabel"
+              htmlFor="phone"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              required
+            >
+              Phone number
             </label>
             <input
               className="inputField"
-              name="firstName"
-              type="text"
-              placeholder="First Name"
+              name="phone"
+              type="tel"
+              placeholder="e.g. 999-999-9999"
             />
           </div>
           <div className="inputContainer">
-            <label htmlFor="lastName" className="inputLabel">
-              Last Name
+            <label className="inputLabel" htmlFor="email">
+              Email address
             </label>
             <input
               className="inputField"
-              name="lastName"
-              type="text"
-              placeholder="Last Name"
+              name="email"
+              type="email"
+              placeholder="e.g. email@address.com"
             />
           </div>
-        </div>
-        <div className="inputContainer">
-          <label
-            className="inputLabel"
-            htmlFor="phone"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            required
-          >
-            Phone Number
-          </label>
-          <input
-            className="inputField"
-            name="phone"
-            type="tel"
-            placeholder="xxx-xxx-xxxx"
-          />
-        </div>
-        <div className="inputContainer">
-          <label className="inputLabel" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="inputField"
-            name="email"
-            type="email"
-            placeholder="Email"
-          />
-        </div>
-        <div className="inputContainer">
-          <label className="inputLabel" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="inputField"
-            name="password"
-            type="password"
-            placeholder="Password"
-          />
-        </div>
-        <button className="loginButton" onClick={(e) => sendSignUp(e)}>
-          Register
-        </button>
-      </form>
-    </div>
+          <div className="inputContainer">
+            <label className="inputLabel" htmlFor="password">
+              Password
+            </label>
+            <input
+              className="inputField"
+              name="password"
+              type="password"
+              placeholder="Must contain 6+ characters"
+            />
+            <button className="loginButton" onClick={(e) => sendSignUp(e)}>
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
