@@ -12,26 +12,66 @@ export default function EditParty() {
   const [newTime, setNewTime] = useState(false);
   const [newDetails, setNewDetails] = useState(false);
   const [newLocation, setNewLocation] = useState(false);
+  const [newInputs, setNewInputs] = useState({
+    name: party.name,
+    date: party.date,
+    time: party.time,
+    details: party.details,
+    location: {
+      address: party.location.address,
+      city: party.location.city,
+      state: party.location.state,
+      zip: party.location.zip,
+    },
+  });
 
   return party ? (
     <div>
       <h1>Edit Details</h1>
       <p>{party.name}</p> <button onClick={() => setNewName(true)}>Edit</button>
       {newName ? (
-        <EditInput type="text" state={newName} setState={setNewName} />
+        <EditInput
+          type="text"
+          inputType="name"
+          newInputs={newInputs}
+          setNewInputs={setNewInputs}
+          state={newName}
+          setState={setNewName}
+        />
       ) : null}
       <p>{party.date}</p> <button onClick={() => setNewDate(true)}>Edit</button>
       {newDate ? (
-        <EditInput type="date" state={newDate} setState={setNewDate} />
+        <EditInput
+          type="date"
+          inputType="date"
+          newInputs={newInputs}
+          setNewInputs={setNewInputs}
+          state={newDate}
+          setState={setNewDate}
+        />
       ) : null}
       <p>{party.time}</p> <button onClick={() => setNewTime(true)}>Edit</button>
       {newTime ? (
-        <EditInput type="time" state={newTime} setState={setNewTime} />
+        <EditInput
+          type="time"
+          inputType="time"
+          newInputs={newInputs}
+          setNewInputs={setNewInputs}
+          state={newTime}
+          setState={setNewTime}
+        />
       ) : null}
       <p>{party.details}</p>{" "}
       <button onClick={() => setNewDetails(true)}>Edit</button>
       {newDetails ? (
-        <EditInput type="text" state={newDetails} setState={setNewDetails} />
+        <EditInput
+          type="text"
+          inputType="details"
+          newInputs={newInputs}
+          setNewInputs={setNewInputs}
+          state={newDetails}
+          setState={setNewDetails}
+        />
       ) : null}
       <div>
         <p>{party.location.address}</p>
