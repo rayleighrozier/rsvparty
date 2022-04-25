@@ -15,11 +15,13 @@ export default function CommentForm(props) {
   const captureComment = (e) => {
     e.preventDefault();
     let comment = e.target.form[0].value;
+    let date = new Date();
     props.setNewComment({
       guestId: guest.guestId,
       firstName: guest.firstName,
       lastName: guest.lastName,
       comment: comment,
+      timestamp: date,
     });
   };
 
@@ -28,12 +30,22 @@ export default function CommentForm(props) {
     setShowPicker(false);
   };
   useEffect(() => {
-    dispatch({
-      type: SET_PARTY_COMMENTS,
-      payload: [...party.comments, props.newComment],
-    });
+    if (party.comments.length > 0) {
+      let updatedComments = [...party.comments, props.newComment];
+      dispatch({
+        type: SET_PARTY_COMMENTS,
+        payload: updatedComments,
+      });
+    } else {
+      dispatch({
+        type: SET_PARTY_COMMENTS,
+        payload: [props.newComment],
+      });
+    }
   }, [props.newComment]);
+
   useEffect(() => {
+    console.log("id", party.partyId, "comments", party.comments);
     partyUpdateComments(party.partyId, party.comments);
   }, [party.comments]);
 
