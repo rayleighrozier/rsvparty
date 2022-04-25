@@ -37,14 +37,14 @@ export default function Party() {
       </Countdown>
       {party ? (
         <div>
-          <p>{party.name}</p>
-          <p>{party.date}</p>
-          <p>{party.time}</p>
-          <p>{party.details}</p>
-          <p>{party.location.address}</p>
-          <p>{party.location.city}</p>
-          <p>{party.location.state}</p>
-          <p>{party.location.zip}</p>
+          <p>{party?.name}</p>
+          <p>{party?.date}</p>
+          <p>{party?.time}</p>
+          <p>{party?.details}</p>
+          <p>{party?.location?.address}</p>
+          <p>{party?.location?.city}</p>
+          <p>{party?.location?.state}</p>
+          <p>{party?.location?.zip}</p>
         </div>
       ) : null}
       <Supplies />

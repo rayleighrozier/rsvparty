@@ -103,6 +103,8 @@ const guestGetInfo = async (guestId) => {
 };
 
 const partyUpdateSupplies = async (partyId, updatedSupplies) => {
+  console.log(partyId);
+  console.log(updatedSupplies);
   let { data: party, error } = await supabase
     .from("Parties")
     .update({ supplies: updatedSupplies })
