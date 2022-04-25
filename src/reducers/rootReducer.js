@@ -5,6 +5,9 @@ import searchResults from "./searchResultsReducer";
 import partyDetails from "./partyDetailsReducer";
 import newParty from "./newPartyReducer";
 import party from "./partyReducer";
+import avatars from "./avatarsReducer";
+import editDetails from "./editDetailsReducer";
+
 export default combineReducers({
   guest,
   page,
@@ -12,4 +15,6 @@ export default combineReducers({
   partyDetails,
   newParty,
   party,
+  avatars,
+  editDetails,
 });
