@@ -1,0 +1,33 @@
+.error {
+  display: grid;
+  place-items: center;
+  background-color: #ff94c3;
+  color: #f3f3f3;
+  font-family: "Dongle", sans-serif;
+  font-size: 35px;
+}
+
+.chicken {
+  max-height: 60vh;
+}
+.message {
+  display: grid;
+  text-align: center;
+  background-color: #ff94c3;
+  color: #f3f3f3;
+  font-family: "Dongle", sans-serif;
+  font-size: 35px;
+}
+.linkBackToParty {
+  display: grid;
+  text-align: center;
+  color: white;
+  background-color: #ff94c3;
+  color: #f3f3f3;
+  font-family: "Dongle", sans-serif;
+  font-size: 35px;
+  min-height: 40vh;
+}
+#acutalLink {
+  color: white;
+}
