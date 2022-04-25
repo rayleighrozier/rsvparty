@@ -10,13 +10,17 @@
 
 .questionContainer {
   display: flex;
+  text-align: center;
 }
 
 .homeHeader {
   margin: 0px;
+  padding: 0px;
+  font-size: 80px;
 }
 
 .homePhrase {
+  padding: 0px;
   margin: 0px;
   color: #aaaaaa;
   font-size: 30px;
@@ -32,26 +36,33 @@
 }
 
 .inputLabel {
+  font-size: 20px;
+  font-weight: 400;
   margin: 0px;
-  padding: 0px;
 }
 
 .inputField {
   background-color: var(--lightGrey);
   border: none;
   font-family: "Dongle", sans-serif;
-  padding: 0.3rem;
-  font-size: 20px;
+  padding: 0.2rem;
+  font-size: 25px;
   border-radius: 10px;
   padding-left: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .inputContainer {
   display: grid;
 }
 
+.nameInput {
+  width: 13.7rem;
+}
+
 .namesContainer {
   display: flex;
+  justify-content: space-between;
 }
 
 .loginButton {
@@ -66,5 +77,6 @@
 }
 
 .homeInputsContainer {
-  width: 15em;
+  width: 30rem;
+  margin-left: 6rem;
 }
