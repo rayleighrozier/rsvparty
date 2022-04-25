@@ -47,9 +47,6 @@ const formatComments = (data) => {
   for (const comment of data) {
     if (comment !== "[]") {
       let commentJSON = JSON.parse(comment);
-      if (commentJSON.timestamp) {
-        commentJSON.timestamp = formatCommentDate(commentJSON.timestamp);
-      }
       commentsJSON.push(commentJSON);
     }
   }
@@ -57,11 +54,8 @@ const formatComments = (data) => {
 };
 
 const formatCommentDate = (data) => {
-  //   2022-04-25T19:33:30.402Z
-
-  let date = data.slice(0, 10);
-  let time = data.slice(11, 19);
-  date = formatDate2(date);
+  let date = data.slice(4, 15);
+  let time = data.slice(16, 24);
   time = formatTime(time);
   let formatted = date + " " + time;
   return formatted;

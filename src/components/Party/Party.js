@@ -5,7 +5,12 @@ import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { SET_PARTY } from "../../action-types";
 import { guestGetInfo, partyFindById } from "../../actions/supabase";
-import { formatDate, formatTime, formatComments } from "../../actions/format";
+import {
+  formatDate,
+  formatTime,
+  formatComments,
+  formatCommentDate,
+} from "../../actions/format";
 import EditDetailsButton from "./EditDetailsButton";
 import RSVPButtons from "./RSVPButtons";
 import { checkToken } from "../../actions/token";
@@ -51,10 +56,8 @@ export default function Party() {
       if (!host) {
         let status = checkIfInvited(guest, party.guests);
         setInvited(status);
-        console.log("invited", invited);
       } else {
         setInvited(true);
-        console.log("host! ", invited);
       }
     }
   };

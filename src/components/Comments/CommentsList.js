@@ -5,12 +5,6 @@ import { formatCommentDate } from "../../actions/format";
 export default function CommentsList() {
   const comments = useSelector((state) => state.party.comments);
 
-  useEffect(() => {
-    formatCommentDate("2022-04-25T19:33:30.402Z");
-  }, []);
-
-  //   change comments to json to get them to display
-
   return (
     <div>
       {comments

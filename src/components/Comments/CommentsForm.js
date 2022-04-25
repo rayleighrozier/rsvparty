@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { SET_PARTY_COMMENTS } from "../../action-types";
 import { partyUpdateComments } from "../../actions/supabase";
 import "./Comments.css";
+import { formatCommentDate } from "../../actions/format";
 
 export default function CommentForm(props) {
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ export default function CommentForm(props) {
     e.preventDefault();
     let comment = e.target.form[0].value;
     let date = new Date();
+    date = date.toString();
+    date = formatCommentDate(date);
     props.setNewComment({
       guestId: guest.guestId,
       firstName: guest.firstName,
@@ -23,6 +26,7 @@ export default function CommentForm(props) {
       comment: comment,
       timestamp: date,
     });
+    e.target.form[0].value = "";
   };
 
   const onEmojiClick = (event, emojiObject) => {

@@ -86,6 +86,7 @@ const partyUpdateGuests = async (partyId, updatedGuests) => {
 
 //update comments on a party
 const partyUpdateComments = async (partyId, updatedComments) => {
+  console.log("updating comments", partyId, updatedComments);
   let { data: guest, error } = await supabase
     .from("Parties")
     .update({ comments: updatedComments })
