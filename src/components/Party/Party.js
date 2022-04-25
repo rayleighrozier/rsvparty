@@ -12,6 +12,7 @@ import { checkToken } from "../../actions/token";
 import PartyDetails from "./PartyDetails";
 import { checkIfInvited } from "../../actions/guestList";
 import Guests from "./Guests";
+import Comments from "../Comments/Comments";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
@@ -105,6 +106,7 @@ export default function Party() {
               <RSVPButtons attending={attending} setAttending={setAttending} />
             )}
             {party ? <Guests host={host} /> : null}
+            {party ? <Comments /> : null}
           </>
         ) : (
           <div>

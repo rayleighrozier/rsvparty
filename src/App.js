@@ -10,7 +10,7 @@ import WithNav from "./components/Navbar/WithNav";
 import Playlist from "./components/Playlist/Playlist";
 import EditParty from "./components/EditParty/EditParty";
 import EditGuests from "./components/EditParty/EditGuests";
-// import Comments from "./components/Comments/Comments";
+import CommentForm from "./components/Comments/CommentForm";
 function App() {
   return (
     <div className="App">
@@ -23,7 +23,7 @@ function App() {
             <Route path="/editparty" element={<EditParty />} />
             <Route path="/editguests" element={<EditGuests />} />
             <Route path="/party/:partyId" element={<Party />} />
-            {/* <Route path="/comments" element={<Comments />} /> */}
+            <Route path="/comments" element={<CommentForm />} />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
