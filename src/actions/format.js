@@ -42,4 +42,29 @@ const formatTime = (data) => {
   return data.join("");
 };
 
-export { formatDate, formatDate2, formatTime };
+const formatComments = (data) => {
+  let commentsJSON = [];
+  for (const comment of data) {
+    if (comment !== "[]") {
+      let commentJSON = JSON.parse(comment);
+      commentsJSON.push(commentJSON);
+    }
+  }
+  return commentsJSON;
+};
+
+const formatCommentDate = (data) => {
+  let date = data.slice(4, 15);
+  let time = data.slice(16, 24);
+  time = formatTime(time);
+  let formatted = date + " " + time;
+  return formatted;
+};
+
+export {
+  formatDate,
+  formatDate2,
+  formatTime,
+  formatComments,
+  formatCommentDate,
+};

@@ -5,13 +5,19 @@ import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { SET_PARTY } from "../../action-types";
 import { guestGetInfo, partyFindById } from "../../actions/supabase";
-import { formatDate, formatTime } from "../../actions/format";
+import {
+  formatDate,
+  formatTime,
+  formatComments,
+  formatCommentDate,
+} from "../../actions/format";
 import EditDetailsButton from "./EditDetailsButton";
 import RSVPButtons from "./RSVPButtons";
 import { checkToken } from "../../actions/token";
 import PartyDetails from "./PartyDetails";
 import { checkIfInvited } from "../../actions/guestList";
 import Guests from "./Guests";
+import Comments from "../Comments/Comments";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
@@ -33,6 +39,7 @@ export default function Party() {
     let data = await partyFindById(partyId);
     data.date = formatDate(data.date);
     data.time = formatTime(data.time);
+    data.comments = formatComments(data.comments);
     dispatch({ type: SET_PARTY, payload: data });
   };
   const checkHost = () => {
@@ -49,10 +56,8 @@ export default function Party() {
       if (!host) {
         let status = checkIfInvited(guest, party.guests);
         setInvited(status);
-        console.log("invited", invited);
       } else {
         setInvited(true);
-        console.log("host! ", invited);
       }
     }
   };
@@ -105,6 +110,7 @@ export default function Party() {
               <RSVPButtons attending={attending} setAttending={setAttending} />
             )}
             {party ? <Guests host={host} /> : null}
+            {party ? <Comments /> : null}
           </>
         ) : (
           <div>

@@ -11,7 +11,7 @@ import Playlist from "./components/Playlist/Playlist";
 import EditParty from "./components/EditParty/EditParty";
 import EditGuests from "./components/EditParty/EditGuests";
 import InviteGuests from "./components/AddParty/InviteGuests";
-// import Comments from "./components/Comments/Comments";
+
 function App() {
   return (
     <div className="App">
@@ -25,7 +25,6 @@ function App() {
             <Route path="/editguests" element={<EditGuests />} />
             <Route path="/party/:partyId" element={<Party />} />
             <Route path="/test" element={<InviteGuests />} />
-            {/* <Route path="/comments" element={<Comments />} /> */}
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
