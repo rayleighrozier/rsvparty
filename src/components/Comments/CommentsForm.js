@@ -45,7 +45,6 @@ export default function CommentForm(props) {
   }, [props.newComment]);
 
   useEffect(() => {
-    console.log("id", party.partyId, "comments", party.comments);
     partyUpdateComments(party.partyId, party.comments);
   }, [party.comments]);
 

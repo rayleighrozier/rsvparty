@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { SET_PARTY } from "../../action-types";
 import { guestGetInfo, partyFindById } from "../../actions/supabase";
-import { formatDate, formatTime } from "../../actions/format";
+import { formatDate, formatTime, formatComments } from "../../actions/format";
 import EditDetailsButton from "./EditDetailsButton";
 import RSVPButtons from "./RSVPButtons";
 import { checkToken } from "../../actions/token";
@@ -34,6 +34,7 @@ export default function Party() {
     let data = await partyFindById(partyId);
     data.date = formatDate(data.date);
     data.time = formatTime(data.time);
+    data.comments = formatComments(data.comments);
     dispatch({ type: SET_PARTY, payload: data });
   };
   const checkHost = () => {
