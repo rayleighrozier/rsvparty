@@ -15,6 +15,7 @@ export default function InviteGuests() {
 
   const saveParty = async () => {
     await partyUpdateGuests(newParty.details.partyId, newParty.guestList);
+    await guestUpdateParties(guest.guestId, guest.parties);
     dispatch({ type: SET_PAGE, payload: "party" });
     navigate(`/party/${newParty.details.partyId}`);
     dispatch({ type: RESET_NEWPARTY });
@@ -43,8 +44,9 @@ export default function InviteGuests() {
   }, []);
 
   return (
-    <div>
-      <p>Party Created!</p>
+    <div className="addPartyContent">
+      <p className="addPartyTitle">PARTY CREATED</p>
+      <p className="addPartyPhrase">Invite your guests below!</p>
       {newParty.details ? (
         <div>
           <p>{newParty.details.name}</p>
