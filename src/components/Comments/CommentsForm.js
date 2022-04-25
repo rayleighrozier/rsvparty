@@ -45,12 +45,13 @@ export default function CommentForm(props) {
   }, [props.newComment]);
 
   useEffect(() => {
-    partyUpdateComments(party.partyId, party.comments);
+    if (props.newComment !== "[]") {
+      partyUpdateComments(party.partyId, party.comments);
+    }
   }, [party.comments]);
 
   return (
     <form>
-      <p>Comments</p>
       <div className="pickerContainer">
         <input
           name="comments"

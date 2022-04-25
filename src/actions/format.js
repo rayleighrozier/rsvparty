@@ -47,10 +47,30 @@ const formatComments = (data) => {
   for (const comment of data) {
     if (comment !== "[]") {
       let commentJSON = JSON.parse(comment);
+      if (commentJSON.timestamp) {
+        commentJSON.timestamp = formatCommentDate(commentJSON.timestamp);
+      }
       commentsJSON.push(commentJSON);
     }
   }
   return commentsJSON;
 };
 
-export { formatDate, formatDate2, formatTime, formatComments };
+const formatCommentDate = (data) => {
+  //   2022-04-25T19:33:30.402Z
+
+  let date = data.slice(0, 10);
+  let time = data.slice(11, 19);
+  date = formatDate2(date);
+  time = formatTime(time);
+  let formatted = date + " " + time;
+  return formatted;
+};
+
+export {
+  formatDate,
+  formatDate2,
+  formatTime,
+  formatComments,
+  formatCommentDate,
+};

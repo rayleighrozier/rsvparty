@@ -10,8 +10,9 @@ export default function Comments() {
   const [newComment, setNewComment] = useState([]);
   return (
     <div>
+      <p>Comments</p>
+      {party?.comments?.length > 0 ? <CommentsList /> : null}
       <CommentsForm newComment={newComment} setNewComment={setNewComment} />
-      {party.comments ? <CommentsList /> : null}
     </div>
   );
 }
