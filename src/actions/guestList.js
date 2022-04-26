@@ -13,13 +13,8 @@ const guestsToJSON = (guestList) => {
 };
 
 const checkIfInvited = (guest, guestList) => {
-  let guestsJSON = [];
   if (Array.isArray(guestList)) {
-    for (const person of guestList) {
-      let guestdata = JSON.parse(person);
-      guestsJSON.push(guestdata);
-    }
-    let filtered = guestsJSON.filter((data) => data.email === guest.email);
+    let filtered = guestList.filter((data) => data.email === guest.email);
     if (filtered.length > 0) {
       return true;
     }

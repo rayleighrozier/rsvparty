@@ -3,15 +3,10 @@ import Countdown from "react-countdown";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { SET_PARTY, SET_PARTYUNFORMATTED } from "../../action-types";
+import { SET_PAGE, SET_PARTY, SET_PARTYUNFORMATTED } from "../../action-types";
 import { guestGetInfo, partyFindById } from "../../actions/supabase";
-import {
-  formatDate,
-  formatTime,
-  formatComments,
-  formatCommentDate,
-} from "../../actions/format";
-import EditDetailsButton from "./EditDetailsButton";
+import { formatDate, formatTime, formatComments } from "../../actions/format";
+import { guestsToJSON } from "../../actions/guestList";
 import RSVPButtons from "./RSVPButtons";
 import { checkToken } from "../../actions/token";
 import PartyDetails from "./PartyDetails";
@@ -40,6 +35,7 @@ export default function Party() {
     data.date = formatDate(data.date);
     data.time = formatTime(data.time);
     data.comments = formatComments(data.comments);
+    data.guests = guestsToJSON(data.guests);
     dispatch({ type: SET_PARTY, payload: data });
   };
   const setPartyUnformatted = async () => {
@@ -72,13 +68,9 @@ export default function Party() {
         setAttending("yes");
       } else {
         if (party) {
-          let guestsJSON = [];
           if (party.guests) {
-            for (const person of party.guests) {
-              let guestdata = JSON.parse(person);
-              guestsJSON.push(guestdata);
-            }
-            let filtered = guestsJSON.filter(
+            let guestList = party.guests;
+            let filtered = guestList.filter(
               (data) => data.email === guest.email
             );
             if (filtered.length > 0) {
@@ -96,6 +88,7 @@ export default function Party() {
   useEffect(() => {
     setParty();
     setPartyUnformatted();
+    dispatch({ type: SET_PAGE, payload: "party" });
   }, []);
   useEffect(() => {
     checkHost();

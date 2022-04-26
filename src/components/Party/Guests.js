@@ -11,7 +11,7 @@ export default function Guests(props) {
     navigate("/editguests");
   };
   useEffect(() => {
-    setGuestList(guestsToJSON(party.guests));
+    setGuestList(party.guests);
   }, [party]);
   return (
     <>

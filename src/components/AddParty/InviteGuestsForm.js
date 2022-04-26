@@ -1,8 +1,12 @@
-import { useDispatch } from "react-redux";
-import { UPDATE_NEWPARTY_GUESTLIST } from "../../action-types/index";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  UPDATE_NEWPARTY_GUESTLIST,
+  SET_PARTY_GUESTS,
+} from "../../action-types/index";
 
 function InviteGuestsForm() {
   const dispatch = useDispatch();
+  const page = useSelector((state) => state.page);
   const captureGuest = (e) => {
     e.preventDefault();
     dispatch({
@@ -14,6 +18,8 @@ function InviteGuestsForm() {
         attending: "undecided",
       },
     });
+
+    // now send them to state value and update supabase
     e.target.form[0].value = "";
     e.target.form[1].value = "";
     e.target.form[2].value = "";
