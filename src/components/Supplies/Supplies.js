@@ -7,7 +7,7 @@ import { SET_ALL_SUPPLIES } from "../../action-types/index";
 
 export default function Supplies(props) {
   const dispatch = useDispatch();
-  const [loaded, setLoaded] = useState(false);
+  const [newSupplies, setNewSupplies] = useState(false);
   const party = useSelector((state) => state.party);
   const guest = useSelector((state) => state.guest);
   const claimItem = (e) => {
@@ -24,6 +24,7 @@ export default function Supplies(props) {
     updateItem[0].claimed = true;
     updatedSupplies.push(updateItem[0]);
     dispatch({ type: SET_ALL_SUPPLIES, payload: updatedSupplies });
+    setNewSupplies(true);
   };
 
   const deleteItem = (e) => {
@@ -31,15 +32,16 @@ export default function Supplies(props) {
     let updatedSupplies = party.supplies;
     updatedSupplies = updatedSupplies.filter((data) => data.item !== itemName);
     dispatch({ type: SET_ALL_SUPPLIES, payload: updatedSupplies });
+    setNewSupplies(true);
   };
 
   useEffect(() => {
-    if (loaded) {
+    if (newSupplies) {
+      console.log("newSupplies", newSupplies);
       partyUpdateSupplies(party.partyId, party.supplies);
-    } else {
-      setLoaded(true);
+      setNewSupplies(false);
     }
-  }, [party.supplies]);
+  }, [newSupplies]);
 
   return (
     <div>
@@ -49,7 +51,12 @@ export default function Supplies(props) {
       ) : (
         <p>Volunteer to bring something</p>
       )}
-      {props.host ? <SuppliesForm /> : null}
+      {props.host ? (
+        <SuppliesForm
+          newSupplies={newSupplies}
+          setNewSupplies={setNewSupplies}
+        />
+      ) : null}
       {party.supplies
         ? party.supplies.map((item) => {
             return (
