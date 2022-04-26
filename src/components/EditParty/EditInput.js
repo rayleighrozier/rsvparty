@@ -9,16 +9,13 @@ export default function EditInput(props) {
   const captureInput = (e) => {
     e.preventDefault();
     let input = e.target.form[0].value;
-    console.log(input);
     props.setNewInputs({
       ...props.newInputs,
       [props.inputType]: input,
     });
+    e.target.form[0].value = "";
+    props.setState(false);
   };
-
-  useEffect(() => {
-    partyUpdateDetails(party.partyId, props.newInputs);
-  }, [props.newInputs]);
 
   return (
     <form>

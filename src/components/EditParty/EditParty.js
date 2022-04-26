@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Error from "../Error/Error";
 import EditInput from "./EditInput";
 import EditLocation from "./EditLocation";
+import { formatDate, formatTime } from "../../actions/format";
+import { partyUpdateDetails } from "../../actions/supabase";
 
 export default function EditParty() {
+  const navigate = useNavigate();
   const party = useSelector((state) => state.party);
   const partyUnformatted = useSelector((state) => state.partyUnformatted);
   const editDetails = useSelector((state) => state.editDetails);
@@ -25,11 +29,17 @@ export default function EditParty() {
       zip: partyUnformatted.location.zip,
     },
   });
+  const updateParty = () => {
+    console.log("newinputs", newInputs);
+    partyUpdateDetails(party.partyId, newInputs);
+    navigate(`/party/${party.partyId}`);
+  };
 
   return party ? (
     <div>
       <h1>Edit Details</h1>
-      <p>{party.name}</p> <button onClick={() => setNewName(true)}>Edit</button>
+      <p>{newInputs.name}</p>{" "}
+      <button onClick={() => setNewName(true)}>Edit</button>
       {newName ? (
         <EditInput
           type="text"
@@ -40,7 +50,8 @@ export default function EditParty() {
           setState={setNewName}
         />
       ) : null}
-      <p>{party.date}</p> <button onClick={() => setNewDate(true)}>Edit</button>
+      <p>{formatDate(newInputs.date)}</p>{" "}
+      <button onClick={() => setNewDate(true)}>Edit</button>
       {newDate ? (
         <EditInput
           type="date"
@@ -51,7 +62,8 @@ export default function EditParty() {
           setState={setNewDate}
         />
       ) : null}
-      <p>{party.time}</p> <button onClick={() => setNewTime(true)}>Edit</button>
+      <p>{formatTime(newInputs.time)}</p>{" "}
+      <button onClick={() => setNewTime(true)}>Edit</button>
       {newTime ? (
         <EditInput
           type="time"
@@ -62,7 +74,7 @@ export default function EditParty() {
           setState={setNewTime}
         />
       ) : null}
-      <p>{party.details}</p>{" "}
+      <p>{newInputs.details}</p>{" "}
       <button onClick={() => setNewDetails(true)}>Edit</button>
       {newDetails ? (
         <EditInput
@@ -75,15 +87,21 @@ export default function EditParty() {
         />
       ) : null}
       <div>
-        <p>{party.location.address}</p>
-        <p>{party.location.city}</p>
-        <p>{party.location.state}</p>
-        <p>{party.location.zip}</p>
+        <p>{newInputs.location.address}</p>
+        <p>{newInputs.location.city}</p>
+        <p>{newInputs.location.state}</p>
+        <p>{newInputs.location.zip}</p>
       </div>
       <button onClick={() => setNewLocation(true)}>Edit</button>
       {newLocation ? (
-        <EditLocation state={newLocation} setState={setNewLocation} />
+        <EditLocation
+          newInputs={newInputs}
+          setNewInputs={setNewInputs}
+          state={newLocation}
+          setState={setNewLocation}
+        />
       ) : null}
+      <button onClick={updateParty}>Looks Good!</button>
     </div>
   ) : (
     <Error />

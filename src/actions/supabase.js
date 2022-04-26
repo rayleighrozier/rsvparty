@@ -85,6 +85,7 @@ const partyUpdateGuests = async (partyId, updatedGuests) => {
 };
 
 const partyUpdateDetails = async (partyId, updatedDetails) => {
+  console.log("party updating details with", updatedDetails);
   let { data: guest, error } = await supabase
     .from("Parties")
     .update({
@@ -92,6 +93,7 @@ const partyUpdateDetails = async (partyId, updatedDetails) => {
       date: updatedDetails.date,
       time: updatedDetails.time,
       details: updatedDetails.details,
+      location: updatedDetails.location,
     })
     .match({ partyId: partyId });
 };
