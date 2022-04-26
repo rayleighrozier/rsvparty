@@ -2,6 +2,13 @@ import React from "react";
 import { captureSearchParty } from "../../actions/input";
 import { guestGetInfo, partyFindById } from "../../actions/supabase";
 import { useDispatch } from "react-redux";
+import {
+  formatDate,
+  formatTime,
+  formatComments,
+  formatSupplies,
+} from "../../actions/format";
+import { guestsToJSON } from "../../actions/guestList";
 import { SET_SEARCHRESULTS } from "../../action-types";
 
 export default function SearchParty() {
@@ -10,9 +17,15 @@ export default function SearchParty() {
     let input = captureSearchParty(e);
     let party = await partyFindById(input);
 
+    party.date = formatDate(party.date);
+    party.time = formatTime(party.time);
+    party.comments = formatComments(party.comments);
+    party.guests = guestsToJSON(party.guests);
+    party.supplies = formatSupplies(party.supplies);
     if (party) {
       let host = await guestGetInfo(party.hostId);
       party.host = host;
+
       dispatch({ type: SET_SEARCHRESULTS, payload: party });
       e.target.form[0].value = "";
     } else {
