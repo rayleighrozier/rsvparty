@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { guestsToJSON } from "../../actions/guestList";
 
 export default function Guests(props) {
   const navigate = useNavigate();

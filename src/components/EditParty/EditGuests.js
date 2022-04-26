@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { guestsToJSON } from "../../actions/guestList";
 import { useSelector, useDispatch } from "react-redux";
 import InviteGuestsForm from "../AddParty/InviteGuestsForm";
 import {

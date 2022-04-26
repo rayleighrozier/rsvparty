@@ -18,8 +18,6 @@ function InviteGuestsForm() {
         attending: "undecided",
       },
     });
-
-    // now send them to state value and update supabase
     e.target.form[0].value = "";
     e.target.form[1].value = "";
     e.target.form[2].value = "";
