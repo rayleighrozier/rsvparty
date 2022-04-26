@@ -1,0 +1,35 @@
+.inviteGuestContainer {
+  display: flex;
+  background-color: #fff8e5;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.submitGuestButton {
+  background-color: var(--yellow);
+  color: white;
+  border: none;
+  font-family: "Dongle", sans-serif;
+  font-size: 30px;
+  padding: 0.4rem;
+  border-radius: 1rem;
+}
+
+.inviteGuestsSecondRow {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.inviteButtons {
+  display: flex;
+}
+
+.inviteParty {
+  background-color: #e7faff;
+}
+
+.guestList {
+  background-color: #ffc7df;
+}
