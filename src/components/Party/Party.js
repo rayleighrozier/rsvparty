@@ -3,7 +3,7 @@ import Countdown from "react-countdown";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { SET_PARTY } from "../../action-types";
+import { SET_PARTY, SET_PARTYUNFORMATTED } from "../../action-types";
 import { guestGetInfo, partyFindById } from "../../actions/supabase";
 import {
   formatDate,
@@ -42,6 +42,11 @@ export default function Party() {
     data.comments = formatComments(data.comments);
     dispatch({ type: SET_PARTY, payload: data });
   };
+  const setPartyUnformatted = async () => {
+    let data = await partyFindById(partyId);
+    dispatch({ type: SET_PARTYUNFORMATTED, payload: data });
+  };
+
   const checkHost = () => {
     if (party) {
       if (guest.guestId === party.hostId) {
@@ -90,6 +95,7 @@ export default function Party() {
 
   useEffect(() => {
     setParty();
+    setPartyUnformatted();
   }, []);
   useEffect(() => {
     checkHost();

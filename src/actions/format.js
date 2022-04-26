@@ -23,6 +23,7 @@ const formatDate = (data) => {
   const [year, month, day] = data.split("-");
   return [monthName, day].join(" ");
 };
+
 //makes the date MM/DD/YYYY (ex. 01/01/2022)
 const formatDate2 = (data) => {
   const [year, month, day] = data.split("-");
