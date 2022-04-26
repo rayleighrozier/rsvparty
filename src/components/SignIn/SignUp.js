@@ -7,6 +7,8 @@ import "./SignIn.css";
 import logo from "../../assets/logo.png";
 
 export default function SignUp() {
+  const regex =
+    "/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/";
   const dispatch = useDispatch();
   const sendSignUp = async (e) => {
     const input = captureSignUp(e);
@@ -16,8 +18,12 @@ export default function SignUp() {
       input.email,
       input.password
     );
-    if (userEntry.message) {
-      window.alert(`${userEntry.message}`);
+    if (input.firstName.length < 1) {
+      window.alert("Please provide your first name");
+    } else if (input.lastName.length < 2) {
+      window.alert("Please provide your last name");
+    } else if (input.email !== regex) {
+      window.alert("Please provide a valid email address");
     } else {
       window.alert("Account created! Check your email to confirm and sign in.");
       dispatch({ type: SET_PAGE, payload: "signIn" });

@@ -1,9 +1,13 @@
-import { useDispatch } from "react-redux";
-import { UPDATE_NEWPARTY_GUESTLIST } from "../../action-types/index";
 import "./InviteGuests.css";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  UPDATE_NEWPARTY_GUESTLIST,
+  SET_PARTY_GUESTS,
+} from "../../action-types/index";
 
 function InviteGuestsForm() {
   const dispatch = useDispatch();
+  const page = useSelector((state) => state.page);
   const captureGuest = (e) => {
     e.preventDefault();
     dispatch({

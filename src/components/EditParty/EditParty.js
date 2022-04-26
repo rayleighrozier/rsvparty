@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Error from "../Error/Error";
 import EditInput from "./EditInput";
 import EditLocation from "./EditLocation";
 import { formatDate, formatTime } from "../../actions/format";
 import { partyUpdateDetails } from "../../actions/supabase";
+import { SET_PAGE } from "../../action-types";
 
 export default function EditParty() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const party = useSelector((state) => state.party);
   const partyUnformatted = useSelector((state) => state.partyUnformatted);
   const [newName, setNewName] = useState(false);
@@ -32,6 +34,10 @@ export default function EditParty() {
     partyUpdateDetails(party.partyId, newInputs);
     navigate(`/party/${party.partyId}`);
   };
+
+  useEffect(() => {
+    dispatch({ type: SET_PAGE, payload: "editParty" });
+  }, []);
 
   return party ? (
     <div>
