@@ -2,6 +2,7 @@ import {
   SET_PARTY,
   SET_PARTY_COMMENTS,
   ADD_SUPPLIES,
+  SET_PARTY_GUESTS,
 } from "../action-types/index";
 const initialState = null;
 
@@ -18,6 +19,8 @@ function party(state = initialState, action) {
 
     case SET_PARTY_COMMENTS:
       return { ...state, comments: action.payload };
+    case SET_PARTY_GUESTS:
+      return { ...state, guests: [...state.guests, action.payload] };
     default:
       return state;
   }

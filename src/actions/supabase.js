@@ -84,6 +84,20 @@ const partyUpdateGuests = async (partyId, updatedGuests) => {
     .match({ partyId: partyId });
 };
 
+const partyUpdateDetails = async (partyId, updatedDetails) => {
+  console.log("party updating details with", updatedDetails);
+  let { data: guest, error } = await supabase
+    .from("Parties")
+    .update({
+      name: updatedDetails.name,
+      date: updatedDetails.date,
+      time: updatedDetails.time,
+      details: updatedDetails.details,
+      location: updatedDetails.location,
+    })
+    .match({ partyId: partyId });
+};
+
 //update comments on a party
 const partyUpdateComments = async (partyId, updatedComments) => {
   let { data: guest, error } = await supabase
@@ -161,4 +175,5 @@ export {
   avatarFindById,
   partyUpdateSupplies,
   partyUpdateComments,
+  partyUpdateDetails,
 };
