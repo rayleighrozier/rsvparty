@@ -14,3 +14,7 @@
   font-family: "Dongle", sans-serif;
   font-size: 35px;
 }
+body {
+  margin: 0;
+  padding: 0;
+}

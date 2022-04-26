@@ -13,3 +13,20 @@
 .homePageInputs {
   margin-left: 3rem;
 }
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  .homePage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .homePageInputs {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+/* TABLET */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+}

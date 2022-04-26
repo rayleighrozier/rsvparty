@@ -42,8 +42,11 @@ export default function SignIn() {
     <>
       <img className="homePageLogo" src={logo} />
       <div className="homeInputsContainer">
-        <p className="homeHeader">Sign in</p>
-        <p className="homePhrase">Welcome back, party animal!</p>
+        <div className="headerDiv">
+          <p className="homeHeader">Sign in</p>
+          <p className="homePhrase">Welcome back, party animal!</p>
+        </div>
+
         <form>
           <div className="inputContainer">
             <label htmlFor="email" className="inputLabel">
