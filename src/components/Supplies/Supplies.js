@@ -37,7 +37,6 @@ export default function Supplies(props) {
 
   useEffect(() => {
     if (newSupplies) {
-      console.log("newSupplies", newSupplies);
       partyUpdateSupplies(party.partyId, party.supplies);
       setNewSupplies(false);
     }

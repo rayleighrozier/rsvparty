@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { ADD_SUPPLIES } from "../../action-types";
-import { partyUpdateSupplies } from "../../actions/supabase";
 
 export default function SuppliesForm(props) {
   const dispatch = useDispatch();
-  const party = useSelector((state) => state.party);
 
   const captureAddSupplies = async (e) => {
     e.preventDefault();
@@ -16,10 +14,6 @@ export default function SuppliesForm(props) {
     e.target.form[0].value = "";
     props.setNewSupplies(true);
   };
-
-  // useEffect(() => {
-  //   partyUpdateSupplies(party.partyId, party.supplies);
-  // }, [party.supplies]);
 
   return (
     <div>
