@@ -9,6 +9,7 @@ import {
   SET_PARTY,
   SET_AVATARS,
   SET_ATTENDING,
+  SET_PARTYUNFORMATTED,
 } from "../../action-types/index";
 import { userSignOut } from "../../actions/supabase";
 
@@ -24,6 +25,7 @@ export default function SignOutButton() {
     dispatch({ type: SET_AVATARS, payload: null });
     dispatch({ type: RESET_NEWPARTY });
     dispatch({ type: SET_ATTENDING, payload: null });
+    dispatch({ type: SET_PARTYUNFORMATTED, payload: null });
     navigate("/");
   };
   return (

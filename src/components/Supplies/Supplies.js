@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SuppliesForm from "./SuppliesForm";
 import { useSelector } from "react-redux";
 import { partyUpdateSupplies } from "../../actions/supabase";
@@ -7,6 +7,7 @@ import { SET_ALL_SUPPLIES } from "../../action-types/index";
 
 export default function Supplies(props) {
   const dispatch = useDispatch();
+  const [loaded, setLoaded] = useState(false);
   const party = useSelector((state) => state.party);
   const guest = useSelector((state) => state.guest);
   const claimItem = (e) => {
@@ -33,7 +34,11 @@ export default function Supplies(props) {
   };
 
   useEffect(() => {
-    partyUpdateSupplies(party.partyId, party.supplies);
+    if (loaded) {
+      partyUpdateSupplies(party.partyId, party.supplies);
+    } else {
+      setLoaded(true);
+    }
   }, [party.supplies]);
 
   return (
