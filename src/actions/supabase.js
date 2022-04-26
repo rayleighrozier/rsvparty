@@ -160,6 +160,7 @@ const avatarFindById = async (avatarId) => {
 };
 //updates supplies
 const partyUpdateSupplies = async (partyId, updatedSupplies) => {
+  console.log("partyUpdateSupplies running", updatedSupplies);
   let { data: party, error } = await supabase
     .from("Parties")
     .update({ supplies: updatedSupplies })

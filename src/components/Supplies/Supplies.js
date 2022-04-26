@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SuppliesForm from "./SuppliesForm";
 import { useSelector } from "react-redux";
 import { partyUpdateSupplies } from "../../actions/supabase";
@@ -7,6 +7,7 @@ import { SET_ALL_SUPPLIES } from "../../action-types/index";
 
 export default function Supplies(props) {
   const dispatch = useDispatch();
+  const [newSupplies, setNewSupplies] = useState(false);
   const party = useSelector((state) => state.party);
   const guest = useSelector((state) => state.guest);
   const claimItem = (e) => {
@@ -23,6 +24,7 @@ export default function Supplies(props) {
     updateItem[0].claimed = true;
     updatedSupplies.push(updateItem[0]);
     dispatch({ type: SET_ALL_SUPPLIES, payload: updatedSupplies });
+    setNewSupplies(true);
   };
 
   const deleteItem = (e) => {
@@ -30,11 +32,15 @@ export default function Supplies(props) {
     let updatedSupplies = party.supplies;
     updatedSupplies = updatedSupplies.filter((data) => data.item !== itemName);
     dispatch({ type: SET_ALL_SUPPLIES, payload: updatedSupplies });
+    setNewSupplies(true);
   };
 
   useEffect(() => {
-    partyUpdateSupplies(party.partyId, party.supplies);
-  }, [party.supplies]);
+    if (newSupplies) {
+      partyUpdateSupplies(party.partyId, party.supplies);
+      setNewSupplies(false);
+    }
+  }, [newSupplies]);
 
   return (
     <div>
@@ -44,7 +50,12 @@ export default function Supplies(props) {
       ) : (
         <p>Volunteer to bring something</p>
       )}
-      {props.host ? <SuppliesForm /> : null}
+      {props.host ? (
+        <SuppliesForm
+          newSupplies={newSupplies}
+          setNewSupplies={setNewSupplies}
+        />
+      ) : null}
       {party.supplies
         ? party.supplies.map((item) => {
             return (
