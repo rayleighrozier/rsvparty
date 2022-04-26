@@ -11,7 +11,6 @@ export default function EditParty() {
   const navigate = useNavigate();
   const party = useSelector((state) => state.party);
   const partyUnformatted = useSelector((state) => state.partyUnformatted);
-  const editDetails = useSelector((state) => state.editDetails);
   const [newName, setNewName] = useState(false);
   const [newDate, setNewDate] = useState(false);
   const [newTime, setNewTime] = useState(false);
@@ -30,7 +29,6 @@ export default function EditParty() {
     },
   });
   const updateParty = () => {
-    console.log("newinputs", newInputs);
     partyUpdateDetails(party.partyId, newInputs);
     navigate(`/party/${party.partyId}`);
   };

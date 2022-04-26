@@ -6,7 +6,6 @@ import partyDetails from "./partyDetailsReducer";
 import newParty from "./newPartyReducer";
 import party from "./partyReducer";
 import avatars from "./avatarsReducer";
-import editDetails from "./editDetailsReducer";
 import partyUnformatted from "./partyUnformattedReducer";
 
 export default combineReducers({
@@ -17,6 +16,5 @@ export default combineReducers({
   newParty,
   party,
   avatars,
-  editDetails,
   partyUnformatted,
 });

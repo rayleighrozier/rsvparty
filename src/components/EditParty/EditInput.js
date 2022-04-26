@@ -1,11 +1,6 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { partyUpdateDetails, partyFindById } from "../../actions/supabase";
+import React from "react";
 
 export default function EditInput(props) {
-  const dispatch = useDispatch();
-  const inputType = props.inputType;
-  const party = useSelector((state) => state.party);
   const captureInput = (e) => {
     e.preventDefault();
     let input = e.target.form[0].value;
