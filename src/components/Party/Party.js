@@ -12,7 +12,6 @@ import { checkToken } from "../../actions/token";
 import PartyDetails from "./PartyDetails";
 import { checkIfInvited } from "../../actions/guestList";
 import Guests from "./Guests";
-import Supplies from "../Supplies/Supplies";
 import Comments from "../Comments/Comments";
 
 // Countdown, Details, Playlist, Supplies, Comments
@@ -118,7 +117,6 @@ export default function Party() {
           </div>
         )
       ) : null}
-      <Supplies />
     </div>
   );
 }

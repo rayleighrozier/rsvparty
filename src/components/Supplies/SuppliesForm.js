@@ -6,7 +6,7 @@ import { ADD_SUPPLIES } from "../../action-types";
 
 export default function SuppliesForm() {
   const dispatch = useDispatch();
-  const supplies = useSelector((state) => state.party.supplies);
+  const supplies = useSelector((state) => state.party?.supplies);
 
   const captureAddSupplies = async (e) => {
     e.preventDefault();
@@ -16,18 +16,20 @@ export default function SuppliesForm() {
     });
     e.target.form[0].value = "";
   };
-  const checkSupplies = (supplies) => {
-    let supplyJSON = [];
-    if (supplies) {
-      for (const item of supplies) {
-        let supplyData = JSON.parse(item);
-        supplyJSON.push(supplyData);
-      }
-    }
-  };
-  useEffect(() => {
-    checkSupplies();
-  }, [supplies]);
+  // const checkSupplies = (supplies) => {
+  //   let supplyJSON = [];
+  //   console.log("hello", supplyJSON);
+  //   console.log("hello", supplies);
+
+  //   for (const item of supplies) {
+  //     let supplyData = JSON.parse(item);
+  //     supplyJSON.push(supplyData);
+  //     console.log("hello", supplyJSON);
+  //   }
+  // };
+  // useEffect(() => {
+  //   checkSupplies(supplies);
+  // }, [supplies]);
   return (
     <div>
       <form>

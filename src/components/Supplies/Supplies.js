@@ -9,7 +9,7 @@ export default function Supplies() {
     await partyUpdateSupplies(party.partyId, party.supplies);
   };
 
-  console.log(party.supplies);
+  // console.log(party.supplies);
 
   return (
     <div>
