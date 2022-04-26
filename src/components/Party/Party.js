@@ -29,7 +29,6 @@ export default function Party() {
   const endDate = `May 3, 2022`;
   let timeLeft = Date.now() - Date.parse(endDate);
   const Completionist = () => <span>You are good to go!</span>;
-
   const setParty = async () => {
     let data = await partyFindById(partyId);
     data.date = formatDate(data.date);

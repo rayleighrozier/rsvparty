@@ -151,7 +151,15 @@ const avatarFindById = async (avatarId) => {
   }
   return avatar;
 };
-
+//updates supplies
+const partyUpdateSupplies = async (partyId, updatedSupplies) => {
+  console.log(partyId);
+  console.log(updatedSupplies);
+  let { data: party, error } = await supabase
+    .from("Parties")
+    .update({ supplies: updatedSupplies })
+    .match({ partyId: partyId });
+};
 export {
   userSignUp,
   userSignIn,
@@ -165,6 +173,7 @@ export {
   avatarsGetAll,
   guestUpdateAvatar,
   avatarFindById,
+  partyUpdateSupplies,
   partyUpdateComments,
   partyUpdateDetails,
 };

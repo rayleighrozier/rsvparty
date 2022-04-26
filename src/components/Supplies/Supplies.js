@@ -1,12 +1,24 @@
 import React from "react";
-
-// This component is when you click on
-// supplies in the party page and it goes fullscreen
-
+import SuppliesForm from "./SuppliesForm";
+import { useSelector } from "react-redux";
+import { partyUpdateSupplies } from "../../actions/supabase";
 export default function Supplies() {
+  const party = useSelector((state) => state.party);
+
+  const sendSupplies = async () => {
+    await partyUpdateSupplies(party.partyId, party.supplies);
+  };
+
+  // console.log(party.supplies);
+
   return (
     <div>
       <h1>Supplies</h1>
+      <SuppliesForm />
+      <>
+        <p>{party?.supplies}</p>
+      </>
+      <button onClick={sendSupplies}>Confirm Supplies</button>
     </div>
   );
 }
