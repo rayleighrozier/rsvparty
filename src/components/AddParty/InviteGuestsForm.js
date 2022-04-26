@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { UPDATE_NEWPARTY_GUESTLIST } from "../../action-types/index";
+import "./InviteGuests.css";
 
 function InviteGuestsForm() {
   const dispatch = useDispatch();
@@ -21,15 +22,26 @@ function InviteGuestsForm() {
 
   return (
     <>
-      <div className="mainContainer">
-        <form>
-          <label>First name</label>
-          <input type="text" />
-          <label>Last name</label>
-          <input type="text" />
-          <label>Email</label>
-          <input type="email" />
-          <button onClick={(e) => captureGuest(e)}>Submit</button>
+      <div className="mainContainer ">
+        <form className="inviteGuestContainer">
+          <div className="inviteGuestContent">
+            <label className="inviteGuestLabel">First name</label>
+            <input className="inviteGuestInput" type="text" />
+          </div>
+          <div className="inviteGuestContent">
+            <label className="inviteGuestLabel">Last name</label>
+            <input className="inviteGuestInput" type="text" />
+          </div>
+          <div className="inviteGuestContent">
+            <label className="inviteGuestLabel">Email</label>
+            <input className="inviteGuestInput" type="email" />
+          </div>
+          <button
+            className="submitGuestButton"
+            onClick={(e) => captureGuest(e)}
+          >
+            Submit
+          </button>
         </form>
       </div>
     </>
