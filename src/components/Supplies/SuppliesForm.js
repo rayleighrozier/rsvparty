@@ -15,20 +15,6 @@ export default function SuppliesForm() {
     });
     e.target.form[0].value = "";
   };
-  // const checkSupplies = (supplies) => {
-  //   let supplyJSON = [];
-  //   console.log("hello", supplyJSON);
-  //   console.log("hello", supplies);
-
-  //   for (const item of supplies) {
-  //     let supplyData = JSON.parse(item);
-  //     supplyJSON.push(supplyData);
-  //     console.log("hello", supplyJSON);
-  //   }
-  // };
-  // useEffect(() => {
-  //   checkSupplies(supplies);
-  // }, [supplies]);
 
   useEffect(() => {
     partyUpdateSupplies(party.partyId, party.supplies);
@@ -41,13 +27,6 @@ export default function SuppliesForm() {
         <input type="text" />
         <button onClick={(e) => captureAddSupplies(e)}>Submit</button>
       </form>
-      {/* {supplies?.map ? (
-        supplies?.map((item) => {
-          return <p>{item}</p>;
-        })
-      ) : (
-        <p>Add new supplies</p>
-      )} */}
     </div>
   );
 }
