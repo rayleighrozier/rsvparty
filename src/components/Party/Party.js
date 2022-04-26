@@ -5,7 +5,12 @@ import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { SET_PAGE, SET_PARTY, SET_PARTYUNFORMATTED } from "../../action-types";
 import { guestGetInfo, partyFindById } from "../../actions/supabase";
-import { formatDate, formatTime, formatComments } from "../../actions/format";
+import {
+  formatDate,
+  formatTime,
+  formatComments,
+  formatSupplies,
+} from "../../actions/format";
 import { guestsToJSON } from "../../actions/guestList";
 import RSVPButtons from "./RSVPButtons";
 import { checkToken } from "../../actions/token";
@@ -13,6 +18,7 @@ import PartyDetails from "./PartyDetails";
 import { checkIfInvited } from "../../actions/guestList";
 import Guests from "./Guests";
 import Comments from "../Comments/Comments";
+import Supplies from "../Supplies/Supplies";
 
 // Countdown, Details, Playlist, Supplies, Comments
 
@@ -35,6 +41,7 @@ export default function Party() {
     data.time = formatTime(data.time);
     data.comments = formatComments(data.comments);
     data.guests = guestsToJSON(data.guests);
+    data.supplies = formatSupplies(data.supplies);
     dispatch({ type: SET_PARTY, payload: data });
   };
   const setPartyUnformatted = async () => {
@@ -109,6 +116,7 @@ export default function Party() {
             )}
             {party ? <Guests host={host} /> : null}
             {party ? <Comments /> : null}
+            {party ? <Supplies host={host} /> : null}
           </>
         ) : (
           <div>
