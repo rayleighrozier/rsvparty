@@ -5,8 +5,8 @@ export default function GuestList() {
   const newParty = useSelector((state) => state.newParty);
   const host = useSelector((state) => state.guest);
   return (
-    <div>
-      <h1>Guest List</h1>
+    <div className="guestList">
+      <p>Guest List</p>
       {newParty.guestList
         ? newParty.guestList.map((guest, index) => {
             return (

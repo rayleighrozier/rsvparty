@@ -7,18 +7,27 @@ import "./SignIn.css";
 import logo from "../../assets/logo.png";
 
 export default function SignUp() {
-  const regex =
-    "/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/";
   const dispatch = useDispatch();
   const sendSignUp = async (e) => {
+    const regex =
+      /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/;
     const input = captureSignUp(e);
-
+    const validateEmail = (email) => {
+      if (regex.test(email)) {
+        return true;
+      }
+      return false;
+    };
     if (input.firstName.length < 1) {
       window.alert("Please provide your first name");
     } else if (input.lastName.length < 2) {
       window.alert("Please provide your last name");
-    } else if (input.email !== regex) {
+    } else if (!validateEmail(input.email)) {
       window.alert("Please provide a valid email address");
+    } else if (input.password.length < 6) {
+      window.alert(
+        "Please make sure your password contains at least six characters"
+      );
     } else {
       let userEntry = await userSignUp(
         input.firstName,
