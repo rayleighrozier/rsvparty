@@ -18,12 +18,7 @@ export default function SignUp() {
       }
       return false;
     };
-    let userEntry = await userSignUp(
-      input.firstName,
-      input.lastName,
-      input.email,
-      input.password
-    );
+
     if (input.firstName.length < 1) {
       window.alert("Please provide your first name");
     } else if (input.lastName.length < 2) {
@@ -35,6 +30,12 @@ export default function SignUp() {
         "Please make sure your password contains at least six characters"
       );
     } else {
+      let userEntry = await userSignUp(
+        input.firstName,
+        input.lastName,
+        input.email,
+        input.password
+      );
       window.alert("Account created! Check your email to confirm and sign in.");
       dispatch({ type: SET_PAGE, payload: "signIn" });
     }
