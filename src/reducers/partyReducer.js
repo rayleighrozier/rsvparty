@@ -11,10 +11,13 @@ function party(state = initialState, action) {
     case SET_PARTY:
       return action.payload;
     case ADD_SUPPLIES:
-      console.log("state is here", state);
+      console.log("state.supplies", state.supplies);
       return {
         ...state,
-        supplies: [...state.supplies, action.payload],
+        supplies: [
+          ...state.supplies,
+          { item: action.payload, guest: null, claimed: false },
+        ],
       };
 
     case SET_PARTY_COMMENTS:

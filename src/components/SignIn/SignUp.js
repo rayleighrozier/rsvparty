@@ -12,12 +12,7 @@ export default function SignUp() {
   const dispatch = useDispatch();
   const sendSignUp = async (e) => {
     const input = captureSignUp(e);
-    let userEntry = await userSignUp(
-      input.firstName,
-      input.lastName,
-      input.email,
-      input.password
-    );
+
     if (input.firstName.length < 1) {
       window.alert("Please provide your first name");
     } else if (input.lastName.length < 2) {
@@ -25,6 +20,12 @@ export default function SignUp() {
     } else if (input.email !== regex) {
       window.alert("Please provide a valid email address");
     } else {
+      let userEntry = await userSignUp(
+        input.firstName,
+        input.lastName,
+        input.email,
+        input.password
+      );
       window.alert("Account created! Check your email to confirm and sign in.");
       dispatch({ type: SET_PAGE, payload: "signIn" });
     }

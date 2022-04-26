@@ -12,7 +12,7 @@ import EditParty from "./components/EditParty/EditParty";
 import EditGuests from "./components/EditParty/EditGuests";
 import InviteGuests from "./components/AddParty/InviteGuests";
 import ChooseAvatar from "./components/ChooseAvatar/ChooseAvatar";
-
+import Supplies from "./components/Supplies/Supplies";
 
 function App() {
   return (

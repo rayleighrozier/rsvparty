@@ -62,10 +62,23 @@ const formatCommentDate = (data) => {
   return formatted;
 };
 
+const formatSupplies = (data) => {
+  let suppliesJSON = [];
+  for (const item of data) {
+    console.log("item", item);
+    if (item !== "[]") {
+      let itemJSON = JSON.parse(item);
+      suppliesJSON.push(itemJSON);
+    }
+  }
+  return suppliesJSON;
+};
+
 export {
   formatDate,
   formatDate2,
   formatTime,
   formatComments,
   formatCommentDate,
+  formatSupplies,
 };

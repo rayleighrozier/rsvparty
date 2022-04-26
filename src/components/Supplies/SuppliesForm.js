@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_SUPPLIES } from "../../action-types";
-// This component is when you click on
-// supplies in the party page and it goes fullscreen
+import { partyUpdateSupplies } from "../../actions/supabase";
 
 export default function SuppliesForm() {
   const dispatch = useDispatch();
-  const supplies = useSelector((state) => state.party?.supplies);
+  const party = useSelector((state) => state.party);
 
   const captureAddSupplies = async (e) => {
     e.preventDefault();
@@ -30,6 +29,11 @@ export default function SuppliesForm() {
   // useEffect(() => {
   //   checkSupplies(supplies);
   // }, [supplies]);
+
+  useEffect(() => {
+    partyUpdateSupplies(party.partyId, party.supplies);
+  }, [party.supplies]);
+
   return (
     <div>
       <form>
@@ -37,13 +41,13 @@ export default function SuppliesForm() {
         <input type="text" />
         <button onClick={(e) => captureAddSupplies(e)}>Submit</button>
       </form>
-      {supplies?.map ? (
+      {/* {supplies?.map ? (
         supplies?.map((item) => {
           return <p>{item}</p>;
         })
       ) : (
         <p>Add new supplies</p>
-      )}
+      )} */}
     </div>
   );
 }
