@@ -6,6 +6,7 @@ import { partyUpdateGuests, guestUpdateParties } from "../../actions/supabase";
 import { RESET_NEWPARTY, SET_PAGE } from "../../action-types";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
+import "./InviteGuests.css";
 
 export default function InviteGuests() {
   const dispatch = useDispatch();
@@ -45,26 +46,29 @@ export default function InviteGuests() {
 
   return (
     <div className="addPartyContent">
-      <p className="addPartyTitle">PARTY CREATED</p>
-      <p className="addPartyPhrase">Invite your guests below!</p>
-      {newParty.details ? (
-        <div>
-          <p>{newParty.details.name}</p>
-          <p>{newParty.details.date}</p>
-          <p>{newParty.details.time}</p>
-          <div>
-            <p>{newParty.details.location.address}</p>
-            <p>{newParty.details.location.city}</p>
-            <p>{newParty.details.location.state}</p>
-            <p>{newParty.details.location.zip}</p>
-          </div>
-        </div>
-      ) : null}
-      <h1>Invite Guests</h1>
+      <p className="addPartyPhrase">Party created! Invite your guests below!</p>
       <InviteGuestsForm />
-      <GuestList />
-      <button onClick={saveAndSend}>Send Invites</button>
-      <button onClick={saveParty}>Invite Guests Later</button>
+      <div className="inviteGuestsSecondRow">
+        {newParty.details ? (
+          <div className="inviteParty">
+            <p>{newParty.details.name}</p>
+            <p>{newParty.details.date}</p>
+            <p>{newParty.details.time}</p>
+            <div>
+              <p>{newParty.details.location.address}</p>
+              <p>{newParty.details.location.city}</p>
+              <p>{newParty.details.location.state}</p>
+              <p>{newParty.details.location.zip}</p>
+            </div>
+          </div>
+        ) : null}
+
+        <GuestList />
+      </div>
+      <div className="inviteButtons">
+        <button onClick={saveAndSend}>Send Invites</button>
+        <button onClick={saveParty}>Invite Guests Later</button>
+      </div>
     </div>
   );
 }
