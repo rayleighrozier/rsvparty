@@ -6,6 +6,15 @@
   margin-bottom: 2rem;
 }
 
+.inviteGuestLabel {
+  padding: 1rem;
+}
+
+.inviteGuestInput {
+  border-radius: 1rem;
+  margin-right: 15px;
+}
+
 .submitGuestButton {
   background-color: var(--yellow);
   color: white;
@@ -19,17 +28,97 @@
 .inviteGuestsSecondRow {
   display: flex;
   justify-content: space-evenly;
-  width: 100%;
-}
-
-.inviteButtons {
-  display: flex;
+  border-radius: 25px;
+  background-color: red;
+  position: relative;
+  height: 50vh;
+  width: 80vw;
 }
 
 .inviteParty {
-  background-color: #e7faff;
+  background-color: #13cdff;
+  margin: 10px 10px 10px 10px;
+  width: 40vw;
+  height: 30vh;
+  position: abolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
 }
 
-.guestList {
-  background-color: #ffc7df;
+.boxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  border: none;
+  width: 37vw;
+  height: 85%;
+  margin-top: 50px;
+  background-color: white;
+  cursor: not-allowed;
+  margin: 50px 10px 10px 10px;
+  border-radius: 25px;
+  text-align: center;
+  color: #13cdff;
+  /* margin-top: 50px;
+  background-color: white;
+  border-radius: 25px;
+  position: relative;
+  top: -70px;
+  opacity: 0.7;
+  width: 500px;
+  height: 450px; */
+}
+
+.guestListTitle {
+  background-color: #13cdff;
+  margin: 10px 10px 10px 10px;
+  height: 47vh;
+  width: 40vw;
+  position: abolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+}
+
+.guestForm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  border: none;
+  width: 40vw;
+  height: 88%;
+  margin-top: 50px;
+  background-color: white;
+  cursor: not-allowed;
+  margin: 50px 10px 10px 10px;
+  border-radius: 25px;
+  text-align: center;
+  color: #13cdff;
+}
+
+.sendInvitesButton {
+  color: white;
+  background-color: var(--pink);
+  font-family: "Dongle", sans-serif;
+  border: none;
+  font-size: 25px;
+  border-radius: 0.7rem;
+  padding-top: 0.2rem;
+  /* width: 9rem; */
+  font-weight: 300;
+  cursor: pointer;
+  margin: 0 5rem 0 5rem;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
 }
