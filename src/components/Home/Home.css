@@ -20,13 +20,34 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: column-reverse;
+    width: 50%;
   }
+
   .homePageInputs {
-    margin: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
 }
 /* TABLET */
 @media screen and (min-width: 481px) and (max-width: 768px) {
+  .homePage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+  .homeImagecontainer {
+    width: 100%;
+  }
+  .RSVPimage {
+    width: 100%;
+  }
+  .homePageInputs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
