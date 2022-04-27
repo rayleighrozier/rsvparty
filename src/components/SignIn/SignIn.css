@@ -24,6 +24,8 @@
   margin: 0px;
   color: #aaaaaa;
   font-size: 30px;
+  margin-top: -30px;
+  margin-bottom: 30px;
 }
 
 .homeImgContainer {
@@ -36,7 +38,7 @@
 }
 
 .inputLabel {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 400;
   margin: 0px;
 }
@@ -79,4 +81,86 @@
 .homeInputsContainer {
   width: 30rem;
   margin-left: 6rem;
+}
+.homePageQuestion {
+  color: #aaaaaa;
+}
+.signInContainer {
+  display: flex;
+  justify-content: center;
+}
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  .homeInputsContainer {
+    margin-left: -50px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .signInContainer {
+    margin-left: -50px;
+  }
+  .homePageLogo {
+    position: absolute;
+    margin-left: -30px;
+  }
+  .namesContainer {
+    display: grid;
+  }
+  .inputContainer {
+    width: 100%;
+  }
+  .questionContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50%;
+  }
+  .headerDiv {
+    margin-left: 17%;
+    width: 60%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+}
+/* TABLET */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .homeInputsContainer {
+    margin-left: -50px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: fit-content;
+  }
+  .signInContainer {
+    margin-left: -50px;
+  }
+  .homePageLogo {
+    position: absolute;
+    margin-left: -30px;
+  }
+  .namesContainer {
+    display: grid;
+  }
+  .inputContainer {
+    width: 300px;
+  }
+  .headerDiv {
+    width: 60%;
+    margin-left: 17%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .questionContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50%;
+  }
+  .homePageButton {
+    margin-bottom: 20px;
+  }
 }

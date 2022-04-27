@@ -10,7 +10,7 @@ export default function SignInNav() {
     dispatch({ type: SET_PAGE, payload: destination });
   };
   return (
-    <div>
+    <div className="signInContainer">
       {page === "signIn" ? (
         <div className="questionContainer">
           <p className="homePageQuestion">New to RSVParty?</p>
