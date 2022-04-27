@@ -1,0 +1,20 @@
+name: env_variables
+## Triggers the workflow on when there is a push, or 
+## pull request on the main branch
+on: [pull_request, push] 
+
+env:
+  ## Sets environment variable
+REACT_APP_SUPABASE_URL: https://jbnefqslyjxtrsihqziy.supabase.co 
+REACT_APP_SUPABASE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpibmVmcXNseWp4dHJzaWhxeml5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTAzODQzNDgsImV4cCI6MTk2NTk2MDM0OH0.o_L2UODF-Q2ipmUyZ89R4sriFbHfz36oCL_06sIT4Ag
+
+
+jobs:
+  job1:
+    ## The type of runner that the job will run on, 
+    ## here it runs on ubuntu latest
+    runs-on: ubuntu-latest 
+    steps:
+      - name: step 1
+        ## Reference your environment variables
+        run: echo "The Supabase key is:${{env.REACT_APP_SUPABASE_KEY}}"
