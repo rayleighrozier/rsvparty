@@ -65,7 +65,6 @@ const formatCommentDate = (data) => {
 const formatSupplies = (data) => {
   let suppliesJSON = [];
   for (const item of data) {
-    console.log("item", item);
     if (item !== "[]") {
       let itemJSON = JSON.parse(item);
       suppliesJSON.push(itemJSON);

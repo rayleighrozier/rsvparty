@@ -1,6 +1,6 @@
 :root {
   --pink: #ff94c3;
-  --lightpink: #fff2f7;
+  --lightpink: #fff5fa;
   --blue: #13cdff;
   --lightblue: #e7faff;
   --yellow: #fecc51;
@@ -17,7 +17,8 @@
   font-family: "Dongle", sans-serif;
   font-size: 35px;
 }
+
 body {
-  margin: 0;
-  padding: 0;
+  padding: 0px;
+  margin: 0px;
 }
