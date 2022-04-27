@@ -18,6 +18,7 @@ export default function SignUp() {
       }
       return false;
     };
+
     if (input.firstName.length < 1) {
       window.alert("Please provide your first name");
     } else if (input.lastName.length < 2) {

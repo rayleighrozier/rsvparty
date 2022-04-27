@@ -50,24 +50,36 @@ export default function InviteGuests() {
       <InviteGuestsForm />
       <div className="inviteGuestsSecondRow">
         {newParty.details ? (
-          <div className="inviteParty">
-            <p>{newParty.details.name}</p>
-            <p>{newParty.details.date}</p>
-            <p>{newParty.details.time}</p>
-            <div>
-              <p>{newParty.details.location.address}</p>
-              <p>{newParty.details.location.city}</p>
-              <p>{newParty.details.location.state}</p>
-              <p>{newParty.details.location.zip}</p>
+          <>
+            <div className="inviteParty">
+              <div>{newParty.details.name}</div>
             </div>
-          </div>
+            <div className="boxOverlay">
+              <div>{newParty.details.date}</div>
+              <div>{newParty.details.time}</div>
+              <div>{newParty.details.location.address}</div>
+              <div>
+                {newParty.details.location.city},{" "}
+                {newParty.details.location.state}{" "}
+                {newParty.details.location.zip}
+              </div>
+            </div>
+          </>
         ) : null}
-
         <GuestList />
       </div>
-      <div className="inviteButtons">
-        <button onClick={saveAndSend}>Send Invites</button>
-        <button onClick={saveParty}>Invite Guests Later</button>
+
+      <div className="buttonContainer">
+        <div className="inviteButtons">
+          <button className="sendInvitesButton" onClick={saveAndSend}>
+            Send Invites
+          </button>
+        </div>
+        <div>
+          <button className="sendInvitesButton" onClick={saveParty}>
+            Invite Guests Later
+          </button>
+        </div>
       </div>
     </div>
   );
