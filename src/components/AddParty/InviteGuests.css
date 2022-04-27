@@ -29,18 +29,18 @@
   display: flex;
   justify-content: space-evenly;
   border-radius: 25px;
-  background-color: red;
+  background-color: #e7faff;
   position: relative;
   height: 50vh;
-  width: 80vw;
+  width: auto;
 }
 
 .inviteParty {
   background-color: #13cdff;
-  margin: 10px 10px 10px 10px;
-  width: 40vw;
+  /* margin: 10px 10px 10px 10px; */
+  width: 38vw;
   height: 30vh;
-  position: abolute;
+  position: absolute;
   top: 0;
   left: 0;
   opacity: 1;
@@ -50,37 +50,29 @@
 }
 
 .boxOverlay {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   margin: 0;
   border: none;
-  width: 37vw;
-  height: 85%;
-  margin-top: 50px;
+  width: 38vw;
+  height: 42vh;
+
   background-color: white;
   cursor: not-allowed;
-  margin: 50px 10px 10px 10px;
+  margin: 50px 10px 20px 0px;
   border-radius: 25px;
   text-align: center;
   color: #13cdff;
-  /* margin-top: 50px;
-  background-color: white;
-  border-radius: 25px;
-  position: relative;
-  top: -70px;
-  opacity: 0.7;
-  width: 500px;
-  height: 450px; */
 }
 
 .guestListTitle {
   background-color: #13cdff;
-  margin: 10px 10px 10px 10px;
+  /* margin-top: 10px; */
+  /* margin: 10px 10px 10px 10px; */
   height: 47vh;
-  width: 40vw;
-  position: abolute;
-  top: 0;
+  width: 38vw;
+  /* position: relative; */
   left: 0;
   opacity: 1;
   border-radius: 25px;
@@ -88,13 +80,44 @@
   color: white;
 }
 
-.guestForm {
-  position: absolute;
+.form {
+  /* position: relative; */
   top: 0;
   left: 0;
   margin: 0;
   border: none;
-  width: 40vw;
+  width: 38vw;
+  height: 42vh;
+
+  background-color: white;
+  cursor: not-allowed;
+  margin: 0px 0px 0px 0px;
+  border-radius: 25px;
+
+  color: #13cdff;
+}
+
+/* .guestForm {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0;
+  border: none;
+  width: 38vw;
+  height: 85%;
+
+  background-color: white;
+  cursor: not-allowed;
+  margin: 50px 10px 10px 10px;
+  border-radius: 25px;
+  text-align: center;
+  color: #13cdff;
+  /* position: relative;
+  top: 0;
+  left: 0;
+  margin: 0;
+  border: none;
+  width: 38vw;
   height: 88%;
   margin-top: 50px;
   background-color: white;
@@ -103,7 +126,8 @@
   border-radius: 25px;
   text-align: center;
   color: #13cdff;
-}
+  justify-content: flex-end; */
+/* } */
 
 .sendInvitesButton {
   color: white;
@@ -118,6 +142,50 @@
   cursor: pointer;
   margin: 0 5rem 0 5rem;
 }
+/* .guestForm {
+  display: flex;
+  width: 38vw;
+} */
+
+.guestCard {
+  display: flex;
+  width: 38vw;
+  justify-content: space-evenly;
+}
+
+.firstNameInput {
+  border: none;
+  flex-shrink: 1;
+  margin-top: 20px;
+  font-family: "Dongle", sans-serif;
+  color: #13cdff;
+  font-size: 22px;
+  width: 20%;
+}
+
+.lastNameInput {
+  color: #13cdff;
+  justify-content: flex-start;
+  border: none;
+  flex-shrink: 1;
+  margin-top: 20px;
+  font-family: "Dongle", sans-serif;
+  font-size: 22px;
+  width: 20%;
+}
+
+.emailInput {
+  color: #13cdff;
+  border: none;
+  flex-shrink: 1;
+  margin-top: 20px;
+  font-family: "Dongle", sans-serif;
+  font-size: 22px;
+  padding: 2px;
+  margin-right: 10px;
+  width: 35%;
+}
+
 .buttonContainer {
   display: flex;
   justify-content: space-between;

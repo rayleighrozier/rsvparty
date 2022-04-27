@@ -66,9 +66,9 @@ export default function InviteGuests() {
             </div>
           </>
         ) : null}
-
         <GuestList />
       </div>
+
       <div className="buttonContainer">
         <div className="inviteButtons">
           <button className="sendInvitesButton" onClick={saveAndSend}>
