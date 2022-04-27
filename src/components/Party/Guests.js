@@ -3,12 +3,9 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function Guests(props) {
-  const navigate = useNavigate();
   const party = useSelector((state) => state.party);
   const [guestList, setGuestList] = useState(null);
-  const editGuests = () => {
-    navigate("/editguests");
-  };
+
   useEffect(() => {
     setGuestList(party.guests);
   }, [party]);
@@ -31,9 +28,6 @@ export default function Guests(props) {
               </div>
             );
           })}
-          {props.host ? (
-            <button onClick={editGuests}>Invite Guests</button>
-          ) : null}
         </div>
       ) : null}
     </>

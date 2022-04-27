@@ -1,0 +1,188 @@
+/*  --pink: #ff94c3;
+  --lightpink: #fff2f7;
+  --blue: #13cdff;
+  --lightblue: #e7faff;
+  --yellow: #fecc51;
+  --lightyellow: #fff8e5;
+  --lightGrey: #f3f3f3;
+  --textGrey: #bababa; */
+
+.pink {
+  background-color: var(--pink);
+}
+.blue {
+  background-color: var(--blue);
+}
+.yellow {
+  background-color: var(--yellow);
+}
+.party-main-container {
+  margin: 0;
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.party-top-container {
+  display: flex;
+
+  width: 100%;
+  max-width: 100%;
+}
+.party-countdown-container {
+  background-color: var(--lightpink);
+  color: var(--pink);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+}
+.party-countdown-container span {
+  margin: 0px 10px 0px 10px;
+  height: 130px;
+}
+.party-countdown-numbers {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  font-size: 9rem;
+  margin: 0;
+}
+.party-countdown-titles {
+  display: flex;
+  justify-content: space-evenly;
+}
+.party-details-container {
+  background-color: var(--blue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.party-details-header {
+  color: var(--lightblue);
+}
+.party-details-body {
+  width: 100%;
+  background-color: var(--lightblue);
+  color: var(--blue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+.party-details-body p {
+  margin: 0;
+}
+.party-buttons-container {
+  background-color: var(--lightyellow);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px;
+}
+.party-buttons-container button {
+  border-radius: 10px;
+  border: none;
+  flex-grow: 1;
+  padding: 0px 5px;
+  margin: 0px 10px;
+  color: white;
+  font-family: "Dongle", sans-serif;
+  font-size: 1.6rem;
+}
+.party-middle-container {
+  display: flex;
+  background-color: var(--lightblue);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  .party-top-container {
+    flex-wrap: wrap;
+  }
+  .party-countdown-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+  .party-countdown-numbers {
+    font-size: 6rem;
+  }
+  .party-details-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px 10px 20px 10px;
+    height: fit-content;
+  }
+  .party-buttons-container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+/* TABLET */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .party-top-container {
+    flex-wrap: wrap;
+  }
+  .party-countdown-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px 10px 20px 10px;
+  }
+  .party-countdown-numbers {
+    font-size: 8rem;
+  }
+  .party-countdown-titles {
+    font-size: 1.6rem;
+    width: 410px;
+    margin: 0;
+  }
+  .party-details-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px 10px 20px 10px;
+    height: fit-content;
+  }
+  .party-buttons-container {
+    width: 94%;
+    max-width: 100%;
+    margin: 0px 0px 0px 0px;
+  }
+}
+/* LAPTOP OR BIGGER */
+@media screen and (min-width: 769px) {
+  .party-countdown-container {
+    width: 60%;
+    max-width: 60%;
+    margin: 0px 10px 0px 20px;
+  }
+  .party-countdown-numbers {
+    font-size: 9rem;
+  }
+  .party-countdown-titles {
+    font-size: 1.8rem;
+    width: 500px;
+  }
+  .party-details-container {
+    font-size: 1rem;
+    display: flex;
+    width: 40%;
+    max-width: 40%;
+    margin: 0px 20px 0px 10px;
+    height: 250px;
+  }
+  .party-buttons-container {
+    width: 50vw;
+    max-width: 50%;
+    margin: 20px 0px 20px 0px;
+  }
+}
