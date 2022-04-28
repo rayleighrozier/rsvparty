@@ -159,6 +159,7 @@ textarea {
   border-radius: 10px;
   color: black;
   flex-grow: 1;
+  height: fit-content;
 }
 .party-comments-header {
   text-align: center;
@@ -172,13 +173,14 @@ textarea {
   padding: 10px;
   height: 100%;
   flex-grow: 1;
-  min-height: 428px;
+  min-height: 444px;
 }
 .party-middle-left {
   margin: 20px 10px 20px 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: fit-content;
 }
 .party-additional-details {
   font-size: 2rem;
@@ -229,10 +231,10 @@ textarea {
 }
 .party-bottom-container {
   background-color: var(--yellow);
-  width: 98%;
-  max-width: 98%;
+  width: 97%;
+  max-width: 97%;
   border-radius: 10px;
-  margin: 0px 20px 80px 20px;
+  padding: 5px px;
 }
 .party-comment {
   display: flex;
@@ -241,7 +243,7 @@ textarea {
   margin: 10px 20px 10px 20px;
   border-radius: 10px;
   height: fit-content;
-  padding: 10px 20px;
+  padding: 5px 20px;
 }
 .party-comment p {
   margin: 0;
@@ -251,6 +253,8 @@ textarea {
   color: white;
   text-align: center;
   margin: 0;
+  font-size: 2.3rem;
+  margin: 5px 5px 0px 5px;
 }
 
 .party-supplies {
@@ -284,9 +288,11 @@ textarea {
   height: 100px;
   overflow: auto;
   font-family: "Dongle", sans-serif;
+  font-size: 1.2rem;
 }
 .party-comment-text textarea {
   width: auto;
+  font-size: 1.3rem;
 }
 .party-comment-buttons {
   display: flex;
@@ -324,6 +330,7 @@ textarea {
   height: fit-content;
   display: flex;
   flex-direction: column;
+  min-height: 200px;
 }
 .party-supplies-right {
   background-color: white;
@@ -331,6 +338,7 @@ textarea {
   height: fit-content;
   display: flex;
   flex-direction: column;
+  min-height: 200px;
 }
 .party-supplies-item {
   display: flex;
@@ -362,10 +370,8 @@ textarea {
 .party-supplies-form {
   color: var(--yellow);
   display: flex;
-  width: 100%;
-  max-width: 100%;
   flex-wrap: wrap;
-  margin: 0px 10px 20px 10px;
+  margin: 10px 10px 20px 20px;
 }
 .party-supplies-form p {
   margin: 0;
@@ -393,7 +399,95 @@ textarea {
 
 /* MOBILE */
 @media screen and (max-width: 480px) {
-  /* copy from tablet */
+  .party-top-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .party-countdown-container span {
+    height: 65px;
+  }
+  .party-countdown-container {
+    width: 95%;
+    max-width: 95%;
+    margin: 20px 10px 20px 10px;
+    min-height: 120px;
+  }
+  .party-countdown-numbers {
+    font-size: 5rem;
+  }
+  .party-countdown-titles {
+    font-size: 1rem;
+    width: 310px;
+    margin: 0;
+  }
+  .party-details-container {
+    width: 95%;
+    max-width: 95%;
+    margin: 0px 10px 20px 10px;
+    height: fit-content;
+  }
+  .party-buttons-container {
+    width: 92%;
+    max-width: 92%;
+    margin: 0px 10px 20px 10px;
+  }
+  .party-middle-container {
+    flex-wrap: wrap;
+    width: 95%;
+    max-width: 95%;
+    padding: 0;
+  }
+  .party-additional-details {
+    align-self: center;
+    width: 95%;
+    max-width: 95%;
+  }
+
+  .party-additional-details-body p {
+    padding: 10px 20px;
+    font-size: 1.3rem;
+  }
+  .party-guest-container {
+    align-self: center;
+    width: 95%;
+    max-width: 95%;
+  }
+  .party-guest p {
+    font-size: 1.1rem;
+  }
+  .party-middle-left {
+    width: 100%;
+    max-width: 100%;
+  }
+  .party-middle-right {
+    width: 95%;
+    max-width: 95%;
+    margin: 0px 20px 20px 20px;
+  }
+  .party-bottom-container {
+    width: 96%;
+    max-width: 96%;
+    margin: 20px 20px 80px 20px;
+  }
+  .party-supplies-item p {
+    font-size: 1.1rem;
+  }
+  .party-supplies-left {
+    width: 95%;
+    max-width: 95%;
+    margin: 0px 10px 20px 10px;
+  }
+
+  .party-supplies-right {
+    width: 95%;
+    max-width: 95%;
+    margin: 0px 10px 20px 10px;
+  }
+  .party-comments-list {
+    min-height: none;
+    height: auto;
+  }
 }
 /* TABLET */
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -430,7 +524,6 @@ textarea {
     flex-wrap: wrap;
     width: 95%;
     max-width: 95%;
-    margin: 0px 10px 20px 10px;
     padding: 0;
   }
   .party-additional-details {
@@ -456,15 +549,19 @@ textarea {
   .party-bottom-container {
     width: 96%;
     max-width: 96%;
-    margin: 0px 0px 0px 0px;
+    margin: 20px 20px 80px 20px;
   }
+
   .party-supplies-left {
-    width: 100%;
-    max-width: 100%;
+    width: 95%;
+    max-width: 95%;
+    margin: 0px 10px 20px 10px;
   }
+
   .party-supplies-right {
-    width: 100%;
-    max-width: 100%;
+    width: 95%;
+    max-width: 95%;
+    margin: 0px 10px 20px 10px;
   }
   .party-comments-list {
     min-height: none;
@@ -499,6 +596,9 @@ textarea {
     margin: 20px 0px 20px 0px;
   }
   .party-middle-container {
+    margin: 0px 30px 20px 20px;
+  }
+  .party-bottom-container {
     margin: 0px 30px 20px 20px;
   }
   .party-middle-left {
