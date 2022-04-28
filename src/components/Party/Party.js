@@ -106,7 +106,7 @@ export default function Party() {
   }, [party]);
 
   return (
-    <div>
+    <>
       {token ? (
         invited ? (
           <div className="party-main-container">
@@ -145,6 +145,6 @@ export default function Party() {
           </div>
         )
       ) : null}
-    </div>
+    </>
   );
 }

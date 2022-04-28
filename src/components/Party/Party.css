@@ -1,12 +1,3 @@
-/*  --pink: #ff94c3;
-  --lightpink: #fff2f7;
-  --blue: #13cdff;
-  --lightblue: #e7faff;
-  --yellow: #fecc51;
-  --lightyellow: #fff8e5;
-  --lightGrey: #f3f3f3;
-  --textGrey: #bababa; */
-
 textarea {
   resize: none;
 }
@@ -52,8 +43,10 @@ textarea {
 .party-top-container {
   display: flex;
 
-  width: 100%;
+  width: 100vw;
   max-width: 100%;
+  min-height: 250px;
+  height: fit-content;
 }
 .party-countdown-container {
   background-color: var(--lightpink);
@@ -63,7 +56,8 @@ textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 250px;
+  min-height: 250px;
+  height: auto;
 }
 .party-countdown-container span {
   margin: 0px 10px 0px 10px;
@@ -86,9 +80,13 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  min-height: 250px;
 }
 .party-details-header {
   color: var(--lightblue);
+  font-size: 2.3rem;
+  margin: 5px 5px 0px 5px;
 }
 .party-details-body {
   width: 100%;
@@ -100,6 +98,10 @@ textarea {
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+  font-size: 2rem;
+}
+.party-details-container p {
+  margin: 0;
 }
 .party-details-body p {
   margin: 0;
@@ -125,9 +127,10 @@ textarea {
   display: flex;
   background-color: var(--lightblue);
   border-radius: 10px;
-  width: 97%;
-  max-width: 97%;
+  width: 95%;
+  max-width: 95%;
   justify-content: center;
+  padding: 5px 10px;
 }
 .party-guest-container {
   background-color: var(--blue);
@@ -143,7 +146,9 @@ textarea {
   max-width: 100%;
 }
 .party-guest-header p {
-  margin: 0;
+  text-align: center;
+  font-size: 2.3rem;
+  margin: 5px 5px 0px 5px;
 }
 .party-middle-right {
   display: flex;
@@ -173,9 +178,16 @@ textarea {
   border-radius: 10px;
   padding: 10px;
 }
+.party-additional-details-body p {
+  padding: 10px 30px;
+  text-align: center;
+  font-size: 1.8rem;
+}
 .party-additional-details-header {
   margin: 0;
   text-align: center;
+  font-size: 2.3rem;
+  margin: 5px 5px 0px 5px;
 }
 .party-guest-list {
   background-color: white;
@@ -201,7 +213,7 @@ textarea {
   width: 98%;
   max-width: 98%;
   border-radius: 10px;
-  margin: 0px 20px 0px 20px;
+  margin: 0px 20px 80px 20px;
 }
 .party-comment {
   display: flex;
@@ -275,7 +287,7 @@ textarea {
   margin: 0px 10px;
   color: white;
   font-family: "Dongle", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 .party-comment-buttons img {
@@ -328,6 +340,38 @@ textarea {
   height: px;
   padding: 1px 8px;
 }
+.party-supplies-form {
+  color: var(--yellow);
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  margin: 0px 10px 20px 10px;
+}
+.party-supplies-form p {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
+.party-supplies-form input {
+  background-color: var(--lightGrey);
+  border: none;
+  border-radius: 10px;
+  width: 70%;
+  height: 25px;
+}
+.party-supplies-form button {
+  border-radius: 8px;
+  border: none;
+  background-color: var(--blue);
+  padding: 0px 20px;
+  margin: 0px 10px;
+  color: white;
+  font-family: "Dongle", sans-serif;
+  font-size: 1.3rem;
+  height: 25px;
+}
+
 /* MOBILE */
 @media screen and (max-width: 480px) {
   /* copy from tablet */
@@ -335,11 +379,13 @@ textarea {
 /* TABLET */
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .party-top-container {
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .party-countdown-container {
-    width: 100%;
-    max-width: 100%;
+    width: 95%;
+    max-width: 95%;
     margin: 0px 10px 20px 10px;
   }
   .party-countdown-numbers {
@@ -351,18 +397,22 @@ textarea {
     margin: 0;
   }
   .party-details-container {
-    width: 100%;
-    max-width: 100%;
+    width: 95%;
+    max-width: 95%;
     margin: 0px 10px 20px 10px;
     height: fit-content;
   }
   .party-buttons-container {
-    width: 94%;
-    max-width: 100%;
-    margin: 0px 0px 20px 0px;
+    width: 92%;
+    max-width: 92%;
+    margin: 0px 10px 20px 10px;
   }
   .party-middle-container {
     flex-wrap: wrap;
+    width: 95%;
+    max-width: 95%;
+    margin: 0px 10px 0px 10px;
+    padding: 0;
   }
   .party-guest-container {
     width: 100%;
@@ -376,6 +426,11 @@ textarea {
     width: 100%;
     max-width: 100%;
     margin: 20px;
+  }
+  .party-bottom-container {
+    width: 96%;
+    max-width: 96%;
+    margin: 0px 0px 0px 0px;
   }
   .party-supplies-left {
     width: 100%;
@@ -391,7 +446,7 @@ textarea {
   .party-countdown-container {
     width: 60%;
     max-width: 60%;
-    margin: 0px 10px 0px 20px;
+    margin: 0px 10px 0px 40px;
   }
   .party-countdown-numbers {
     font-size: 9rem;
@@ -401,20 +456,20 @@ textarea {
     width: 500px;
   }
   .party-details-container {
-    font-size: 1rem;
     display: flex;
     width: 40%;
     max-width: 40%;
-    margin: 0px 20px 0px 10px;
+    margin: 0px 50px 0px 10px;
     height: 250px;
   }
+
   .party-buttons-container {
     width: 50vw;
     max-width: 50%;
     margin: 20px 0px 20px 0px;
   }
   .party-middle-container {
-    margin: 0px 20px 20px 20px;
+    margin: 0px 30px 20px 20px;
   }
   .party-middle-left {
     width: 50%;
@@ -429,11 +484,11 @@ textarea {
   .party-supplies-left {
     width: 45%;
     max-width: 45%;
-    margin: 0px 10px 0px 0px;
+    margin: 0px 10px 50px 0px;
   }
   .party-supplies-right {
     width: 45%;
     max-width: 45%;
-    margin: 0px 0px 0px 10px;
+    margin: 0px 0px 50px 10px;
   }
 }
