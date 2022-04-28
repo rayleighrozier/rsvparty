@@ -1,20 +1,20 @@
 .alreadyInvitedContainer {
   display: flex;
-  justify-content: space-evenly;
   border-radius: 25px;
   background-color: #e7faff;
-  position: relative;
   height: 65vh;
-  width: auto;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 40px;
+  align-items: center;
+  justify-content: center;
 }
 
 .alreadyInvitedLower {
   background-color: #13cdff;
-  /* margin: 10px 10px 10px 10px; */
   width: 38vw;
   height: 60vh;
-  position: absolute;
   top: 0;
   left: 0;
   opacity: 1;
@@ -39,10 +39,28 @@
   text-align: center;
   color: #13cdff;
 }
+
+.guestListTitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+.sendInvitesButtonContainer {
+  text-align: center;
+}
 /*-----------------IPAD-------------------------------*/
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .alreadyInvitedContainer {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 54vw;
+    align-items: center;
+    justify-content: center;
+    background-color: #e7faff;
+  }
+
   .alreadyInvitedLower {
-    margin-left: 250px;
+    width: 50vw;
   }
   .alreadyInvitedOverlay {
     margin-left: 250px;
@@ -51,8 +69,15 @@
     margin-left: 250px;
   }
   .guestListTitle {
-    margin-left: 250px;
+    /* margin-left: 250px; */
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  .sendInvitesButtonContainer {
+    text-align: center;
+  }
+
   .sendInvitesButton {
     color: white;
     background-color: var(--pink);
@@ -64,33 +89,33 @@
     /* width: 9rem; */
     font-weight: 300;
     cursor: pointer;
-    margin-left: 340px;
+
     max-height: 40px;
     /* margin-left: auto;
     margin-right: auto; */
   }
 }
 /*-----------------PHONE--------------------------------*/
-@media screen and (max-width: 375px) {
+
+@media screen and (min-width: 375px) and (max-width: 480px) {
   .alreadyInvitedContainer {
     display: flex;
-    justify-content: space-evenly;
+
     border-radius: 25px;
     background-color: #e7faff;
-    position: relative;
     height: 65vh;
-    width: 80vw;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
   }
-
   .alreadyInvitedLower {
     background-color: #13cdff;
     /* margin: 10px 10px 10px 10px; */
-    width: 100vw;
+    width: 60vw;
     height: 65vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
+
     border-radius: 25px;
     text-align: center;
     color: white;
@@ -162,12 +187,15 @@
     margin-left: auto;
     margin-right: auto;
     height: 225px;
+    width: 60vw;
   }
 
   .form {
     height: 225px;
   }
-
+  .sendInvitesButtonContainer {
+    text-align: center;
+  }
   .sendInvitesButton {
     color: white;
     background-color: var(--pink);
@@ -176,12 +204,10 @@
     font-size: 25px;
     border-radius: 0.7rem;
     padding-top: 0.2rem;
-    /* width: 9rem; */
+    width: 9rem;
     font-weight: 300;
     cursor: pointer;
-    margin-left: 290px;
+
     max-height: 40px;
-    /* margin-left: auto;
-    margin-right: auto; */
   }
 }
