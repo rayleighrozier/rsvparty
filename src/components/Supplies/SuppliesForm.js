@@ -16,12 +16,10 @@ export default function SuppliesForm(props) {
   };
 
   return (
-    <div>
-      <form>
-        <label>Supplies</label>
-        <input type="text" />
-        <button onClick={(e) => captureAddSupplies(e)}>Submit</button>
-      </form>
-    </div>
+    <form className="party-supplies-form">
+      <p>Add to the list</p>
+      <input type="text" />
+      <button onClick={(e) => captureAddSupplies(e)}>+</button>
+    </form>
   );
 }

@@ -41,11 +41,17 @@ export default function RSVPButtons(props) {
   useEffect(() => {}, [props.attending]);
 
   return (
-    <div>
+    <div className="party-buttons-container">
       {host ? <p>Let {host.firstName} know if you can make it!</p> : null}
-      <button onClick={() => changeAttending("yes")}>Going</button>
-      <button onClick={() => changeAttending("maybe")}>Maybe</button>
-      <button onClick={() => changeAttending("no")}>Can't Go</button>
+      <button className="blue" onClick={() => changeAttending("yes")}>
+        Going
+      </button>
+      <button className="yellow" onClick={() => changeAttending("maybe")}>
+        Maybe
+      </button>
+      <button className="pink" onClick={() => changeAttending("no")}>
+        Can't Go
+      </button>
     </div>
   );
 }

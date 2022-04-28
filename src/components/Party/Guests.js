@@ -3,39 +3,36 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function Guests(props) {
-  const navigate = useNavigate();
   const party = useSelector((state) => state.party);
   const [guestList, setGuestList] = useState(null);
-  const editGuests = () => {
-    navigate("/editguests");
-  };
+
   useEffect(() => {
     setGuestList(party.guests);
   }, [party]);
   return (
-    <>
-      <p>Guest List</p>
+    <div className="party-guest-container">
+      <div className="party-guest-header">
+        <p>Guest List</p>
+      </div>
       {guestList ? (
-        <div>
+        <div className="party-guest-list">
           {guestList.map((guest) => {
             return (
-              <div>
-                <p>{guest.firstName}</p>
-                <p>{guest.lastName}</p>
+              <div className="party-guest">
+                <p>
+                  {guest.firstName}
+                  {"  "} {guest.lastName}
+                </p>
+
                 {guest.attending === "yes" ? <p>Attending</p> : null}
                 {guest.attending === "no" ? <p>Not Attending</p> : null}
                 {guest.attending === "maybe" ? <p>Maybe Attending</p> : null}
-                {guest.attending === "undecided" ? (
-                  <p>No Response Yet</p>
-                ) : null}
+                {guest.attending === "undecided" ? <p>No Response </p> : null}
               </div>
             );
           })}
-          {props.host ? (
-            <button onClick={editGuests}>Invite Guests</button>
-          ) : null}
         </div>
       ) : null}
-    </>
+    </div>
   );
 }

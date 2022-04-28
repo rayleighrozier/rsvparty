@@ -19,8 +19,10 @@ import { checkIfInvited } from "../../actions/guestList";
 import Guests from "./Guests";
 import Comments from "../Comments/Comments";
 import Supplies from "../Supplies/Supplies";
-
-// Countdown, Details, Playlist, Supplies, Comments
+import HostButtons from "./HostButtons";
+import AdditionalDetails from "./AdditionalDetails";
+import "./Party.css";
+import CountdownTitles from "./CountdownTitles";
 
 export default function Party() {
   const dispatch = useDispatch();
@@ -103,21 +105,38 @@ export default function Party() {
   }, [party]);
 
   return (
-    <div>
+    <>
       {token ? (
         invited ? (
-          <>
-            {party ? <PartyDetails host={host} setHost={setHost} /> : null}
-            <Countdown date={Date.now() + Math.abs(timeLeft)}>
-              <Completionist />
-            </Countdown>
-            {host ? null : (
+          <div className="party-main-container">
+            {" "}
+            <div className="party-top-container">
+              <div className="party-countdown-container">
+                <div className="party-countdown-numbers">
+                  <Countdown date={Date.now() + Math.abs(timeLeft)}>
+                    <Completionist />
+                  </Countdown>
+                </div>
+                <CountdownTitles />
+              </div>
+              {party ? <PartyDetails host={host} setHost={setHost} /> : null}
+            </div>
+            {host ? (
+              <HostButtons />
+            ) : (
               <RSVPButtons attending={attending} setAttending={setAttending} />
             )}
-            {party ? <Guests host={host} /> : null}
-            {party ? <Comments /> : null}
+            <div className="party-middle-container">
+              <div className="party-middle-left">
+                {party ? <AdditionalDetails /> : null}
+                {party ? <Guests host={host} /> : null}
+              </div>
+              <div className="party-middle-right">
+                {party ? <Comments /> : null}
+              </div>
+            </div>
             {party ? <Supplies host={host} /> : null}
-          </>
+          </div>
         ) : (
           <div>
             <p>Uh oh! Looks like you are not on the guest list.</p>
@@ -125,6 +144,6 @@ export default function Party() {
           </div>
         )
       ) : null}
-    </div>
+    </>
   );
 }
