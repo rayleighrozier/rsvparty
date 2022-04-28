@@ -44,51 +44,73 @@ export default function Supplies(props) {
 
   return (
     <div className="party-bottom-container">
-      <p>Supplies</p>
+      <p className="party-supplies-header">Supplies</p>
       <div className="party-supplies">
         {props.host ? (
-          <p>Ask for guests to bring something</p>
+          <p className="party-supplies-top">Ask guests to bring something</p>
         ) : (
-          <p>Volunteer to bring something</p>
+          <p className="party-supplies-top">Volunteer to bring something</p>
         )}
-        {props.host ? (
-          <SuppliesForm
-            newSupplies={newSupplies}
-            setNewSupplies={setNewSupplies}
-          />
-        ) : null}
-        {party.supplies
-          ? party.supplies.map((item) => {
-              return (
-                <>
-                  {/* not claimed items */}
-                  {/* claimed items */}
-                  <div>
-                    <p>{item.item}</p>
-                    {item.guest ? (
-                      <p>
-                        {item.guest.firstName} {item.guest.lastName} is bringing
-                        this
-                      </p>
-                    ) : (
-                      <p>Not claimed</p>
+        {/* NOT CLAIMED ITEMS */}
+        <div className="party-supplies-left">
+          {party.supplies
+            ? party.supplies.map((item) => {
+                return (
+                  <>
+                    {item.claimed ? null : (
+                      <div className="party-supplies-item light-pink">
+                        <p>{item.item}</p>
+                        <div className="party-supplies-item-right">
+                          <p>Not claimed</p>
+                          {props.host ? (
+                            <button
+                              name={item.item}
+                              onClick={(e) => deleteItem(e)}
+                            >
+                              X
+                            </button>
+                          ) : (
+                            <button
+                              name={item.item}
+                              onClick={(e) => claimItem(e)}
+                            >
+                              I'll bring this
+                            </button>
+                          )}
+                        </div>
+                      </div>
                     )}
-                    {props.host ? (
-                      item.claimed ? null : (
-                        <button name={item.item} onClick={(e) => deleteItem(e)}>
-                          X
-                        </button>
-                      )
-                    ) : item.guest ? null : (
-                      <button name={item.item} onClick={(e) => claimItem(e)}>
-                        I'll bring this
-                      </button>
-                    )}
-                  </div>
-                </>
-              );
-            })
-          : null}
+                  </>
+                );
+              })
+            : null}
+          {props.host ? (
+            <SuppliesForm
+              newSupplies={newSupplies}
+              setNewSupplies={setNewSupplies}
+            />
+          ) : null}
+        </div>
+        <div className="party-supplies-right">
+          {/* CLAIMED ITEMS */}
+          {party.supplies
+            ? party.supplies.map((item) => {
+                return (
+                  <>
+                    {item.claimed ? (
+                      <div className="party-supplies-item light-blue">
+                        <p>{item.item}</p>{" "}
+                        <p className="text-blue">
+                          Claimed by {"  "}
+                          {item.guest.firstName}
+                        </p>
+                      </div>
+                    ) : null}
+                  </>
+                );
+              })
+            : null}
+        </div>
       </div>
     </div>
   );
