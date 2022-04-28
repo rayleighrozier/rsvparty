@@ -93,9 +93,11 @@ export default function EditGuests() {
 
           <InviteGuestsForm />
           <GuestList />
-          <button className="sendInvitesButton" onClick={sendNewGuests}>
-            Send Invites
-          </button>
+          <div className="sendInvitesButtonContainer">
+            <button className="sendInvitesButton" onClick={sendNewGuests}>
+              Send Invites
+            </button>
+          </div>
         </>
       ) : null}
     </>
