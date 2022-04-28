@@ -1,0 +1,187 @@
+.alreadyInvitedContainer {
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 25px;
+  background-color: #e7faff;
+  position: relative;
+  height: 65vh;
+  width: auto;
+  margin-bottom: 40px;
+}
+
+.alreadyInvitedLower {
+  background-color: #13cdff;
+  /* margin: 10px 10px 10px 10px; */
+  width: 38vw;
+  height: 60vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+}
+
+.alreadyInvitedOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  border: none;
+  width: 38vw;
+  height: 53vh;
+
+  background-color: white;
+  cursor: not-allowed;
+  margin: 50px 10px 20px 0px;
+  border-radius: 25px;
+  text-align: center;
+  color: #13cdff;
+}
+/*-----------------IPAD-------------------------------*/
+@media screen and (max-width: 768px) {
+  .alreadyInvitedLower {
+    margin-left: 250px;
+  }
+  .alreadyInvitedOverlay {
+    margin-left: 250px;
+  }
+  .inviteGuestContainer {
+    margin-left: 250px;
+  }
+  .guestListTitle {
+    margin-left: 250px;
+  }
+  .sendInvitesButton {
+    color: white;
+    background-color: var(--pink);
+    font-family: "Dongle", sans-serif;
+    border: none;
+    font-size: 25px;
+    border-radius: 0.7rem;
+    padding-top: 0.2rem;
+    /* width: 9rem; */
+    font-weight: 300;
+    cursor: pointer;
+    margin-left: 340px;
+    max-height: 40px;
+    /* margin-left: auto;
+    margin-right: auto; */
+  }
+}
+/*-----------------PHONE--------------------------------*/
+@media screen and (max-width: 375px) {
+  .alreadyInvitedContainer {
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 25px;
+    background-color: #e7faff;
+    position: relative;
+    height: 65vh;
+    width: 80vw;
+  }
+
+  .alreadyInvitedLower {
+    background-color: #13cdff;
+    /* margin: 10px 10px 10px 10px; */
+    width: 100vw;
+    height: 65vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+  }
+
+  .alreadyInvitedOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    border: none;
+    width: 100vw;
+    height: 53vh;
+
+    background-color: white;
+    cursor: not-allowed;
+    margin: 50px 10px 20px 0px;
+    border-radius: 25px;
+    text-align: center;
+    color: #13cdff;
+  }
+
+  .signOutButton {
+    color: white;
+    float: right;
+    background-color: var(--pink);
+    font-family: "Dongle", sans-serif;
+    border: none;
+    font-size: 20px;
+    border-radius: 0.7rem;
+    padding-top: 0.2rem;
+    width: 5rem;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  .submitGuestButton {
+    background-color: var(--yellow);
+    color: white;
+    border: none;
+    font-family: "Dongle", sans-serif;
+    font-size: 20px;
+
+    border-radius: 1rem;
+    position: absolute;
+    margin-left: 300px;
+  }
+  .inviteGuestContainer {
+    display: flex;
+    background-color: #fff8e5;
+    width: 100vw;
+    margin: 0 auto;
+  }
+
+  .inviteGuestContent {
+    padding: 0px;
+    width: 90px;
+  }
+
+  .inviteGuestLabel {
+    font-size: 25px;
+    font: normal;
+    padding: 0rem;
+  }
+  .inviteGuestInput {
+    width: 48px;
+  }
+
+  .guestListTitle {
+    margin-left: auto;
+    margin-right: auto;
+    height: 225px;
+  }
+
+  .form {
+    height: 225px;
+  }
+
+  .sendInvitesButton {
+    color: white;
+    background-color: var(--pink);
+    font-family: "Dongle", sans-serif;
+    border: none;
+    font-size: 25px;
+    border-radius: 0.7rem;
+    padding-top: 0.2rem;
+    /* width: 9rem; */
+    font-weight: 300;
+    cursor: pointer;
+    margin-left: 290px;
+    max-height: 40px;
+    /* margin-left: auto;
+    margin-right: auto; */
+  }
+}
