@@ -10,6 +10,11 @@ textarea {
   border-radius: 10px;
   background: var(--textGrey);
 }
+
+.RSVPbutton {
+  cursor: pointer;
+}
+
 .pink {
   background-color: var(--pink);
 }

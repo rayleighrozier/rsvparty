@@ -2,6 +2,10 @@
   width: 35rem;
 }
 
+.homeImgContainer {
+  background-color: var(--blue);
+}
+
 .homePage {
   display: flex;
 }

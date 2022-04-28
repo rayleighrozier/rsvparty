@@ -19,13 +19,15 @@ export default function DashboardTop() {
   }, []);
 
   return (
-    <div>
+    <div className="dashBoardTop">
       {/* here we can replace null with a default image if we want to */}
+      <button className="changeAnimalButton" onClick={changeAvatar}>
+        Change Animal
+      </button>
       {guest.avatarData ? (
         <img className="userAvatar" src={guest.avatarData.url} />
       ) : null}
 
-      <button onClick={changeAvatar}>Change Animal</button>
       <p className="guestName">Hi {guest?.firstName}!</p>
     </div>
   );

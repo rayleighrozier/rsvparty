@@ -5,6 +5,16 @@
   flex-wrap: wrap;
 }
 
+.dashBoardTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.changeAnimalButton {
+  display: flex;
+}
+
 .userContainer {
   background-color: #fff8e5;
   text-align: center;

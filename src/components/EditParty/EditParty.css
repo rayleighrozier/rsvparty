@@ -10,6 +10,8 @@
   border-radius: 0.8rem;
   font-family: "Dongle", sans-serif;
   font-size: 25px;
+  width: 40%;
+  height: 2rem;
 }
 
 .editPartySubmitButton {
@@ -18,11 +20,9 @@
   border: none;
   color: white;
   font-size: 30px;
-  width: 100px;
-  margin-top: 1rem;
   padding-top: 0.3rem;
   border-radius: 0.8rem;
-  margin-top: 2.5rem;
+  padding: 0.5rem;
 }
 
 .editButton {
@@ -39,12 +39,22 @@
   margin-left: 2rem;
 }
 
+.editPartyPara {
+  width: 13rem;
+  margin-right: 2rem;
+}
+
 .formFirstRow {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
   width: 100%;
-  flex-wrap: wrap;
   margin-bottom: 2rem;
+}
+
+.inputForm {
+  display: flex;
+  align-items: center;
+  width: 50rem;
+  justify-content: space-evenly;
 }
 
 .formSecondRow {
@@ -59,9 +69,15 @@
   width: 100%;
   gap: 1.5rem;
 }
-.editRow {
+
+.editParaAndButton {
   display: flex;
+  justify-content: space-evenly;
 }
+.editRow {
+  display: grid;
+}
+
 #details {
   height: 9rem;
 }

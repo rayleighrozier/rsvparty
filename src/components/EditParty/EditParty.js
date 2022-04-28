@@ -45,54 +45,61 @@ export default function EditParty() {
       <div className="editPartyContent">
         <div className="formFirstRow">
           <div className="editRow">
-            <p>{newInputs.name}</p>
-            <button className="editButton" onClick={() => setNewName(true)}>
-              Edit
-            </button>
+            <div className="editParaAndButton">
+              <p className="editPartyPara">{newInputs.name}</p>
+              <button className="editButton" onClick={() => setNewName(true)}>
+                Edit
+              </button>
+            </div>
+            {newName ? (
+              <EditInput
+                type="text"
+                inputType="name"
+                newInputs={newInputs}
+                setNewInputs={setNewInputs}
+                state={newName}
+                setState={setNewName}
+              />
+            ) : null}
           </div>
-          {newName ? (
-            <EditInput
-              type="text"
-              inputType="name"
-              newInputs={newInputs}
-              setNewInputs={setNewInputs}
-              state={newName}
-              setState={setNewName}
-            />
-          ) : null}
 
           <div className="editRow">
-            <p>{formatDate(newInputs.date)}</p>
-            <button className="editButton" onClick={() => setNewDate(true)}>
-              Edit
-            </button>
+            <div className="editParaAndButton">
+              <p className="editPartyPara">{formatDate(newInputs.date)}</p>
+              <button className="editButton" onClick={() => setNewDate(true)}>
+                Edit
+              </button>
+            </div>
+            {newDate ? (
+              <EditInput
+                type="date"
+                inputType="date"
+                newInputs={newInputs}
+                setNewInputs={setNewInputs}
+                state={newDate}
+                setState={setNewDate}
+              />
+            ) : null}
           </div>
-          {newDate ? (
-            <EditInput
-              type="date"
-              inputType="date"
-              newInputs={newInputs}
-              setNewInputs={setNewInputs}
-              state={newDate}
-              setState={setNewDate}
-            />
-          ) : null}
+
           <div className="editRow">
-            <p>{formatTime(newInputs.time)}</p>
-            <button className="editButton" onClick={() => setNewTime(true)}>
-              Edit
-            </button>
+            <div className="editParaAndButton">
+              <p className="editPartyPara">{formatTime(newInputs.time)}</p>
+              <button className="editButton" onClick={() => setNewTime(true)}>
+                Edit name
+              </button>
+            </div>
+            {newTime ? (
+              <EditInput
+                type="time"
+                inputType="time"
+                newInputs={newInputs}
+                setNewInputs={setNewInputs}
+                state={newTime}
+                setState={setNewTime}
+              />
+            ) : null}
           </div>
-          {newTime ? (
-            <EditInput
-              type="time"
-              inputType="time"
-              newInputs={newInputs}
-              setNewInputs={setNewInputs}
-              state={newTime}
-              setState={setNewTime}
-            />
-          ) : null}
         </div>
 
         <div className="formSecondRow">
@@ -104,7 +111,7 @@ export default function EditParty() {
           </div>
 
           <button className="editButton" onClick={() => setNewLocation(true)}>
-            Edit
+            Edit date
           </button>
         </div>
         {newLocation ? (
@@ -118,7 +125,7 @@ export default function EditParty() {
         <div className="formThirdRow">
           <p>{newInputs.details}</p>
           <button className="editButton" onClick={() => setNewDetails(true)}>
-            Edit
+            Edit time
           </button>
         </div>
         {newDetails ? (
