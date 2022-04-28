@@ -4,6 +4,7 @@ import {
   UPDATE_NEWPARTY_GUESTLIST,
   SET_PARTY_GUESTS,
 } from "../../action-types/index";
+import "./InviteGuestsForm.css";
 
 function InviteGuestsForm() {
   const dispatch = useDispatch();
