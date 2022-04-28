@@ -7,7 +7,7 @@ import EditLocation from "./EditLocation";
 import { formatDate, formatTime } from "../../actions/format";
 import { partyUpdateDetails } from "../../actions/supabase";
 import { SET_PAGE } from "../../action-types";
-
+import "./EditParty.css";
 export default function EditParty() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -40,72 +40,102 @@ export default function EditParty() {
   }, []);
 
   return party ? (
-    <div>
+    <div className="editPartyContent">
       <h1>Edit Details</h1>
-      <p>{newInputs.name}</p>{" "}
-      <button onClick={() => setNewName(true)}>Edit</button>
-      {newName ? (
-        <EditInput
-          type="text"
-          inputType="name"
-          newInputs={newInputs}
-          setNewInputs={setNewInputs}
-          state={newName}
-          setState={setNewName}
-        />
-      ) : null}
-      <p>{formatDate(newInputs.date)}</p>{" "}
-      <button onClick={() => setNewDate(true)}>Edit</button>
-      {newDate ? (
-        <EditInput
-          type="date"
-          inputType="date"
-          newInputs={newInputs}
-          setNewInputs={setNewInputs}
-          state={newDate}
-          setState={setNewDate}
-        />
-      ) : null}
-      <p>{formatTime(newInputs.time)}</p>{" "}
-      <button onClick={() => setNewTime(true)}>Edit</button>
-      {newTime ? (
-        <EditInput
-          type="time"
-          inputType="time"
-          newInputs={newInputs}
-          setNewInputs={setNewInputs}
-          state={newTime}
-          setState={setNewTime}
-        />
-      ) : null}
-      <p>{newInputs.details}</p>{" "}
-      <button onClick={() => setNewDetails(true)}>Edit</button>
-      {newDetails ? (
-        <EditInput
-          type="text"
-          inputType="details"
-          newInputs={newInputs}
-          setNewInputs={setNewInputs}
-          state={newDetails}
-          setState={setNewDetails}
-        />
-      ) : null}
-      <div>
-        <p>{newInputs.location.address}</p>
-        <p>{newInputs.location.city}</p>
-        <p>{newInputs.location.state}</p>
-        <p>{newInputs.location.zip}</p>
+      <div className="editPartyContent">
+        <div className="formFirstRow">
+          <div className="editRow">
+            <p>{newInputs.name}</p>
+            <button className="editButton" onClick={() => setNewName(true)}>
+              Edit
+            </button>
+          </div>
+          {newName ? (
+            <EditInput
+              type="text"
+              inputType="name"
+              newInputs={newInputs}
+              setNewInputs={setNewInputs}
+              state={newName}
+              setState={setNewName}
+            />
+          ) : null}
+
+          <div className="editRow">
+            <p>{formatDate(newInputs.date)}</p>
+            <button className="editButton" onClick={() => setNewDate(true)}>
+              Edit
+            </button>
+          </div>
+          {newDate ? (
+            <EditInput
+              type="date"
+              inputType="date"
+              newInputs={newInputs}
+              setNewInputs={setNewInputs}
+              state={newDate}
+              setState={setNewDate}
+            />
+          ) : null}
+          <div className="editRow">
+            <p>{formatTime(newInputs.time)}</p>
+            <button className="editButton" onClick={() => setNewTime(true)}>
+              Edit
+            </button>
+          </div>
+          {newTime ? (
+            <EditInput
+              type="time"
+              inputType="time"
+              newInputs={newInputs}
+              setNewInputs={setNewInputs}
+              state={newTime}
+              setState={setNewTime}
+            />
+          ) : null}
+        </div>
+
+        <div className="formSecondRow">
+          <div className="locationNames">
+            <p>{newInputs.location.address}</p>
+            <p>{newInputs.location.city},</p>
+            <p>{newInputs.location.state}</p>
+            <p>{newInputs.location.zip}</p>
+          </div>
+
+          <button className="editButton" onClick={() => setNewLocation(true)}>
+            Edit
+          </button>
+        </div>
+        {newLocation ? (
+          <EditLocation
+            newInputs={newInputs}
+            setNewInputs={setNewInputs}
+            state={newLocation}
+            setState={setNewLocation}
+          />
+        ) : null}
+        <div className="formThirdRow">
+          <p>{newInputs.details}</p>
+          <button className="editButton" onClick={() => setNewDetails(true)}>
+            Edit
+          </button>
+        </div>
+        {newDetails ? (
+          <EditInput
+            type="text"
+            inputType="details"
+            newInputs={newInputs}
+            setNewInputs={setNewInputs}
+            state={newDetails}
+            setState={setNewDetails}
+          />
+        ) : null}
+
+        <button className="editPartySubmitButton" onClick={updateParty}>
+          Looks Good!
+        </button>
       </div>
-      <button onClick={() => setNewLocation(true)}>Edit</button>
-      {newLocation ? (
-        <EditLocation
-          newInputs={newInputs}
-          setNewInputs={setNewInputs}
-          state={newLocation}
-          setState={setNewLocation}
-        />
-      ) : null}
-      <button onClick={updateParty}>Looks Good!</button>
     </div>
   ) : (
     <Error />
