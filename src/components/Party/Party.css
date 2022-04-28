@@ -16,6 +16,9 @@
 .yellow {
   background-color: var(--yellow);
 }
+.text-grey {
+  color: var(--textGrey);
+}
 .party-main-container {
   margin: 0;
   width: 100vw;
@@ -103,30 +106,86 @@
   border-radius: 10px;
   width: 100%;
   max-width: 100%;
+  justify-content: center;
+  gap: 20px;
+}
+.party-middle-left {
+  background-color: var(--blue);
+  border-radius: 10px;
+  margin: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  min-height: 300px;
+  height: fit-content;
+}
+.party-middle-left-header p {
+  margin: 0;
+}
+.party-middle-right {
+  color: var(--blue);
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+.party-middle-right-body {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+}
+.party-middle-right-header p {
+  margin: 0;
+}
+.party-additional-details {
+  font-size: 2rem;
+  margin: 0px 20px 0px 20px;
+}
+.party-guest-list {
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 100%;
+  color: var(--blue);
+  flex-grow: 1;
+}
+.party-guest {
+  display: flex;
+  background-color: var(--lightblue);
+  border-radius: 10px;
+  margin: 20px 20px 20px 20px;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+.party-guest p {
+  margin: 0px 5px;
+}
+.party-bottom-container {
+  background-color: var(--yellow);
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+}
+.party-comment {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--lightGrey);
+  margin: 10px 10px 10px 10px;
+  border-radius: 10px;
+  height: fit-content;
+  padding: 10px 20px;
+}
+.party-comment p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.party-supplies {
+  background-color: var(--lightyellow);
+  border-radius: 10px;
 }
 /* MOBILE */
 @media screen and (max-width: 480px) {
-  .party-top-container {
-    flex-wrap: wrap;
-  }
-  .party-countdown-container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-  }
-  .party-countdown-numbers {
-    font-size: 6rem;
-  }
-  .party-details-container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0px 10px 20px 10px;
-    height: fit-content;
-  }
-  .party-buttons-container {
-    width: 100%;
-    max-width: 100%;
-  }
+  /* copy from tablet */
 }
 /* TABLET */
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -155,7 +214,14 @@
   .party-buttons-container {
     width: 94%;
     max-width: 100%;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 20px 0px;
+  }
+  .party-middle-container {
+    flex-wrap: wrap;
+  }
+  .party-middle-left {
+    width: 100%;
+    max-width: 100%;
   }
 }
 /* LAPTOP OR BIGGER */
@@ -184,5 +250,12 @@
     width: 50vw;
     max-width: 50%;
     margin: 20px 0px 20px 0px;
+  }
+  .party-middle-container {
+    margin: 0px 0px 20px 0px;
+  }
+  .party-middle-left {
+    width: 50%;
+    max-width: 50%;
   }
 }

@@ -10,11 +10,15 @@ export default function CommentsList() {
       {comments
         ? comments.map((comment) => {
             return (
-              <div>
-                <p>{comment.firstName}</p>
-                <p>{comment.lastName}</p>
+              <div className="party-comment">
+                <p>
+                  {comment.firstName}
+                  {"  "} {comment.lastName}
+                </p>
                 <p>{comment.comment}</p>
-                {comment.timestamp ? <p>{comment.timestamp}</p> : null}
+                {comment.timestamp ? (
+                  <p className="text-grey">{comment.timestamp}</p>
+                ) : null}
               </div>
             );
           })

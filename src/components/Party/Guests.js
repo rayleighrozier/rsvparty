@@ -10,26 +10,29 @@ export default function Guests(props) {
     setGuestList(party.guests);
   }, [party]);
   return (
-    <>
-      <p>Guest List</p>
+    <div className="party-middle-left">
+      <div className="party-middle-left-header">
+        <p>Guest List</p>
+      </div>
       {guestList ? (
-        <div>
+        <div className="party-guest-list">
           {guestList.map((guest) => {
             return (
-              <div>
-                <p>{guest.firstName}</p>
-                <p>{guest.lastName}</p>
+              <div className="party-guest">
+                <p>
+                  {guest.firstName}
+                  {"  "} {guest.lastName}
+                </p>
+
                 {guest.attending === "yes" ? <p>Attending</p> : null}
                 {guest.attending === "no" ? <p>Not Attending</p> : null}
                 {guest.attending === "maybe" ? <p>Maybe Attending</p> : null}
-                {guest.attending === "undecided" ? (
-                  <p>No Response Yet</p>
-                ) : null}
+                {guest.attending === "undecided" ? <p>No Response </p> : null}
               </div>
             );
           })}
         </div>
       ) : null}
-    </>
+    </div>
   );
 }

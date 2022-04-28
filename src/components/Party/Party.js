@@ -129,8 +129,15 @@ export default function Party() {
             )}
             <div className="party-middle-container">
               {party ? <Guests host={host} /> : null}
-              {party ? <AdditionalDetails /> : null}
-              {party ? <Comments /> : null}
+              <div className="party-middle-right">
+                <div className="party-middle-right-header">
+                  <p>More party details</p>
+                </div>
+                <div className="party-middle-right-body">
+                  {party ? <AdditionalDetails /> : null}
+                  {party ? <Comments /> : null}
+                </div>
+              </div>
             </div>
             {party ? <Supplies host={host} /> : null}
           </div>

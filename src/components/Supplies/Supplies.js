@@ -43,47 +43,53 @@ export default function Supplies(props) {
   }, [newSupplies]);
 
   return (
-    <div>
+    <div className="party-bottom-container">
       <p>Supplies</p>
-      {props.host ? (
-        <p>Ask for guests to bring something</p>
-      ) : (
-        <p>Volunteer to bring something</p>
-      )}
-      {props.host ? (
-        <SuppliesForm
-          newSupplies={newSupplies}
-          setNewSupplies={setNewSupplies}
-        />
-      ) : null}
-      {party.supplies
-        ? party.supplies.map((item) => {
-            return (
-              <div>
-                <p>{item.item}</p>
-                {item.guest ? (
-                  <p>
-                    {item.guest.firstName} {item.guest.lastName} is bringing
-                    this
-                  </p>
-                ) : (
-                  <p>Not claimed</p>
-                )}
-                {props.host ? (
-                  item.claimed ? null : (
-                    <button name={item.item} onClick={(e) => deleteItem(e)}>
-                      X
-                    </button>
-                  )
-                ) : item.guest ? null : (
-                  <button name={item.item} onClick={(e) => claimItem(e)}>
-                    I'll bring this
-                  </button>
-                )}
-              </div>
-            );
-          })
-        : null}
+      <div className="party-supplies">
+        {props.host ? (
+          <p>Ask for guests to bring something</p>
+        ) : (
+          <p>Volunteer to bring something</p>
+        )}
+        {props.host ? (
+          <SuppliesForm
+            newSupplies={newSupplies}
+            setNewSupplies={setNewSupplies}
+          />
+        ) : null}
+        {party.supplies
+          ? party.supplies.map((item) => {
+              return (
+                <>
+                  {/* not claimed items */}
+                  {/* claimed items */}
+                  <div>
+                    <p>{item.item}</p>
+                    {item.guest ? (
+                      <p>
+                        {item.guest.firstName} {item.guest.lastName} is bringing
+                        this
+                      </p>
+                    ) : (
+                      <p>Not claimed</p>
+                    )}
+                    {props.host ? (
+                      item.claimed ? null : (
+                        <button name={item.item} onClick={(e) => deleteItem(e)}>
+                          X
+                        </button>
+                      )
+                    ) : item.guest ? null : (
+                      <button name={item.item} onClick={(e) => claimItem(e)}>
+                        I'll bring this
+                      </button>
+                    )}
+                  </div>
+                </>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 }
