@@ -23,7 +23,6 @@ import HostButtons from "./HostButtons";
 import AdditionalDetails from "./AdditionalDetails";
 import "./Party.css";
 import CountdownTitles from "./CountdownTitles";
-// Countdown, Details, Playlist, Supplies, Comments
 
 export default function Party() {
   const dispatch = useDispatch();
