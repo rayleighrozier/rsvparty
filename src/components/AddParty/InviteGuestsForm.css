@@ -1,0 +1,6 @@
+/*-----------------PHONE--------------------------------*/
+@media screen and (max-width: 375px) {
+  .mainContainer {
+    width: 100vw;
+  }
+}

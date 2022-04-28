@@ -10,6 +10,7 @@ import GuestList from "../AddParty/GuestList";
 import { partyUpdateGuests } from "../../actions/supabase";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
+import "./EditGuests.css";
 
 export default function EditGuests() {
   const dispatch = useDispatch();
@@ -67,26 +68,37 @@ export default function EditGuests() {
   return (
     <>
       {guestList ? (
-        <div>
-          <p>Already Invited</p>
-          {guestList.map((guest) => {
-            return (
-              <div>
-                <p>{guest.firstName}</p>
-                <p>{guest.lastName}</p>
-                {guest.attending === "yes" ? <p>Attending</p> : null}
-                {guest.attending === "no" ? <p>Not Attending</p> : null}
-                {guest.attending === "maybe" ? <p>Maybe Attending</p> : null}
-                {guest.attending === "undecided" ? (
-                  <p>No Response Yet</p>
-                ) : null}
-              </div>
-            );
-          })}
+        <>
+          <div className="alreadyInvitedContainer">
+            <div className="alreadyInvitedLower">
+              <div>Already Invited</div>
+            </div>
+            {guestList.map((guest) => {
+              return (
+                <div className="alreadyInvitedOverlay">
+                  <div>
+                    {guest.firstName} {guest.lastName}
+                  </div>
+
+                  {guest.attending === "yes" ? <p>Attending</p> : null}
+                  {guest.attending === "no" ? <p>Not Attending</p> : null}
+                  {guest.attending === "maybe" ? <p>Maybe Attending</p> : null}
+                  {guest.attending === "undecided" ? (
+                    <div>No Response Yet</div>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+
           <InviteGuestsForm />
           <GuestList />
-          <button onClick={sendNewGuests}>Send Invites</button>
-        </div>
+          <div className="sendInvitesButtonContainer">
+            <button className="sendInvitesButton" onClick={sendNewGuests}>
+              Send Invites
+            </button>
+          </div>
+        </>
       ) : null}
     </>
   );
