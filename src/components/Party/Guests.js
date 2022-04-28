@@ -10,8 +10,8 @@ export default function Guests(props) {
     setGuestList(party.guests);
   }, [party]);
   return (
-    <div className="party-middle-left">
-      <div className="party-middle-left-header">
+    <div className="party-guest-container">
+      <div className="party-guest-header">
         <p>Guest List</p>
       </div>
       {guestList ? (

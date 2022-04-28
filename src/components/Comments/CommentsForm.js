@@ -50,16 +50,19 @@ export default function CommentForm(props) {
   }, [party.comments]);
 
   return (
-    <form>
-      <div className="pickerContainer">
-        <input
-          name="comments"
-          className="inputStyle"
-          value={inputStr}
-          onChange={(e) => setInputStr(e.target.value)}
-        />
+    <form className="party-comment-form">
+      <p>Leave a comment</p>
+      <textarea
+        name="comments"
+        placeholder="Leave a comment here"
+        className="party-comment-text"
+        value={inputStr}
+        onChange={(e) => setInputStr(e.target.value)}
+      />
+      <div className="party-comment-buttons">
+        <button onClick={(e) => captureComment(e)}>Post</button>
         <img
-          className="emojiIcon"
+          className="party-comment-buttons-emoji"
           src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
           onClick={() => setShowPicker((val) => !val)}
         />
@@ -67,7 +70,6 @@ export default function CommentForm(props) {
           <Picker pickerStyle={{ width: "100%" }} onEmojiClick={onEmojiClick} />
         )}
       </div>
-      <button onClick={(e) => captureComment(e)}>Submit</button>
     </form>
   );
 }

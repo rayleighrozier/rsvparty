@@ -128,15 +128,12 @@ export default function Party() {
               <RSVPButtons attending={attending} setAttending={setAttending} />
             )}
             <div className="party-middle-container">
-              {party ? <Guests host={host} /> : null}
+              <div className="party-middle-left">
+                {party ? <AdditionalDetails /> : null}
+                {party ? <Guests host={host} /> : null}
+              </div>
               <div className="party-middle-right">
-                <div className="party-middle-right-header">
-                  <p>More party details</p>
-                </div>
-                <div className="party-middle-right-body">
-                  {party ? <AdditionalDetails /> : null}
-                  {party ? <Comments /> : null}
-                </div>
+                {party ? <Comments /> : null}
               </div>
             </div>
             {party ? <Supplies host={host} /> : null}
