@@ -50,7 +50,21 @@ export default function Guests(props) {
             );
           })}
         </div>
-      ) : null}
+      ) : (
+        <div className="party-guest-list">
+          {" "}
+          {host ? (
+            <div className="party-guest party-host">
+              {" "}
+              <p>
+                {host.firstName}
+                {"  "} {host.lastName}
+              </p>
+              <p>Host</p>
+            </div>
+          ) : null}
+        </div>
+      )}
     </div>
   );
 }
