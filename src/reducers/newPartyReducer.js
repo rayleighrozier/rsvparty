@@ -2,6 +2,7 @@ import {
   SET_NEWPARTY_DETAILS,
   UPDATE_NEWPARTY_GUESTLIST,
   RESET_NEWPARTY,
+  RESET_NEWPARTY_GUESTLIST,
 } from "../action-types/index";
 const initialState = {
   details: null,
@@ -28,6 +29,11 @@ function newParty(state = initialState, action) {
       return {
         ...state,
         guestList: [...state.guestList, action.payload],
+      };
+    case RESET_NEWPARTY_GUESTLIST:
+      return {
+        ...state,
+        guestList: [],
       };
     default:
       return state;
