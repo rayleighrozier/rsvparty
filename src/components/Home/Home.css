@@ -4,6 +4,7 @@
 
 .homeImgContainer {
   background-color: var(--blue);
+  height: 100vh;
 }
 
 .homePage {
@@ -12,6 +13,7 @@
 
 .homeText {
   text-align: center;
+  margin: 0px;
 }
 
 .homePageInputs {
