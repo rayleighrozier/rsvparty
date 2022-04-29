@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { formatCommentDate } from "../../actions/format";
 
 export default function CommentsList() {
   const comments = useSelector((state) => state.party.comments);

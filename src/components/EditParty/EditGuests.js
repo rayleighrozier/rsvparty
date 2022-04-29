@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
+import emailjs from "emailjs-com";
 import { useSelector, useDispatch } from "react-redux";
-import InviteGuestsForm from "../AddParty/InviteGuestsForm";
+import { useNavigate } from "react-router-dom";
+import { partyUpdateGuests } from "../../actions/supabase";
 import {
   SET_PAGE,
   SET_NEWPARTY_DETAILS,
   RESET_NEWPARTY,
 } from "../../action-types";
+import InviteGuestsForm from "../AddParty/InviteGuestsForm";
 import GuestList from "../AddParty/GuestList";
-import { partyUpdateGuests } from "../../actions/supabase";
-import { useNavigate } from "react-router-dom";
-import emailjs from "emailjs-com";
 import "./EditGuests.css";
 
 export default function EditGuests() {
@@ -19,6 +19,7 @@ export default function EditGuests() {
   const partyUnformatted = useSelector((state) => state.partyUnformatted);
   const newParty = useSelector((state) => state.newParty);
   const [guestList, setGuestList] = useState(null);
+
   const sendEmails = () => {
     let forms = document.querySelectorAll(".guestForm");
     for (const form of forms) {
@@ -49,7 +50,6 @@ export default function EditGuests() {
     console.log(guestList);
     dispatch({ type: SET_PAGE, payload: "editGuests" });
   }, []);
-
   useEffect(() => {
     setGuestList(party.guests);
     dispatch({

@@ -1,18 +1,17 @@
 import React from "react";
 import { useEffect } from "react";
-import SignOutButton from "../SignIn/SignOutButton";
+import { useSelector, useDispatch } from "react-redux";
+import { checkToken } from "../../actions/token";
+import { SET_PAGE } from "../../action-types";
 import AddPartyButton from "./AddPartyButton";
 import Error from "../Error/Error";
 import SearchParty from "./SearchParty";
-import { checkToken } from "../../actions/token";
-import { useSelector, useDispatch } from "react-redux";
 import SearchResults from "./SearchResults";
 import DashboardTop from "./DashboardTop";
 import PartyList from "./PartyList";
 import NoParties from "./NoParties";
-import { SET_PAGE } from "../../action-types";
-import "./Dashboard.css";
 import ChooseAvatar from "../ChooseAvatar/ChooseAvatar";
+import "./Dashboard.css";
 
 export default function Dashboard() {
   const dispatch = useDispatch();

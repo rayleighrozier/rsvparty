@@ -13,10 +13,7 @@ const userSignUp = async (firstName, lastName, email, password) => {
     password: password,
   });
   if (error) {
-    console.log("error", error);
     return error;
-  } else {
-    console.log("user sent", user);
   }
   let guestId = user.id;
   guestAddRow(firstName, lastName, guestId);
@@ -28,10 +25,7 @@ const guestAddRow = async (firstName, lastName, guestId) => {
     .from("Guests")
     .insert([{ guestId: guestId, firstName: firstName, lastName: lastName }]);
   if (error) {
-    console.log("error", error);
     return error;
-  } else {
-    console.log("guest created", data);
   }
   return data;
 };
@@ -160,7 +154,6 @@ const avatarFindById = async (avatarId) => {
 };
 //updates supplies
 const partyUpdateSupplies = async (partyId, updatedSupplies) => {
-  console.log("partyUpdateSupplies running", updatedSupplies);
   let { data: party, error } = await supabase
     .from("Parties")
     .update({ supplies: updatedSupplies })

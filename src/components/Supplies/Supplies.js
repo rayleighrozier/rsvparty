@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import SuppliesForm from "./SuppliesForm";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { partyUpdateSupplies } from "../../actions/supabase";
-import { useDispatch } from "react-redux";
 import { SET_ALL_SUPPLIES } from "../../action-types/index";
+import SuppliesForm from "./SuppliesForm";
 
 export default function Supplies(props) {
   const dispatch = useDispatch();
-  const [newSupplies, setNewSupplies] = useState(false);
   const party = useSelector((state) => state.party);
   const guest = useSelector((state) => state.guest);
+  const [newSupplies, setNewSupplies] = useState(false);
+
   const claimItem = (e) => {
     let itemName = e.target.name;
     let updateItem = party.supplies;
@@ -26,7 +26,6 @@ export default function Supplies(props) {
     dispatch({ type: SET_ALL_SUPPLIES, payload: updatedSupplies });
     setNewSupplies(true);
   };
-
   const deleteItem = (e) => {
     let itemName = e.target.name;
     let updatedSupplies = party.supplies;

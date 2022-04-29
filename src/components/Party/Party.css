@@ -226,8 +226,13 @@ textarea {
   justify-content: space-between;
   padding: 0px 20px;
 }
+
 .party-guest p {
   margin: 0px 5px;
+}
+.party-host {
+  background-color: var(--lightyellow);
+  color: black;
 }
 .party-bottom-container {
   background-color: var(--yellow);

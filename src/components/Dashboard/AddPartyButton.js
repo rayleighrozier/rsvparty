@@ -1,7 +1,7 @@
 import React from "react";
-import { SET_PAGE } from "../../action-types";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { SET_PAGE } from "../../action-types";
 
 export default function AddPartyButton() {
   const dispatch = useDispatch();

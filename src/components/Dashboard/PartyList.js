@@ -1,11 +1,9 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { partyFindById } from "../../actions/supabase";
-import { useEffect } from "react";
-import { SET_PARTYDETAILS } from "../../action-types";
-import { useDispatch } from "react-redux";
 import { formatDate, formatTime } from "../../actions/format";
+import { SET_PARTYDETAILS } from "../../action-types";
 
 export default function PartyList() {
   const dispatch = useDispatch();
@@ -25,7 +23,6 @@ export default function PartyList() {
   };
   const setPartyDetails = async () => {
     let data = await getPartyDetailsData();
-
     dispatch({ type: SET_PARTYDETAILS, payload: data });
   };
   const goToParty = (partyId) => {
