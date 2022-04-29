@@ -2,19 +2,16 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { captureSignIn } from "../../actions/input";
-import {
-  guestGetCurrentParties,
-  guestGetInfo,
-  userSignIn,
-} from "../../actions/supabase";
-import { SET_GUEST, SET_PAGE } from "../../action-types/index";
+import { guestGetInfo, userSignIn } from "../../actions/supabase";
 import { checkToken } from "../../actions/token";
+import { SET_GUEST } from "../../action-types/index";
 import logo from "../../assets/logo.png";
 import "./SignIn.css";
 
 export default function SignIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const sendSignIn = async (e) => {
     let input = captureSignIn(e);
     let currentGuest = await userSignIn(input.email, input.password);

@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
+import emailjs from "emailjs-com";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { partyUpdateGuests, guestUpdateParties } from "../../actions/supabase";
+import {
+  RESET_NEWPARTY,
+  SET_PAGE,
+  RESET_NEWPARTY_GUESTLIST,
+} from "../../action-types";
 import InviteGuestsForm from "./InviteGuestsForm";
 import GuestList from "./GuestList";
-import { useSelector, useDispatch } from "react-redux";
-import { partyUpdateGuests, guestUpdateParties } from "../../actions/supabase";
-import { RESET_NEWPARTY, SET_PAGE } from "../../action-types";
-import { useNavigate } from "react-router-dom";
-import emailjs from "emailjs-com";
 import "./InviteGuests.css";
 
 export default function InviteGuests() {
@@ -14,6 +18,12 @@ export default function InviteGuests() {
   const newParty = useSelector((state) => state.newParty);
   const guest = useSelector((state) => state.guest);
 
+  const savePartyNoGuests = async () => {
+    await guestUpdateParties(guest.guestId, guest.parties);
+    dispatch({ type: SET_PAGE, payload: "party" });
+    navigate(`/party/${newParty.details.partyId}`);
+    dispatch({ type: RESET_NEWPARTY });
+  };
   const saveParty = async () => {
     await partyUpdateGuests(newParty.details.partyId, newParty.guestList);
     await guestUpdateParties(guest.guestId, guest.parties);
@@ -40,6 +50,7 @@ export default function InviteGuests() {
     sendEmails();
     saveParty();
   };
+
   useEffect(() => {
     guestUpdateParties(guest.guestId, guest.parties);
   }, []);
@@ -76,7 +87,7 @@ export default function InviteGuests() {
           </button>
         </div>
         <div>
-          <button className="sendInvitesButton" onClick={saveParty}>
+          <button className="sendInvitesButton" onClick={savePartyNoGuests}>
             Invite guests later
           </button>
         </div>

@@ -1,13 +1,14 @@
 import React from "react";
-import { userSignUp } from "../../actions/supabase";
-import { SET_PAGE } from "../../action-types";
 import { useDispatch } from "react-redux";
+import { userSignUp } from "../../actions/supabase";
 import { captureSignUp } from "../../actions/input";
-import "./SignIn.css";
+import { SET_PAGE } from "../../action-types";
 import logo from "../../assets/logo.png";
+import "./SignIn.css";
 
 export default function SignUp() {
   const dispatch = useDispatch();
+
   const sendSignUp = async (e) => {
     const regex =
       /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/;
@@ -18,7 +19,6 @@ export default function SignUp() {
       }
       return false;
     };
-
     if (input.firstName.length < 1) {
       window.alert("Please provide your first name");
     } else if (input.lastName.length < 2) {
@@ -40,6 +40,7 @@ export default function SignUp() {
       dispatch({ type: SET_PAGE, payload: "signIn" });
     }
   };
+
   return (
     <>
       <img className="homePageLogo" src={logo} />

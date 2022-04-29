@@ -7,7 +7,6 @@ export default function GuestList() {
   const host = useSelector((state) => state.guest);
   return (
     <>
-      {/* <div className="guestList"> */}
       <div className="guestListContainer">
         <p className="guestListHeader">Guest List</p>
         <div className="testDiv">

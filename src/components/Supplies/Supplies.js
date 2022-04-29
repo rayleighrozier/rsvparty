@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import SuppliesForm from "./SuppliesForm";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { partyUpdateSupplies } from "../../actions/supabase";
-import { useDispatch } from "react-redux";
 import { SET_ALL_SUPPLIES } from "../../action-types/index";
+import SuppliesForm from "./SuppliesForm";
 
 export default function Supplies(props) {
   const dispatch = useDispatch();
-  const [newSupplies, setNewSupplies] = useState(false);
   const party = useSelector((state) => state.party);
   const guest = useSelector((state) => state.guest);
+  const [newSupplies, setNewSupplies] = useState(false);
+
   const claimItem = (e) => {
     let itemName = e.target.name;
     let updateItem = party.supplies;
@@ -26,7 +26,6 @@ export default function Supplies(props) {
     dispatch({ type: SET_ALL_SUPPLIES, payload: updatedSupplies });
     setNewSupplies(true);
   };
-
   const deleteItem = (e) => {
     let itemName = e.target.name;
     let updatedSupplies = party.supplies;
@@ -51,14 +50,16 @@ export default function Supplies(props) {
         ) : (
           <p className="party-supplies-top">Volunteer to bring something</p>
         )}
-        {/* NOT CLAIMED ITEMS */}
         <div className="party-supplies-left">
           {party.supplies
-            ? party.supplies.map((item) => {
+            ? party.supplies.map((item, index) => {
                 return (
                   <>
                     {item.claimed ? null : (
-                      <div className="party-supplies-item light-pink">
+                      <div
+                        key={index}
+                        className="party-supplies-item light-pink"
+                      >
                         <p>{item.item}</p>
                         <div className="party-supplies-item-right">
                           <p>Not claimed</p>
@@ -92,13 +93,15 @@ export default function Supplies(props) {
           ) : null}
         </div>
         <div className="party-supplies-right">
-          {/* CLAIMED ITEMS */}
           {party.supplies
-            ? party.supplies.map((item) => {
+            ? party.supplies.map((item, index) => {
                 return (
                   <>
                     {item.claimed ? (
-                      <div className="party-supplies-item light-blue">
+                      <div
+                        key={index}
+                        className="party-supplies-item light-blue"
+                      >
                         <p>{item.item}</p>{" "}
                         <p className="text-blue">
                           Claimed by {"  "}

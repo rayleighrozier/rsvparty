@@ -1,12 +1,12 @@
 import React from "react";
-import { partyAddRow } from "../../actions/supabase";
 import { useDispatch, useSelector } from "react-redux";
+import { partyAddRow } from "../../actions/supabase";
+import { captureAddParty } from "../../actions/input";
 import {
   SET_PAGE,
   SET_NEWPARTY_DETAILS,
   SET_GUEST_PARTIES,
 } from "../../action-types";
-import { captureAddParty } from "../../actions/input";
 import "./AddParty.css";
 
 export default function AddDetails() {

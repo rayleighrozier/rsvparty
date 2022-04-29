@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Error from "../Error/Error";
-import EditInput from "./EditInput";
-import EditLocation from "./EditLocation";
 import { formatDate, formatTime } from "../../actions/format";
 import { partyUpdateDetails } from "../../actions/supabase";
 import { SET_PAGE } from "../../action-types";
+import Error from "../Error/Error";
+import EditInput from "./EditInput";
+import EditLocation from "./EditLocation";
 import "./EditParty.css";
+
 export default function EditParty() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ export default function EditParty() {
       zip: partyUnformatted.location.zip,
     },
   });
+
   const updateParty = () => {
     partyUpdateDetails(party.partyId, newInputs);
     navigate(`/party/${party.partyId}`);

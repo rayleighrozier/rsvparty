@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { formatCommentDate } from "../../actions/format";
 
 export default function CommentsList() {
   const comments = useSelector((state) => state.party.comments);
@@ -8,9 +7,9 @@ export default function CommentsList() {
   return (
     <div>
       {comments
-        ? comments.map((comment) => {
+        ? comments.map((comment, index) => {
             return (
-              <div className="party-comment">
+              <div key={index} className="party-comment">
                 <p>
                   {comment.firstName}
                   {"  "} {comment.lastName}

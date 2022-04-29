@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Picker from "emoji-picker-react";
 import { useSelector, useDispatch } from "react-redux";
-import { SET_PARTY_COMMENTS } from "../../action-types";
 import { partyUpdateComments } from "../../actions/supabase";
-import "./Comments.css";
 import { formatCommentDate } from "../../actions/format";
+import { SET_PARTY_COMMENTS } from "../../action-types";
+import "./Comments.css";
 
 export default function CommentForm(props) {
   const dispatch = useDispatch();
@@ -28,11 +28,11 @@ export default function CommentForm(props) {
     });
     e.target.form[0].value = "";
   };
-
   const onEmojiClick = (event, emojiObject) => {
     setInputStr((prevInput) => prevInput + emojiObject.emoji);
     setShowPicker(false);
   };
+
   useEffect(() => {
     if (props.newComment !== null) {
       let updatedComments = [...party.comments, props.newComment];

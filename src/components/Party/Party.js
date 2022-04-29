@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from "react";
 import Countdown from "react-countdown";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { SET_PAGE, SET_PARTY, SET_PARTYUNFORMATTED } from "../../action-types";
-import { guestGetInfo, partyFindById } from "../../actions/supabase";
 import {
   formatDate,
   formatTime,
   formatComments,
   formatSupplies,
+  formatGuests,
 } from "../../actions/format";
-import { guestsToJSON } from "../../actions/guestList";
-import RSVPButtons from "./RSVPButtons";
+import { partyFindById } from "../../actions/supabase";
 import { checkToken } from "../../actions/token";
-import PartyDetails from "./PartyDetails";
 import { checkIfInvited } from "../../actions/guestList";
+import { SET_PAGE, SET_PARTY, SET_PARTYUNFORMATTED } from "../../action-types";
+import RSVPButtons from "./RSVPButtons";
+import PartyDetails from "./PartyDetails";
 import Guests from "./Guests";
 import Comments from "../Comments/Comments";
 import Supplies from "../Supplies/Supplies";
 import HostButtons from "./HostButtons";
 import AdditionalDetails from "./AdditionalDetails";
-import "./Party.css";
 import CountdownTitles from "./CountdownTitles";
+import "./Party.css";
 
 export default function Party() {
   const dispatch = useDispatch();
@@ -36,13 +35,14 @@ export default function Party() {
   const [invited, setInvited] = useState(false);
   const endDate = `May 3, 2022`;
   let timeLeft = Date.now() - Date.parse(endDate);
+
   const Completionist = () => <span>You are good to go!</span>;
   const setParty = async () => {
     let data = await partyFindById(partyId);
     data.date = formatDate(data.date);
     data.time = formatTime(data.time);
     data.comments = formatComments(data.comments);
-    data.guests = guestsToJSON(data.guests);
+    data.guests = formatGuests(data.guests);
     data.supplies = formatSupplies(data.supplies);
     dispatch({ type: SET_PARTY, payload: data });
   };
@@ -50,7 +50,6 @@ export default function Party() {
     let data = await partyFindById(partyId);
     dispatch({ type: SET_PARTYUNFORMATTED, payload: data });
   };
-
   const checkHost = () => {
     if (party) {
       if (guest.guestId === party.hostId) {
@@ -139,9 +138,13 @@ export default function Party() {
             {party ? <Supplies host={host} /> : null}
           </div>
         ) : (
-          <div>
-            <p>Uh oh! Looks like you are not on the guest list.</p>
-            <button onClick={backtoDashboard}>Go Back</button>
+          <div className="party-not-on-list-container">
+            <div className="party-not-on-list">
+              <p>Uh oh! Looks like you are not on the guest list.</p>
+              <div className="party-not-on-list-button-container">
+                <button onClick={backtoDashboard}>Go Back</button>
+              </div>
+            </div>
           </div>
         )
       ) : null}
