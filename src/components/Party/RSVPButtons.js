@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { guestGetInfo } from "../../actions/supabase";
 import { partyUpdateGuests } from "../../actions/supabase";
 
 export default function RSVPButtons(props) {
-  const dispatch = useDispatch();
   const party = useSelector((state) => state.party);
   const guest = useSelector((state) => state.guest);
-  const [host, setHost] = useState(null);
 
-  const getHostData = async () => {
-    let data = await guestGetInfo(party.hostId);
-    setHost(data);
-  };
   const changeAttending = (input) => {
     props.setAttending(input);
     sendAttendance(input);
@@ -35,10 +28,6 @@ export default function RSVPButtons(props) {
       }
     }
   };
-  useEffect(() => {
-    getHostData();
-  }, []);
-  useEffect(() => {}, [props.attending]);
 
   return (
     <div className="party-buttons-container">

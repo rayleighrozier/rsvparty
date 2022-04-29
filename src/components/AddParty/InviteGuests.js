@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import InviteGuestsForm from "./InviteGuestsForm";
-import GuestList from "./GuestList";
+import emailjs from "emailjs-com";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { partyUpdateGuests, guestUpdateParties } from "../../actions/supabase";
 import { RESET_NEWPARTY, SET_PAGE } from "../../action-types";
-import { useNavigate } from "react-router-dom";
-import emailjs from "emailjs-com";
+import InviteGuestsForm from "./InviteGuestsForm";
+import GuestList from "./GuestList";
 import "./InviteGuests.css";
 
 export default function InviteGuests() {
@@ -40,6 +40,7 @@ export default function InviteGuests() {
     sendEmails();
     saveParty();
   };
+
   useEffect(() => {
     guestUpdateParties(guest.guestId, guest.parties);
   }, []);

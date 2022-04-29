@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-export default function PartyDetails(props) {
+export default function PartyDetails() {
   const party = useSelector((state) => state.party);
 
   return (

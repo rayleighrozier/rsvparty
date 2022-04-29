@@ -7,12 +7,10 @@ import AddParty from "./components/AddParty/AddParty";
 import Party from "./components/Party/Party";
 import Error from "./components/Error/Error";
 import WithNav from "./components/Navbar/WithNav";
-import Playlist from "./components/Playlist/Playlist";
 import EditParty from "./components/EditParty/EditParty";
 import EditGuests from "./components/EditParty/EditGuests";
 import InviteGuests from "./components/AddParty/InviteGuests";
 import ChooseAvatar from "./components/ChooseAvatar/ChooseAvatar";
-import Supplies from "./components/Supplies/Supplies";
 
 function App() {
   return (
@@ -26,7 +24,6 @@ function App() {
             <Route path="/editparty" element={<EditParty />} />
             <Route path="/editguests" element={<EditGuests />} />
             <Route path="/party/:partyId" element={<Party />} />
-            <Route path="/test" element={<InviteGuests />} />
             <Route path="/chooseAvatar" element={<ChooseAvatar />} />
             <Route path="*" element={<Error />} />
           </Route>

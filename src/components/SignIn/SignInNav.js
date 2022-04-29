@@ -6,7 +6,8 @@ import "./SignIn.css";
 export default function SignInNav() {
   const dispatch = useDispatch();
   const page = useSelector((state) => state.page);
-  const ChangePage = (destination) => {
+
+  const changePage = (destination) => {
     dispatch({ type: SET_PAGE, payload: destination });
   };
   return (
@@ -16,7 +17,7 @@ export default function SignInNav() {
           <p className="homePageQuestion">New to RSVParty?</p>
           <button
             className="homePageButton"
-            onClick={() => ChangePage("signUp")}
+            onClick={() => changePage("signUp")}
           >
             Sign up here
           </button>
@@ -26,7 +27,7 @@ export default function SignInNav() {
           <p className="homePageQuestion">Already have an RSVParty account?</p>
           <button
             className="homePageButton"
-            onClick={() => ChangePage("signIn")}
+            onClick={() => changePage("signIn")}
           >
             Sign in here
           </button>

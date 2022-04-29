@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { SET_SEARCHRESULTS, SET_GUEST_PARTIES } from "../../action-types";
-import { guestUpdateParties, partyFindById } from "../../actions/supabase";
-import { formatDate, formatTime } from "../../actions/format";
+import { guestUpdateParties } from "../../actions/supabase";
 import { checkIfInvited } from "../../actions/guestList";
+import { SET_SEARCHRESULTS, SET_GUEST_PARTIES } from "../../action-types";
 
 export default function SearchResults() {
   const dispatch = useDispatch();
@@ -13,6 +12,7 @@ export default function SearchResults() {
   const guest = useSelector((state) => state.guest);
   const [invited, setInvited] = useState(true);
   const [alreadyAdded, setAlreadyAdded] = useState(false);
+
   const clearSearchResults = () => {
     dispatch({ type: SET_SEARCHRESULTS, payload: null });
   };
