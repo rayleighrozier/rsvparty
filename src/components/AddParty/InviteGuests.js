@@ -24,7 +24,6 @@ export default function InviteGuests() {
     navigate(`/party/${newParty.details.partyId}`);
     dispatch({ type: RESET_NEWPARTY });
   };
-
   const saveParty = async () => {
     await partyUpdateGuests(newParty.details.partyId, newParty.guestList);
     await guestUpdateParties(guest.guestId, guest.parties);
