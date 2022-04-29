@@ -17,8 +17,6 @@ export default function GuestList() {
                     <div>
                       <div className="guestCard">
                         <input
-                          // onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';"
-
                           className="firstNameInput"
                           name="name"
                           value={guest.firstName}
@@ -26,14 +24,12 @@ export default function GuestList() {
                         />
                         <input
                           className="lastNameInput"
-                          // size="8"
                           name="lastName"
                           value={guest.lastName}
                           readOnly
                         />
                         <input
                           className="emailInput"
-                          // size="25"
                           name="email"
                           value={guest.email}
                           readOnly
