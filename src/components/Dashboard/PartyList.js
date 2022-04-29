@@ -37,7 +37,7 @@ export default function PartyList() {
     <>
       {partyDetails?.map((party) => {
         return (
-          <div className="individualParty">
+          <div key={party.partyId} className="individualParty">
             <p className="partyTitle">{party?.name}</p>
             <div className="partyDetails">
               <p className="partyDate">{party?.date}</p>

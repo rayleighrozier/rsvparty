@@ -35,9 +35,9 @@ export default function Guests(props) {
               <p>Host</p>
             </div>
           ) : null}
-          {guestList.map((guest) => {
+          {guestList.map((guest, index) => {
             return (
-              <div className="party-guest">
+              <div key={index} className="party-guest">
                 <p>
                   {guest.firstName}
                   {"  "} {guest.lastName}
