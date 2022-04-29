@@ -32,7 +32,7 @@ export default function ChooseAvatar() {
     <div className="outerContainer">
       {avatars ? (
         <>
-          <h1 className="title">CHOOSE YOUR PARTY ANIMAL</h1>
+          <h1 className="chooseAvatarTitle">CHOOSE YOUR PARTY ANIMAL</h1>
           <form>
             <div className="mainContainer">
               <p className="avatarTitle">Monkey</p>
@@ -48,12 +48,12 @@ export default function ChooseAvatar() {
                   <input
                     type="radio"
                     name="avatar"
-                    value={avatars[0].avatarId}
+                    value={avatars[3].avatarId}
                   />
                   <img
                     className="allAvatars"
                     id="yellow"
-                    src={avatars[0].url}
+                    src={avatars[3].url}
                     alt=""
                   ></img>
                 </label>
@@ -64,13 +64,20 @@ export default function ChooseAvatar() {
                   <input
                     type="radio"
                     name="avatar"
-                    value={avatars[12].avatarId}
+                    value={avatars[2].avatarId}
                   />
-                  <img
-                    className="allAvatars"
-                    src={avatars[12].url}
-                    alt=""
-                  ></img>
+                  <img className="allAvatars" src={avatars[2].url} alt=""></img>
+                </label>
+              </div>
+
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="avatar"
+                    value={avatars[0].avatarId}
+                  />
+                  <img className="allAvatars" src={avatars[0].url} alt=""></img>
                 </label>
               </div>
 
@@ -96,17 +103,6 @@ export default function ChooseAvatar() {
                 </label>
               </div>
 
-              <div>
-                <label>
-                  <input
-                    type="radio"
-                    name="avatar"
-                    value={avatars[7].avatarId}
-                  />
-                  <img className="allAvatars" src={avatars[7].url} alt=""></img>
-                </label>
-              </div>
-
               <div className="breakRowOne"></div>
 
               <div>
@@ -114,22 +110,11 @@ export default function ChooseAvatar() {
                   <input
                     type="radio"
                     name="avatar"
-                    value={avatars[9].avatarId}
-                  />
-                  <img className="allAvatars" src={avatars[9].url} alt=""></img>
-                </label>
-              </div>
-
-              <div>
-                <label>
-                  <input
-                    type="radio"
-                    name="avatar"
-                    value={avatars[13].avatarId}
+                    value={avatars[12].avatarId}
                   />
                   <img
                     className="allAvatars"
-                    src={avatars[13].url}
+                    src={avatars[12].url}
                     alt=""
                   ></img>
                 </label>
@@ -140,9 +125,13 @@ export default function ChooseAvatar() {
                   <input
                     type="radio"
                     name="avatar"
-                    value={avatars[2].avatarId}
+                    value={avatars[14].avatarId}
                   />
-                  <img className="allAvatars" src={avatars[2].url} alt=""></img>
+                  <img
+                    className="allAvatars"
+                    src={avatars[14].url}
+                    alt=""
+                  ></img>
                 </label>
               </div>
 
@@ -151,9 +140,24 @@ export default function ChooseAvatar() {
                   <input
                     type="radio"
                     name="avatar"
-                    value={avatars[5].avatarId}
+                    value={avatars[6].avatarId}
                   />
-                  <img className="allAvatars" src={avatars[5].url} alt=""></img>
+                  <img className="allAvatars" src={avatars[6].url} alt=""></img>
+                </label>
+              </div>
+
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="avatar"
+                    value={avatars[10].avatarId}
+                  />
+                  <img
+                    className="allAvatars"
+                    src={avatars[10].url}
+                    alt=""
+                  ></img>
                 </label>
               </div>
 
@@ -190,11 +194,11 @@ export default function ChooseAvatar() {
                   <input
                     type="radio"
                     name="avatar"
-                    value={avatars[14].avatarId}
+                    value={avatars[13].avatarId}
                   />
                   <img
                     className="allAvatars"
-                    src={avatars[14].url}
+                    src={avatars[13].url}
                     alt=""
                   ></img>
                 </label>
@@ -205,9 +209,9 @@ export default function ChooseAvatar() {
                   <input
                     type="radio"
                     name="avatar"
-                    value={avatars[3].avatarId}
+                    value={avatars[5].avatarId}
                   />
-                  <img className="allAvatars" src={avatars[3].url} alt=""></img>
+                  <img className="allAvatars" src={avatars[5].url} alt=""></img>
                 </label>
               </div>
 
@@ -216,9 +220,9 @@ export default function ChooseAvatar() {
                   <input
                     type="radio"
                     name="avatar"
-                    value={avatars[6].avatarId}
+                    value={avatars[9].avatarId}
                   />
-                  <img className="allAvatars" src={avatars[6].url} alt=""></img>
+                  <img className="allAvatars" src={avatars[9].url} alt=""></img>
                 </label>
               </div>
 
@@ -227,13 +231,9 @@ export default function ChooseAvatar() {
                   <input
                     type="radio"
                     name="avatar"
-                    value={avatars[10].avatarId}
+                    value={avatars[7].avatarId}
                   />
-                  <img
-                    className="allAvatars"
-                    src={avatars[10].url}
-                    alt=""
-                  ></img>
+                  <img className="allAvatars" src={avatars[7].url} alt=""></img>
                 </label>
               </div>
 
@@ -241,7 +241,7 @@ export default function ChooseAvatar() {
             </div>
             <div className="buttonDiv">
               <button className="avatarButton" onClick={(e) => sendAvatar(e)}>
-                Looks Good!
+                Looks good!
               </button>
             </div>
 
