@@ -13,11 +13,11 @@ export default function HostButtons() {
 
   return (
     <div className="party-buttons-container">
-      <button className="blue" onClick={editDetails}>
-        EDIT PARTY
-      </button>
       <button className="pink" onClick={editGuests}>
         INVITE GUESTS
+      </button>
+      <button className="blue" onClick={editDetails}>
+        EDIT PARTY
       </button>
     </div>
   );
