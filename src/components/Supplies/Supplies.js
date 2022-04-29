@@ -50,14 +50,16 @@ export default function Supplies(props) {
         ) : (
           <p className="party-supplies-top">Volunteer to bring something</p>
         )}
-        {/* NOT CLAIMED ITEMS */}
         <div className="party-supplies-left">
           {party.supplies
-            ? party.supplies.map((item) => {
+            ? party.supplies.map((item, index) => {
                 return (
                   <>
                     {item.claimed ? null : (
-                      <div className="party-supplies-item light-pink">
+                      <div
+                        key={index}
+                        className="party-supplies-item light-pink"
+                      >
                         <p>{item.item}</p>
                         <div className="party-supplies-item-right">
                           <p>Not claimed</p>
@@ -91,13 +93,15 @@ export default function Supplies(props) {
           ) : null}
         </div>
         <div className="party-supplies-right">
-          {/* CLAIMED ITEMS */}
           {party.supplies
-            ? party.supplies.map((item) => {
+            ? party.supplies.map((item, index) => {
                 return (
                   <>
                     {item.claimed ? (
-                      <div className="party-supplies-item light-blue">
+                      <div
+                        key={index}
+                        className="party-supplies-item light-blue"
+                      >
                         <p>{item.item}</p>{" "}
                         <p className="text-blue">
                           Claimed by {"  "}

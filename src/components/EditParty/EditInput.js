@@ -19,17 +19,21 @@ export default function EditInput(props) {
         className="editPartyInput"
         type={props.type}
       />
-      <div className="center">
-        <button
-          className="editPartySubmitButton"
-          onClick={(e) => captureInput(e)}
-        >
-          Submit
-        </button>
-      </div>
+      <div className="editPartyButtonsContainer">
+        <div className="center">
+          <button
+            className="editPartySubmitButton"
+            onClick={(e) => captureInput(e)}
+          >
+            Submit
+          </button>
+        </div>
 
-      <div className="center">
-        <button onClick={() => props.setState(false)}>X</button>
+        <div className="center">
+          <button className="xButton" onClick={() => props.setState(false)}>
+            X
+          </button>
+        </div>
       </div>
     </form>
   );

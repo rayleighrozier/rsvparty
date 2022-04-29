@@ -7,11 +7,13 @@
   --lightyellow: #fff8e5;
   --lightGrey: #f3f3f3;
   --textGrey: #bababa;
+  --white: #faf9f6;
 }
 
 body {
   padding: 0;
   margin: 0;
+  word-wrap: break-word;
 }
 .hide {
   display: none;

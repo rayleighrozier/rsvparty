@@ -138,9 +138,13 @@ export default function Party() {
             {party ? <Supplies host={host} /> : null}
           </div>
         ) : (
-          <div>
-            <p>Uh oh! Looks like you are not on the guest list.</p>
-            <button onClick={backtoDashboard}>Go Back</button>
+          <div className="party-not-on-list-container">
+            <div className="party-not-on-list">
+              <p>Uh oh! Looks like you are not on the guest list.</p>
+              <div className="party-not-on-list-button-container">
+                <button onClick={backtoDashboard}>Go Back</button>
+              </div>
+            </div>
           </div>
         )
       ) : null}

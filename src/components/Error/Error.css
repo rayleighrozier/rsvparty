@@ -21,7 +21,7 @@
 .linkBackToParty {
   display: grid;
   text-align: center;
-  color: white;
+  color: var(--white);
   background-color: #ff94c3;
   color: #f3f3f3;
   font-family: "Dongle", sans-serif;
@@ -29,5 +29,5 @@
   min-height: 40vh;
 }
 #acutalLink {
-  color: white;
+  color: var(--white);
 }

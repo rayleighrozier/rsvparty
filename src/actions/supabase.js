@@ -80,6 +80,7 @@ const partyFindById = async (input) => {
 
 //add guests to a party
 const partyUpdateGuests = async (partyId, updatedGuests) => {
+  console.log("party update guests sendingggg", updatedGuests);
   let { data: guest, error } = await supabase
     .from("Parties")
     .update({ guests: updatedGuests })

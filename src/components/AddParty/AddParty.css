@@ -70,6 +70,7 @@
 .addPartyContent {
   display: grid;
   place-items: center;
+  margin-bottom: 60px;
 }
 
 .addressLine1 {
