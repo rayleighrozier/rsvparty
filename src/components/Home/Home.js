@@ -13,8 +13,11 @@ export default function Home() {
     <div className="homePage">
       <div className="homeImgContainer">
         <img className="RSVPimage" src={RSVPimage} />
-        <p className="homeText">Some text about our party app.</p>
-        <p className="homeText">It is amazing!</p>
+        <p className="homeText">TIME TO PARTY</p>
+        <p className="homeText homeText2">
+          Built by Rayleigh Rozier, Santos Gutierrez, Jason Reichert, and Ciara
+          Cloud
+        </p>
       </div>
       <div className="homePageInputs">
         {page === "signIn" ? <SignIn /> : <SignUp />}

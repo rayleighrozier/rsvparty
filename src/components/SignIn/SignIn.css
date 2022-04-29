@@ -1,5 +1,5 @@
 .homePageButton {
-  color: var(--pink);
+  color: var(--blue);
   background-color: white;
   border: none;
   font-family: "Dongle", sans-serif;
@@ -8,9 +8,16 @@
   margin-left: 0.3rem;
 }
 
+.homePageQuestion,
+.homePageButton {
+  font-size: 25px;
+}
+
 .questionContainer {
   display: flex;
   text-align: center;
+  justify-content: center;
+  padding-left: 5rem;
 }
 
 .homeHeader {
@@ -35,6 +42,7 @@
 
 .homePageLogo {
   width: 10rem;
+  margin-top: 1rem;
 }
 
 .inputLabel {
@@ -68,7 +76,8 @@
 }
 
 .loginButton {
-  background-color: var(--blue);
+  background-color: var(--pink);
+  margin-top: 1rem;
   color: white;
   font-family: "Dongle", sans-serif;
   border: none;
@@ -156,7 +165,7 @@
   }
   .questionContainer {
     display: flex;
-    justify-content: center;
+    margin-right: 4.5rem;
     flex-wrap: wrap;
     width: 50%;
   }
