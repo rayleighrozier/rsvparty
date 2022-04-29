@@ -97,6 +97,8 @@ textarea {
   color: white;
   font-size: 2.2rem;
   margin: 5px 5px 0px 5px;
+  text-align: center;
+  overflow: hidden;
 }
 .party-details-body {
   width: 100%;
@@ -110,6 +112,7 @@ textarea {
   flex-grow: 1;
   font-size: 2rem;
   min-height: 130px;
+  height: fit-content;
 }
 .party-details-container p {
   margin: 0;
@@ -398,6 +401,7 @@ textarea {
   border-radius: 10px;
   width: 70%;
   height: 25px;
+  font-family: "Dongle", sans-serif;
 }
 .party-supplies-form button {
   border-radius: 8px;
