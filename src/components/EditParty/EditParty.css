@@ -3,6 +3,18 @@
   place-items: center;
 }
 
+.editPartyHeader {
+  margin: 0px;
+  font-weight: 400;
+  font-size: 60px;
+}
+
+.editPartyContent1 {
+  background-color: var(--lightblue);
+  padding: 1rem;
+  width: 80%;
+}
+
 .editPartyInput {
   background-color: var(--lightGrey);
   border: none;
@@ -10,7 +22,7 @@
   border-radius: 0.8rem;
   font-family: "Dongle", sans-serif;
   font-size: 25px;
-  width: 40%;
+  width: 15rem;
   height: 2rem;
 }
 
@@ -18,7 +30,7 @@
   font-family: "Dongle", sans-serif;
   background-color: var(--blue);
   border: none;
-  color: white;
+  color: var(--white);
   font-size: 30px;
   padding-top: 0.3rem;
   border-radius: 0.8rem;
@@ -45,16 +57,35 @@
 }
 
 .formFirstRow {
-  display: grid;
+  display: flex;
   width: 100%;
   margin-bottom: 2rem;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.firstRowContent {
+  width: 33%;
+  height: 100%;
+}
+
+.secondRowContent {
+  width: 49%;
+  height: 100%;
 }
 
 .inputForm {
-  display: flex;
+  display: grid;
   align-items: center;
   width: 50rem;
   justify-content: space-evenly;
+  width: 100%;
+}
+
+.editAddressAndDetails {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
 }
 
 .formSecondRow {
@@ -74,8 +105,20 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.editRowContainer {
+  background-color: var(--blue);
+}
+
+.editRowHeader {
+  color: var(--white);
+  text-align: center;
+  margin: 0px;
+}
+
 .editRow {
   display: grid;
+  background-color: var(--white);
 }
 
 #details {
@@ -102,7 +145,7 @@
     font-family: "Dongle", sans-serif;
     background-color: var(--pink);
     border: none;
-    color: white;
+    color: var(--white);
     font-size: 25px;
     width: 40px;
     height: 40px;
@@ -144,7 +187,7 @@
     font-family: "Dongle", sans-serif;
     background-color: var(--pink);
     border: none;
-    color: white;
+    color: var(--white);
     font-size: 25px;
     width: 40px;
     height: 40px;

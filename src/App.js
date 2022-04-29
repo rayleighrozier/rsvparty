@@ -13,8 +13,17 @@ import EditGuests from "./components/EditParty/EditGuests";
 import InviteGuests from "./components/AddParty/InviteGuests";
 import ChooseAvatar from "./components/ChooseAvatar/ChooseAvatar";
 import Supplies from "./components/Supplies/Supplies";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 8000);
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>

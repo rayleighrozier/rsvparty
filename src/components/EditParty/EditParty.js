@@ -41,108 +41,131 @@ export default function EditParty() {
 
   return party ? (
     <div className="editPartyContent">
-      <h1>Edit Details</h1>
-      <div className="editPartyContent">
+      <h1 className="editPartyHeader">EDIT PARTY DETAILS</h1>
+      <div className="editPartyContent1">
         <div className="formFirstRow">
-          <div className="editRow">
-            <div className="editParaAndButton">
-              <p className="editPartyPara">{newInputs.name}</p>
-              <button className="editButton" onClick={() => setNewName(true)}>
+          <div className="editRowContainer firstRowContent">
+            <p className="editRowHeader">Edit name</p>
+            <div className="editRow">
+              <div className="editParaAndButton">
+                <p className="editPartyPara">{newInputs.name}</p>
+                <button className="editButton" onClick={() => setNewName(true)}>
+                  Edit
+                </button>
+              </div>
+              {newName ? (
+                <EditInput
+                  type="text"
+                  inputType="name"
+                  newInputs={newInputs}
+                  setNewInputs={setNewInputs}
+                  state={newName}
+                  setState={setNewName}
+                />
+              ) : null}
+            </div>
+          </div>
+
+          <div className="editRowContainer firstRowContent">
+            <p className="editRowHeader">Edit date</p>
+            <div className="editRow">
+              <div className="editParaAndButton">
+                <p className="editPartyPara">{formatDate(newInputs.date)}</p>
+                <button className="editButton" onClick={() => setNewDate(true)}>
+                  Edit
+                </button>
+              </div>
+              {newDate ? (
+                <EditInput
+                  type="date"
+                  inputType="date"
+                  newInputs={newInputs}
+                  setNewInputs={setNewInputs}
+                  state={newDate}
+                  setState={setNewDate}
+                />
+              ) : null}
+            </div>
+          </div>
+
+          <div className="editRowContainer firstRowContent">
+            <p className="editRowHeader">Edit time</p>
+            <div className="editRow">
+              <div className="editParaAndButton">
+                <p className="editPartyPara">{formatTime(newInputs.time)}</p>
+                <button className="editButton" onClick={() => setNewTime(true)}>
+                  Edit
+                </button>
+              </div>
+              {newTime ? (
+                <EditInput
+                  type="time"
+                  inputType="time"
+                  newInputs={newInputs}
+                  setNewInputs={setNewInputs}
+                  state={newTime}
+                  setState={setNewTime}
+                />
+              ) : null}
+            </div>
+          </div>
+        </div>
+
+        <div className="editAddressAndDetails">
+          <div className="editRowContainer secondRowContent">
+            <p className="editRowHeader">Edit address</p>
+            <div className="formSecondRow editRow">
+              <div className="locationNames">
+                <p>{newInputs.location.address}</p>
+                <p>{newInputs.location.city},</p>
+                <p>{newInputs.location.state}</p>
+                <p>{newInputs.location.zip}</p>
+              </div>
+
+              <button
+                className="editButton"
+                onClick={() => setNewLocation(true)}
+              >
                 Edit
               </button>
+              {newLocation ? (
+                <EditLocation
+                  newInputs={newInputs}
+                  setNewInputs={setNewInputs}
+                  state={newLocation}
+                  setState={setNewLocation}
+                />
+              ) : null}
             </div>
-            {newName ? (
-              <EditInput
-                type="text"
-                inputType="name"
-                newInputs={newInputs}
-                setNewInputs={setNewInputs}
-                state={newName}
-                setState={setNewName}
-              />
-            ) : null}
           </div>
 
-          <div className="editRow">
-            <div className="editParaAndButton">
-              <p className="editPartyPara">{formatDate(newInputs.date)}</p>
-              <button className="editButton" onClick={() => setNewDate(true)}>
+          <div className="editRowContainer secondRowContent">
+            <p className="editRowHeader">Edit details</p>
+            <div className="formThirdRow editRow">
+              <p>{newInputs.details}</p>
+              <button
+                className="editButton"
+                onClick={() => setNewDetails(true)}
+              >
                 Edit
               </button>
+              {newDetails ? (
+                <EditInput
+                  type="text"
+                  inputType="details"
+                  newInputs={newInputs}
+                  setNewInputs={setNewInputs}
+                  state={newDetails}
+                  setState={setNewDetails}
+                />
+              ) : null}
             </div>
-            {newDate ? (
-              <EditInput
-                type="date"
-                inputType="date"
-                newInputs={newInputs}
-                setNewInputs={setNewInputs}
-                state={newDate}
-                setState={setNewDate}
-              />
-            ) : null}
-          </div>
-
-          <div className="editRow">
-            <div className="editParaAndButton">
-              <p className="editPartyPara">{formatTime(newInputs.time)}</p>
-              <button className="editButton" onClick={() => setNewTime(true)}>
-                Edit name
-              </button>
-            </div>
-            {newTime ? (
-              <EditInput
-                type="time"
-                inputType="time"
-                newInputs={newInputs}
-                setNewInputs={setNewInputs}
-                state={newTime}
-                setState={setNewTime}
-              />
-            ) : null}
           </div>
         </div>
-
-        <div className="formSecondRow">
-          <div className="locationNames">
-            <p>{newInputs.location.address}</p>
-            <p>{newInputs.location.city},</p>
-            <p>{newInputs.location.state}</p>
-            <p>{newInputs.location.zip}</p>
-          </div>
-
-          <button className="editButton" onClick={() => setNewLocation(true)}>
-            Edit date
-          </button>
-        </div>
-        {newLocation ? (
-          <EditLocation
-            newInputs={newInputs}
-            setNewInputs={setNewInputs}
-            state={newLocation}
-            setState={setNewLocation}
-          />
-        ) : null}
-        <div className="formThirdRow">
-          <p>{newInputs.details}</p>
-          <button className="editButton" onClick={() => setNewDetails(true)}>
-            Edit time
-          </button>
-        </div>
-        {newDetails ? (
-          <EditInput
-            type="text"
-            inputType="details"
-            newInputs={newInputs}
-            setNewInputs={setNewInputs}
-            state={newDetails}
-            setState={setNewDetails}
-          />
-        ) : null}
-
-        <button className="editPartySubmitButton" onClick={updateParty}>
-          Looks Good!
-        </button>
       </div>
+      <button className="editPartySubmitButton" onClick={updateParty}>
+        Looks Good!
+      </button>
     </div>
   ) : (
     <Error />

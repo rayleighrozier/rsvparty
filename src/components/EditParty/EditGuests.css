@@ -20,7 +20,7 @@
   opacity: 1;
   border-radius: 25px;
   text-align: center;
-  color: white;
+  color: var(--white);
 }
 
 .alreadyInvitedOverlay {
@@ -32,7 +32,7 @@
   width: 38vw;
   height: 53vh;
 
-  background-color: white;
+  background-color: var(--white);
   cursor: not-allowed;
   margin: 50px 10px 20px 0px;
   border-radius: 25px;
@@ -79,7 +79,7 @@
   }
 
   .sendInvitesButton {
-    color: white;
+    color: var(--white);
     background-color: var(--pink);
     font-family: "Dongle", sans-serif;
     border: none;
@@ -130,7 +130,7 @@
     width: 100vw;
     height: 53vh;
 
-    background-color: white;
+    background-color: var(--white);
     cursor: not-allowed;
     margin: 50px 10px 20px 0px;
     border-radius: 25px;
@@ -139,7 +139,7 @@
   }
 
   .signOutButton {
-    color: white;
+    color: var(--white);
     float: right;
     background-color: var(--pink);
     font-family: "Dongle", sans-serif;
@@ -153,7 +153,7 @@
   }
   .submitGuestButton {
     background-color: var(--yellow);
-    color: white;
+    color: var(--white);
     border: none;
     font-family: "Dongle", sans-serif;
     font-size: 20px;
@@ -197,7 +197,7 @@
     text-align: center;
   }
   .sendInvitesButton {
-    color: white;
+    color: var(--white);
     background-color: var(--pink);
     font-family: "Dongle", sans-serif;
     border: none;
