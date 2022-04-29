@@ -113,9 +113,6 @@
   cursor: pointer;
 }
 
-.editPartyPara {
-}
-
 .formFirstRow {
   display: flex;
   width: 100%;
@@ -204,6 +201,19 @@
 }
 /* MOBILE */
 @media screen and (max-width: 480px) {
+}
+/* TABLET */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .formFirstRow {
+    flex-wrap: wrap;
+  }
+}
+/* LAPTOP OR BIGGER */
+@media screen and (min-width: 769px) {
+}
+
+/* MOBILE
+@media screen and (max-width: 480px) {
   .editRow {
     display: flex;
     justify-content: center;
@@ -242,9 +252,9 @@
     display: flex;
     justify-content: center;
   }
-}
+} */
 
-/* TABLET */
+/* TABLET
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .editRow {
     display: flex;
@@ -284,4 +294,4 @@
     display: flex;
     justify-content: center;
   }
-}
+} */
