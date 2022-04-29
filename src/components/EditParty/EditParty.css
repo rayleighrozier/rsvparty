@@ -19,10 +19,24 @@
 
 .editPartyAddress {
   font-size: 26px;
+  width: 96.5%;
+  max-width: 100%;
 }
-
+.editPartyAddressForm {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .editPartyAddressContainer {
   margin-bottom: 1rem;
+  width: 90%;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 10px 12px 10px 10px; */
 }
 
 .locationAndEdit,
@@ -31,12 +45,13 @@
   justify-content: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   gap: 1rem;
 }
 
 .detailsPara {
-  width: 55%;
-  font-size: 25px;
+  max-width: 90%;
 }
 
 .editPartyButtonsContainer {
@@ -130,6 +145,9 @@
 .secondRowContent {
   width: 49%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .inputForm {
@@ -151,6 +169,7 @@
   justify-content: space-evenly;
   width: 100%;
   gap: 1.5rem;
+  flex-grow: 1;
 }
 .formThirdRow {
   display: flex;
@@ -169,6 +188,7 @@
 .editRowContainer {
   background-color: var(--blue);
   border-radius: 22px;
+  height: auto;
 }
 
 .editRowHeader {
@@ -182,10 +202,6 @@
   display: grid;
   background-color: var(--white);
   border-radius: 22px;
-}
-
-#details {
-  height: 9rem;
 }
 
 .locationNames {
@@ -214,6 +230,10 @@
   }
   .editAddressAndDetails {
     flex-wrap: wrap;
+  }
+  .secondRowContent {
+    width: 100%;
+    max-width: 100%;
   }
 }
 /* LAPTOP OR BIGGER */
