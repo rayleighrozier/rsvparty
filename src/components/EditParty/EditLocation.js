@@ -22,12 +22,39 @@ export default function EditLocation(props) {
 
   return (
     <form>
-      <input type="text" placeholder="Address" />
-      <input type="text" placeholder="City" />
-      <input type="text" placeholder="State" />
-      <input type="text" placeholder="Zip Code" />
-      <button onClick={(e) => captureInput(e)}>Submit</button>
-      <button onClick={() => props.setState(false)}>X</button>
+      <input
+        className="addressLabel addressLine1 addPartyInput"
+        type="text"
+        placeholder="Address"
+      />
+      <div className="editCityStateZip">
+        <input
+          className="cityInput addPartyInput"
+          type="text"
+          placeholder="City"
+        />
+        <input
+          className="stateInput addPartyInput"
+          type="text"
+          placeholder="State"
+        />
+        <input
+          className="zipInput addPartyInput"
+          type="text"
+          placeholder="Zip Code"
+        />
+      </div>
+      <div className="center">
+        <button
+          className="editPartySubmitButton"
+          onClick={(e) => captureInput(e)}
+        >
+          Submit
+        </button>
+      </div>
+      <div className="center">
+        <button onClick={() => props.setState(false)}>X</button>
+      </div>
     </form>
   );
 }

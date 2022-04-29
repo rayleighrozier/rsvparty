@@ -1,0 +1,213 @@
+.alreadyInvitedContainer {
+  display: flex;
+  border-radius: 25px;
+  background-color: #e7faff;
+  height: 65vh;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.alreadyInvitedLower {
+  background-color: #13cdff;
+  width: 38vw;
+  height: 60vh;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+}
+
+.alreadyInvitedOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  border: none;
+  width: 38vw;
+  height: 53vh;
+
+  background-color: white;
+  cursor: not-allowed;
+  margin: 50px 10px 20px 0px;
+  border-radius: 25px;
+  text-align: center;
+  color: #13cdff;
+}
+
+.guestListTitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+.sendInvitesButtonContainer {
+  text-align: center;
+}
+/*-----------------IPAD-------------------------------*/
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .alreadyInvitedContainer {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 54vw;
+    align-items: center;
+    justify-content: center;
+    background-color: #e7faff;
+  }
+
+  .alreadyInvitedLower {
+    width: 50vw;
+  }
+  .alreadyInvitedOverlay {
+    margin-left: 250px;
+  }
+  .inviteGuestContainer {
+    margin-left: 250px;
+  }
+  .guestListTitle {
+    /* margin-left: 250px; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sendInvitesButtonContainer {
+    text-align: center;
+  }
+
+  .sendInvitesButton {
+    color: white;
+    background-color: var(--pink);
+    font-family: "Dongle", sans-serif;
+    border: none;
+    font-size: 25px;
+    border-radius: 0.7rem;
+    padding-top: 0.2rem;
+    /* width: 9rem; */
+    font-weight: 300;
+    cursor: pointer;
+
+    max-height: 40px;
+    /* margin-left: auto;
+    margin-right: auto; */
+  }
+}
+/*-----------------PHONE--------------------------------*/
+
+@media screen and (min-width: 375px) and (max-width: 480px) {
+  .alreadyInvitedContainer {
+    display: flex;
+
+    border-radius: 25px;
+    background-color: #e7faff;
+    height: 65vh;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .alreadyInvitedLower {
+    background-color: #13cdff;
+    /* margin: 10px 10px 10px 10px; */
+    width: 60vw;
+    height: 65vh;
+
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+  }
+
+  .alreadyInvitedOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    border: none;
+    width: 100vw;
+    height: 53vh;
+
+    background-color: white;
+    cursor: not-allowed;
+    margin: 50px 10px 20px 0px;
+    border-radius: 25px;
+    text-align: center;
+    color: #13cdff;
+  }
+
+  .signOutButton {
+    color: white;
+    float: right;
+    background-color: var(--pink);
+    font-family: "Dongle", sans-serif;
+    border: none;
+    font-size: 20px;
+    border-radius: 0.7rem;
+    padding-top: 0.2rem;
+    width: 5rem;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  .submitGuestButton {
+    background-color: var(--yellow);
+    color: white;
+    border: none;
+    font-family: "Dongle", sans-serif;
+    font-size: 20px;
+
+    border-radius: 1rem;
+    position: absolute;
+    margin-left: 300px;
+  }
+  .inviteGuestContainer {
+    display: flex;
+    background-color: #fff8e5;
+    width: 100vw;
+    margin: 0 auto;
+  }
+
+  .inviteGuestContent {
+    padding: 0px;
+    width: 90px;
+  }
+
+  .inviteGuestLabel {
+    font-size: 25px;
+    font: normal;
+    padding: 0rem;
+  }
+  .inviteGuestInput {
+    width: 48px;
+  }
+
+  .guestListTitle {
+    margin-left: auto;
+    margin-right: auto;
+    height: 225px;
+    width: 60vw;
+  }
+
+  .form {
+    height: 225px;
+  }
+  .sendInvitesButtonContainer {
+    text-align: center;
+  }
+  .sendInvitesButton {
+    color: white;
+    background-color: var(--pink);
+    font-family: "Dongle", sans-serif;
+    border: none;
+    font-size: 25px;
+    border-radius: 0.7rem;
+    padding-top: 0.2rem;
+    width: 9rem;
+    font-weight: 300;
+    cursor: pointer;
+
+    max-height: 40px;
+  }
+}

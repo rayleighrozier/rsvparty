@@ -18,6 +18,7 @@ export default function SignUp() {
       }
       return false;
     };
+
     if (input.firstName.length < 1) {
       window.alert("Please provide your first name");
     } else if (input.lastName.length < 2) {
@@ -43,8 +44,11 @@ export default function SignUp() {
     <>
       <img className="homePageLogo" src={logo} />
       <div className="homeInputsContainer">
-        <p className="homeHeader">Sign up</p>
-        <p className="homePhrase">Become a party animal!</p>
+        <div className="headerDiv">
+          <p className="homeHeader">Sign up</p>
+          <p className="homePhrase">Become a party animal!</p>
+        </div>
+
         <form>
           <div className="namesContainer">
             <div className="inputContainer">
