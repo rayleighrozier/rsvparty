@@ -2,12 +2,18 @@
   width: 35rem;
 }
 
+.homeImgContainer {
+  background-color: var(--blue);
+  height: 100vh;
+}
+
 .homePage {
   display: flex;
 }
 
 .homeText {
   text-align: center;
+  margin: 0px;
 }
 
 .homePageInputs {

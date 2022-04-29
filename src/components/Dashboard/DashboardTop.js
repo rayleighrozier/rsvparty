@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { avatarFindById } from "../../actions/supabase";
 import { SET_PAGE, SET_GUEST_AVATARDATA } from "../../action-types";
+import pencilImg from "../../assets/pencil.png";
 
 export default function DashboardTop() {
   const dispatch = useDispatch();
@@ -20,11 +21,13 @@ export default function DashboardTop() {
   }, []);
 
   return (
-    <div>
+    <div className="dashBoardTop">
       {guest.avatarData ? (
         <img className="userAvatar" src={guest.avatarData.url} />
       ) : null}
-      <button onClick={changeAvatar}>Change Animal</button>
+      <button className="changeAnimalButton" onClick={changeAvatar}>
+        <img src={pencilImg} className="pencil" />
+      </button>
       <p className="guestName">Hi {guest?.firstName}!</p>
     </div>
   );

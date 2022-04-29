@@ -58,7 +58,7 @@ export default function AddDetails() {
       </p>
       <div className="addPartyContent">
         <form>
-          <div className="formFirstRow">
+          <div className="addDetailsFormFirstRow">
             <div className="inputContent">
               <label htmlFor="name">Event name</label>
               <input

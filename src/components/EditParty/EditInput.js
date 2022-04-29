@@ -13,7 +13,7 @@ export default function EditInput(props) {
   };
 
   return (
-    <form>
+    <form className="inputForm">
       <input
         id={props.inputType}
         className="editPartyInput"

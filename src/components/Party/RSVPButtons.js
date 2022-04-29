@@ -31,13 +31,19 @@ export default function RSVPButtons(props) {
 
   return (
     <div className="party-buttons-container">
-      <button className="blue" onClick={() => changeAttending("yes")}>
+      <button
+        className="blue RSVPbutton"
+        onClick={() => changeAttending("yes")}
+      >
         Going
       </button>
-      <button className="yellow" onClick={() => changeAttending("maybe")}>
+      <button
+        className="yellow RSVPbutton"
+        onClick={() => changeAttending("maybe")}
+      >
         Maybe
       </button>
-      <button className="pink" onClick={() => changeAttending("no")}>
+      <button className="pink RSVPbutton" onClick={() => changeAttending("no")}>
         Can't Go
       </button>
     </div>

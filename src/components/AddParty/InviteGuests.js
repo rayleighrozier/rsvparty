@@ -53,16 +53,16 @@ export default function InviteGuests() {
         {newParty.details ? (
           <>
             <div className="inviteParty">
-              <div>{newParty.details.name}</div>
-            </div>
-            <div className="boxOverlay">
-              <div>{newParty.details.date}</div>
-              <div>{newParty.details.time}</div>
-              <div>{newParty.details.location.address}</div>
-              <div>
-                {newParty.details.location.city},{" "}
-                {newParty.details.location.state}{" "}
-                {newParty.details.location.zip}
+              <div className="newPartyHeader">{newParty.details.name}</div>
+              <div className="boxOverlay">
+                <div>{newParty.details.date}</div>
+                <div>{newParty.details.time}</div>
+                <div>{newParty.details.location.address}</div>
+                <div>
+                  {newParty.details.location.city},{" "}
+                  {newParty.details.location.state}{" "}
+                  {newParty.details.location.zip}
+                </div>
               </div>
             </div>
           </>
@@ -73,12 +73,12 @@ export default function InviteGuests() {
       <div className="buttonContainer">
         <div className="inviteButtons">
           <button className="sendInvitesButton" onClick={saveAndSend}>
-            Send Invites
+            Send invites
           </button>
         </div>
         <div>
           <button className="sendInvitesButton" onClick={saveParty}>
-            Invite Guests Later
+            Invite guests later
           </button>
         </div>
       </div>
