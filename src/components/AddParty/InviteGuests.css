@@ -114,6 +114,7 @@
   padding: 0px;
   background-color: var(--lightblue);
   color: var(--blue);
+  max-width: 95%;
 }
 
 .sendInvitesButton {
