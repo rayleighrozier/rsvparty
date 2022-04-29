@@ -15,6 +15,12 @@ textarea {
   cursor: pointer;
 }
 
+.timeToParty {
+  font-size: 60px;
+  font-weight: 400;
+  margin: 0px;
+}
+
 .pink {
   background-color: var(--pink);
 }
@@ -47,7 +53,6 @@ textarea {
 }
 .party-top-container {
   display: flex;
-
   width: 100vw;
   max-width: 100%;
   min-height: 250px;
@@ -128,6 +133,7 @@ textarea {
   color: white;
   font-family: "Dongle", sans-serif;
   font-size: 1.6rem;
+  cursor: pointer;
 }
 .party-middle-container {
   display: flex;

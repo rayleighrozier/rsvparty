@@ -28,14 +28,18 @@
   transform: scale(1.15);
 }
 
-.title {
+.chooseAvatarTitle {
   text-align: center;
+  margin: 0px;
+  font-size: 60px;
+  font-weight: 400;
 }
 
 .avatarTitle {
-  font-size: 1.4em;
+  font-size: 1em;
   color: #bababa;
-  margin-bottom: 30px;
+  margin-bottom: 0.3rem;
+  margin-top: 0px;
 }
 
 .avatarTitle:nth-child(1),
@@ -48,6 +52,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 
 .breakRowZero {
@@ -66,9 +72,10 @@
 }
 
 .allAvatars {
-  max-width: 140px;
-  max-height: 140px;
+  max-width: 135px;
+  max-height: 135px;
   border-radius: 50%;
+  margin-bottom: 0.4rem;
 }
 
 .avatarButton {
@@ -76,12 +83,14 @@
   background-color: var(--blue);
   font-family: "Dongle", sans-serif;
   border: none;
-  font-size: 25px;
+  font-size: 30px;
   border-radius: 0.7rem;
   padding-top: 0.2rem;
   width: 9rem;
   font-weight: 300;
   cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .buttonDiv {
   display: flex;
