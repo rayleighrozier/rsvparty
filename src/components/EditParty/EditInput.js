@@ -30,7 +30,9 @@ export default function EditInput(props) {
         </div>
 
         <div className="center">
-          <button onClick={() => props.setState(false)}>X</button>
+          <button className="xButton" onClick={() => props.setState(false)}>
+            X
+          </button>
         </div>
       </div>
     </form>

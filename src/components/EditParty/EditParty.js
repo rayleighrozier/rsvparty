@@ -115,19 +115,22 @@ export default function EditParty() {
           <div className="editRowContainer secondRowContent">
             <p className="editRowHeader">Edit address</p>
             <div className="formSecondRow editRow">
-              <div className="locationNames">
-                <p>{newInputs.location.address}</p>
-                <p>{newInputs.location.city},</p>
-                <p>{newInputs.location.state}</p>
-                <p>{newInputs.location.zip}</p>
-              </div>
+              <div className="locationAndEdit">
+                <div className="locationNames">
+                  <p className="locationName">{newInputs.location.address}</p>
+                  <p className="locationName">
+                    {newInputs.location.city}, {newInputs.location.state}{" "}
+                    {newInputs.location.zip}
+                  </p>
+                </div>
 
-              <button
-                className="editButton"
-                onClick={() => setNewLocation(true)}
-              >
-                Edit
-              </button>
+                <button
+                  className="editButton"
+                  onClick={() => setNewLocation(true)}
+                >
+                  Edit
+                </button>
+              </div>
               {newLocation ? (
                 <EditLocation
                   newInputs={newInputs}
@@ -142,13 +145,16 @@ export default function EditParty() {
           <div className="editRowContainer secondRowContent">
             <p className="editRowHeader">Edit details</p>
             <div className="formThirdRow editRow">
-              <p>{newInputs.details}</p>
-              <button
-                className="editButton"
-                onClick={() => setNewDetails(true)}
-              >
-                Edit
-              </button>
+              <div className="detailsAndEdit">
+                <p className="detailsPara">{newInputs.details}</p>
+                <button
+                  className="editButton"
+                  onClick={() => setNewDetails(true)}
+                >
+                  Edit
+                </button>
+              </div>
+
               {newDetails ? (
                 <EditInput
                   type="text"
@@ -157,13 +163,14 @@ export default function EditParty() {
                   setNewInputs={setNewInputs}
                   state={newDetails}
                   setState={setNewDetails}
+                  className="detailsInputField"
                 />
               ) : null}
             </div>
           </div>
         </div>
       </div>
-      <button className="editPartySubmitButton" onClick={updateParty}>
+      <button className="editPartyLooksGoodButton" onClick={updateParty}>
         Looks Good!
       </button>
     </div>

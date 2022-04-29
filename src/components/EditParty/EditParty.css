@@ -1,6 +1,7 @@
 .editPartyContent {
   display: grid;
   place-items: center;
+  border-radius: 25px;
 }
 
 .editPartyHeader {
@@ -11,8 +12,50 @@
 
 .editPartyContent1 {
   background-color: var(--lightblue);
-  padding: 1rem;
+  padding: 2rem;
   width: 80%;
+  border-radius: 25px;
+}
+
+.editPartyAddress {
+  font-size: 26px;
+}
+
+.editPartyAddressContainer {
+  margin-bottom: 1rem;
+}
+
+.locationAndEdit,
+.detailsAndEdit {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.detailsPara {
+  width: 55%;
+  font-size: 25px;
+}
+
+.editPartyButtonsContainer {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.xButton {
+  background-color: var(--lightblue);
+  color: var(--blue);
+  border: none;
+  font-size: 31px;
+  border-radius: 10px;
+  font-family: "Dongle", sans-serif;
+  padding-top: 0.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer;
 }
 
 .editPartyInput {
@@ -24,17 +67,35 @@
   font-size: 25px;
   width: 15rem;
   height: 2rem;
+  margin-bottom: 1rem;
 }
 
 .editPartySubmitButton {
   font-family: "Dongle", sans-serif;
-  background-color: var(--blue);
+  background-color: var(--yellow);
   border: none;
   color: var(--white);
   font-size: 30px;
   padding-top: 0.3rem;
   border-radius: 0.8rem;
-  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.editPartyLooksGoodButton {
+  font-family: "Dongle", sans-serif;
+  background-color: var(--pink);
+  border: none;
+  color: var(--white);
+  border-radius: 10px;
+  font-size: 30px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer;
 }
 
 .editButton {
@@ -49,11 +110,10 @@
   border-radius: 0.8rem;
   margin-top: 2.5rem;
   margin-left: 2rem;
+  cursor: pointer;
 }
 
 .editPartyPara {
-  width: 13rem;
-  margin-right: 2rem;
 }
 
 .formFirstRow {
@@ -104,21 +164,26 @@
 .editParaAndButton {
   display: flex;
   justify-content: space-evenly;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .editRowContainer {
   background-color: var(--blue);
+  border-radius: 22px;
 }
 
 .editRowHeader {
   color: var(--white);
   text-align: center;
-  margin: 0px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .editRow {
   display: grid;
   background-color: var(--white);
+  border-radius: 22px;
 }
 
 #details {
@@ -126,7 +191,11 @@
 }
 
 .locationNames {
-  display: flex;
+  display: grid;
+}
+
+.locationName {
+  margin: 0px;
 }
 
 .editCityStateZip {
