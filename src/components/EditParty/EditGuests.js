@@ -72,23 +72,35 @@ export default function EditGuests() {
           <div className="alreadyInvitedContainer">
             <div className="alreadyInvitedLower">
               <div>Already Invited</div>
-            </div>
-            {guestList.map((guest) => {
-              return (
-                <div className="alreadyInvitedOverlay">
-                  <div>
-                    {guest.firstName} {guest.lastName}
-                  </div>
 
-                  {guest.attending === "yes" ? <p>Attending</p> : null}
-                  {guest.attending === "no" ? <p>Not Attending</p> : null}
-                  {guest.attending === "maybe" ? <p>Maybe Attending</p> : null}
-                  {guest.attending === "undecided" ? (
-                    <div>No Response Yet</div>
-                  ) : null}
-                </div>
-              );
-            })}
+              {guestList.map((guest) => {
+                return (
+                  <>
+                    <div className="whiteOverlay">
+                      <div className="alreadyInvitedOverlay">
+                        <ul className="insideAlreadyInvitedOverlay">
+                          <li>
+                            {guest.firstName} {guest.lastName}
+                          </li>
+                          {guest.attending === "yes" ? (
+                            <li>Attending</li>
+                          ) : null}
+                          {guest.attending === "no" ? (
+                            <li>Not Attending</li>
+                          ) : null}
+                          {guest.attending === "maybe" ? (
+                            <li>Maybe Attending</li>
+                          ) : null}
+                          {guest.attending === "undecided" ? (
+                            <li>No Response Yet</li>
+                          ) : null}
+                        </ul>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
           </div>
 
           <InviteGuestsForm />

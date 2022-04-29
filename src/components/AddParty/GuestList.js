@@ -8,7 +8,7 @@ export default function GuestList() {
   return (
     <>
       <div className="guestListContainer">
-        <p className="guestListHeader">Guest List</p>
+        <div className="guestListHeader">Guest List</div>
         <div className="testDiv">
           {newParty.guestList
             ? newParty.guestList.map((guest, index) => {

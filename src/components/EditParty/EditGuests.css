@@ -23,21 +23,42 @@
   color: white;
 }
 
+.whiteOverlay {
+  background-color: #13cdff;
+  color: red;
+}
+
+::marker {
+  color: #13cdff;
+  background-color: #13cdff;
+}
+
+li {
+  color: white;
+  background-color: #13cdff;
+  list-style: none;
+}
+
 .alreadyInvitedOverlay {
-  position: absolute;
   top: 0;
   left: 0;
   margin: 0;
   border: none;
   width: 38vw;
-  height: 53vh;
+  /* height: 20vh; */
 
-  background-color: white;
+  /* background-color: white; */
   cursor: not-allowed;
-  margin: 50px 10px 20px 0px;
+  /* margin: 50px 10px 20px 0px; */
   border-radius: 25px;
-  text-align: center;
+  /* text-align: center; */
   color: #13cdff;
+}
+
+.insideAlreadyInvitedOverlay {
+  display: flex;
+  justify-content: space-around;
+  background-color: #13cdff;
 }
 
 .guestListTitle {
@@ -62,12 +83,21 @@
   .alreadyInvitedLower {
     width: 50vw;
   }
-  .alreadyInvitedOverlay {
-    margin-left: 250px;
+
+  .insideAlreadyInvitedOverlay {
+    display: flex;
+    /* justify-content: space-between; */
+    background-color: #13cdff;
+  }
+  li {
+    font-size: 25px;
+    /* margin-right: 30px; */
   }
   .inviteGuestContainer {
-    margin-left: 250px;
+    margin-left: auto;
+    margin-right: auto;
   }
+
   .guestListTitle {
     /* margin-left: 250px; */
     margin-left: auto;
@@ -86,13 +116,13 @@
     font-size: 25px;
     border-radius: 0.7rem;
     padding-top: 0.2rem;
-    /* width: 9rem; */
     font-weight: 300;
     cursor: pointer;
-
     max-height: 40px;
-    /* margin-left: auto;
-    margin-right: auto; */
+  }
+  .inviteGuestContainer {
+    margin-left: 60px;
+    width: 100vw;
   }
 }
 /*-----------------PHONE--------------------------------*/
@@ -100,11 +130,9 @@
 @media screen and (min-width: 375px) and (max-width: 480px) {
   .alreadyInvitedContainer {
     display: flex;
-
     border-radius: 25px;
     background-color: #e7faff;
-    height: 65vh;
-    width: 70vw;
+    width: 90vw;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -112,17 +140,38 @@
   }
   .alreadyInvitedLower {
     background-color: #13cdff;
-    /* margin: 10px 10px 10px 10px; */
-    width: 60vw;
-    height: 65vh;
-
+    width: 90vw;
+    height: 60vh;
     border-radius: 25px;
     text-align: center;
     color: white;
   }
 
+  .whiteOverlay {
+    display: flex;
+  }
+
+  .whiteOverlay li {
+    width: 100px;
+  }
+
   .alreadyInvitedOverlay {
-    position: absolute;
+    display: flex;
+    width: 100%;
+    align-content: flex-start;
+  }
+
+  .insideAlreadyInvitedOverlay {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  li {
+    font-size: 25px;
+  }
+
+  /* .alreadyInvitedOverlay {
     top: 0;
     left: 0;
     margin: 0;
@@ -136,7 +185,7 @@
     border-radius: 25px;
     text-align: center;
     color: #13cdff;
-  }
+  } */
 
   .signOutButton {
     color: white;
@@ -181,6 +230,10 @@
   }
   .inviteGuestInput {
     width: 48px;
+  }
+
+  .guestListHeader {
+    margin-top: 40px;
   }
 
   .guestListTitle {

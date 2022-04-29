@@ -60,6 +60,8 @@
   background-color: var(--blue);
   border-radius: 25px;
   width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .testDiv {
