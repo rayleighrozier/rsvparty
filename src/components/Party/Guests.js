@@ -35,9 +35,9 @@ export default function Guests(props) {
               <p>Host</p>
             </div>
           ) : null}
-          {guestList.map((guest) => {
+          {guestList.map((guest, index) => {
             return (
-              <div className="party-guest">
+              <div key={index} className="party-guest">
                 <p>
                   {guest.firstName}
                   {"  "} {guest.lastName}
@@ -50,7 +50,21 @@ export default function Guests(props) {
             );
           })}
         </div>
-      ) : null}
+      ) : (
+        <div className="party-guest-list">
+          {" "}
+          {host ? (
+            <div className="party-guest party-host">
+              {" "}
+              <p>
+                {host.firstName}
+                {"  "} {host.lastName}
+              </p>
+              <p>Host</p>
+            </div>
+          ) : null}
+        </div>
+      )}
     </div>
   );
 }

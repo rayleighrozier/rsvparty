@@ -11,22 +11,32 @@ export default function RSVPButtons(props) {
     sendAttendance(input);
   };
   const sendAttendance = async (input) => {
-    let guestsJSON = [];
-    if (party.guests) {
-      for (const person of party.guests) {
-        let guestdata = JSON.parse(person);
-        guestsJSON.push(guestdata);
-      }
-      let filtered = guestsJSON.filter((data) => data.email === guest.email);
-      guestsJSON = guestsJSON.filter((data) => data.email !== guest.email);
-      if (filtered.length > 0) {
-        filtered[0].attending = input;
-        guestsJSON.push(filtered[0]);
-        await partyUpdateGuests(party.partyId, guestsJSON);
-      } else {
-        window.alert("Error! You're missing from the guest list.");
-      }
+    let partyGuests = party.guests;
+    console.log(partyGuests);
+    let filtered = partyGuests.filter((data) => data.email === guest.email);
+    if (filtered.length > 0) {
+      partyGuests = partyGuests.filter((data) => data.email !== guest.email);
+      filtered[0].attending = input;
+      partyGuests.push(filtered[0]);
+      await partyUpdateGuests(party.partyId, partyGuests);
+    } else {
+      window.alert("Error! You're missing from the guest list.");
     }
+
+    //   for (const person of party.guests) {
+    //     let guestdata = JSON.parse(person);
+    //     guestsJSON.push(guestdata);
+    //   }
+    //   let filtered = .filter((data) => data.email === guest.email);
+    //   guestsJSON = guestsJSON.filter((data) => data.email !== guest.email);
+    //   if (filtered.length > 0) {
+    //     filtered[0].attending = input;
+    //     guestsJSON.push(filtered[0]);
+    //     await partyUpdateGuests(party.partyId, guestsJSON);
+    //   } else {
+    //     window.alert("Error! You're missing from the guest list.");
+    //   }
+    // }
   };
 
   return (

@@ -7,9 +7,9 @@ export default function CommentsList() {
   return (
     <div>
       {comments
-        ? comments.map((comment) => {
+        ? comments.map((comment, index) => {
             return (
-              <div className="party-comment">
+              <div key={index} className="party-comment">
                 <p>
                   {comment.firstName}
                   {"  "} {comment.lastName}
