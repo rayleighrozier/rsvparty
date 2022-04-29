@@ -22,38 +22,44 @@ export default function EditLocation(props) {
 
   return (
     <form>
-      <input
-        className="addressLabel addressLine1 addPartyInput"
-        type="text"
-        placeholder="Address"
-      />
-      <div className="editCityStateZip">
+      <div className="editPartyAddressContainer">
         <input
-          className="cityInput addPartyInput"
+          className="addressLabel addressLine1 addPartyInput editPartyAddress"
           type="text"
-          placeholder="City"
+          placeholder="Address"
         />
-        <input
-          className="stateInput addPartyInput"
-          type="text"
-          placeholder="State"
-        />
-        <input
-          className="zipInput addPartyInput"
-          type="text"
-          placeholder="Zip Code"
-        />
+        <div className="editCityStateZip">
+          <input
+            className="cityInput addPartyInput"
+            type="text"
+            placeholder="City"
+          />
+          <input
+            className="stateInput addPartyInput"
+            type="text"
+            placeholder="State"
+          />
+          <input
+            className="zipInput addPartyInput"
+            type="text"
+            placeholder="Zip Code"
+          />
+        </div>
       </div>
-      <div className="center">
-        <button
-          className="editPartySubmitButton"
-          onClick={(e) => captureInput(e)}
-        >
-          Submit
-        </button>
-      </div>
-      <div className="center">
-        <button onClick={() => props.setState(false)}>X</button>
+      <div className="editPartyButtonsContainer">
+        <div className="center">
+          <button
+            className="editPartySubmitButton"
+            onClick={(e) => captureInput(e)}
+          >
+            Submit
+          </button>
+        </div>
+        <div className="center">
+          <button className="xButton" onClick={() => props.setState(false)}>
+            X
+          </button>
+        </div>
       </div>
     </form>
   );
