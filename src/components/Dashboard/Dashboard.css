@@ -163,3 +163,14 @@
   font-size: 150px;
   font-family: "Dongle", sans-serif;
 }
+
+.addPartyButton:hover {
+  transform: scale(1.02);
+}
+
+button {
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  transform: scale(1.05);
+}
