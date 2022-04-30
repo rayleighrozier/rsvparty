@@ -4,7 +4,7 @@
 
 .homeImgContainer {
   background-color: var(--blue);
-  height: 100vh;
+  height: 51.5rem;
   display: grid;
   place-items: center;
 }
