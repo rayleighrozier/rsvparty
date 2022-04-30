@@ -180,6 +180,7 @@ button:hover {
   .dashboardContainer {
     flex-wrap: wrap;
     margin-left: 0px;
+    margin-top: 2rem;
   }
   .partiesContainer {
     display: grid;
@@ -203,6 +204,7 @@ button:hover {
     display: grid;
     margin-left: 0px;
     align-items: center;
+    margin-top: 2rem;
   }
   .partiesContainer {
     display: grid;

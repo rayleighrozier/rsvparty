@@ -95,3 +95,88 @@
 .details {
   width: 20rem;
 }
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  .addPartyContent {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .addPartyTitle {
+    width: 65%;
+    text-align: center;
+  }
+  .addPartyPhrase {
+    width: 60%;
+    text-align: center;
+  }
+  .addDetailsFormFirstRow {
+    display: grid;
+    margin-left: 2rem;
+    width: 100%;
+  }
+  .firstRowInput {
+    width: 21rem;
+  }
+
+  .formSecondRow {
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0px;
+  }
+  .addressLine1 {
+    width: 10rem;
+    margin-bottom: 0.7rem;
+  }
+  .cityStateZip {
+    display: grid;
+  }
+  .details {
+    width: 10rem;
+  }
+  .addPartySubmitButton {
+    margin-left: 2rem;
+  }
+}
+/* TABLET */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .addPartyContent {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .addPartyTitle {
+    width: 65%;
+    text-align: center;
+  }
+  .addPartyPhrase {
+    width: 60%;
+    text-align: center;
+  }
+  .addDetailsFormFirstRow {
+    display: grid;
+    margin-left: 2rem;
+    width: 100%;
+  }
+  .firstRowInput {
+    width: 21rem;
+  }
+  .formSecondRow {
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+  }
+  .addressLine1 {
+    width: 60%;
+    margin-bottom: 0.7rem;
+  }
+  .cityStateZip {
+    display: grid;
+  }
+
+  .addPartySubmitButton {
+    margin-left: 2rem;
+  }
+}
