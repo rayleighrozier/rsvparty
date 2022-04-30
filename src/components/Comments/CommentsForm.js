@@ -60,7 +60,14 @@ export default function CommentForm(props) {
         onChange={(e) => setInputStr(e.target.value)}
       />
       <div className="party-comment-buttons">
-        <button onClick={(e) => captureComment(e)}>Post</button>
+        <button
+          onClick={(e) => {
+            captureComment(e);
+            setInputStr(() => "");
+          }}
+        >
+          Post
+        </button>
         <img
           className="party-comment-buttons-emoji"
           src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"

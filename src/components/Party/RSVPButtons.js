@@ -22,21 +22,6 @@ export default function RSVPButtons(props) {
     } else {
       window.alert("Error! You're missing from the guest list.");
     }
-
-    //   for (const person of party.guests) {
-    //     let guestdata = JSON.parse(person);
-    //     guestsJSON.push(guestdata);
-    //   }
-    //   let filtered = .filter((data) => data.email === guest.email);
-    //   guestsJSON = guestsJSON.filter((data) => data.email !== guest.email);
-    //   if (filtered.length > 0) {
-    //     filtered[0].attending = input;
-    //     guestsJSON.push(filtered[0]);
-    //     await partyUpdateGuests(party.partyId, guestsJSON);
-    //   } else {
-    //     window.alert("Error! You're missing from the guest list.");
-    //   }
-    // }
   };
 
   return (
