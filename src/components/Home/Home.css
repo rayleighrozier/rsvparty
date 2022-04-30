@@ -4,7 +4,9 @@
 
 .homeImgContainer {
   background-color: var(--blue);
-  height: 100vh;
+  height: 51.5rem;
+  display: grid;
+  place-items: center;
 }
 
 .homePage {
@@ -14,6 +16,14 @@
 .homeText {
   text-align: center;
   margin: 0px;
+  font-size: 50px;
+  margin: 0px;
+}
+
+.homeText2 {
+  width: 75%;
+  font-size: 25px;
+  font-weight: 300;
 }
 
 .homePageInputs {
