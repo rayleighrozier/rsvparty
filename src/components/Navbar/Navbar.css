@@ -7,6 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 5px;
 }
 
 .navbarLinks {
@@ -21,6 +22,7 @@
   text-decoration: none;
   color: black;
   cursor: pointer;
+  margin-top: 4px;
 }
 
 .signOutButton {
@@ -34,4 +36,28 @@
   width: 9rem;
   font-weight: 300;
   cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+  .rsvpLogo {
+    width: 9rem;
+    margin-bottom: -11px;
+  }
+  .addPartyLink {
+    margin-left: 20px;
+  }
+  .navbar {
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .rsvpLogo {
+    width: 9rem;
+    margin-bottom: -11px;
+  }
+  .addPartyLink {
+    margin-top: 8px;
+  }
+  .navbar {
+    padding: 10px;
+  }
 }

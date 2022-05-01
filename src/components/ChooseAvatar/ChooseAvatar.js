@@ -238,8 +238,6 @@ export default function ChooseAvatar() {
                   <img className="allAvatars" src={avatars[7].url} alt=""></img>
                 </label>
               </div>
-
-              {/* <div className="breakRowThree"></div> */}
             </div>
             <div className="buttonDiv">
               <button className="avatarButton" onClick={(e) => sendAvatar(e)}>
