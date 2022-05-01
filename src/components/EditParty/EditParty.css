@@ -165,7 +165,7 @@
   justify-content: space-between;
 }
 
-.formSecondRow {
+.EPformSecondRow {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
