@@ -1,8 +1,14 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { checkToken } from "../../actions/token";
-import { SET_PAGE } from "../../action-types";
+import { partyFindById, avatarFindById } from "../../actions/supabase";
+import { formatDate, formatTime } from "../../actions/format";
+import {
+  SET_PAGE,
+  SET_GUEST_AVATARDATA,
+  SET_PARTYDETAILS,
+} from "../../action-types";
 import AddPartyButton from "./AddPartyButton";
 import Error from "../Error/Error";
 import SearchParty from "./SearchParty";
@@ -13,12 +19,6 @@ import NoParties from "./NoParties";
 import ChooseAvatar from "../ChooseAvatar/ChooseAvatar";
 import Loading from "../Loading/Loading";
 import "./Dashboard.css";
-import { useNavigate } from "react-router-dom";
-import { partyFindById } from "../../actions/supabase";
-import { formatDate, formatTime } from "../../actions/format";
-import { SET_PARTYDETAILS } from "../../action-types";
-import { avatarFindById } from "../../actions/supabase";
-import { SET_GUEST_AVATARDATA } from "../../action-types";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -47,21 +47,21 @@ export default function Dashboard() {
     let data = await getPartyDetailsData();
     dispatch({ type: SET_PARTYDETAILS, payload: data });
   };
-  const goToParty = (partyId) => {
-    navigate(`/party/${partyId}`);
-  };
-
-  useEffect(() => {
-    setPartyDetails();
-  }, []);
   const setAvatar = async () => {
     let avatarData = await avatarFindById(guest.avatar);
     dispatch({ type: SET_GUEST_AVATARDATA, payload: avatarData });
   };
 
   useEffect(() => {
-    setAvatar();
+    checkForAvatar();
   }, []);
+
+  useEffect(() => {
+    if (page === "dashboard") {
+      setPartyDetails();
+      setAvatar();
+    }
+  }, [page]);
 
   const checkForAvatar = () => {
     avatar
@@ -69,14 +69,13 @@ export default function Dashboard() {
       : dispatch({ type: SET_PAGE, payload: "chooseAvatar" });
   };
   // move fetching party details to here instead of other component and use it to trigger loading
-  useEffect(() => {
-    checkForAvatar();
-  }, []);
+
   useEffect(() => {
     if (partyDetails && guest.avatarData) {
       setLoading(false);
     }
-  }, [partyDetails]);
+  }, [partyDetails, guest.avatarData]);
+
   return (
     <>
       {loading === false ? (
