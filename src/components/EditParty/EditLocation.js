@@ -21,7 +21,7 @@ export default function EditLocation(props) {
   };
 
   return (
-    <form>
+    <form className="editPartyAddressForm">
       <div className="editPartyAddressContainer">
         <input
           className="addressLabel addressLine1 addPartyInput editPartyAddress"
