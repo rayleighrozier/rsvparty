@@ -34,7 +34,7 @@ export default function Party() {
   const [host, setHost] = useState(false);
   const [attending, setAttending] = useState(null);
   const [invited, setInvited] = useState(false);
-  const endDates = party?.date + ` 2022 ` + party.time;
+  const endDates = party?.date + ` 2022 ` + party?.time;
   let timeLeft = Date.now() - Date.parse(endDates);
   let tl = 0;
   if (timeLeft >= 0) {
@@ -120,11 +120,9 @@ export default function Party() {
             <div className="party-top-container">
               <div className="party-countdown-container">
                 <div className="party-countdown-numbers">
-                  {endDates && tl ? (
-                    <Countdown date={Date.now() + tl}>
-                      <Completionist />
-                    </Countdown>
-                  ) : null}
+                  <Countdown date={Date.now() + tl}>
+                    <Completionist />
+                  </Countdown>
                 </div>
                 <CountdownTitles />
               </div>
