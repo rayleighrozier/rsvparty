@@ -57,7 +57,7 @@ export default function AddDetails() {
         Please enter the details for your party below!
       </p>
       <div className="addPartyContent">
-        <form>
+        <form className="addPartyForm">
           <div className="addDetailsFormFirstRow">
             <div className="inputContent">
               <label htmlFor="name">Event name</label>
@@ -85,7 +85,7 @@ export default function AddDetails() {
             </div>
           </div>
           <div className="formSecondRow">
-            <div>
+            <div className="addPartyAddressContainer">
               <p className="addPartyAddress">Address</p>
               <div className="inputContent">
                 <label className="addressLabel" htmlFor="address">
@@ -96,41 +96,41 @@ export default function AddDetails() {
                   name="address"
                   type="text"
                 ></input>
-              </div>
-              <div className="cityStateZip">
-                <div className="inputContent">
-                  <label className="addressLabel" htmlFor="city">
-                    City
-                  </label>
-                  <input
-                    className="cityInput addPartyInput"
-                    name="city"
-                    type="text"
-                  ></input>
-                </div>
-                <div className="inputContent">
-                  <label className="addressLabel" htmlFor="state">
-                    State
-                  </label>
-                  <input
-                    className="stateInput addPartyInput"
-                    name="state"
-                    type="text"
-                  ></input>
-                </div>
-                <div className="inputContent">
-                  <label className="addressLabel" htmlFor="zip">
-                    Zip Code
-                  </label>
-                  <input
-                    className="zipInput addPartyInput"
-                    name="zip"
-                    type="text"
-                  ></input>
+                <div className="cityStateZip">
+                  <div className="inputContent">
+                    <label className="addressLabel" htmlFor="city">
+                      City
+                    </label>
+                    <input
+                      className="cityInput addPartyInput"
+                      name="city"
+                      type="text"
+                    ></input>
+                  </div>
+                  <div className="inputContent">
+                    <label className="addressLabel" htmlFor="state">
+                      State
+                    </label>
+                    <input
+                      className="stateInput addPartyInput"
+                      name="state"
+                      type="text"
+                    ></input>
+                  </div>
+                  <div className="inputContent">
+                    <label className="addressLabel" htmlFor="zip">
+                      Zip Code
+                    </label>
+                    <input
+                      className="zipInput addPartyInput"
+                      name="zip"
+                      type="text"
+                    ></input>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="inputContent">
+            <div className="inputContent addPartyDetailsContainer">
               <label htmlFor="details">Event Details</label>
               <textarea
                 className="details"
