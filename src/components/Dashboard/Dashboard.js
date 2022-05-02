@@ -46,11 +46,11 @@ export default function Dashboard() {
   const setPartyDetails = async () => {
     let data = await getPartyDetailsData();
     dispatch({ type: SET_PARTYDETAILS, payload: data });
-    setTimeout(() => setLoading(false), 6000);
   };
   const setAvatar = async () => {
     let avatarData = await avatarFindById(guest.avatar);
     dispatch({ type: SET_GUEST_AVATARDATA, payload: avatarData });
+    setTimeout(() => setLoading(false), 6000);
   };
 
   useEffect(() => {
