@@ -11,7 +11,7 @@ import {
 } from "../../actions/format";
 import { partyFindById } from "../../actions/supabase";
 import { checkToken } from "../../actions/token";
-// import { checkIfInvited } from "../../actions/guestList";
+import { checkIfInvited } from "../../actions/guestList";
 import { SET_PAGE, SET_PARTY, SET_PARTYUNFORMATTED } from "../../action-types";
 import RSVPButtons from "./RSVPButtons";
 import PartyDetails from "./PartyDetails";
@@ -33,7 +33,7 @@ export default function Party() {
   const guest = useSelector((state) => state.guest);
   const [host, setHost] = useState(false);
   const [attending, setAttending] = useState(null);
-  const [invited, setInvited] = useState(false);
+  const [invited, setInvited] = useState(null);
   const [loading, setLoading] = useState(true);
   const endDates = party?.date + ` 2022 ` + party?.time;
   let timeLeft = Date.now() - Date.parse(endDates);
@@ -67,36 +67,13 @@ export default function Party() {
       }
     }
   };
-  const checkIfInvited = (guest, guestList) => {
-    console.log("checking if invited");
-    if (Array.isArray(guestList)) {
-      let filtered = guestList.filter((data) => data.email === guest.email);
-      if (filtered.length > 0) {
-        console.log("invited", true);
-        return true;
-      }
-      return false;
-    } else if (guestList === null) {
-      console.log("guest list is null", false);
-      return false;
-    } else {
-      if (guestList.email === guest.email) {
-        console.log("invited", true);
-        return true;
-      }
-      console.log("guest email not in guests", false);
-      return false;
-    }
-  };
   const checkInvited = () => {
     if (party) {
       if (!host) {
         let status = checkIfInvited(guest, party.guests);
         setInvited(status);
-        setTimeout(() => setLoading(false), 6000);
       } else {
         setInvited(true);
-        setTimeout(() => setLoading(false), 6000);
       }
     }
   };
@@ -133,9 +110,12 @@ export default function Party() {
     checkHost();
     checkInvited();
     checkAttending();
-    // if (party) {
-    //   setTimeout(() => setLoading(false), 6000);
-    // }
+    if (party && invited) {
+      setLoading(false);
+    } else if (party) {
+      checkInvited();
+      setTimeout(() => setLoading(false), 6000);
+    }
   }, [party, invited]);
 
   return (
@@ -156,7 +136,9 @@ export default function Party() {
                     </div>
                     <CountdownTitles />
                   </div>
-                  {party && <PartyDetails host={host} setHost={setHost} />}
+                  {party ? (
+                    <PartyDetails host={host} setHost={setHost} />
+                  ) : null}
                 </div>
                 {host ? (
                   <HostButtons />
