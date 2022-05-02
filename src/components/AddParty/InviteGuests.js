@@ -63,7 +63,7 @@ export default function InviteGuests() {
         {newParty.details ? (
           <>
             <div className="inviteParty">
-              <div className="newPartyHeader">{newParty.details.name}</div>
+              <div className="newPartyPartyHeader">{newParty.details.name}</div>
               <div className="boxOverlay">
                 <div>{newParty.details.date}</div>
                 <div>{newParty.details.time}</div>
