@@ -54,6 +54,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     checkForAvatar();
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -72,7 +73,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (partyDetails && guest.avatarData) {
-      setLoading(false);
+      setTimeout(() => setLoading(false), 2000);
     }
   }, [partyDetails, guest.avatarData]);
 
