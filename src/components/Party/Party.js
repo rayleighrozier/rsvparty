@@ -35,7 +35,7 @@ export default function Party() {
   const [attending, setAttending] = useState(null);
   const [invited, setInvited] = useState(false);
 
-  const endDates = party?.date + ` 2022 ` + party.time;
+  const endDates = party?.date + ` 2022 ` + party?.time;
   let timeLeft = Date.now() - Date.parse(endDates);
   let tl = 0;
   if (timeLeft >= 0) {
