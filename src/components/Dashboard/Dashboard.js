@@ -59,6 +59,8 @@ export default function Dashboard() {
   };
 
   const checkAllConditions = () => {
+    console.log("partyDetailsss", partyDetails);
+    console.log("avatar dataaa", guest.AvatarData);
     if (partyDetails && guest.avatarData) {
       setAllConditions(true);
     }
@@ -72,8 +74,8 @@ export default function Dashboard() {
     if (page === "dashboard") {
       setPartyDetails();
       setAvatar();
+      checkAllConditions();
     }
-    checkAllConditions();
   }, [page]);
 
   useEffect(() => {
