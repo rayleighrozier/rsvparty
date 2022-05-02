@@ -15,12 +15,6 @@ textarea {
   cursor: pointer;
 }
 
-.timeToParty {
-  font-size: 60px;
-  font-weight: 400;
-  margin: 0px;
-}
-
 .pink {
   background-color: var(--pink);
 }
@@ -57,6 +51,7 @@ textarea {
   max-width: 100%;
   min-height: 250px;
   height: fit-content;
+  padding-top: 60px;
 }
 .party-countdown-container {
   background-color: var(--lightpink);

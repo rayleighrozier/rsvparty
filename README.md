@@ -38,6 +38,8 @@
 
 ## About the Project
 
+RSVParty is an event planner application.
+
 <!-- Screenshots -->
 
 ### Screenshots
