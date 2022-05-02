@@ -46,6 +46,7 @@ export default function Dashboard() {
   const setPartyDetails = async () => {
     let data = await getPartyDetailsData();
     dispatch({ type: SET_PARTYDETAILS, payload: data });
+    setTimeout(() => setLoading(false), 6000);
   };
   const setAvatar = async () => {
     let avatarData = await avatarFindById(guest.avatar);
@@ -70,11 +71,11 @@ export default function Dashboard() {
       : dispatch({ type: SET_PAGE, payload: "chooseAvatar" });
   };
 
-  useEffect(() => {
-    if (partyDetails && guest.avatarData) {
-      setTimeout(() => setLoading(false), 6000);
-    }
-  }, [partyDetails, guest.avatarData]);
+  // useEffect(() => {
+  //   if (partyDetails && guest.avatarData) {
+  //     setTimeout(() => setLoading(false), 6000);
+  //   }
+  // }, [partyDetails, guest.avatarData]);
 
   return (
     <>
