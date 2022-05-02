@@ -116,7 +116,7 @@ export default function EditParty() {
         <div className="editAddressAndDetails">
           <div className="editRowContainer secondRowContent">
             <p className="editRowHeader">Edit address</p>
-            <div className="formSecondRow editRow">
+            <div className="EPformSecondRow editRow">
               <div className="locationAndEdit">
                 <div className="locationNames">
                   <p className="locationName">{newInputs.location.address}</p>

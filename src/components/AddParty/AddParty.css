@@ -33,11 +33,15 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  gap: 1.5rem;
+  max-width: 100%;
 }
 
+.addPartyDetailsContainer {
+  margin-left: 30px;
+}
 .inputContent {
   display: grid;
+  width: auto;
 }
 
 .addPartyInput,
@@ -74,24 +78,164 @@
 }
 
 .addressLine1 {
-  width: 28rem;
+  width: auto;
   margin-bottom: 0.7rem;
 }
 
 .cityInput,
 .stateInput,
 .zipInput {
-  width: 8rem;
+  width: auto;
 }
 
 .addPartyAddress {
   margin: 0px;
 }
 
-.addressLabel {
-  font-size: 20px;
-}
-
 .details {
   width: 20rem;
+}
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  .addPartyContent {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .addPartyTitle {
+    width: 65%;
+    text-align: center;
+  }
+  .addPartyPhrase {
+    width: 60%;
+    text-align: center;
+  }
+  .addDetailsFormFirstRow {
+    width: 100%;
+    justify-content: center;
+  }
+  .formSecondRow {
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0px;
+  }
+
+  .cityStateZip {
+    display: grid;
+  }
+
+  .addPartyDetailsContainer {
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+  .addPartyAddressContainer {
+    min-width: 100%;
+  }
+  .inputContent {
+    place-items: center;
+    width: 100%;
+    justify-self: center;
+  }
+  .addPartyForm {
+    width: 100%;
+  }
+  .formSecondRow p {
+    text-align: center;
+  }
+  .addPartyAddress {
+    display: none;
+  }
+  .addressLine1 {
+    width: 15rem;
+    margin-bottom: 0.7rem;
+  }
+  .cityInput,
+  .stateInput,
+  .zipInput {
+    width: 15rem;
+  }
+  .addPartyForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .addPartySubmitButton {
+    margin-bottom: 0px;
+  }
+}
+/* TABLET */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .addPartyContent {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .addPartyTitle {
+    width: 65%;
+    text-align: center;
+  }
+  .addPartyPhrase {
+    width: 60%;
+    text-align: center;
+  }
+  .addDetailsFormFirstRow {
+    width: 100%;
+    justify-content: center;
+  }
+  .firstRowInput {
+    width: 21rem;
+  }
+  .formSecondRow {
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+  }
+  .addressLine1 {
+    width: 21rem;
+    margin-bottom: 0.7rem;
+  }
+  .cityStateZip {
+    display: grid;
+  }
+
+  .addPartyDetailsContainer {
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+  .addPartyAddressContainer {
+    min-width: 100%;
+  }
+  .inputContent {
+    place-items: center;
+    width: 100%;
+    justify-self: center;
+  }
+  .addPartyForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .formSecondRow p {
+    text-align: center;
+  }
+  .addPartyAddress {
+    display: none;
+  }
+  .cityInput,
+  .stateInput,
+  .zipInput {
+    width: 21rem;
+  }
+  .addPartySubmitButton {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .addressLabel {
+    font-size: 20px;
+  }
 }

@@ -174,3 +174,54 @@ button {
 button:hover {
   transform: scale(1.05);
 }
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  .dashboardContainer {
+    flex-wrap: wrap;
+    margin-left: 0px;
+    margin-top: 2rem;
+  }
+  .partiesContainer {
+    display: grid;
+    width: 100%;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  .partyContainer {
+    margin-left: 0px;
+  }
+  .addPartyButton {
+    margin-bottom: 0px;
+  }
+  .individualParty {
+    margin-bottom: 0px;
+  }
+}
+/* TABLET */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .dashboardContainer {
+    display: grid;
+    margin-left: 0px;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .partiesContainer {
+    display: grid;
+    width: 100%;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  .partyContainer {
+    margin-left: 0px;
+  }
+  .addPartyButton {
+    margin-bottom: 0px;
+  }
+  .individualParty {
+    margin-bottom: 0px;
+  }
+}
+/* LAPTOP OR BIGGER */
+@media screen and (min-width: 769px) {
+}

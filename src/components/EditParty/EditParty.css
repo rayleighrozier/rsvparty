@@ -19,24 +19,41 @@
 
 .editPartyAddress {
   font-size: 26px;
+  width: 96.5%;
+  max-width: 100%;
 }
-
+.editPartyAddressForm {
+  width: 90%;
+  max-width: 90%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .editPartyAddressContainer {
   margin-bottom: 1rem;
+  width: 90%;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .locationAndEdit,
 .detailsAndEdit {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  gap: 1rem;
+  max-width: 80%;
+  gap: 20px;
 }
 
 .detailsPara {
-  width: 55%;
-  font-size: 25px;
+  max-width: 90%;
+  margin: 0px 10px;
+  text-align: center;
 }
 
 .editPartyButtonsContainer {
@@ -65,8 +82,7 @@
   border-radius: 0.8rem;
   font-family: "Dongle", sans-serif;
   font-size: 25px;
-  width: 15rem;
-  height: 2rem;
+  max-width: 50%;
   margin-bottom: 1rem;
 }
 
@@ -92,7 +108,7 @@
   border-radius: 10px;
   font-size: 30px;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 80px;
   padding-left: 1rem;
   padding-right: 1rem;
   cursor: pointer;
@@ -108,37 +124,38 @@
   height: 40px;
   padding-top: 0.3rem;
   border-radius: 0.8rem;
-  margin-top: 2.5rem;
-  margin-left: 2rem;
+  min-width: 50px;
   cursor: pointer;
-}
-
-.editPartyPara {
 }
 
 .formFirstRow {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   margin-bottom: 2rem;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .firstRowContent {
-  width: 33%;
+  min-width: 32%;
+  flex-grow: 1;
   height: 100%;
 }
 
 .secondRowContent {
   width: 49%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .inputForm {
-  display: grid;
+  display: flex;
   align-items: center;
-  width: 50rem;
-  justify-content: space-evenly;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -148,11 +165,12 @@
   justify-content: space-between;
 }
 
-.formSecondRow {
+.EPformSecondRow {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
   gap: 1.5rem;
+  flex-grow: 1;
 }
 .formThirdRow {
   display: flex;
@@ -166,11 +184,16 @@
   justify-content: space-evenly;
   margin-left: 1rem;
   margin-right: 1rem;
+  gap: 20px;
+  align-items: center;
 }
 
 .editRowContainer {
   background-color: var(--blue);
   border-radius: 22px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .editRowHeader {
@@ -181,13 +204,14 @@
 }
 
 .editRow {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: var(--white);
   border-radius: 22px;
-}
-
-#details {
-  height: 9rem;
+  height: auto;
+  flex-grow: 1;
+  align-items: center;
 }
 
 .locationNames {
@@ -200,88 +224,29 @@
 
 .editCityStateZip {
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
+  max-width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 /* MOBILE */
 @media screen and (max-width: 480px) {
-  .editRow {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  .editButton {
-    font-family: "Dongle", sans-serif;
-    background-color: var(--pink);
-    border: none;
-    color: var(--white);
-    font-size: 25px;
-    width: 40px;
-    height: 40px;
-    padding-top: 0.3rem;
-    border-radius: 0.8rem;
-    margin-top: 2.5rem;
-    margin-left: 2rem;
-  }
-  .editPartyInput {
-    background-color: var(--lightGrey);
-    border: none;
-    padding: 0.5rem;
-    border-radius: 0.8rem;
-    font-family: "Dongle", sans-serif;
-    font-size: 25px;
-  }
-  .formThirdRow {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 1.5rem;
-  }
-  .center {
-    display: flex;
-    justify-content: center;
-  }
 }
-
 /* TABLET */
 @media screen and (min-width: 481px) and (max-width: 768px) {
-  .editRow {
-    display: flex;
-    justify-content: center;
+  .formFirstRow {
     flex-wrap: wrap;
+  }
+  .editRowContainer {
     width: 100%;
+    max-width: 100%;
   }
-  .editButton {
-    font-family: "Dongle", sans-serif;
-    background-color: var(--pink);
-    border: none;
-    color: var(--white);
-    font-size: 25px;
-    width: 40px;
-    height: 40px;
-    padding-top: 0.3rem;
-    border-radius: 0.8rem;
-    margin-top: 2.5rem;
-    margin-left: 2rem;
-  }
-  .editPartyInput {
-    background-color: var(--lightGrey);
-    border: none;
-    padding: 0.5rem;
-    border-radius: 0.8rem;
-    font-family: "Dongle", sans-serif;
-    font-size: 25px;
-  }
-  .formThirdRow {
-    display: flex;
-    justify-content: center;
+  .editAddressAndDetails {
     flex-wrap: wrap;
-    width: 100%;
-    gap: 1.5rem;
   }
-  .center {
-    display: flex;
-    justify-content: center;
+  .secondRowContent {
+    width: 100%;
+    max-width: 100%;
   }
 }
