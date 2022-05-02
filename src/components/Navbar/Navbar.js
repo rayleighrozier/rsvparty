@@ -8,7 +8,7 @@ export default function Navbar() {
     <div>
       <div className="navbar">
         <a href="/dashboard">
-          <img className="rsvpLogo" src={logo} />
+          <img className="rsvpLogo" src={logo} alt="RSVParty Logo" />
         </a>
         <div className="navbarLinks">
           <a className="addPartyLink" href="/addparty">

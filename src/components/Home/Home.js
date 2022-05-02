@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="homePage">
       <div className="homeImgContainer">
-        <img className="RSVPimage" src={RSVPimage} />
+        <img className="RSVPimage" src={RSVPimage} alt="RSVParty Logo" />
         <p className="homeText">TIME TO PARTY</p>
         <p className="homeText homeText2">
           Built by Rayleigh Rozier, Santos Gutierrez, Jason Reichert, and Ciara

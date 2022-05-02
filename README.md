@@ -8,7 +8,7 @@
   </p>
 
 <h4>
-    <a href="https://github.com/Louis3797/awesome-readme-template/">View Demo</a>
+    <a >View Demo</a>
   </h4>
 </div>
 
@@ -37,8 +37,6 @@
 <!-- About the Project -->
 
 ## About the Project
-
-RSVParty is an event planner application.
 
 <!-- Screenshots -->
 
@@ -280,13 +278,18 @@ The party page displays all the information the user submitted once creating the
 
 ## Contributing
 
-<div style="display:flex "> <a href="https://github.com/rayleighrozier">
+<div style=display:flex>
+
+<a href="https://github.com/rayleighrozier">
   <img src="https://i.imgur.com/X3lNfks.png" />
 </a>
 
 <a href="https://github.com/ciaracloud">
   <img src="https://i.imgur.com/CQmhomk.png" />
 </a>
+</div>
+
+<div style=display:flex>
 
 <a href="https://github.com/JAReichert">
   <img src="https://i.imgur.com/k3DZ2sO.png" />
@@ -303,7 +306,3 @@ These were helpful packages used in this project.
 - [EmailJS](https://www.emailjs.com/)
 - [emoji-picker-react](https://www.npmjs.com/package/emoji-picker-react)
 - [react-countdown](https://www.npmjs.com/package/react-countdown)
-
-```
-
-```

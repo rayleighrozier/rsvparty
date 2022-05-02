@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { partyUpdateGuests } from "../../actions/supabase";
 
 export default function RSVPButtons(props) {
