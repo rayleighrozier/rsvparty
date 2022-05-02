@@ -50,6 +50,7 @@ export default function Dashboard() {
   const setAvatar = async () => {
     let avatarData = await avatarFindById(guest.avatar);
     dispatch({ type: SET_GUEST_AVATARDATA, payload: avatarData });
+    console.log("setting timeout within setavatar");
     setTimeout(() => setLoading(false), 6000);
   };
 
