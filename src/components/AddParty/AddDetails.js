@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { partyAddRow } from "../../actions/supabase";
+import { formatDate, formatTime } from "../../actions/format";
 import { captureAddParty } from "../../actions/input";
 import {
   SET_PAGE,
@@ -32,13 +33,15 @@ export default function AddDetails() {
     if (userEntry.message) {
       window.alert(`${userEntry.message}`);
     } else {
+      let dateFormatted = formatDate(userEntry[0].date);
+      let timeFormatted = formatTime(userEntry[0].time);
       dispatch({
         type: SET_NEWPARTY_DETAILS,
         payload: {
           partyId: userEntry[0].partyId,
           name: userEntry[0].name,
-          date: userEntry[0].date,
-          time: userEntry[0].time,
+          date: dateFormatted,
+          time: timeFormatted,
           details: userEntry[0].details,
           location: userEntry[0].location,
         },
