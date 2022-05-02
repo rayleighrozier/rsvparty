@@ -13,7 +13,7 @@ export default function SignInNav() {
   return (
     <div className="signInContainer">
       {page === "signIn" ? (
-        <div className="questionContainer">
+        <div className="questionQuestionContainer">
           <p className="homePageQuestion">New to RSVParty?</p>
           <button
             className="homePageButton"
@@ -23,7 +23,7 @@ export default function SignInNav() {
           </button>
         </div>
       ) : (
-        <div className="questionContainer">
+        <div className="questionQuestionContainer">
           <p className="homePageQuestion">Already have an RSVParty account?</p>
           <button
             className="homePageButton"

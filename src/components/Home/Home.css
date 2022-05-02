@@ -20,14 +20,28 @@
   margin: 0px;
 }
 
+.homeTextPhrase {
+  font-size: 45px;
+  font-weight: 400;
+  margin: 0px;
+}
+
 .homeText2 {
   width: 75%;
   font-size: 25px;
   font-weight: 300;
+  margin-bottom: 2rem;
 }
 
 .homePageInputs {
   margin-left: 3rem;
+}
+
+.questionQuestionContainer {
+  display: flex;
+  justify-content: center;
+  padding-left: 6.5rem;
+  width: 100%;
 }
 
 /* MOBILE */
@@ -39,11 +53,31 @@
     flex-direction: column-reverse;
     width: 50%;
   }
-
+  .headerDiv {
+    text-align: center;
+    margin: 0px;
+    margin-top: 1.5rem;
+  }
+  .questionQuestionContatiner {
+    padding: 0px;
+    text-align: center;
+    display: grid;
+    place-items: center;
+  }
+  .homeImgContainer {
+    height: 53rem;
+  }
+  .homePageButton {
+    margin-bottom: 2rem;
+  }
   .homePageInputs {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+  }
+  .questionQuestionContainer {
+    display: grid;
+    padding-left: 0px;
   }
 }
 /* TABLET */
@@ -55,8 +89,16 @@
     flex-direction: column-reverse;
     width: 100%;
   }
+  .headerDiv {
+    text-align: center;
+    margin: 0px;
+    margin-top: 1.5rem;
+  }
   .homeImagecontainer {
     width: 100%;
+  }
+  .homeImgContainer {
+    height: 53rem;
   }
   .RSVPimage {
     width: 100%;
@@ -65,5 +107,12 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+  }
+  .homePageButton {
+    margin-bottom: 2rem;
+  }
+  .questionQuestionContainer {
+    display: grid;
+    padding-left: 0px;
   }
 }

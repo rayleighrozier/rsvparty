@@ -16,6 +16,22 @@ export default function Home() {
   }, []);
 
   return (
+<<<<<<< HEAD
+    <div className="homePage">
+      <div className="homeImgContainer">
+        <img className="RSVPimage" src={RSVPimage} />
+        <p className="homeText homeTextPhrase">UNLEASH YOUR PARTY ANIMAL!</p>
+        <p className="homeText homeText2">
+          Built by Rayleigh Rozier, Santos Gutierrez, Jason Reichert, and Ciara
+          Cloud
+        </p>
+      </div>
+      <div className="homePageInputs">
+        {page === "signIn" ? <SignIn /> : <SignUp />}
+        <SignInNav />
+      </div>
+    </div>
+=======
     <>
       {loading === false ? (
         <div className="homePage">
@@ -36,5 +52,6 @@ export default function Home() {
         <Loading />
       )}
     </>
+>>>>>>> de852f1a6df73c2eedbdb1d99a920bf5347cf12b
   );
 }
