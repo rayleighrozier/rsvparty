@@ -35,6 +35,8 @@ export default function Party() {
   const [attending, setAttending] = useState(null);
   const [invited, setInvited] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [allConditions, setAllConditions] = useState(false);
+
   const endDates = party?.date + ` 2022 ` + party?.time;
   let timeLeft = Date.now() - Date.parse(endDates);
   let tl = 0;
@@ -100,6 +102,14 @@ export default function Party() {
     navigate("/dashboard");
   };
 
+  const checkAllConditions = () => {
+    console.log("party", party);
+    console.log("invited", invited);
+    if (party && invited) {
+      setAllConditions(true);
+    }
+  };
+
   useEffect(() => {
     setParty();
     setPartyUnformatted();
@@ -110,13 +120,14 @@ export default function Party() {
     checkHost();
     checkInvited();
     checkAttending();
-    if (party && invited) {
-      setLoading(false);
-    } else if (party) {
-      checkInvited();
+    checkAllConditions();
+  }, [party, invited]);
+
+  useEffect(() => {
+    if (allConditions) {
       setTimeout(() => setLoading(false), 6000);
     }
-  }, [party, invited]);
+  }, [allConditions]);
 
   return (
     <>
