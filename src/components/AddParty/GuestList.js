@@ -14,8 +14,8 @@ export default function GuestList() {
             ? newParty.guestList.map((guest, index) => {
                 return (
                   <form className="guestForm">
-                    <div>
-                      <div className="guestCard">
+                    <div className="guestCard">
+                      <div className="fullNameContainer">
                         <input
                           className="firstNameInput"
                           name="name"
@@ -28,32 +28,32 @@ export default function GuestList() {
                           value={guest.lastName}
                           readOnly
                         />
-                        <input
-                          className="emailInput"
-                          name="email"
-                          value={guest.email}
-                          readOnly
-                        />
                       </div>
                       <input
-                        className="hide"
-                        name="partyId"
-                        value={newParty.details.partyId}
-                        readOnly
-                      />
-                      <input
-                        className="hide"
-                        name="partyName"
-                        value={newParty.details.name}
-                        readOnly
-                      />
-                      <input
-                        className="hide"
-                        name="hostName"
-                        value={host.firstName + " " + host.lastName}
+                        className="emailInput"
+                        name="email"
+                        value={guest.email}
                         readOnly
                       />
                     </div>
+                    <input
+                      className="hide"
+                      name="partyId"
+                      value={newParty.details.partyId}
+                      readOnly
+                    />
+                    <input
+                      className="hide"
+                      name="partyName"
+                      value={newParty.details.name}
+                      readOnly
+                    />
+                    <input
+                      className="hide"
+                      name="hostName"
+                      value={host.firstName + " " + host.lastName}
+                      readOnly
+                    />
                   </form>
                 );
               })
