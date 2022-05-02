@@ -1,0 +1,235 @@
+.edit-guests-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  align-items: center;
+}
+.e-guests-header {
+  font-size: 3.2rem;
+  margin: 0px 0px 10px 0px;
+}
+.edit-guests-lists-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: fit-content;
+  margin: 0;
+  gap: 20px;
+}
+.e-guest-new-background {
+  background-color: var(--lightblue);
+  border-radius: 20px;
+  width: 45%;
+  max-width: 45%;
+}
+.e-guest-invited-background {
+  background-color: var(--lightpink);
+  width: 45%;
+  max-width: 45%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+}
+.e-guest-invited,
+.e-guest-new {
+  border-radius: 20px;
+  width: 90%;
+  margin: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.e-guest-new-header,
+.e-guest-invited-header {
+  margin: 0;
+  color: white;
+}
+.e-guest-white-container {
+  background-color: white;
+  width: 100%;
+  border-radius: 20px;
+  height: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.e-guest-invited-guest {
+  display: flex;
+  font-size: 1.4rem;
+  width: 90%;
+  max-width: 90%;
+  border-radius: 10px;
+  justify-content: space-between;
+  margin: 10px;
+  color: var(--pink);
+}
+.e-guest-invited-guest p {
+  margin: 0px 10px;
+}
+.e-guest-new-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.e-guest-new-form {
+  border: none;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 90%;
+  background-color: var(--lightblue);
+  color: var(--blue);
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  margin: 10px;
+}
+.e-guest-new-form input {
+  width: 80px;
+  padding: 0;
+  background-color: var(--lightblue);
+  border: none;
+  border-radius: 10px;
+  color: var(--blue);
+  font-family: "Dongle", sans-serif;
+
+  cursor: not-allowed;
+}
+.e-guest-new-form input:focus {
+  outline: none;
+}
+.e-guest-email {
+  flex-grow: 1;
+  max-width: 100%;
+  text-align: right;
+  margin: 0px 10px;
+  font-size: 1rem;
+}
+
+.e-guest-new-name {
+  width: fit-content;
+  display: flex;
+  height: 32.5px;
+  border-radius: 10px;
+  margin: 0px 10px;
+}
+.e-guest-new-name input {
+  font-size: 1.4rem;
+}
+.e-guests-send-invites {
+  margin: 30px 10px 80px 10px;
+  color: var(--white);
+  background-color: var(--yellow);
+  font-family: "Dongle", sans-serif;
+  border: none;
+  font-size: 1.8rem;
+  border-radius: 8px;
+  padding: 0px 40px;
+  cursor: pointer;
+  max-height: 40px;
+}
+.e-guests-input-form {
+  display: flex;
+  background-color: var(--lightyellow);
+  border-radius: 10px;
+  align-items: center;
+  width: 90vw;
+  height: auto;
+  margin: 0px 0px 30px 0px;
+  justify-content: space-evenly;
+  padding: 5px 10px;
+}
+.e-guests-input-form div {
+  display: flex;
+  height: 20px;
+  align-items: center;
+  font-size: 1.4rem;
+}
+.e-guests-input-form div > input {
+  font-size: 1rem;
+}
+.e-guests-input-label {
+  font-size: 1.4rem;
+  margin: 0px 10px 0px 0px;
+}
+.e-guests-submit {
+  background-color: var(--yellow);
+  color: white;
+  border: none;
+  font-family: "Dongle", sans-serif;
+  font-size: 1.6rem;
+
+  padding: 0px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  .e-guest-new-background {
+    width: 90%;
+    max-width: 90%;
+  }
+  .e-guest-invited-background {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .edit-guests-lists-container {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .e-guests-input-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .e-guests-input-form div {
+    width: 100%;
+    margin: 10px;
+    justify-content: center;
+  }
+  .e-guests-input-form div > input {
+    width: 60%;
+  }
+}
+/* TABLET */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .e-guest-new-background {
+    width: 90%;
+    max-width: 90%;
+  }
+  .e-guest-invited-background {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .edit-guests-lists-container {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .e-guests-input-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .e-guests-input-form div {
+    width: 100%;
+    margin: 10px;
+    justify-content: center;
+  }
+  .e-guests-input-form div > input {
+    width: 60%;
+  }
+}
+/* LAPTOP OR BIGGER */
+@media screen and (min-width: 769px) {
+  .e-guest-invited-background {
+    width: 45%;
+    max-width: 45%;
+  }
+}
