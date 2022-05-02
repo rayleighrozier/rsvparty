@@ -50,9 +50,12 @@ export default function Dashboard() {
     dispatch({ type: SET_GUEST_AVATARDATA, payload: avatarData });
   };
   const checkForAvatar = () => {
-    avatar
-      ? dispatch({ type: SET_PAGE, payload: "dashboard" })
-      : dispatch({ type: SET_PAGE, payload: "chooseAvatar" });
+    if (avatar) {
+      dispatch({ type: SET_PAGE, payload: "dashboard" });
+    } else {
+      dispatch({ type: SET_PAGE, payload: "chooseAvatar" });
+      setTimeout(() => setLoading(false), 3000);
+    }
   };
 
   const checkAllConditions = () => {
@@ -100,9 +103,7 @@ export default function Dashboard() {
                     <AddPartyButton />
                     {parties != null && parties.length > 0 ? (
                       <PartyList />
-                    ) : (
-                      <NoParties />
-                    )}
+                    ) : null}
                   </div>
                 </div>
               </div>
