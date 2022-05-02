@@ -87,6 +87,10 @@
   cursor: pointer;
 }
 
+.homePageButton:hover {
+  transform: none;
+}
+
 .homeInputsContainer {
   width: 30rem;
   margin-left: 6rem;
