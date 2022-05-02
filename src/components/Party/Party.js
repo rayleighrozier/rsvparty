@@ -125,6 +125,7 @@ export default function Party() {
             invited ? (
               <div className="party-main-container">
                 {" "}
+                <p className="timeToParty">TIME TO PARTY!</p>
                 <div className="party-top-container">
                   <div className="party-countdown-container">
                     <div className="party-countdown-numbers">
