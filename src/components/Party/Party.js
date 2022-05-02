@@ -111,11 +111,8 @@ export default function Party() {
     checkInvited();
     checkAttending();
     if (party) {
-      setTimeout(() => setLoading(false), 6000);
+      setTimeout(() => setLoading(false), 5000);
     }
-    // } else if (party) {
-    //   setTimeout(() => setLoading(false), 3000);
-    // }
   }, [party, invited]);
 
   return (

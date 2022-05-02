@@ -69,11 +69,10 @@ export default function Dashboard() {
       ? dispatch({ type: SET_PAGE, payload: "dashboard" })
       : dispatch({ type: SET_PAGE, payload: "chooseAvatar" });
   };
-  // move fetching party details to here instead of other component and use it to trigger loading
 
   useEffect(() => {
     if (partyDetails && guest.avatarData) {
-      setTimeout(() => setLoading(false), 2000);
+      setTimeout(() => setLoading(false), 6000);
     }
   }, [partyDetails, guest.avatarData]);
 
