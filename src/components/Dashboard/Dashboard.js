@@ -56,7 +56,6 @@ export default function Dashboard() {
 
   useEffect(() => {
     checkForAvatar();
-    setLoading(false);
   }, []);
 
   useEffect(() => {

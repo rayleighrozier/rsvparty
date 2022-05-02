@@ -125,7 +125,7 @@ export default function Party() {
 
   useEffect(() => {
     if (allConditions) {
-      setTimeout(() => setLoading(false), 6000);
+      setTimeout(() => setLoading(false), 2000);
     }
   }, [allConditions]);
 
