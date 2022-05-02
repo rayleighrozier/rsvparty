@@ -37,7 +37,7 @@ export default function SignIn() {
 
   return (
     <>
-      <img className="homePageLogo" src={logo} />
+      <img className="homePageLogo" src={logo} alt="Home Logo" />
       <div className="homeInputsContainer">
         <div className="headerDiv">
           <p className="homeHeader">Sign in</p>

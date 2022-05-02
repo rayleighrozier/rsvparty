@@ -1,14 +1,13 @@
 <div align="center">
 
-  <img src="src/assets/logo.png" alt="logo" width="200" height="auto" />
-  <h1>RSVParty</h1>
-  
+  <img src="src\assets\readme\logo.png" alt="logo" width="200" height="auto" />
+
   <p>
     Welcome Party Animals! 
   </p>
 
 <h4>
-    <a href="https://github.com/Louis3797/awesome-readme-template/">View Demo</a>
+    <a >View Demo</a> | <a >Article</a>
   </h4>
 </div>
 
@@ -25,28 +24,20 @@
   - [Color Reference](#color-reference)
   - [Environment Variables](#environment-variables)
 - [Getting Started](#getting-started)
-  - [Installation](#installation)
   - [Run Locally](#run-locally)
 - [Usage](#usage)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 
-- [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
 
 <!-- About the Project -->
 
 ## About the Project
 
-RSVParty is an event planner application.
-
 <!-- Screenshots -->
 
-### Screenshots
-
-<div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
-</div>
+  <img src="src\assets\readme\preview.PNG" style= width:600px alt="screenshot" />
 
 <!-- TechStack -->
 
@@ -84,12 +75,7 @@ RSVParty is an event planner application.
 
 ### Color Reference
 
-| Color         | Hex                                                              |
-| ------------- | ---------------------------------------------------------------- |
-| Primary Color | ![#faf9f6](https://via.placeholder.com/10/faf9f6?text=+) #faf9f6 |
-| Detail Color  | ![#13cdff](https://via.placeholder.com/10/13cdff?text=+) #13cdff |
-| Detail Color  | ![#ff94c3](https://via.placeholder.com/10/ff94c3?text=+) #ff94c3 |
-| Detail Color  | ![#fecc51](https://via.placeholder.com/10/fecc51?text=+) #fecc51 |
+<img src="src\assets\readme\colors.png"></img>
 
 <!-- Env Variables -->
 
@@ -164,7 +150,7 @@ User can then create a party after once signed in. The information also gets sen
 <details>
   <summary>Add Party Page</summary>
   <div align="center"> 
-<img style="width: 400px" src="src\assets\readme\createParty.PNG"/>
+<img style="width: 550px" src="src\assets\readme\createParty.PNG"/>
 </div>
 </details>
 
@@ -193,7 +179,7 @@ From the dashboard users can then view their party, change their avatar, or sear
 <details>
   <summary>Dashboard</summary>
   <div align="center"> 
-<img style="width: 400px" src="src\assets\readme\dashboard.PNG"/>
+<img style="width: 550px" src="src\assets\readme\dashboard.PNG"/>
 </div>
 </details>
 
@@ -226,13 +212,13 @@ The party page displays all the information the user submitted once creating the
 <details>
   <summary>Party Details (Host Point of View)</summary>
   <div align="center"> 
-<img style="width: 400px" src="src\assets\readme\hostView.PNG"/>
+<img style="width: 550px" src="src\assets\readme\hostView.PNG"/>
 </div>
 </details>
 <details>
   <summary>Party Details (Guest Point of View)</summary>
   <div align="center"> 
-<img style="width: 400px" src="src\assets\readme\guestView.PNG"/>
+<img style="width: 550px" src="src\assets\readme\guestView.PNG"/>
 </div>
 </details>
 
@@ -280,13 +266,18 @@ The party page displays all the information the user submitted once creating the
 
 ## Contributing
 
-<div style="display:flex "> <a href="https://github.com/rayleighrozier">
+<div style=display:flex>
+
+<a href="https://github.com/rayleighrozier">
   <img src="https://i.imgur.com/X3lNfks.png" />
 </a>
 
 <a href="https://github.com/ciaracloud">
   <img src="https://i.imgur.com/CQmhomk.png" />
 </a>
+</div>
+
+<div style=display:flex>
 
 <a href="https://github.com/JAReichert">
   <img src="https://i.imgur.com/k3DZ2sO.png" />
@@ -303,7 +294,3 @@ These were helpful packages used in this project.
 - [EmailJS](https://www.emailjs.com/)
 - [emoji-picker-react](https://www.npmjs.com/package/emoji-picker-react)
 - [react-countdown](https://www.npmjs.com/package/react-countdown)
-
-```
-
-```

@@ -14,10 +14,14 @@ export default function DashboardTop() {
   return (
     <div className="dashBoardTop">
       {guest.avatarData ? (
-        <img className="userAvatar" src={guest.avatarData.url} />
+        <img
+          className="userAvatar"
+          src={guest.avatarData.url}
+          alt="User Avatar"
+        />
       ) : null}
       <button className="changeAnimalButton" onClick={changeAvatar}>
-        <img src={pencilImg} className="pencil" />
+        <img src={pencilImg} className="pencil" alt="Pencile" />
       </button>
       <p className="guestName">Hi {guest?.firstName}!</p>
     </div>
