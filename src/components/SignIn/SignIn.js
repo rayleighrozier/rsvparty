@@ -67,7 +67,7 @@ export default function SignIn() {
               placeholder="Enter your password"
             />
             <button className="loginButton" onClick={(e) => sendSignIn(e)}>
-              Log in
+              Sign in
             </button>
           </div>
         </form>
