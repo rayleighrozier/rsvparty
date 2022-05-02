@@ -232,6 +232,20 @@
 }
 /* MOBILE */
 @media screen and (max-width: 480px) {
+  .formFirstRow {
+    flex-wrap: wrap;
+  }
+  .editRowContainer {
+    width: 100%;
+    max-width: 100%;
+  }
+  .editAddressAndDetails {
+    flex-wrap: wrap;
+  }
+  .secondRowContent {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 /* TABLET */
 @media screen and (min-width: 481px) and (max-width: 768px) {

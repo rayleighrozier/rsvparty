@@ -31,6 +31,7 @@ export default function Dashboard() {
   const guest = useSelector((state) => state.guest);
   const party = useSelector((state) => state.party);
   const [loading, setLoading] = useState(true);
+  const [allConditions, setAllConditions] = useState(false);
   const partyDetails = useSelector((state) => state.partyDetails);
 
   const getPartyDetailsData = async () => {
@@ -51,6 +52,19 @@ export default function Dashboard() {
     let avatarData = await avatarFindById(guest.avatar);
     dispatch({ type: SET_GUEST_AVATARDATA, payload: avatarData });
   };
+  const checkForAvatar = () => {
+    avatar
+      ? dispatch({ type: SET_PAGE, payload: "dashboard" })
+      : dispatch({ type: SET_PAGE, payload: "chooseAvatar" });
+  };
+
+  const checkAllConditions = () => {
+    console.log("partyDetailsss", partyDetails);
+    console.log("avatar dataaa", guest.AvatarData);
+    if (partyDetails && guest.avatarData) {
+      setAllConditions(true);
+    }
+  };
 
   useEffect(() => {
     checkForAvatar();
@@ -63,18 +77,21 @@ export default function Dashboard() {
     }
   }, [page]);
 
-  const checkForAvatar = () => {
-    avatar
-      ? dispatch({ type: SET_PAGE, payload: "dashboard" })
-      : dispatch({ type: SET_PAGE, payload: "chooseAvatar" });
-  };
-  // move fetching party details to here instead of other component and use it to trigger loading
+  useEffect(() => {
+    checkAllConditions();
+  }, [partyDetails, guest.avatarData]);
 
   useEffect(() => {
-    if (partyDetails && guest.avatarData) {
-      setLoading(false);
+    if (allConditions) {
+      setTimeout(() => setLoading(false), 2000);
     }
-  }, [partyDetails, guest.avatarData]);
+  }, [allConditions]);
+
+  // useEffect(() => {
+  //   if (partyDetails && guest.avatarData) {
+  //     setTimeout(() => setLoading(false), 6000);
+  //   }
+  // }, [partyDetails, guest.avatarData]);
 
   return (
     <>
