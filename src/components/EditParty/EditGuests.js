@@ -8,8 +8,8 @@ import {
   SET_NEWPARTY_DETAILS,
   RESET_NEWPARTY,
 } from "../../action-types";
-import InviteGuestsForm from "../AddParty/InviteGuestsForm";
-import GuestList from "../AddParty/GuestList";
+import EditGuestsForm from "../EditParty/EditGuestsForm";
+import EditGuestList from "../EditParty/EditGuestList";
 import "./EditGuests.css";
 
 export default function EditGuests() {
@@ -68,49 +68,45 @@ export default function EditGuests() {
   return (
     <>
       {guestList ? (
-        <>
-          <div className="alreadyInvitedContainer">
-            <div className="alreadyInvitedLower">
-              <div>Already Invited</div>
-
-              {guestList.map((guest) => {
-                return (
-                  <>
-                    <div className="whiteOverlay">
-                      <div className="alreadyInvitedOverlay">
-                        <ul className="insideAlreadyInvitedOverlay">
-                          <li>
+        <div className="edit-guests-container">
+          <p className="e-guests-header">INVITE MORE GUESTS</p>
+          <EditGuestsForm />
+          <div className="edit-guests-lists-container">
+            <div className="e-guest-invited-background">
+              <div className="e-guest-invited pink">
+                <p className="e-guest-invited-header">Already Invited</p>
+                <div className="e-guest-white-container">
+                  {guestList.map((guest) => {
+                    return (
+                      <>
+                        <div className="e-guest-invited-guest light-pink">
+                          <p>
                             {guest.firstName} {guest.lastName}
-                          </li>
-                          {guest.attending === "yes" ? (
-                            <li>Attending</li>
-                          ) : null}
+                          </p>
+                          {guest.attending === "yes" ? <p>Attending</p> : null}
                           {guest.attending === "no" ? (
-                            <li>Not Attending</li>
+                            <p>Not Attending</p>
                           ) : null}
                           {guest.attending === "maybe" ? (
-                            <li>Maybe Attending</li>
+                            <p>Maybe Attending</p>
                           ) : null}
                           {guest.attending === "undecided" ? (
-                            <li>No Response Yet</li>
+                            <p>No Response Yet</p>
                           ) : null}
-                        </ul>
-                      </div>
-                    </div>
-                  </>
-                );
-              })}
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
+            <EditGuestList />
           </div>
 
-          <InviteGuestsForm />
-          <GuestList />
-          <div className="sendInvitesButtonContainer">
-            <button className="sendInvitesButton" onClick={sendNewGuests}>
-              Send Invites
-            </button>
-          </div>
-        </>
+          <button className="e-guests-send-invites" onClick={sendNewGuests}>
+            Send Invites
+          </button>
+        </div>
       ) : null}
     </>
   );
