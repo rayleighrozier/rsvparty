@@ -3,11 +3,8 @@ import emailjs from "emailjs-com";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { partyUpdateGuests, guestUpdateParties } from "../../actions/supabase";
-import {
-  RESET_NEWPARTY,
-  SET_PAGE,
-  RESET_NEWPARTY_GUESTLIST,
-} from "../../action-types";
+import { formatDate, formatTime } from "../../actions/format";
+import { RESET_NEWPARTY, SET_PAGE } from "../../action-types";
 import InviteGuestsForm from "./InviteGuestsForm";
 import GuestList from "./GuestList";
 import "./InviteGuests.css";
@@ -63,7 +60,7 @@ export default function InviteGuests() {
         {newParty.details ? (
           <>
             <div className="inviteParty">
-              <div className="newPartyHeader">{newParty.details.name}</div>
+              <div className="newPartyPartyHeader">{newParty.details.name}</div>
               <div className="boxOverlay">
                 <div>{newParty.details.date}</div>
                 <div>{newParty.details.time}</div>
