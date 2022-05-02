@@ -7,11 +7,14 @@ export default function Navbar() {
   return (
     <div>
       <div className="navbar">
-        <a href="/dashboard">
+        <a href="https://rsvparty.netlify.app/dashboard">
           <img className="rsvpLogo" src={logo} />
         </a>
         <div className="navbarLinks">
-          <a className="addPartyLink" href="/addparty">
+          <a
+            className="addPartyLink"
+            href="https://rsvparty.netlify.app/addparty"
+          >
             Add party
           </a>
           <SignOutButton />
