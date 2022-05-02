@@ -72,8 +72,8 @@ export default function Dashboard() {
     if (page === "dashboard") {
       setPartyDetails();
       setAvatar();
-      checkAllConditions();
     }
+    checkAllConditions();
   }, [page]);
 
   useEffect(() => {
