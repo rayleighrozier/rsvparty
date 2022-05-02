@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { checkToken } from "../../actions/token";
 import { partyFindById, avatarFindById } from "../../actions/supabase";
 import { formatDate, formatTime } from "../../actions/format";
@@ -22,14 +21,12 @@ import "./Dashboard.css";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const token = checkToken();
   const searchResults = useSelector((state) => state.searchResults);
   const parties = useSelector((state) => state.guest.parties);
   const avatar = useSelector((state) => state.guest.avatar);
   const page = useSelector((state) => state.page);
   const guest = useSelector((state) => state.guest);
-  const party = useSelector((state) => state.party);
   const [loading, setLoading] = useState(true);
   const [allConditions, setAllConditions] = useState(false);
   const partyDetails = useSelector((state) => state.partyDetails);
@@ -59,8 +56,6 @@ export default function Dashboard() {
   };
 
   const checkAllConditions = () => {
-    console.log("partyDetailsss", partyDetails);
-    console.log("avatar dataaa", guest.AvatarData);
     if (partyDetails && guest.avatarData) {
       setAllConditions(true);
     }
@@ -87,12 +82,6 @@ export default function Dashboard() {
     }
   }, [allConditions]);
 
-  // useEffect(() => {
-  //   if (partyDetails && guest.avatarData) {
-  //     setTimeout(() => setLoading(false), 6000);
-  //   }
-  // }, [partyDetails, guest.avatarData]);
-
   return (
     <>
       {loading === false ? (
@@ -118,7 +107,7 @@ export default function Dashboard() {
                 </div>
               </div>
             ) : (
-              <ChooseAvatar />
+              <ChooseAvatar loading={loading} setLoading={setLoading} />
             )
           ) : (
             <Error />
