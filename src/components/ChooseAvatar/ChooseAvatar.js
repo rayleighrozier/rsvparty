@@ -6,7 +6,7 @@ import { SET_AVATARS, SET_PAGE, SET_GUEST_AVATAR } from "../../action-types";
 import Loading from "../Loading/Loading";
 import "./ChooseAvatar.css";
 
-export default function ChooseAvatar() {
+export default function ChooseAvatar(props) {
   const dispatch = useDispatch();
   const avatars = useSelector((state) => state.avatars);
   const guest = useSelector((state) => state.guest);
@@ -20,9 +20,10 @@ export default function ChooseAvatar() {
     let newAvatar = captureAvatar(e);
     if (newAvatar) {
       await guestUpdateAvatar(guest.guestId, newAvatar);
-      dispatch({ type: SET_PAGE, payload: "dashboard" });
-
       dispatch({ type: SET_GUEST_AVATAR, payload: newAvatar });
+      props.setLoading(true);
+      setTimeout(() => props.setLoading(false), 2000);
+      dispatch({ type: SET_PAGE, payload: "dashboard" });
     } else {
       window.alert("Please choose a party animal.");
     }

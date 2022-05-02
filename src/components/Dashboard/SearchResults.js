@@ -49,8 +49,12 @@ export default function SearchResults() {
     <div className="search-results-container">
       {searchResults === "notFound" ? (
         <div className="search-results">
-          <p>Party Not Found</p>
-          <button onClick={clearSearchResults}>X</button>
+          <p className="search-results-header">Party Not Found</p>
+          <div className="search-results-body search-results-not-found">
+            <div className="search-results-buttons">
+              <button onClick={clearSearchResults}>X</button>
+            </div>
+          </div>
         </div>
       ) : (
         <div className="search-results">
