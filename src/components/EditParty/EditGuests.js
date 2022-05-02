@@ -10,8 +10,7 @@ import {
 } from "../../action-types";
 import EditGuestsForm from "../EditParty/EditGuestsForm";
 import EditGuestList from "../EditParty/EditGuestList";
-// import "./EditGuests.css";
-import "./EditGuests2.css";
+import "./EditGuests.css";
 
 export default function EditGuests() {
   const dispatch = useDispatch();
