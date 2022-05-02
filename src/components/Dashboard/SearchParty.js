@@ -18,12 +18,13 @@ export default function SearchParty() {
   const getSearchResults = async (e) => {
     let input = captureSearchParty(e);
     let party = await partyFindById(input);
-    party.date = formatDate(party.date);
-    party.time = formatTime(party.time);
-    party.comments = formatComments(party.comments);
-    party.guests = formatGuests(party.guests);
-    party.supplies = formatSupplies(party.supplies);
+
     if (party) {
+      party.date = formatDate(party.date);
+      party.time = formatTime(party.time);
+      party.comments = formatComments(party.comments);
+      party.guests = formatGuests(party.guests);
+      party.supplies = formatSupplies(party.supplies);
       let host = await guestGetInfo(party.hostId);
       party.host = host;
       dispatch({ type: SET_SEARCHRESULTS, payload: party });

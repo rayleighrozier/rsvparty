@@ -52,3 +52,6 @@
   border-radius: 8px;
   padding: 0px 20px;
 }
+.search-results-not-found button {
+  margin: 15px 10px 0px 10px;
+}

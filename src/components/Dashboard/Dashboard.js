@@ -78,7 +78,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (allConditions) {
-      setTimeout(() => setLoading(false), 2000);
+      setTimeout(() => setLoading(false), 3000);
     }
   }, [allConditions]);
 
