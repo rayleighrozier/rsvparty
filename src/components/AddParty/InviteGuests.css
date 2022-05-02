@@ -14,6 +14,11 @@
   font-size: 25px;
 }
 
+.newPartyPartyHeader {
+  font-size: 30px;
+  margin: 0.5rem;
+}
+
 .inviteGuestInput {
   border-radius: 8px;
   margin-right: 15px;
@@ -44,6 +49,7 @@
   width: 55rem;
   padding: 2rem;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .inviteParty {
@@ -54,6 +60,7 @@
   color: white;
   font-size: 25px;
   width: 35%;
+  height: 100%;
 }
 
 .guestListContainer {
@@ -81,7 +88,6 @@
   text-align: center;
   color: #13cdff;
   width: 100%;
-  height: 85%;
   display: grid;
   place-items: center;
   font-size: 30px;
@@ -116,7 +122,7 @@
   padding: 0px;
   background-color: var(--lightblue);
   color: var(--blue);
-  max-width: 95%;
+  padding-left: 0.5rem;
 }
 
 .sendInvitesButton {
@@ -136,7 +142,8 @@
 
 .guestCard {
   display: flex;
-  width: 50%;
+  width: 100%;
+  margin: 0px;
 }
 
 .firstNameInput {
@@ -167,11 +174,12 @@
   border: none;
   flex-shrink: 1;
   font-family: "Dongle", sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   padding: 2px;
-  margin-right: 10px;
   outline: none;
   background-color: var(--lightblue);
+  border-radius: 10px;
+  flex-grow: 1;
 }
 
 .buttonContainer {
@@ -181,4 +189,67 @@
   width: 24rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  .inviteParty {
+    width: 60%;
+  }
+  .inviteGuestContainer {
+    flex-wrap: wrap;
+  }
+  .guestListContainer {
+    width: 80%;
+  }
+  .guestCard {
+    display: grid;
+    align-items: center;
+    place-items: center;
+  }
+  .inviteGuestsSecondRow {
+    width: 80%;
+  }
+  .firstNameInput {
+    text-align: center;
+  }
+  .lastNameInput {
+    text-align: center;
+  }
+  .emailInput {
+    text-align: center;
+    width: 80%;
+    flex-grow: unset;
+  }
+}
+/* TABLET */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .inviteParty {
+    width: 60%;
+  }
+  .inviteGuestContainer {
+    flex-wrap: wrap;
+  }
+  .guestListContainer {
+    width: 80%;
+  }
+  .guestCard {
+    display: grid;
+    text-align: center;
+    place-items: center;
+  }
+  .inviteGuestsSecondRow {
+    width: 80%;
+  }
+  .firstNameInput {
+    text-align: center;
+  }
+  .lastNameInput {
+    text-align: center;
+  }
+  .emailInput {
+    text-align: center;
+    width: 80%;
+    flex-grow: unset;
+  }
 }
