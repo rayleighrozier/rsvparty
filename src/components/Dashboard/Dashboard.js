@@ -31,6 +31,7 @@ export default function Dashboard() {
   const guest = useSelector((state) => state.guest);
   const party = useSelector((state) => state.party);
   const [loading, setLoading] = useState(true);
+  const [allConditions, setAllConditions] = useState(false);
   const partyDetails = useSelector((state) => state.partyDetails);
 
   const getPartyDetailsData = async () => {
@@ -50,8 +51,17 @@ export default function Dashboard() {
   const setAvatar = async () => {
     let avatarData = await avatarFindById(guest.avatar);
     dispatch({ type: SET_GUEST_AVATARDATA, payload: avatarData });
-    console.log("setting timeout within setavatar");
-    setTimeout(() => setLoading(false), 6000);
+  };
+  const checkForAvatar = () => {
+    avatar
+      ? dispatch({ type: SET_PAGE, payload: "dashboard" })
+      : dispatch({ type: SET_PAGE, payload: "chooseAvatar" });
+  };
+
+  const checkAllConditions = () => {
+    if (partyDetails && guest.avatarData) {
+      setAllConditions(true);
+    }
   };
 
   useEffect(() => {
@@ -62,14 +72,15 @@ export default function Dashboard() {
     if (page === "dashboard") {
       setPartyDetails();
       setAvatar();
+      checkAllConditions();
     }
   }, [page]);
 
-  const checkForAvatar = () => {
-    avatar
-      ? dispatch({ type: SET_PAGE, payload: "dashboard" })
-      : dispatch({ type: SET_PAGE, payload: "chooseAvatar" });
-  };
+  useEffect(() => {
+    if (allConditions) {
+      setTimeout(() => setLoading(false), 2000);
+    }
+  }, [allConditions]);
 
   // useEffect(() => {
   //   if (partyDetails && guest.avatarData) {

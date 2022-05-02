@@ -103,8 +103,6 @@ export default function Party() {
   };
 
   const checkAllConditions = () => {
-    console.log("party", party);
-    console.log("invited", invited);
     if (party && invited) {
       setAllConditions(true);
     }
