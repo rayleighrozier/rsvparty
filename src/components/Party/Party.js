@@ -110,11 +110,12 @@ export default function Party() {
     checkHost();
     checkInvited();
     checkAttending();
-    if (party && invited) {
+    if (party) {
       setLoading(false);
-    } else if (party) {
-      setTimeout(() => setLoading(false), 3000);
     }
+    // } else if (party) {
+    //   setTimeout(() => setLoading(false), 3000);
+    // }
   }, [party, invited]);
 
   return (
@@ -135,9 +136,7 @@ export default function Party() {
                     </div>
                     <CountdownTitles />
                   </div>
-                  {party ? (
-                    <PartyDetails host={host} setHost={setHost} />
-                  ) : null}
+                  {party && <PartyDetails host={host} setHost={setHost} />}
                 </div>
                 {host ? (
                   <HostButtons />
