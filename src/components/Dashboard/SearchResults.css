@@ -55,3 +55,7 @@
 .search-results-not-found button {
   margin: 15px 10px 0px 10px;
 }
+.search-results-oops {
+  color: var(--blue);
+  margin: 20px 40px;
+}
