@@ -68,11 +68,18 @@ export default function SearchResults() {
               <button onClick={addParty}>Add To My Parties</button>
               <button onClick={clearSearchResults}>X</button>
             </div>
+
+            {invited ? null : (
+              <p className="search-results-oops">
+                Oops! Looks like you aren't on the guest list.
+              </p>
+            )}
+            {alreadyAdded ? (
+              <p className=" search-results-oops">
+                You've already added this party!
+              </p>
+            ) : null}
           </div>
-          {invited ? null : (
-            <p>Oops! Looks like you aren't on the guest list.</p>
-          )}
-          {alreadyAdded ? <p>You've already added this party!</p> : null}
         </div>
       )}
     </div>
