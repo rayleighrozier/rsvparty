@@ -7,7 +7,7 @@
   </p>
 
 <h4>
-    <a >View Demo</a> | <a >Article</a>
+    [Video Walkthrough](https://youtu.be/qHjhDcWw_XM) | <a >Article</a>
   </h4>
 </div>
 
