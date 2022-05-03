@@ -7,7 +7,7 @@
   </p>
 
 <h4>
-  <a href="https://youtu.be/qHjhDcWw_XM">Video Walkthrough</a> | <a >Article</a>
+  <a href="https://youtu.be/qHjhDcWw_XM">Video Walkthrough</a> | <a href="https://dev.to/jareichert/the-party-planners-capstone-project-3eg">Article</a>
   </h4>
 </div>
 
